@@ -285,6 +285,7 @@ style "default"
 	image
 	{
 	  function			= ARROW
+	  state				= NORMAL
 	  overlay_file			= "Arrows/arrow-up.png"
 	  overlay_border		= { 0, 0, 0, 0 }
 	  overlay_stretch		= FALSE
@@ -359,6 +360,7 @@ style "default"
 	image
 	{
 	  function			= ARROW
+	  state				= NORMAL
 	  overlay_file			= "Arrows/arrow-left.png"
 	  overlay_border		= { 0, 0, 0, 0 }
 	  overlay_stretch		= FALSE
@@ -395,6 +397,7 @@ style "default"
 	image
 	{
 	    function			= ARROW
+	    state			= NORMAL
 	    overlay_file		= "Arrows/arrow-right.png"
 	    overlay_border		= { 0, 0, 0, 0 }
 	    overlay_stretch		= FALSE
