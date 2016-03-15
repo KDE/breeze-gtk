@@ -1981,7 +1981,7 @@ column-header.button.dnd { // for treeview-like derive widgets
 	-GtkScrollbar-has-forward-stepper: false;
 
     .slider { @include _border(scrollbar-slider-overlay, $prefix:assets, $radius: 0, $width: 5px 4px 5px 4px, $image-width: 6 4 6 4 / 6px 4px 6px 4px); }
-    &.horizontal .slider { @include _border(scrollbar-slider-overlay-horizontal, $prefix:assets, $radius: 0, $width: 4px 6px 4px 6px, $image-width: 4 6 4 6 / 4px 6px 4px 6px); }
+    &.horizontal .slider { @include _border(scrollbar-slider-horizontal-overlay, $prefix:assets, $radius: 0, $width: 4px 6px 4px 6px, $image-width: 4 6 4 6 / 4px 6px 4px 6px); }
 
     .trough {
       border: none;
