@@ -2251,7 +2251,7 @@ column-header .titlebar .button.titlebutton,
       border-style: solid;
       border-color: transparent; }
     .scrollbar.overlay-indicator:not(.dragging):not(.hovering).horizontal .slider {
-      border-image: -gtk-scaled(url("assets/scrollbar-slider-overlay-horizontal-dark.png"), url("assets/scrollbar-slider-overlay-horizontal-dark@2.png")) 4 6 4 6/4px 6px 4px 6px stretch;
+      border-image: -gtk-scaled(url("assets/scrollbar-slider-horizontal-overlay-dark.png"), url("assets/scrollbar-slider-horizontal-overlay-dark@2.png")) 4 6 4 6/4px 6px 4px 6px stretch;
       border-radius: 0;
       border-width: 4px 6px 4px 6px;
       border-style: solid;
