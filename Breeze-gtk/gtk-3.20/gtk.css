@@ -3769,3 +3769,55 @@ headerbar.selection-mode button.titlebutton,
   headerbar.selection-mode button.titlebutton:backdrop,
   .titlebar.selection-mode button.titlebutton:backdrop {
     -gtk-icon-shadow: none; }
+
+/**********************
+ * Unity Decorations  *
+ *********************/
+UnityDecoration {
+  -UnityDecoration-extents: 32px 1px 1px 1px;
+  -UnityDecoration-input-extents: 10px;
+  -UnityDecoration-shadow-offset-x: 1px;
+  -UnityDecoration-shadow-offset-y: 1px;
+  -UnityDecoration-active-shadow-color: rgba(0, 0, 0, 0.7);
+  -UnityDecoration-active-shadow-radius: 8px;
+  -UnityDecoration-inactive-shadow-color: rgba(0, 0, 0, 0.5);
+  -UnityDecoration-inactive-shadow-radius: 5px;
+  -UnityDecoration-glow-size: 10px;
+  -UnityDecoration-glow-color: #8AEAFF;
+  -UnityDecoration-title-indent: 10px;
+  -UnityDecoration-title-fade: 35px;
+  -UnityDecoration-title-alignment: 0.0; }
+  UnityDecoration .top {
+    box-shadow: inset 0 1px rgba(255, 255, 255, 0.15);
+    border-radius: 3px 3px 0 0;
+    border-top: 1px solid #3F474D;
+    border-left: 1px solid #3F474D;
+    border-right: 1px solid #3F474D;
+    border-bottom: 2px solid #3DAEE9;
+    background-color: #475057;
+    color: #fcfcfc; }
+    UnityDecoration .top:backdrop {
+      border: 1px solid mix(#475057,#C7DDE9,0.12);
+      background-color: #475057;
+      color: #fcfcfc; }
+  UnityDecoration .left, UnityDecoration .right {
+    background-color: mix(#475057,#C7DDE9,0.21); }
+    UnityDecoration.left:backdrop, UnityDecoration.right:backdrop {
+      background-color: mix(#475057,#C7DDE9,0.12); }
+  UnityDecoration.bottom {
+    border-left: 1px solid #3F474D;
+    border-right: 1px solid #3F474D;
+    border-bottom: 1px solid #3F474D; }
+
+UnityPanelWidget,
+.unity-panel {
+  background-image: linear-gradient(to bottom, #475057, #475057);
+  color: #fcfcfc;
+  box-shadow: none;
+  text-shadow: 0 -1px rgba(0, 0, 0, 0.8); }
+.unity-panel.menubar.menuitem:hover,
+.unity-panel.menubar .menuitem *:hover {
+  border-radius: 3px 3px 0 0;
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.15);
+  border: 1px solid #3F474D;
+  border-bottom: 2px solid #3DAEE9; }
