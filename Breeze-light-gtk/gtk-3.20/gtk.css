@@ -3817,3 +3817,8 @@ UnityPanelWidget,
 .unity-panel.menubar.menuitem:hover,
 .unity-panel.menubar .menuitem *:hover {
   border-bottom: 2px solid #3DAEE9; }
+
+.nautilus-window {
+  background-color: #FCFCFC; }
+  .nautilus-window notebook, .nautilus-window notebook > stack {
+    background-color: #FCFCFC; }
