@@ -1,5 +1,5 @@
 project(breeze-gtk)
-set(PROJECT_VERSION "5.8.90")
+set(PROJECT_VERSION "5.9.90")
 set(PROJECT_VERSION_MAJOR 5)
 
 cmake_minimum_required(VERSION 2.8.12)
@@ -7,10 +7,12 @@ cmake_minimum_required(VERSION 2.8.12)
 find_package(ECM 0.0.9 REQUIRED NO_MODULE)
 include(FeatureSummary)
 
-set(WITH_GTK3_VERSION 3.18 CACHE STRING
-    "Use the theme for the specified GTK+3 version (default: 3.18)")
-
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR} "${CMAKE_SOURCE_DIR}/cmake")
+find_package(GTKEngine)
+
+find_package(PkgConfig)
+pkg_check_modules(PKG_GTK REQUIRED gtk+-3.0)
+
 include(KDEInstallDirs)
 
 # Exclude these patterns when installing directories as they have no use
@@ -24,7 +26,5 @@ set(directory_EXCLUDES
 add_subdirectory(Breeze-dark-gtk)
 add_subdirectory(Breeze-gtk)
 add_subdirectory(kconf_update)
-
-find_package(GTKEngine)
 
 feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)
