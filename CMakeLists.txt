@@ -13,6 +13,8 @@ find_package(GTKEngine)
 find_package(PkgConfig)
 pkg_check_modules(PKG_GTK REQUIRED gtk+-3.0)
 
+set(WITH_GTK3_VERSION ${PKG_GTK_VERSION})
+
 include(KDEInstallDirs)
 
 # Exclude these patterns when installing directories as they have no use
