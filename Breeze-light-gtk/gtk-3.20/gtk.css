@@ -1807,7 +1807,7 @@ messagedialog:backdrop {
 messagedialog .titlebar {
   min-height: 32px;
   background-color: transparent;
-  background-image: linear-gradient(to bottom, #556068, #475057);
+  background-image: linear-gradient(to bottom, #EFF0F2, #BDC3C8);
   box-shadow: none; }
 messagedialog .dialog-action-area {
   padding: 8px; }
@@ -1840,8 +1840,8 @@ headerbar {
   border-radius: 3px 3px 0px 0px;
   border-style: solid;
   border-color: #3daee9;
-  color: #eff0f1;
-  background-image: linear-gradient(to bottom, #556068, #475057); }
+  color: #31363B;
+  background-image: linear-gradient(to bottom, #EFF0F2, #EFF0F2); }
   headerbar:backdrop {
     border-color: transparent;
     background-image: none;
@@ -1853,17 +1853,17 @@ headerbar {
     headerbar label:backdrop {
       color: #bdc3c7; }
   headerbar .path-bar button {
-    color: #eff0f1;
+    color: #31363B;
     font-weight: normal; }
     headerbar .path-bar button:backdrop {
-      color: #bdc3c7; }
+      color: #A5ACB1; }
   headerbar button {
     transition: none;
     border-color: rgba(255, 255, 255, 0);
     background-color: transparent;
     background-image: none;
     box-shadow: none;
-    color: #eff0f1;
+    color: #31363B;
     text-shadow: none;
     -gtk-icon-shadow: none; }
     headerbar button.flat {
@@ -1871,14 +1871,14 @@ headerbar {
       background-color: transparent;
       background-image: none;
       box-shadow: none;
-      color: #eff0f1;
+      color: #31363B;
       text-shadow: none;
       -gtk-icon-shadow: none; }
     headerbar button:hover {
-      color: #eff0f1;
+      color: #3DAEE9;
       border-color: #93cee9; }
       headerbar button:hover:backdrop {
-        border-color: #eff0f1; }
+        border-color: #93CEE9; }
     headerbar button:active,
     headerbar button:checked {
       color: #eff0f1;
@@ -1899,7 +1899,7 @@ headerbar {
       border-color: transparent;
       background-image: none;
       background-color: #eff0f1;
-      color: #bdc3c7; }
+      color: #454C53; }
     headerbar button.flat:backdrop,
     headerbar button.flat:backdrop:disabled,
     headerbar button:disabled:backdrop {
@@ -3790,34 +3790,35 @@ UnityDecoration {
   UnityDecoration .top {
     box-shadow: inset 0 1px rgba(255, 255, 255, 0.15);
     border-radius: 3px 3px 0 0;
-    border-top: 1px solid #3F474D;
-    border-left: 1px solid #3F474D;
-    border-right: 1px solid #3F474D;
+    border-top: 1px solid #EFF0F3;
+    border-left: 1px solid #EFF0F3;
+    border-right: 1px solid #EFF0F3;
     border-bottom: 2px solid #3DAEE9;
-    background-color: #475057;
-    color: #fcfcfc; }
+    background-color: #EFF0F3;
+    color: #31363A; }
     UnityDecoration .top:backdrop {
-      border: 1px solid mix(#475057,#C7DDE9,0.12);
-      background-color: #475057;
-      color: #fcfcfc; }
+      border: 1px solid #EFF0F3;
+      background-color: #EFF0F3;
+      color: #31363A; }
   UnityDecoration .left, UnityDecoration .right {
-    background-color: mix(#475057,#C7DDE9,0.21); }
+    background-color: #EFF0F3; }
     UnityDecoration.left:backdrop, UnityDecoration.right:backdrop {
-      background-color: mix(#475057,#C7DDE9,0.12); }
+      background-color: #EFF0F3; }
   UnityDecoration.bottom {
-    border-left: 1px solid #3F474D;
-    border-right: 1px solid #3F474D;
-    border-bottom: 1px solid #3F474D; }
+    border-left: 1px solid #EFF0F3;
+    border-right: 1px solid #EFF0F3;
+    border-bottom: 1px solid #EFF0F3; }
 
 UnityPanelWidget,
 .unity-panel {
-  background-image: linear-gradient(to bottom, #475057, #475057);
-  color: #fcfcfc;
-  box-shadow: none;
-  text-shadow: 0 -1px rgba(0, 0, 0, 0.8); }
+  background-image: linear-gradient(to bottom, #EFF0F3, #EFF0F3);
+  color: #31363A;
+  box-shadow: none; }
 .unity-panel.menubar.menuitem:hover,
 .unity-panel.menubar .menuitem *:hover {
-  border-radius: 3px 3px 0 0;
-  box-shadow: inset 0 1px rgba(255, 255, 255, 0.15);
-  border: 1px solid #3F474D;
   border-bottom: 2px solid #3DAEE9; }
+
+.nautilus-window {
+  background-color: #FCFCFC; }
+  .nautilus-window notebook, .nautilus-window notebook > stack {
+    background-color: #FCFCFC; }
