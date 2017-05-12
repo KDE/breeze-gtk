@@ -3123,8 +3123,8 @@ scale highlight {
  * Scrollbars *
  **************/
 scrollbar {
-  -GtkScrollbar-has-backward-stepper: true;
-  -GtkScrollbar-has-forward-stepper: true;
+  -GtkScrollbar-has-backward-stepper: false;
+  -GtkScrollbar-has-forward-stepper: false;
   background-color: #eff0f1;
   border-width: 3px 0px;
   border-color: #eff0f1;
@@ -3184,12 +3184,12 @@ scrollbar {
     scrollbar.overlay-indicator:not(.dragging):not(.hovering).horizontal slider {
       min-height: 4px; }
   scrollbar trough {
-    min-width: 16px;
-    min-height: 16px;
+    min-width: 14px;
+    min-height: 14px;
     border: 0px solid transparent;
     border-radius: 8px;
     background-color: #b6b8ba;
-    box-shadow: inset 0px 0px 0px 3px #eff0f1; }
+    box-shadow: inset 0px 0px 0px 2px #eff0f1; }
   scrollbar slider {
     min-width: 10px;
     min-height: 30px;
