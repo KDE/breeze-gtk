@@ -2,12 +2,12 @@ style "scrollbar"
 {
   engine "pixmap"
   {
-    image
+      image
     {
       function      = BOX
       detail        = "trough"
       file          = "../assets/scrollbar-trough-horizontal.png"
-      border        = { 25,25, 5, 5 }   #large borders while LibreOffice won't use GtkScrollbar::stepper-spacing=1
+      border        = { 25,25, 7, 7 }   #large borders while LibreOffice won't use GtkScrollbar::stepper-spacing=1
       stretch       = TRUE
       orientation   = HORIZONTAL
     }
@@ -16,11 +16,11 @@ style "scrollbar"
       function      = BOX
       detail        = "trough"
       file          = "../assets/scrollbar-trough-vertical.png"
-      border        = { 5, 5, 25, 25 }
+      border        = { 7, 7, 25, 25 }
       stretch       = TRUE
       orientation   = VERTICAL
     }
-
+    
 # Sliders
 
   image
@@ -37,7 +37,7 @@ style "scrollbar"
     {
       function      = SLIDER
       state         = ACTIVE
-      file          = "../assets/scrollbar-slider-horizontal-active.png"
+      file          = "../assets/scrollbar-slider-horizontal-hover.png"
       border        = { 5, 5, 5, 5 }
       stretch       = TRUE
       orientation   = HORIZONTAL
@@ -74,13 +74,13 @@ style "scrollbar"
       border          = { 5, 5, 5, 5 }
       stretch         = TRUE
       orientation     = VERTICAL
-
+      
     }
    image
     {
       function        = SLIDER
       state           = ACTIVE
-      file            = "../assets/scrollbar-slider-vertical-active.png"
+      file            = "../assets/scrollbar-slider-vertical-hover.png"
       border          = { 5, 5, 5, 5 }
       stretch         = TRUE
       orientation     = VERTICAL
@@ -105,6 +105,13 @@ style "scrollbar"
       stretch         = TRUE
       orientation     = VERTICAL
 
+    }
+    image 
+    {
+      function        = STEPPER
+      file            = "../assets/null.png"
+      stretch         = TRUE
+      
     }
   }
 }

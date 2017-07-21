@@ -3123,38 +3123,38 @@ scale highlight {
  * Scrollbars *
  **************/
 scrollbar {
-  -GtkScrollbar-has-backward-stepper: false;
-  -GtkScrollbar-has-forward-stepper: false;
+  -GtkScrollbar-has-backward-stepper: true;
+  -GtkScrollbar-has-forward-stepper: true;
   background-color: #eff0f1;
-  border-width: 3px 0px;
+  border-width: 0px 0px;
   border-color: #eff0f1;
   margin: 0px; }
   scrollbar button {
-    min-width: 14px;
-    min-height: 14px;
+    min-width: 5px;
+    min-height: 5px;
     margin: 0px;
-    padding: 0px 3px;
+    padding: 0px 0px;
     border: none;
     border-radius: 0px;
-    background-image: none;
-    background-color: #eff0f1;
-    color: #31363b;
+    background-image: transparent;
+    background-color: transparent;
+    color: transparent;
     box-shadow: none; }
     scrollbar button:hover {
       border: none;
       background-image: none;
       background-color: #eff0f1;
-      color: #93cee9; }
+      color: transparent; }
     scrollbar button:active, scrollbar button:active:hover {
       border: none;
       background-image: none;
       background-color: #eff0f1;
-      color: #3daee9; }
+      color: transparent; }
     scrollbar button:disabled {
       border: none;
       background-color: #eff0f1;
       background-image: none;
-      color: rgba(45, 49, 54, 0.35); }
+      color: transparent; }
     scrollbar button:backdrop {
       color: #31363b; }
       scrollbar button:backdrop:disabled {
@@ -3164,60 +3164,45 @@ scrollbar {
   scrollbar.overlay-indicator:not(.dragging):not(.hovering) {
     opacity: 0.999; }
   scrollbar.overlay-indicator:not(.dragging):not(.hovering) {
-    -GtkScrollbar-has-backward-stepper: false;
-    -GtkScrollbar-has-forward-stepper: false;
+    -GtkScrollbar-has-backward-stepper: true;
+    -GtkScrollbar-has-forward-stepper: true;
     background: none; }
     scrollbar.overlay-indicator:not(.dragging):not(.hovering) slider {
-      min-width: 4px;
-      margin: 2px;
-      border: none;
-      border-radius: 2px;
-      background-color: #74777b; }
+      min-width: 6px;
+      border-radius: 8px;
+      background-color: rgba(116,119,123,0.8); }
       scrollbar.overlay-indicator:not(.dragging):not(.hovering) slider:backdrop {
         background-color: #74777b; }
-    scrollbar.overlay-indicator:not(.dragging):not(.hovering) trough {
-      min-width: 4px;
-      min-height: 4px;
-      border: none;
-      background: none;
-      box-shadow: none; }
     scrollbar.overlay-indicator:not(.dragging):not(.hovering).horizontal slider {
       min-height: 4px; }
+      scrollbar:hover trough{
+    background:linear-gradient(transparent 0,transparent 5px,#b6b8ba 5px,#b6b8ba calc(100%-5px), transparent calc(100%-5px),transparent 100%);     }
   scrollbar trough {
-    min-width: 14px;
+      transition-duration:0.1s;
+    min-width: 6px;
     min-height: 14px;
-    border: 0px solid transparent;
+    border: 0px solid #eff0f1;
     border-radius: 8px;
-    background-color: #b6b8ba;
-    box-shadow: inset 0px 0px 0px 2px #eff0f1; }
+    background-color: #eff0f1;
+    background-clip: padding-box;
+    box-shadow: inset 0px 0px 0px 5px #eff0f1;}
   scrollbar slider {
-    min-width: 10px;
+    transition-duration:0.1s;
+    min-width: 6px;
     min-height: 30px;
-    border: 2px solid transparent;
+    border: 5px solid transparent;
     border-radius: 8px;
     background-clip: padding-box;
-    background-color: #74777b; }
+    background-color: #3daee9; }
     scrollbar slider:hover {
       background-color: #93cee9; }
-    scrollbar slider:active {
-      background-color: #3daee9; }
-    scrollbar slider:disabled {
+    scrollbar:backdrop slider:backdrop {
       background-color: rgba(105, 108, 112, 0.35); }
-    scrollbar slider:backdrop {
-      background-color: #74777b; }
     scrollbar slider:backdrop:disabled {
       background-color: rgba(105, 108, 112, 0.35); }
   scrollbar.horizontal slider {
     min-width: 30px;
-    min-height: 10px; }
-  scrollbar.vertical button.down {
-    -gtk-icon-source: -gtk-icontheme("pan-down-symbolic"); }
-  scrollbar.vertical button.up {
-    -gtk-icon-source: -gtk-icontheme("pan-up-symbolic"); }
-  scrollbar.horizontal button.down {
-    -gtk-icon-source: -gtk-icontheme("pan-end-symbolic"); }
-  scrollbar.horizontal button.up {
-    -gtk-icon-source: -gtk-icontheme("pan-start-symbolic"); }
+    min-height: 6px; }
 
 /***********
  * Sidebar *
