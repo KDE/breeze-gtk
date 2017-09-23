@@ -3123,8 +3123,8 @@ scale highlight {
  * Scrollbars *
  **************/
 scrollbar {
-  -GtkScrollbar-has-backward-stepper: true;
-  -GtkScrollbar-has-forward-stepper: true;
+  -GtkScrollbar-has-backward-stepper: false;
+  -GtkScrollbar-has-forward-stepper: false;
   background-color: #eff0f1;
   border-width: 0px 0px;
   border-color: #eff0f1;
@@ -3136,7 +3136,7 @@ scrollbar {
     padding: 0px 0px;
     border: none;
     border-radius: 0px;
-    background-image: transparent;
+    background-image: none;
     background-color: transparent;
     color: transparent;
     box-shadow: none; }
@@ -3164,8 +3164,8 @@ scrollbar {
   scrollbar.overlay-indicator:not(.dragging):not(.hovering) {
     opacity: 0.999; }
   scrollbar.overlay-indicator:not(.dragging):not(.hovering) {
-    -GtkScrollbar-has-backward-stepper: true;
-    -GtkScrollbar-has-forward-stepper: true;
+    -GtkScrollbar-has-backward-stepper: false;
+    -GtkScrollbar-has-forward-stepper: false;
     background: none; }
     scrollbar.overlay-indicator:not(.dragging):not(.hovering) slider {
       min-width: 6px;
