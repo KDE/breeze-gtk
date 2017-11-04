@@ -2422,6 +2422,19 @@ GtkProgressBar {
   .sidebar .view:backdrop {
     background-color: #eff0f1; }
 
+GtkSidebarRow.list-row {
+  padding: 0px; }
+GtkSidebarRow .sidebar-revealer {
+  padding: 4px 14px 4px 12px; }
+GtkSidebarRow .sidebar-icon:dir(ltr) {
+  padding-right: 8px; }
+GtkSidebarRow .sidebar-icon:dir(rtl) {
+  padding-left: 8px; }
+GtkSidebarRow .sidebar-label:dir(ltr) {
+  padding-right: 2px; }
+GtkSidebarRow .sidebar-label:dir(rtl) {
+  padding-left: 2px; }
+
 GtkPlacesSidebar.sidebar .view:insensitive {
   color: rgba(45, 49, 54, 0.35); }
 GtkPlacesSidebar.sidebar .view:backdrop {
