@@ -8,12 +8,10 @@ A GTK Theme Built to Match KDE's Breeze. GTK2 theme made by [scionicspectre](htt
 - Pixmap/Pixbuf theme engine for GTK 2
 
 # Install instructions
-If your distribution doesn't provide a package, you can install the theme system-wide by copying it to the appropriate directory, usually "/usr/share/themes".
-```
-find Breeze* -type f -exec install -Dm644 '{}' "$pkgdir/usr/share/themes/{}" \;
-```
 
-To install only for the current user, copy the files to "~/.themes".
+For most Desktop Enviromnents, simply placing the `Breeze-gtk` or `Breeze-dark-gtk` folder in `~/.themes/` will allow you to use these themes.
 
-To set the theme in Plasma 5, install kde-gtk-config and use System Settings > Application Style > GNOME Application Style.
-Also make sure to disable "apply colors to non-Qt applications" in System Settings > Colors > Options.
+You can download and extract the tar from the [releases page](https://github.com/simoniz0r/breeze-gtk/releases) and extract the themes to your `~/.themes` directory by executing:
+```
+tar xf /path/to/breeze-gtk.tar.gz -C ~/.themes/
+```

@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=X-GNOME-Metatheme
+Name=Breeze-gtk
+Comment=A GTK Theme Built to Match KDE's Breeze.
+Encoding=UTF-8
+
+[X-GNOME-Metatheme]
+GtkTheme=Breeze-gtk
+ButtonLayout=:minimize,maximize,close
