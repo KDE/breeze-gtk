@@ -3645,9 +3645,9 @@ decoration {
   .solid-csd decoration {
     border-radius: 0;
     margin: 0;
-    padding: 1px;
+    padding: 0px;
     border: none;
-    background-color: #616569;
+    background-color: #3b4147;
     box-shadow: none; }
 
 headerbar.default-decoration button.titlebutton,
