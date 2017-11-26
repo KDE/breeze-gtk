@@ -10,9 +10,6 @@ include(FeatureSummary)
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR} "${CMAKE_SOURCE_DIR}/cmake")
 find_package(GTKEngine)
 
-find_package(PkgConfig)
-pkg_check_modules(PKG_GTK REQUIRED gtk+-3.0)
-
 include(KDEInstallDirs)
 
 # Exclude these patterns when installing directories as they have no use
