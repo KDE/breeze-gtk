@@ -447,19 +447,35 @@ def menu_arrow(color,state,alpha=1.0):
     arrow.arrow(color,alpha)
     arrow.save('menu-arrow' + state + '.png')
 
-def scrollbar_slider(color,state,alpha=1):
+def scrollbar_slider(color1,color2,color3):
     for scl in [1,2]:
         if scl == 2:
             ending = '@2.png'
         else:
             ending = '.png'
         slider = Assets(30,20,scl)
-        slider.rounded_rectancle(color,30,10,0,5,5,alpha)
-        slider.save('scrollbar-slider-horizontal' + state + ending)
+        slider.rounded_rectancle(color1,30,10,0,5,5,1)
+        slider.save('scrollbar-slider-horizontal-active' + ending)
+
+        slider = Assets(30,20,scl)
+        slider.rounded_rectancle(color2,30,6,0,7,3,1)
+        slider.save('scrollbar-slider-horizontal-hover' + ending)
+        
+        slider = Assets(30,20,scl)
+        slider.rounded_rectancle(color3,30,6,0,7,3,1)
+        slider.save('scrollbar-slider-horizontal' + ending)
 
         slider = Assets(20,30,scl)
-        slider.rounded_rectancle(color,10,30,5,0,5,alpha)
-        slider.save('scrollbar-slider-vertical' + state + ending)
+        slider.rounded_rectancle(color1,10,30,5,0,5,1)
+        slider.save('scrollbar-slider-vertical-active' + ending)
+
+        slider = Assets(20,30,scl)
+        slider.rounded_rectancle(color2,6,30,7,0,3,1)
+        slider.save('scrollbar-slider-vertical-hover' + ending)
+        
+        slider = Assets(20,30,scl)
+        slider.rounded_rectancle(color3,6,30,7,0,3,1)
+        slider.save('scrollbar-slider-vertical' + ending)
 
 def scrollbar_trough(color):
     for scl in [1,2]:
@@ -468,11 +484,11 @@ def scrollbar_trough(color):
         else:
             ending = '.png'
         trough = Assets(56,20,scl)
-        trough.rounded_rectancle(color,26,10,15,5,5,0.3)
+        trough.rounded_rectancle(color,49,6,3.5,7,3,0.3)
         trough.save('scrollbar-trough-horizontal' + ending)
 
         trough = Assets(20,56,scl)
-        trough.rounded_rectancle(color,10,26,5,15,5,0.3)
+        trough.rounded_rectancle(color,6,49,7,3.5,3,0.3)
         trough.save('scrollbar-trough-vertical' + ending)
 
 def titlebuttons(color1,color2,state):
@@ -720,10 +736,7 @@ menu_arrow(window_fg.rgb,'')
 menu_arrow(selection_fg.rgb,'-selected')
 menu_arrow(window_fg.insensitive,'-insensitive',window_fg.insensitive_alpha)
 
-scrollbar_slider(window_fg.rgb,'',alpha=0.5)
-scrollbar_slider(button_hover.rgb,'-hover')
-scrollbar_slider(button_active.rgb,'-active')
-
+scrollbar_slider(button_active.rgb,button_hover.rgb,button_active.rgb)
 scrollbar_trough(window_fg.rgb)
 
 titlebuttons(titlebutton.rgb,titlebutton.rgb,'')
