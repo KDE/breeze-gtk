@@ -31,18 +31,35 @@ Q_DECLARE_LOGGING_CATEGORY(GTKBREEZE)
 Q_LOGGING_CATEGORY(GTKBREEZE, "gtkbreeze")
 
 /*
+ * returns whether a GTK 3 theme with the given name is installed
+ * themeName: Name of gtk 3 theme
+ */
+static bool isGTK3ThemeInstalled(QString themeName)
+{
+    // Check that the theme contains a gtk-3.* subdirectory
+    QStringList gtk3SubdirPattern{QStringLiteral("gtk-3.*")};
+    foreach (const QString& themesDir, QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, "themes", QStandardPaths::LocateDirectory)) {
+        QDir themeDir(themesDir + QDir::separator() + themeName);
+        if (!themeDir.entryList(gtk3SubdirPattern, QDir::Dirs).isEmpty()) {
+            return true;
+        }
+    }
+    return false;
+}
+
+/*
  * returns a path to the installed gtk if it can be found
  * themeName: gtk theme
  * settingsFile: a file installed with the theme to set default options
  */
-QString isGtkThemeInstalled(QString themeName, QString settingsFile)
+static QString gtk2ThemePath(QString themeName, QString settingsFile)
 {
     foreach (const QString& themesDir, QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, "themes", QStandardPaths::LocateDirectory)) {
         if (QFile::exists(themesDir + QDir::separator() + themeName + QDir::separator() + settingsFile)) {
-            return themesDir + "/" + themeName;
+            return themesDir + QDir::separator() + themeName;
         }
     }
-    return 0;
+    return {};
 }
 
 /*
@@ -88,10 +105,10 @@ int setGtk2()
     const QString gtkrc2path = QStandardPaths::standardLocations(QStandardPaths::HomeLocation).first() + QDir::separator() + QStringLiteral(".gtkrc-2.0");
     const QString gtk2ThemeSettings = QStringLiteral("gtk-2.0/gtkrc"); // system installed file to check for
 
-    const QString gtkThemeDirectory = isGtkThemeInstalled(gtk2Theme, gtk2ThemeSettings);
+    const QString gtkThemeDirectory = gtk2ThemePath(gtk2Theme, gtk2ThemeSettings);
 
-    if (gtkThemeDirectory == 0) {
-        qCDebug(GTKBREEZE) << "Breeze GTK 3 not found, quitting";
+    if (gtkThemeDirectory.isEmpty()) {
+        qCDebug(GTKBREEZE) << "Breeze GTK 2 not found, quitting";
         return 0;
     }
     qCDebug(GTKBREEZE) << "found gtktheme: " << gtkThemeDirectory;
@@ -133,14 +150,12 @@ int setGtk2()
 int setGtk3()
 {
     const QString gtk3Theme = QStringLiteral("Breeze");
-    const QString gtk3ThemeSettings = QStringLiteral("gtk-3.0/gtk.css"); // check for installed /usr/share/themes/Breeze/gtk-3.0/gtk.css
 
-    const QString gtkThemeDirectory = isGtkThemeInstalled(gtk3Theme, gtk3ThemeSettings);
-    if (gtkThemeDirectory == 0) {
+    if (!isGTK3ThemeInstalled(gtk3Theme)) {
         qCDebug(GTKBREEZE) << "not found, quitting";
         return 0;
     }
-    qCDebug(GTKBREEZE) << "found gtk3theme:" << gtkThemeDirectory;
+    qCDebug(GTKBREEZE) << "found gtk3theme";
     QString configPath = QStandardPaths::writableLocation(QStandardPaths::ConfigLocation);
     QString gtkrc3path = configPath + "/gtk-3.0/settings.ini";
     bool needsUpdate = isGtkThemeSetToOldTheme(gtkrc3path, "Settings");
