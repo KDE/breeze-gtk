@@ -2832,7 +2832,7 @@ column-header .button, column-header .button:hover, column-header .button:active
     transition: none; }
   .header-bar .button.titlebutton.close,
   .titlebar .button.titlebutton.close {
-    padding: 6px 1px;
+    padding: 1px;
     color: transparent;
     border-image: none;
     box-shadow: none;
@@ -2856,7 +2856,7 @@ column-header .button, column-header .button:hover, column-header .button:active
     background-image: -gtk-scaled(url("../assets/titlebutton-close-backdrop.png"), url("../assets/titlebutton-close-backdrop@2.png")); }
   .header-bar .button.titlebutton.maximize,
   .titlebar .button.titlebutton.maximize {
-    padding: 6px 1px;
+    padding: 1px;
     color: transparent;
     border-image: none;
     box-shadow: none;
@@ -2880,7 +2880,7 @@ column-header .button, column-header .button:hover, column-header .button:active
     background-image: -gtk-scaled(url("../assets/titlebutton-maximize-backdrop.png"), url("../assets/titlebutton-maximize-backdrop@2.png")); }
   .header-bar .button.titlebutton.minimize,
   .titlebar .button.titlebutton.minimize {
-    padding: 6px 1px;
+    padding: 1px;
     color: transparent;
     border-image: none;
     box-shadow: none;
@@ -2905,7 +2905,7 @@ column-header .button, column-header .button:hover, column-header .button:active
 
 .maximized .header-bar .button.titlebutton.maximize, .maximized
 .titlebar .button.titlebutton.maximize {
-  padding: 6px 1px;
+  padding: 1px;
   color: transparent;
   border-image: none;
   box-shadow: none;

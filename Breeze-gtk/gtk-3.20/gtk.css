@@ -3637,7 +3637,7 @@ decoration {
 
 headerbar.default-decoration button.titlebutton,
 .titlebar.default-decoration button.titlebutton {
-  padding: 6px 1px;
+  padding: 1px;
   min-height: 18px;
   min-width: 18px;
   margin: 0; }
@@ -3653,7 +3653,7 @@ headerbar button.titlebutton,
     transition: none; }
   headerbar button.titlebutton.close,
   .titlebar button.titlebutton.close {
-    padding: 6px 1px;
+    padding: 1px;
     color: transparent;
     border-image: none;
     box-shadow: none;
@@ -3677,7 +3677,7 @@ headerbar button.titlebutton,
     background-image: -gtk-scaled(url("../assets/titlebutton-close-backdrop.png"), url("../assets/titlebutton-close-backdrop@2.png")); }
   headerbar button.titlebutton.maximize,
   .titlebar button.titlebutton.maximize {
-    padding: 6px 1px;
+    padding: 1px;
     color: transparent;
     border-image: none;
     box-shadow: none;
@@ -3701,7 +3701,7 @@ headerbar button.titlebutton,
     background-image: -gtk-scaled(url("../assets/titlebutton-maximize-backdrop.png"), url("../assets/titlebutton-maximize-backdrop@2.png")); }
   headerbar button.titlebutton.minimize,
   .titlebar button.titlebutton.minimize {
-    padding: 6px 1px;
+    padding: 1px;
     color: transparent;
     border-image: none;
     box-shadow: none;
@@ -3725,7 +3725,7 @@ headerbar button.titlebutton,
     background-image: -gtk-scaled(url("../assets/titlebutton-minimize-backdrop.png"), url("../assets/titlebutton-minimize-backdrop@2.png")); }
 .maximized headerbar button.titlebutton.maximize, .maximized
 .titlebar button.titlebutton.maximize {
-  padding: 6px 1px;
+  padding: 1px;
   color: transparent;
   border-image: none;
   box-shadow: none;
