@@ -1807,7 +1807,7 @@ messagedialog:backdrop {
 messagedialog .titlebar {
   min-height: 32px;
   background-color: transparent;
-  background-image: linear-gradient(to bottom, #3b4147, #31363b);
+  background-image: linear-gradient(to bottom, #31363b, #31363b);
   box-shadow: none; }
 messagedialog .dialog-action-area {
   padding: 8px; }
@@ -3647,7 +3647,7 @@ decoration {
     margin: 0;
     padding: 0px;
     border: none;
-    background-color: #3b4147;
+    background-color: #31363b;
     box-shadow: none; }
 
 headerbar.default-decoration button.titlebutton,
