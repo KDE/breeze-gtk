@@ -84,11 +84,6 @@ extra colors for the color scheme script */
 @define-color disabled_highlight_bottom rgba(25, 152, 218, 0.35);
 @define-color destructive_gradient_top #db4b5a;
 @define-color destructive_gradient_bottom #d62e3f;
-@define-color headerbar_gradient_top #556068;
-@define-color headerbar_gradient_bottom #475057;
-@define-color headerbar_backdrop #bdc3c7;
-@define-color headerbar_error_top #f87500;
-@define-color headerbar_error_bottom #ef7100;
 @define-color link_color #2980b9;
 @define-color link_hover_color #409ad5;
 @define-color link_selected_color #a8d6ee;
@@ -104,6 +99,27 @@ extra colors for the color scheme script */
 @define-color dark_overlay_color #31363b;
 @define-color shadow_color #000000;
 @define-color glow_color #ffffff;
+/*
+separate headerbar colors for easy toolbar reversion */
+@define-color headerbar_gradient_top @theme_bg_color;
+@define-color headerbar_gradient_bottom @theme_bg_color;
+@define-color headerbar_separator @borders;
+@define-color headerbar_backdrop #bdc3c7;
+@define-color headerbar_fg_color @theme_selected_fg_color;
+@define-color headerbar_bg_color @theme_bg_color;
+@define-color headerbar_error_top #f87500;
+@define-color headerbar_error_bottom #ef7100;
+@define-color headerbar_selected_bg_color @theme_selected_bg_color;
+@define-color headerbar_selected_fg_color @theme_fg_color;
+@define-color headerbar_decoration_hover @decoration_hover;
+@define-color headerbar_active_button_gradient_top @active_button_gradient_top;
+@define-color headerbar_active_button_gradient_bottom @active_button_gradient_bottom;
+@define-color headerbar_insensitive_fg_color @insensitive_fg_color;
+@define-color headerbar_insensitive_bg_color @insensitive_fg_color;
+@define-color headerbar_disabled_highlight @disabled_highlight;
+@define-color headerbar_disabled_highlight_top @disabled_highlight_top;
+@define-color headerbar_disabled_highlight_bottom @disabled_highlight_bottom;
+@define-color headerbar_action_disabled_backdrop @action_disabled_backdrop;
 * {
   padding: 0;
   -GtkToolButton-icon-spacing: 4;
@@ -1882,13 +1898,13 @@ headerbar {
   border-width: 0px 0px 1px 0px;
   border-radius: 3px 3px 0px 0px;
   border-style: solid;
-  border-color: @theme_selected_bg_color;
-  color: @theme_selected_fg_color;
+  border-color: @headerbar_separator;
+  color: @headerbar_selected_fg_color;
   background-image: linear-gradient(to bottom, @headerbar_gradient_top, @headerbar_gradient_bottom); }
   headerbar:backdrop {
     border-color: transparent;
     background-image: none;
-    background-color: @theme_bg_color;
+    background-color: @headerbar_bg_color;
     color: @headerbar_backdrop;
     box-shadow: none; }
   headerbar label {
@@ -1896,7 +1912,7 @@ headerbar {
     headerbar label:backdrop {
       color: @headerbar_backdrop; }
   headerbar .path-bar button {
-    color: @theme_selected_fg_color;
+    color: @headerbar_selected_fg_color;
     font-weight: normal; }
     headerbar .path-bar button:backdrop {
       color: @headerbar_backdrop; }
@@ -1906,7 +1922,7 @@ headerbar {
     background-color: transparent;
     background-image: none;
     box-shadow: none;
-    color: @theme_selected_fg_color;
+    color: @headerbar_selected_fg_color;
     text-shadow: none;
     -gtk-icon-shadow: none; }
     headerbar button.flat {
@@ -1914,54 +1930,54 @@ headerbar {
       background-color: transparent;
       background-image: none;
       box-shadow: none;
-      color: @theme_selected_fg_color;
+      color: @headerbar_selected_fg_color;
       text-shadow: none;
       -gtk-icon-shadow: none; }
     headerbar button:hover {
-      color: @theme_selected_fg_color;
-      border-color: @decoration_hover; }
+      color: @headerbar_selected_fg_color;
+      border-color: @headerbar_decoration_hover; }
       headerbar button:hover:backdrop {
-        border-color: @theme_bg_color; }
+        border-color: @headerbar_bg_color; }
     headerbar button:active,
     headerbar button:checked {
-      color: @theme_selected_fg_color;
-      border-color: @theme_selected_bg_color;
-      background-image: linear-gradient(to bottom, @active_button_gradient_top, @active_button_gradient_bottom); }
+      color: @headerbar_fg_color;
+      border-color: @headerbar_selected_bg_color;
+      background-image: linear-gradient(to bottom, @headerbar_active_button_gradient_top, @headerbar_active_button_gradient_bottom); }
       headerbar button:active:hover,
       headerbar button:checked:hover {
-        color: @theme_fg_color;
-        border-color: @decoration_hover;
+        color: @headerbar_fg_color;
+        border-color: @headerbar_decoration_hover;
         background-image: linear-gradient(to bottom, @notebook_gradient_top, @notebook_gradient_bottom); }
       headerbar button:active:backdrop,
       headerbar button:checked:backdrop {
         background-image: none;
-        background-color: @theme_bg_color;
-        border-color: @theme_bg_color;
+        background-color: @headerbar_bg_color;
+        border-color: @headerbar_bg_color;
         color: @headerbar_backdrop; }
     headerbar button:backdrop {
       border-color: transparent;
       background-image: none;
-      background-color: @theme_bg_color;
+      background-color: @headerbar_bg_color;
       color: @headerbar_backdrop; }
     headerbar button.flat:backdrop,
     headerbar button.flat:backdrop:disabled,
     headerbar button:disabled:backdrop {
       background-image: none;
-      background-color: @theme_bg_color;
+      background-color: @headerbar_bg_color;
       color: @headerbar_backdrop;
       border-color: transparent; }
     headerbar button.flat:disabled {
-      color: @insensitive_bg_color; }
+      color: @headerbar_insensitive_bg_color; }
     headerbar button:disabled {
       background-color: transparent;
       background-image: none;
       border-color: transparent;
-      color: @insensitive_bg_color; }
+      color: @headerbar_insensitive_bg_color; }
       headerbar button:disabled:active,
       headerbar button:disabled:checked {
-        color: @insensitive_bg_color;
-        border-color: @disabled_highlight;
-        background-image: linear-gradient(to bottom, @disabled_highlight_top, @disabled_highlight_bottom); }
+        color: @headerbar_insensitive_bg_color;
+        border-color: @headerbar_disabled_highlight;
+        background-image: linear-gradient(to bottom, @headerbar_disabled_highlight_top, @headerbar_disabled_highlight_bottom); }
         headerbar button:disabled:active > .label,
         headerbar button:disabled:checked > .label {
           color: inherit; }
@@ -2002,23 +2018,23 @@ headerbar button {
 headerbar button.suggested-action,
 headerbar.selection-mode.suggested-action {
   background-image: none;
-  background-color: @theme_selected_bg_color; }
+  background-color: @headerbar_selected_bg_color; }
   headerbar button.suggested-action:hover,
   headerbar.selection-mode.suggested-action:hover {
-    background-color: @decoration_hover;
-    color: @theme_fg_color; }
+    background-color: @headerbar_decoration_hover;
+    color: @headerbar_fg_color; }
   headerbar button.suggested-action:disabled,
   headerbar.selection-mode.suggested-action:disabled {
     background-color: transparent;
     background-image: none;
-    color: @insensitive_bg_color; }
+    color: @headerbar_insensitive_bg_color; }
     headerbar button.suggested-action:disabled:active,
     headerbar.selection-mode.suggested-action:disabled:active,
     headerbar button.suggested-action:disabled:checked,
     headerbar.selection-mode.suggested-action:disabled:checked {
-      color: @insensitive_bg_color;
-      border-color: @disabled_highlight;
-      background-image: linear-gradient(to bottom, @disabled_highlight_top, @disabled_highlight_bottom); }
+      color: @headerbar_insensitive_bg_color;
+      border-color: @headerbar_disabled_highlight;
+      background-image: linear-gradient(to bottom, @headerbar_disabled_highlight_top, @headerbar_disabled_highlight_bottom); }
       headerbar button.suggested-action:disabled:active > .label,
       headerbar.selection-mode.suggested-action:disabled:active > .label,
       headerbar button.suggested-action:disabled:checked > .label,
@@ -2026,12 +2042,12 @@ headerbar.selection-mode.suggested-action {
         color: inherit; }
   headerbar button.suggested-action:backdrop,
   headerbar.selection-mode.suggested-action:backdrop {
-    background-color: @theme_bg_color;
+    background-color: @headerbar_bg_color;
     border-color: transparent;
     color: @headerbar_backdrop; }
     headerbar button.suggested-action:backdrop:disabled,
     headerbar.selection-mode.suggested-action:backdrop:disabled {
-      color: @action_disabled_backdrop; }
+      color: @headerbar_action_disabled_backdrop; }
 
 /**************
  * GtkInfoBar *
@@ -2049,7 +2065,7 @@ headerbar.selection-mode,
 .question,
 .warning,
 .error {
-  background-color: @theme_bg_color;
+  background-color: @headerbar_bg_color;
   background-image: none;
   color: @warning_color;
   text-shadow: none; }
@@ -2058,7 +2074,7 @@ headerbar.selection-mode,
   .question:backdrop,
   .warning:backdrop,
   .error:backdrop {
-    background-color: @theme_bg_color;
+    background-color: @headerbar_bg_color;
     color: @warning_color; }
   .info button,
   headerbar.selection-mode button,
@@ -2069,7 +2085,7 @@ headerbar.selection-mode,
     background-image: none;
     background-color: alpha(@warning_color, 0.5);
     border-color: alpha(@warning_color, 0.5);
-    color: @theme_fg_color; }
+    color: @headerbar_fg_color; }
     .info button:hover,
     headerbar.selection-mode button:hover,
     .question button:hover,
@@ -2087,7 +2103,7 @@ headerbar.selection-mode,
     .error button:active,
     .error button:checked {
       background-image: linear-gradient(to bottom, @headerbar_error_top, @headerbar_error_bottom);
-      color: @theme_selected_fg_color;
+      color: @headerbar_selected_fg_color;
       border-color: @warning_color; }
     .info button:disabled,
     headerbar.selection-mode button:disabled,
@@ -2096,7 +2112,7 @@ headerbar.selection-mode,
     .error button:disabled {
       background-color: alpha(@warning_color_deep, 0);
       border-color: alpha(@warning_color_deep, 0);
-      color: @insensitive_fg_color; }
+      color: @headerbar_insensitive_fg_color; }
     .info button:backdrop,
     headerbar.selection-mode button:backdrop,
     .question button:backdrop,
@@ -2104,7 +2120,7 @@ headerbar.selection-mode,
     .error button:backdrop {
       background-color: alpha(@warning_color, 0.5);
       border-color: alpha(@warning_color, 0.5);
-      color: @theme_fg_color; }
+      color: @headerbar_fg_color; }
       .info button:backdrop:active,
       headerbar.selection-mode button:backdrop:active, .info button:backdrop:checked,
       headerbar.selection-mode button:backdrop:checked,
@@ -2124,7 +2140,7 @@ headerbar.selection-mode,
       .error button:backdrop:disabled {
         background-color: alpha(@warning_color_deep, 0);
         border-color: alpha(@warning_color_deep, 0);
-        color: @insensitive_fg_color; }
+        color: @headerbar_insensitive_fg_color; }
       .info button:backdrop:disabled:active,
       headerbar.selection-mode button:backdrop:disabled:active, .info button:backdrop:disabled:checked,
       headerbar.selection-mode button:backdrop:disabled:checked,
@@ -2135,7 +2151,7 @@ headerbar.selection-mode,
       .error button:backdrop:disabled:active,
       .error button:backdrop:disabled:checked {
         background-image: linear-gradient(to bottom, alpha(@warning_color, 0.35), alpha(@warning_color_deep, 0.35));
-        color: @insensitive_bg_color;
+        color: @headerbar_insensitive_bg_color;
         border-color: alpha(@warning_color_deep, 0.35); }
 
 /*********
