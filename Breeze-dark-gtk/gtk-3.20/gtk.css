@@ -1839,9 +1839,9 @@ headerbar {
   border-width: 0px 0px 1px 0px;
   border-radius: 3px 3px 0px 0px;
   border-style: solid;
-  border-color: #3daee9;
+  border-color: #616569;
   color: #eff0f1;
-  background-image: linear-gradient(to bottom, #3b4147, #31363b); }
+  background-image: linear-gradient(to bottom, #31363b, #31363b); }
   headerbar:backdrop {
     border-color: transparent;
     background-image: none;
