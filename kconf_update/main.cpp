@@ -182,6 +182,7 @@ int setGtk3()
     out << QStringLiteral("gtk-toolbar-style=GTK_TOOLBAR_ICONS\n");
     out << QStringLiteral("gtk-menu-images=1\n");
     out << QStringLiteral("gtk-button-images=1\n");
+    out << QStringLiteral("gtk-primary-button-warps-slider=0\n");
     qCDebug(GTKBREEZE) << "gtk3rc written";
 
     return 0;
