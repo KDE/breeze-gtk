@@ -8,7 +8,7 @@ scrollbar {
   -GtkScrollbar-has-forward-stepper: false;
 
   background-color: w_color(normal);
-  border-width: 3px 0px;
+  border-width: 0px 0px;
   border-color: w_color(normal);
   margin: 0px;
 
@@ -16,31 +16,31 @@ scrollbar {
   min-width: 14px;
   min-height: 14px;
   margin: 0px;
-  padding: 0px 3px;
+  padding: 0px 0px;
 	border: none;
   border-radius: 0px;
   background-image: none;
-  background-color: w_color(normal);
-  color: b_color(text);
+  background-color: transparent;
+  color: transparent;
   box-shadow: none;
 	&:hover {
     border: none;
     background-image: none;
     background-color: w_color(normal);
-		color: b_color(hover);
+		color: transparent;
 		}
   &:active,
   &:active:hover {
     border: none;
     background-image: none;
     background-color: w_color(normal);
-		color: b_color(active);
+		color: transparent;
   }
 	&:disabled {
     border: none;
     background-color: w_color(normal);
     background-image: none;
-    color: insensitive(b_color(text));
+    color: transparent;
     }
   &:backdrop {
     @extend %undecorated_button;
@@ -62,69 +62,46 @@ scrollbar {
    background: none;
 
     slider {
-      min-width: 4px;
-      margin: 2px;
-      border: none;
-      border-radius: 2px;
-      background-color: $scrollbar_color;
+      min-width: 6px;
+      border-radius: 8px;
+      background-color: transparentize($scrollbar_color, 0.2);
       &:backdrop { background-color: backdrop($scrollbar_color); }
-    }
-
-    trough {
-      min-width: 4px;
-      min-height: 4px;
-      border: none;
-      background: none;
-      box-shadow: none;
     }
 
     &.horizontal slider { min-height: 4px;}
   }
 
-  // FIXME firefox and libreoffice
   trough {
     //margin: 0px;
-    min-width: 16px;
-    min-height: 16px;
-    border: 0px solid transparent;
+    transition-duration: 0.1s;
+    min-width: 6px;
+    min-height: 14px;
+    border: 0px solid w_color(normal);
     border-radius: 8px;
-    background-color: $trough_color;
-    box-shadow: inset 0px 0px 0px 3px w_color(normal);
-
+    background-color: transparent;
+    background-clip: backdrop($trough_color);
+    box-shadow: inset 0px 0px 0px 5px w_color(normal);
   }
+  
+  &:hover {
+    trough { background-color:  }
+  }
+  
   slider {
     //margin: 0px;
-    min-width: 10px;
+    transition-duration: 0.1s;
+    min-width: 6px;
     min-height: 30px;
-    border: 2px solid transparent;
+    border: 5px solid transparent;
     border-radius: 8px;
-    background-clip:padding-box;
+    background-clip: padding-box;
     background-color: $scrollbar_color;
     &:hover { background-color: b_color(hover); }
-    &:active { background-color: b_color(active);}
-    &:disabled { background-color: insensitive($scrollbar_color); }
     &:backdrop { background-color: backdrop($scrollbar_color); }
     &:backdrop:disabled { background-color: backdrop(insensitive($scrollbar_color)); }
   }
   &.horizontal slider {
     min-width: 30px;
-    min-height: 10px;
-  }
-
-  // button icons
-  &.vertical {
-    button {
-      &.down { -gtk-icon-source: -gtk-icontheme('pan-down-symbolic'); }
-
-      &.up { -gtk-icon-source: -gtk-icontheme('pan-up-symbolic'); }
-    }
-  }
-
-  &.horizontal {
-    button {
-      &.down { -gtk-icon-source: -gtk-icontheme('pan-end-symbolic'); }
-
-      &.up { -gtk-icon-source: -gtk-icontheme('pan-start-symbolic'); }
-    }
+    min-height: 6px;
   }
 }
