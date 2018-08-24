@@ -18,8 +18,8 @@ render_theme () {
   sass --cache-location /tmp/sass-cache gtk320/gtk.scss $2/gtk-3.20/gtk.css
   mv assets $2/
   cp -R gtk2/* $2/gtk-2.0/
-  if [ -d $HOME/.themes/$2 ]
-    then rm -rf $HOME/.themes/$2;
+  if [ -d $HOME/.local/share/themes/$2 ]
+    then rm -rf $HOME/.local/share/themes/$2;
   fi
   mv -f $2 $HOME/.themes/
 }
