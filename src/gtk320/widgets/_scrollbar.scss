@@ -4,8 +4,8 @@
 
 scrollbar {
 
-  -GtkScrollbar-has-backward-stepper: true;
-  -GtkScrollbar-has-forward-stepper: true;
+  -GtkScrollbar-has-backward-stepper: false;
+  -GtkScrollbar-has-forward-stepper: false;
 
   background-color: w_color(normal);
   border-width: 3px 0px;
