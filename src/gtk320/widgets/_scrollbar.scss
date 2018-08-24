@@ -84,7 +84,7 @@ scrollbar {
   }
   
   &:hover {
-    trough { background-color:  }
+    trough { background-color: backdrop($trough_color); }
   }
   
   slider {

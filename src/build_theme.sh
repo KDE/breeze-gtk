@@ -21,7 +21,7 @@ render_theme () {
   if [ -d $HOME/.local/share/themes/$2 ]
     then rm -rf $HOME/.local/share/themes/$2;
   fi
-  mv -f $2 $HOME/.themes/
+  mv -f $2 $HOME/.local/share/themes/
 }
 
 if [ -z "$1" ]
