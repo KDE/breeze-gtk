@@ -4,6 +4,7 @@ from math import pi
 import os
 import errno
 import sys
+import re
 
 def make_sure_path_exists(path):
     try:
@@ -26,7 +27,11 @@ class ReadKdeGlobals():
                 for line in _kde:
                     if line == '\n':
                         break
-                    self._colors['{0}{1}'.format(widget,line.strip().split('=')[0])] = line.strip().split('=')[1]
+                    key = '{0}{1}'.format(widget,line.strip().split('=')[0])
+                    value = line.strip().split('=')[1]
+                    if value == '':
+                        continue
+                    self._colors[key] = value
         return self._colors
 
 class Color(object):
@@ -763,6 +768,6 @@ for key in _colors:
         gtk3.write('${0}:rgb({1});\n'.format(key,_colors[key]))
     elif 'Disabled' in key or 'Inactive' in key:
         gtk3.write('${0}:{1};\n'.format(key,_colors[key]))
-    else:
+    elif re.match('[0-9]+,[0-9]+,[0-9]+', _colors[key]):
         gtk3.write('${0}:rgb({1});\n'.format(key,_colors[key]))
 gtk3.close()
