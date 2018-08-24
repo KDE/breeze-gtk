@@ -41,8 +41,8 @@
   }
   &.solid-csd {
     border-radius: 0;
-    margin: 1px;
-    background-color: $border_color;
+    margin: 0px;
+    background-color: t_color(background-light);
     border: none;
     box-shadow: none;
   }

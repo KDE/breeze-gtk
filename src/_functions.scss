@@ -72,6 +72,9 @@
   @if $c == background {
     @return $WMactiveBackground;
   }
+  @if $c == background-light {
+    @return change-color(t_color(background),$lightness: min(lightness(t_color(background))*1.2,100%))
+  }
   @if $c == backdrop-text {
     @return $WMinactiveForeground;
   }
