@@ -42,7 +42,7 @@ decoration {
     margin: 0;
     padding: 1px;
     border: none;
-    background-color: $border_color;
+    background-color: t_color(background-light);
     box-shadow: none;
   }
 }
@@ -50,13 +50,13 @@ decoration {
 headerbar,
 .titlebar {
   &.default-decoration button.titlebutton {
-    padding: 6px 1px;
+    padding: 1px;
     min-height: 18px;
     min-width: 18px;
     margin: 0;
   }
   button.titlebutton {
-    padding: 6px;
+    padding: 1px;
     &:hover,
     &:active,
     &:checked,
@@ -66,7 +66,7 @@ headerbar,
     }
 
     &.close {
-      padding: 6px 1px;
+      padding: 1px;
       color: transparent;
       border-image: none;
       box-shadow: none;
@@ -91,7 +91,7 @@ headerbar,
     }
 
     &.maximize {
-      padding: 6px 1px;
+      padding: 1px;
       color: transparent;
       border-image: none;
       box-shadow: none;
@@ -116,7 +116,7 @@ headerbar,
   	}
 
     &.minimize {
-      padding: 6px 1px;
+      padding: 1px;
       color: transparent;
       border-image: none;
       box-shadow: none;
@@ -144,7 +144,7 @@ headerbar,
   .maximized & {
     button.titlebutton {
       &.maximize {
-        padding: 6px 1px;
+        padding: 1px;
         color: transparent;
         border-image: none;
         box-shadow: none;

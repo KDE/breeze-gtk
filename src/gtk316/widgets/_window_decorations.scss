@@ -60,7 +60,7 @@
   &:active:hover { @extend %undecorated_button; transition: none;}
 
   &.close {
-    padding: 6px 1px;
+    padding: 1px;
     color: transparent;
     border-image: none;
     box-shadow: none;
@@ -85,7 +85,7 @@
   }
 
   &.maximize {
-    padding: 6px 1px;
+    padding: 1px;
     color: transparent;
     border-image: none;
     box-shadow: none;
@@ -110,7 +110,7 @@
 	}
 
   &.minimize {
-    padding: 6px 1px;
+    padding: 1px;
     color: transparent;
     border-image: none;
     box-shadow: none;
@@ -140,7 +140,7 @@
   .maximized & {
     .button.titlebutton {
       &.maximize {
-        padding: 6px 1px;
+        padding: 1px;
         color: transparent;
         border-image: none;
         box-shadow: none;
