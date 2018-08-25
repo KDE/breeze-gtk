@@ -59,7 +59,6 @@ scrollbar {
   &.overlay-indicator:not(.dragging):not(.hovering) {
    -GtkScrollbar-has-backward-stepper: false;
    -GtkScrollbar-has-forward-stepper: false;
-   background: none;
 
     slider {
       min-width: 6px;
@@ -68,7 +67,11 @@ scrollbar {
       &:backdrop { background-color: backdrop($scrollbar_color); }
     }
 
-    &.horizontal slider { min-height: 4px;}
+    &.horizontal slider { min-height: 6px;}
+  }
+
+  &.overlay-indicator {
+    background: none;
   }
 
   trough {
@@ -79,12 +82,13 @@ scrollbar {
     border: 0px solid w_color(normal);
     border-radius: 8px;
     background-color: transparent;
-    background-clip: backdrop($trough_color);
-    box-shadow: inset 0px 0px 0px 5px w_color(normal);
   }
   
   &:hover {
-    trough { background-color: backdrop($trough_color); }
+    trough {
+      background-color: backdrop($trough_color);
+      box-shadow: inset 0px 0px 0px 5px w_color(normal);
+    }
   }
   
   slider {
