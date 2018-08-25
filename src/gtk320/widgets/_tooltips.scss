@@ -15,7 +15,7 @@ tooltip {
   border-radius: $r;
   box-shadow: none; // otherwise it gets inherited by windowframe.csd
   text-shadow: none;
-  // FIXME: we need a border or tooltips vanish on black background.
+  border: 1px solid tooltip(border);
   &.window-frame.csd {
     background-color: transparent;
     box-shadow: none;

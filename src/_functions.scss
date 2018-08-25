@@ -90,6 +90,9 @@
   @if $c == background {
     @return $TooltipBackgroundNormal;
   }
+  @if $c == border {
+    @return mix($TooltipForegroundNormal, $TooltipBackgroundNormal, 25%);
+  }
 }
 
 @function button_gradient($c, $state: normal) {
