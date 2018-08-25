@@ -17,7 +17,7 @@ def make_sure_path_exists(path):
 class ReadKdeGlobals():
     def __init__(self):
         self._colors = {}
-        self._colors = self.read_globals('schemes/Breeze.colors')
+        self._colors = self.read_globals('/usr/share/color-schemes/Breeze.colors')
 
     def read_globals(self,filename):
         with open(filename, 'r') as _kde:

@@ -43,9 +43,12 @@ then
     render_theme schemes/Breeze.colors Breeze
   fi
 else
-  if [ -f "schemes/$1.colors" ]
-  then 
-    render_theme "schemes/$1.colors" "$1"
+  if [ -f "/usr/share/color-schemes/$1.colors" ]
+  then
+    render_theme "/usr/share/color-schemes/$1.colors" "$1"
+  elif [ -f "$HOME/.local/share/color-schemes/$1.colors" ]
+  then
+    render_theme "$HOME/.local/share/color-schemes/$1.colors" "$1"
   else
     echo "colorscheme $1 not found"
   fi
