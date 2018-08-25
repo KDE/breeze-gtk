@@ -20,7 +20,7 @@ build_sass() {
 }
 
 render_theme () {
-  python render_assets.py $1
+  python3 render_assets.py $1
   create_folders $2
   build_sass gtk316/gtk.scss $2/gtk-3.0/gtk.css
   build_sass gtk318/gtk.scss $2/gtk-3.18/gtk.css
