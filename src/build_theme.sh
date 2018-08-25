@@ -10,12 +10,21 @@ create_folders () {
   done 
 }
 
+build_sass() {
+    if command -v sassc &>/dev/null
+    then
+      sassc "$1" "$2"
+    else
+      sass --cache-location /tmp/sass-cache "$1" "$2"
+    fi
+}
+
 render_theme () {
   python render_assets.py $1
   create_folders $2
-  sass --cache-location /tmp/sass-cache gtk316/gtk.scss $2/gtk-3.0/gtk.css
-  sass --cache-location /tmp/sass-cache gtk318/gtk.scss $2/gtk-3.18/gtk.css
-  sass --cache-location /tmp/sass-cache gtk320/gtk.scss $2/gtk-3.20/gtk.css
+  build_sass gtk316/gtk.scss $2/gtk-3.0/gtk.css
+  build_sass gtk318/gtk.scss $2/gtk-3.18/gtk.css
+  build_sass gtk320/gtk.scss $2/gtk-3.20/gtk.css
   mv assets $2/
   cp -R gtk2/* $2/gtk-2.0/
   if [ -d $HOME/.local/share/themes/$2 ]
