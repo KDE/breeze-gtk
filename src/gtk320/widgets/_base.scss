@@ -100,6 +100,10 @@ $ease-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
     color: backdrop(v_color(text));
     background-color: backdrop(v_color(normal));
   }
+  
+  &:disabled {
+    color: insensitive(v_color(text));
+  }
 
   &:selected {
     &:focus, & {
