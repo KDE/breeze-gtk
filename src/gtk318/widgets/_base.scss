@@ -111,6 +111,10 @@ $ease-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
     border-radius: $r;
     @extend %selected_items;
   }
+  
+  &:insensitive {
+    color: insensitive(v_color(text));
+  }
 }
 
 .rubberband {
@@ -167,6 +171,9 @@ GtkAssistant {
 GtkTextView { // This will get overridden by .view, needed by gedit line numbers
   background-color: mix(w_color(normal), v_color(normal), 50%);
   &:backdrop { background-color: backdrop(mix(w_color(normal), v_color(normal), 50%)); }
+	&:insensitive {
+    color: insensitive(v_color(text));
+  }
 }
 
 .grid-child {
