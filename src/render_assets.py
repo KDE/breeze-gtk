@@ -657,7 +657,7 @@ def mix(color, mix_color, amount):
 if len(sys.argv) == 2:
     filename = sys.argv[1]
 else:
-    filename = 'schemes/Breeze.colors'
+    filename = '/usr/share/color-schemes/Breeze.colors'
 
 make_sure_path_exists('assets')
 
