@@ -40,7 +40,7 @@ then
     render_theme "$HOME/.config/kdeglobals" Breeze
   else
     echo "$HOME/.config/kdeglobals not found, using defaults"
-    render_theme schemes/Breeze.colors Breeze
+    render_theme /usr/share/color-schemes/Breeze.colors Breeze
   fi
 else
   if [ -f "/usr/share/color-schemes/$1.colors" ]
