@@ -1,51 +1,38 @@
+@mixin _border($name, $width: 1px 1px 2px 1px, $image-width: 2 2 3 2 / 2px 2px 3px 2px) {
+  border-image: -gtk-scaled(url("../assets/#{$name}.png"),url("../assets/#{$name}@2.png")) $image-width stretch;
+  border-width: $width;
+  border-style: solid;
+  border-color: transparent;
+}
+
+$scrollbar_color: transparentize(v_color(text),0.5);
+$trough_color: transparentize(w_color(text),0.7);
+
 /**************
  * Scrollbars *
  **************/
 
-scrollbar {
-
+.scrollbar {
+  -GtkRange-trough-border: 0;
   -GtkScrollbar-has-backward-stepper: false;
   -GtkScrollbar-has-forward-stepper: false;
+  -GtkRange-slider-width: 10px;
+  -GtkScrollbar-min-slider-length: 64;
+  -GtkRange-stepper-spacing: 0;
+  -GtkRange-trough-under-steppers: 1;
 
-  background-color: w_color(normal);
-  border-width: 0px 0px;
-  border-color: w_color(normal);
-  margin: 0px;
-
-  button {
-  min-width: 14px;
-  min-height: 14px;
-  margin: 0px;
-  padding: 0px 0px;
-	border: none;
-  border-radius: 0px;
-  background-image: none;
-  background-color: transparent;
-  color: transparent;
-  box-shadow: none;
+  .button {
+	@extend %undecorated_button;
+  color: b_color(text);
 	&:hover {
-    border: none;
-    background-image: none;
-    background-color: w_color(normal);
-		color: transparent;
+    @extend %undecorated_button;
+		color: b_color(hover);
 		}
-  &:active,
-  &:active:hover {
-    border: none;
-    background-image: none;
-    background-color: w_color(normal);
-		color: transparent;
-  }
-	&:disabled {
-    border: none;
-    background-color: w_color(normal);
-    background-image: none;
-    color: transparent;
-    }
+	&:insensitive { color: insensitive(b_color(text)); }
   &:backdrop {
     @extend %undecorated_button;
     color: backdrop(b_color(text));
-    &:disabled {color: backdrop(insensitive(b_color(text)));}
+    &:insensitive {color: backdrop(insensitive(b_color(text)));}
     @extend %undecorated_button;
     }
 	}
@@ -57,55 +44,48 @@ scrollbar {
 
 
   &.overlay-indicator:not(.dragging):not(.hovering) {
+   -GtkRange-slider-width: 10px;
    -GtkScrollbar-has-backward-stepper: false;
    -GtkScrollbar-has-forward-stepper: false;
 
-    slider {
-      min-width: 6px;
+    .slider {
+      margin: 2px;
+      border: 5px solid transparent;
       border-radius: 8px;
-      background-color: transparentize($scrollbar_color, 0.2);
+      background-color: $scrollbar_color;
       &:backdrop { background-color: backdrop($scrollbar_color); }
     }
 
-    &.horizontal slider { min-height: 6px;}
-  }
-
-  &.overlay-indicator {
-    background: none;
-  }
-
-  trough {
-    //margin: 0px;
-    transition-duration: 0.1s;
-    min-width: 6px;
-    min-height: 14px;
-    border: 0px solid w_color(normal);
-    border-radius: 8px;
-    background-color: transparent;
-  }
-  
-  &:hover {
-    trough {
-      background-color: backdrop($trough_color);
-      box-shadow: inset 0px 0px 0px 5px w_color(normal);
+    .trough {
+      border: none;
+      background: none;
     }
   }
-  
-  slider {
-    //margin: 0px;
-    transition-duration: 0.1s;
-    min-width: 6px;
-    min-height: 30px;
+
+  &.trough {
+		margin: 2px;
     border: 5px solid transparent;
-    border-radius: 8px;
-    background-clip: padding-box;
-    background-color: $scrollbar_color;
-    &:hover { background-color: b_color(hover); }
-    &:backdrop { background-color: backdrop($scrollbar_color); }
-    &:backdrop:disabled { background-color: backdrop(insensitive($scrollbar_color)); }
+  	border-radius: 8px;
+  	background-color: $trough_color;
+  	&:backdrop { background-color: backdrop($trough_color); }
   }
-  &.horizontal slider {
-    min-width: 30px;
-    min-height: 6px;
+  &.slider {
+    margin: 2px;
+  	border: 5px solid transparent;
+  	border-radius: 8px;
+  	background-color: $scrollbar_color;
+  	&:hover { background-color: b_color(hover); }
+  	&:active { background-color: b_color(active);}
+  	&:insensitive { background-color: insensitive($scrollbar_color); }
+		&:backdrop { background-color: backdrop($trough_color); }
+  	&:backdrop:insensitive { background-color: backdrop(insensitive($scrollbar_color)); }
   }
+}
+
+
+.scrollbars-junction,
+.scrollbars-junction.frame { // the small square between two scrollbars
+  border-color: transparent;
+  background-color: transparent;
+  border-image: none;
 }
