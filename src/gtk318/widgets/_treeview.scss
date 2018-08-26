@@ -62,7 +62,7 @@ GtkTreeView.view {
       &:selected { color: s_color(text); }
       &:backdrop { color: backdrop(v_color(normal)); }
     }
-    &:backdrop { color: backdrop(v_color(normal)); }
+    &:backdrop { color: backdrop(v_color(text)); }
   }
 }
 
