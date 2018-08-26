@@ -75,8 +75,8 @@
       background-color: mix(insensitive(b_color(text)), w_color(normal), 70%);
       box-shadow: none;
       &:backdrop {
-        background-color: backdrop(insensitive(transparentize(b_color(text),0.7)));
-        border-color: backdrop(insensitive(transparentize(b_color(text),0.7)));
+        background-color: mix(backdrop(insensitive(b_color(text))), w_color(normal), 70%);
+        border-color: mix(backdrop(insensitive(b_color(text))), w_color(normal), 70%);
       }
     }
     &:backdrop {
