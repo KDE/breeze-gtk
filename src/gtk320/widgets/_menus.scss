@@ -190,7 +190,6 @@ modelbutton.flat arrow {
 }
 
 popover.background {
-  margin: -10px;
   padding: 0px;
   border: 1px solid $border_color;
   border-radius: 3px;
@@ -201,7 +200,7 @@ popover.background {
   &:backdrop {
     box-shadow: none;
   }
-
+  
   > list,
   > .view,
   > toolbar {
