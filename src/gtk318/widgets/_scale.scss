@@ -71,8 +71,8 @@
       }
     }
     &:insensitive, &.vertical:insensitive {
-      border-color: insensitive(transparentize(b_color(text),0.7));
-      background-color: insensitive(transparentize(b_color(text),0.7));
+      border-color: mix(insensitive(b_color(text)), w_color(normal), 70%);
+      background-color: mix(insensitive(b_color(text)), w_color(normal), 70%);
       box-shadow: none;
       &:backdrop {
         background-color: backdrop(insensitive(transparentize(b_color(text),0.7)));
