@@ -3130,8 +3130,8 @@ scrollbar {
   border-color: #eff0f1;
   margin: 0px; }
   scrollbar button {
-    min-width: 5px;
-    min-height: 5px;
+    min-width: 14px;
+    min-height: 14px;
     margin: 0px;
     padding: 0px 0px;
     border: none;
