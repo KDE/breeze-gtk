@@ -3579,7 +3579,7 @@ treeview.view {
         color: @insensitive_bg_color; }
     treeview.view:disabled:backdrop {
       color: @insensitive_borders; }
-  treeview.view.seperator {
+  treeview.view.separator {
     min-height: 2px;
     color: @borders; }
   treeview.view.separator:backdrop {
