@@ -3535,7 +3535,7 @@ treeview.view {
         color: rgba(216, 218, 221, 0.35); }
     treeview.view:disabled:backdrop {
       color: rgba(88, 92, 95, 0.35); }
-  treeview.view.seperator {
+  treeview.view.separator {
     min-height: 2px;
     color: #616569; }
   treeview.view.separator:backdrop {
