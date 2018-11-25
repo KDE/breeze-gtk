@@ -2701,7 +2701,7 @@ GtkTreeView.view {
         color: rgba(216, 218, 221, 0.35); }
     GtkTreeView.view:insensitive:backdrop {
       color: rgba(88, 92, 95, 0.35); }
-  GtkTreeView.view.seperator {
+  GtkTreeView.view.separator {
     color: #616569; }
   GtkTreeView.view.separator:backdrop {
     color: #616569; }

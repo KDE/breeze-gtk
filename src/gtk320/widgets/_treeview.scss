@@ -36,7 +36,7 @@ treeview.view {
     }
     &:backdrop { color: backdrop(insensitive($border_color)); }
   }
-  &.seperator {
+  &.separator {
     min-height: 2px;
     color: $border_color;
   }

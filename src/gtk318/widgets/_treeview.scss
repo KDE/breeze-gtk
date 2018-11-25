@@ -34,7 +34,7 @@ GtkTreeView.view {
     }
     &:backdrop { color: backdrop(insensitive($border_color)); }
   }
-  &.seperator {
+  &.separator {
     color: $border_color;
   }
   &.separator:backdrop {
