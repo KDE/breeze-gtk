@@ -130,6 +130,10 @@ textview text,
   .view:backdrop {
     color: #eff0f1;
     background-color: #232629; }
+  .view text:disabled,
+  textview text:disabled,
+  .view:disabled {
+    color: rgba(216, 218, 221, 0.35); }
   .view text:selected:focus,
   textview text:selected:focus, .view text:selected,
   textview text:selected,
@@ -178,13 +182,16 @@ label.separator {
   color: #eff0f1; }
   label.separator:backdrop {
     color: #eff0f1; }
+
 label selection {
   background-color: #3daee9;
   color: #eff0f1; }
+
 label:disabled {
   color: rgba(216, 218, 221, 0.35); }
   label:disabled:backdrop {
     color: rgba(216, 218, 221, 0.35); }
+
 label:backdrop {
   color: #eff0f1; }
 
@@ -199,10 +206,13 @@ assistant .sidebar {
   assistant .sidebar:backdrop {
     background-color: #eff0f1;
     border-color: #616569; }
+
 assistant.csd .sidebar {
   border-top-style: none; }
+
 assistant .sidebar label {
   padding: 6px 12px; }
+
 assistant .sidebar label.highlight {
   background-color: #4c4e51; }
 
@@ -222,8 +232,7 @@ assistant .sidebar label.highlight {
     background-color: rgba(49, 54, 59, 0.8);
     -gtk-icon-shadow: none; }
 
-.view text:selected:focus,
-textview text:selected:focus, .view text:selected,
+.view text:selected,
 textview text:selected,
 .view:selected:focus,
 .view:selected, .view text selection:focus, .view text selection,
@@ -233,23 +242,24 @@ entry selection:focus,
 entry selection, row:selected, .sidebar:selected {
   background-color: #3daee9;
   color: #eff0f1; }
+  
   textview text:hover:selected:focus, .view text:hover:selected,
   textview text:hover:selected,
   .view:hover:selected, .view text selection:hover,
-  textview text selection:hover, flowbox flowboxchild:hover:selected, spinbutton:not(.vertical) selection:hover,
+  textview text selection:hover, flowbox flowboxchild:hover:selected, spinbutton:not(.vertical) selection:hover:focus, spinbutton:not(.vertical) selection:hover,
   entry selection:hover, row:hover:selected, .sidebar:hover:selected {
     background-color: #3daee9;
     color: #eff0f1; }
+  
   textview text:backdrop:selected:focus, .view text:backdrop:selected,
   textview text:backdrop:selected,
   .view:backdrop:selected, .view text selection:backdrop,
-  textview text selection:backdrop, flowbox flowboxchild:backdrop:selected, label:backdrop selction, spinbutton:not(.vertical) selection:backdrop,
+  textview text selection:backdrop, flowbox flowboxchild:backdrop:selected, label:backdrop selction, spinbutton:not(.vertical) selection:backdrop:focus, spinbutton:not(.vertical) selection:backdrop,
   entry selection:backdrop, row:backdrop:selected, .sidebar:backdrop:selected {
     background-color: rgba(61, 174, 233, 0.5);
     color: #232629; }
 
-.view text:selected:focus,
-textview text:selected:focus, .view text:selected,
+.view text:selected,
 textview text:selected,
 .view:selected:focus,
 .view:selected, .view text selection:focus, .view text selection,
@@ -259,8 +269,7 @@ entry selection:focus,
 entry selection, row:selected, .sidebar:selected {
   background-color: #3daee9;
   border-radius: 0px; }
-  .view text:selected:focus,
-  textview text:selected:focus, .view text:selected,
+  .view text:selected,
   textview text:selected,
   .view:selected:focus,
   .view:selected, .view text selection:focus, .view text selection,
@@ -269,16 +278,18 @@ entry selection, row:selected, .sidebar:selected {
   entry selection:focus,
   entry selection, row:selected, .sidebar:selected {
     color: #eff0f1; }
+    
     textview text:disabled:selected:focus, .view text:disabled:selected,
     textview text:disabled:selected,
     .view:disabled:selected, .view text selection:disabled,
-    textview text selection:disabled, flowbox flowboxchild:disabled:selected, label:disabled selection, spinbutton:not(.vertical) selection:disabled,
+    textview text selection:disabled, flowbox flowboxchild:disabled:selected, label:disabled selection, spinbutton:not(.vertical) selection:disabled:focus, spinbutton:not(.vertical) selection:disabled,
     entry selection:disabled, row:disabled:selected, .sidebar:disabled:selected {
       color: rgba(216, 218, 221, 0.35); }
+    
     textview text:backdrop:selected:focus, .view text:backdrop:selected,
     textview text:backdrop:selected,
     .view:backdrop:selected, .view text selection:backdrop,
-    textview text selection:backdrop, flowbox flowboxchild:backdrop:selected, label:backdrop selction, spinbutton:not(.vertical) selection:backdrop,
+    textview text selection:backdrop, flowbox flowboxchild:backdrop:selected, label:backdrop selction, spinbutton:not(.vertical) selection:backdrop:focus, spinbutton:not(.vertical) selection:backdrop,
     entry selection:backdrop, row:backdrop:selected, .sidebar:backdrop:selected {
       color: #eff0f1; }
       .view text:backdrop:disabled:selected,
@@ -296,6 +307,7 @@ entry selection, row:selected, .sidebar:selected {
     background-image: -gtk-gradient(radial, center center, 0, center center, 0.01, to(#3daee9), to(transparent)); }
   to {
     background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(#3daee9), to(transparent)); } }
+
 notebook > header > tabs > arrow, .csd popover.background.touch-selection button, .csd popover.background.magnifier button, popover.background.touch-selection button, popover.background.magnifier button,
 button, notebook > header > tabs > arrow.osd,
 button.osd {
@@ -365,8 +377,7 @@ button.osd {
       color: rgba(216, 218, 221, 0.35);
       border-color: rgba(88, 92, 95, 0.35);
       background-image: linear-gradient(to bottom, #2d3236, #2b3034); }
-      notebook > header > tabs > arrow:backdrop:disabled > .label, popover.background.touch-selection button:backdrop:disabled > .label, popover.background.magnifier button:backdrop:disabled > .label,
-      button:backdrop:disabled > .label {
+      notebook > header > tabs > arrow:backdrop:disabled > .label, popover.background.touch-selection button:backdrop:disabled > .label, popover.background.magnifier button:backdrop:disabled > .label, button:backdrop:disabled > .label {
         color: inherit; }
     notebook > header > tabs > arrow:backdrop:disabled:active,
     button:backdrop:disabled:active, notebook > header > tabs > arrow:backdrop:disabled:checked,
@@ -374,9 +385,7 @@ button.osd {
       color: rgba(216, 218, 221, 0.35);
       border-color: rgba(37, 164, 230, 0.35);
       background-image: linear-gradient(to bottom, rgba(44, 167, 231, 0.35), rgba(25, 152, 218, 0.35)); }
-      notebook > header > tabs > arrow:backdrop:disabled:active > .label, popover.background.touch-selection button:backdrop:disabled:active > .label, popover.background.magnifier button:backdrop:disabled:active > .label,
-      button:backdrop:disabled:active > .label, notebook > header > tabs > arrow:backdrop:disabled:checked > .label, popover.background.touch-selection button:backdrop:disabled:checked > .label, popover.background.magnifier button:backdrop:disabled:checked > .label,
-      button:backdrop:disabled:checked > .label {
+      notebook > header > tabs > arrow:backdrop:disabled:active > .label, popover.background.touch-selection button:backdrop:disabled:active > .label, popover.background.magnifier button:backdrop:disabled:active > .label, button:backdrop:disabled:active > .label, notebook > header > tabs > arrow:backdrop:disabled:checked > .label, popover.background.touch-selection button:backdrop:disabled:checked > .label, popover.background.magnifier button:backdrop:disabled:checked > .label, button:backdrop:disabled:checked > .label {
         color: inherit; }
   notebook > header > tabs > arrow:backdrop, button.sidebar-button:backdrop, popover.background.touch-selection button.flat:backdrop, popover.background.magnifier button.flat:backdrop,
   button.flat:backdrop, notebook > header > tabs > arrow.osd:backdrop {
@@ -414,8 +423,7 @@ button.osd {
     color: rgba(216, 218, 221, 0.35);
     border-color: rgba(88, 92, 95, 0.35);
     background-image: linear-gradient(to bottom, #2d3236, #2b3034); }
-    notebook > header > tabs > arrow:disabled > .label, popover.background.touch-selection button:disabled > .label, popover.background.magnifier button:disabled > .label,
-    button:disabled > .label {
+    notebook > header > tabs > arrow:disabled > .label, popover.background.touch-selection button:disabled > .label, popover.background.magnifier button:disabled > .label, button:disabled > .label {
       color: inherit; }
     notebook > header > tabs > arrow:disabled:active, popover.background.touch-selection button:disabled:active, popover.background.magnifier button:disabled:active,
     button:disabled:active, notebook > header > tabs > arrow:disabled:checked, popover.background.touch-selection button:disabled:checked, popover.background.magnifier button:disabled:checked,
@@ -423,13 +431,9 @@ button.osd {
       color: rgba(216, 218, 221, 0.35);
       border-color: rgba(37, 164, 230, 0.35);
       background-image: linear-gradient(to bottom, rgba(44, 167, 231, 0.35), rgba(25, 152, 218, 0.35)); }
-      notebook > header > tabs > arrow:disabled:active > .label, popover.background.touch-selection button:disabled:active > .label, popover.background.magnifier button:disabled:active > .label,
-      button:disabled:active > .label, notebook > header > tabs > arrow:disabled:checked > .label, popover.background.touch-selection button:disabled:checked > .label, popover.background.magnifier button:disabled:checked > .label,
-      button:disabled:checked > .label {
+      notebook > header > tabs > arrow:disabled:active > .label, popover.background.touch-selection button:disabled:active > .label, popover.background.magnifier button:disabled:active > .label, button:disabled:active > .label, notebook > header > tabs > arrow:disabled:checked > .label, popover.background.touch-selection button:disabled:checked > .label, popover.background.magnifier button:disabled:checked > .label, button:disabled:checked > .label {
         color: inherit; }
-  notebook > header > tabs > arrow separator, .csd popover.background.touch-selection button separator, .csd popover.background.magnifier button separator, popover.background.touch-selection button separator, popover.background.magnifier button separator,
-  button separator, notebook > header > tabs > arrow.osd separator,
-  button.osd separator {
+  notebook > header > tabs > arrow separator, .csd popover.background.touch-selection button separator, .csd popover.background.magnifier button separator, popover.background.touch-selection button separator, popover.background.magnifier button separator, button separator, notebook > header > tabs > arrow.osd separator, button.osd separator {
     background-color: transparent;
     background-image: none;
     color: transparent; }
@@ -438,10 +442,12 @@ notebook > header > tabs > arrow.image-button, popover.background.touch-selectio
 button.image-button {
   min-width: 16px;
   padding: 6px; }
+
 notebook > header > tabs > arrow.text-button, popover.background.touch-selection button.text-button, popover.background.magnifier button.text-button,
 button.text-button {
   padding-left: 6px;
   padding-right: 6px; }
+
 notebook > header > tabs > arrow.text-button.image-button, popover.background.touch-selection button.text-button.image-button, popover.background.magnifier button.text-button.image-button,
 button.text-button.image-button {
   padding-left: 6px;
@@ -450,6 +456,7 @@ button.text-button.image-button {
   button.text-button.image-button label {
     padding-left: 6px;
     padding-right: 6px; }
+
 row:selected popover.background.touch-selection button, popover.background.touch-selection row:selected button, row:selected popover.background.magnifier button, popover.background.magnifier row:selected button, row:selected
 button {
   border-color: #3daee9; }
@@ -460,14 +467,17 @@ button {
     row:selected popover.background.touch-selection button.flat:not(:active):not(:checked):not(:hover):not(disabled):backdrop, popover.background.touch-selection row:selected button.flat:not(:active):not(:checked):not(:hover):not(disabled):backdrop, row:selected popover.background.magnifier button.flat:not(:active):not(:checked):not(:hover):not(disabled):backdrop, popover.background.magnifier row:selected button.flat:not(:active):not(:checked):not(:hover):not(disabled):backdrop, row:selected
     button.flat:not(:active):not(:checked):not(:hover):not(disabled):backdrop {
       color: #eff0f1; }
-popover.background.touch-selection button.suggested-action, popover.background.magnifier button.suggested-action, popover.background.touch-selection button.suggested-action.osd button, popover.background.magnifier button.suggested-action.osd button,
+
+popover.background.touch-selection button.suggested-action, popover.background.magnifier button.suggested-action,
+popover.background.touch-selection button.suggested-action.osd button,
+popover.background.magnifier button.suggested-action.osd button,
 button.suggested-action,
 button.suggested-action.osd popover.background.touch-selection button,
 popover.background.touch-selection button.suggested-action.osd button,
 button.suggested-action.osd popover.background.magnifier button,
-popover.background.magnifier button.suggested-action.osd button, popover.background.touch-selection button.suggested-action.osd
-button, popover.background.magnifier button.suggested-action.osd
-button,
+popover.background.magnifier button.suggested-action.osd button,
+popover.background.touch-selection button.suggested-action.osd button,
+popover.background.magnifier button.suggested-action.osd button,
 button.suggested-action.osd
 button {
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
@@ -476,14 +486,16 @@ button {
   color: #eff0f1;
   border-color: #3daee9;
   background-image: linear-gradient(to bottom, #40afe9, #35abe8); }
-  popover.background.touch-selection button.suggested-action.flat, popover.background.magnifier button.suggested-action.flat, popover.background.touch-selection button.suggested-action.osd button.flat, popover.background.magnifier button.suggested-action.osd button.flat,
+  popover.background.touch-selection button.suggested-action.flat, popover.background.magnifier button.suggested-action.flat,
+  popover.background.touch-selection button.suggested-action.osd button.flat,
+  popover.background.magnifier button.suggested-action.osd button.flat,
   button.suggested-action.flat,
   button.suggested-action.osd popover.background.touch-selection button.flat,
   popover.background.touch-selection button.suggested-action.osd button.flat,
   button.suggested-action.osd popover.background.magnifier button.flat,
-  popover.background.magnifier button.suggested-action.osd button.flat, popover.background.touch-selection button.suggested-action.osd
-  button.flat, popover.background.magnifier button.suggested-action.osd
-  button.flat,
+  popover.background.magnifier button.suggested-action.osd button.flat,
+  popover.background.touch-selection button.suggested-action.osd button.flat,
+  popover.background.magnifier button.suggested-action.osd button.flat,
   button.suggested-action.osd
   button.flat {
     border-color: rgba(255, 255, 255, 0);
@@ -494,19 +506,25 @@ button {
     text-shadow: none;
     -gtk-icon-shadow: none;
     color: #3daee9; }
-  popover.background.touch-selection button.suggested-action:hover, popover.background.magnifier button.suggested-action:hover, popover.background.touch-selection button.suggested-action.osd button:hover, popover.background.magnifier button.suggested-action.osd button:hover,
+  popover.background.touch-selection button.suggested-action:hover, popover.background.magnifier button.suggested-action:hover,
+  popover.background.touch-selection button.suggested-action.osd button:hover,
+  popover.background.magnifier button.suggested-action.osd button:hover,
   button.suggested-action:hover,
   button.suggested-action.osd popover.background.touch-selection button:hover,
   popover.background.touch-selection button.suggested-action.osd button:hover,
   button.suggested-action.osd popover.background.magnifier button:hover,
-  popover.background.magnifier button.suggested-action.osd button:hover, popover.background.touch-selection button.suggested-action.osd
-  button:hover, popover.background.magnifier button.suggested-action.osd
-  button:hover,
+  popover.background.magnifier button.suggested-action.osd button:hover,
+  popover.background.touch-selection button.suggested-action.osd button:hover,
+  popover.background.magnifier button.suggested-action.osd button:hover,
   button.suggested-action.osd
   button:hover {
     color: white;
     border-color: #3daee9; }
-  popover.background.touch-selection button.suggested-action:active, popover.background.magnifier button.suggested-action:active, popover.background.touch-selection button.suggested-action:checked, popover.background.magnifier button.suggested-action:checked, popover.background.touch-selection button.suggested-action.osd button:active, popover.background.magnifier button.suggested-action.osd button:active, popover.background.touch-selection button.suggested-action.osd button:checked, popover.background.magnifier button.suggested-action.osd button:checked,
+  popover.background.touch-selection button.suggested-action:active, popover.background.magnifier button.suggested-action:active, popover.background.touch-selection button.suggested-action:checked, popover.background.magnifier button.suggested-action:checked,
+  popover.background.touch-selection button.suggested-action.osd button:active,
+  popover.background.magnifier button.suggested-action.osd button:active,
+  popover.background.touch-selection button.suggested-action.osd button:checked,
+  popover.background.magnifier button.suggested-action.osd button:checked,
   button.suggested-action:active,
   button.suggested-action:checked,
   button.suggested-action.osd popover.background.touch-selection button:active,
@@ -516,11 +534,11 @@ button {
   button.suggested-action.osd popover.background.touch-selection button:checked,
   popover.background.touch-selection button.suggested-action.osd button:checked,
   button.suggested-action.osd popover.background.magnifier button:checked,
-  popover.background.magnifier button.suggested-action.osd button:checked, popover.background.touch-selection button.suggested-action.osd
-  button:active, popover.background.magnifier button.suggested-action.osd
-  button:active, popover.background.touch-selection button.suggested-action.osd
-  button:checked, popover.background.magnifier button.suggested-action.osd
-  button:checked,
+  popover.background.magnifier button.suggested-action.osd button:checked,
+  popover.background.touch-selection button.suggested-action.osd button:active,
+  popover.background.magnifier button.suggested-action.osd button:active,
+  popover.background.touch-selection button.suggested-action.osd button:checked,
+  popover.background.magnifier button.suggested-action.osd button:checked,
   button.suggested-action.osd
   button:active,
   button.suggested-action.osd
@@ -528,7 +546,11 @@ button {
     color: white;
     border-color: #3daee9;
     background-image: linear-gradient(to bottom, #45b1ea, #25a4e6); }
-  popover.background.touch-selection button.suggested-action:backdrop, popover.background.magnifier button.suggested-action:backdrop, popover.background.touch-selection button.suggested-action.flat:backdrop, popover.background.magnifier button.suggested-action.flat:backdrop, popover.background.touch-selection button.suggested-action.osd button:backdrop, popover.background.magnifier button.suggested-action.osd button:backdrop, popover.background.touch-selection button.suggested-action.osd button.flat:backdrop, popover.background.magnifier button.suggested-action.osd button.flat:backdrop,
+  popover.background.touch-selection button.suggested-action:backdrop, popover.background.magnifier button.suggested-action:backdrop, popover.background.touch-selection button.suggested-action.flat:backdrop, popover.background.magnifier button.suggested-action.flat:backdrop,
+  popover.background.touch-selection button.suggested-action.osd button:backdrop,
+  popover.background.magnifier button.suggested-action.osd button:backdrop,
+  popover.background.touch-selection button.suggested-action.osd button.flat:backdrop,
+  popover.background.magnifier button.suggested-action.osd button.flat:backdrop,
   button.suggested-action:backdrop,
   button.suggested-action.flat:backdrop,
   button.suggested-action.osd popover.background.touch-selection button:backdrop,
@@ -538,11 +560,11 @@ button {
   button.suggested-action.osd popover.background.touch-selection button.flat:backdrop,
   popover.background.touch-selection button.suggested-action.osd button.flat:backdrop,
   button.suggested-action.osd popover.background.magnifier button.flat:backdrop,
-  popover.background.magnifier button.suggested-action.osd button.flat:backdrop, popover.background.touch-selection button.suggested-action.osd
-  button:backdrop, popover.background.magnifier button.suggested-action.osd
-  button:backdrop, popover.background.touch-selection button.suggested-action.osd
-  button.flat:backdrop, popover.background.magnifier button.suggested-action.osd
-  button.flat:backdrop,
+  popover.background.magnifier button.suggested-action.osd button.flat:backdrop,
+  popover.background.touch-selection button.suggested-action.osd button:backdrop,
+  popover.background.magnifier button.suggested-action.osd button:backdrop,
+  popover.background.touch-selection button.suggested-action.osd button.flat:backdrop,
+  popover.background.magnifier button.suggested-action.osd button.flat:backdrop,
   button.suggested-action.osd
   button:backdrop,
   button.suggested-action.osd
@@ -550,7 +572,15 @@ button {
     color: white;
     border-color: #616569;
     background-image: linear-gradient(to bottom, #40afe9, #35abe8); }
-    popover.background.touch-selection button.suggested-action:backdrop:active, popover.background.magnifier button.suggested-action:backdrop:active, popover.background.touch-selection button.suggested-action:backdrop:checked, popover.background.magnifier button.suggested-action:backdrop:checked, popover.background.touch-selection button.suggested-action.flat:backdrop:active, popover.background.magnifier button.suggested-action.flat:backdrop:active, popover.background.touch-selection button.suggested-action.flat:backdrop:checked, popover.background.magnifier button.suggested-action.flat:backdrop:checked, popover.background.touch-selection button.suggested-action.osd button:backdrop:active, popover.background.magnifier button.suggested-action.osd button:backdrop:active, popover.background.touch-selection button.suggested-action.osd button:backdrop:checked, popover.background.magnifier button.suggested-action.osd button:backdrop:checked, popover.background.touch-selection button.suggested-action.osd button.flat:backdrop:active, popover.background.magnifier button.suggested-action.osd button.flat:backdrop:active, popover.background.touch-selection button.suggested-action.osd button.flat:backdrop:checked, popover.background.magnifier button.suggested-action.osd button.flat:backdrop:checked,
+    popover.background.touch-selection button.suggested-action:backdrop:active, popover.background.magnifier button.suggested-action:backdrop:active, popover.background.touch-selection button.suggested-action:backdrop:checked, popover.background.magnifier button.suggested-action:backdrop:checked, popover.background.touch-selection button.suggested-action.flat:backdrop:active, popover.background.magnifier button.suggested-action.flat:backdrop:active, popover.background.touch-selection button.suggested-action.flat:backdrop:checked, popover.background.magnifier button.suggested-action.flat:backdrop:checked,
+    popover.background.touch-selection button.suggested-action.osd button:backdrop:active,
+    popover.background.magnifier button.suggested-action.osd button:backdrop:active,
+    popover.background.touch-selection button.suggested-action.osd button:backdrop:checked,
+    popover.background.magnifier button.suggested-action.osd button:backdrop:checked,
+    popover.background.touch-selection button.suggested-action.osd button.flat:backdrop:active,
+    popover.background.magnifier button.suggested-action.osd button.flat:backdrop:active,
+    popover.background.touch-selection button.suggested-action.osd button.flat:backdrop:checked,
+    popover.background.magnifier button.suggested-action.osd button.flat:backdrop:checked,
     button.suggested-action:backdrop:active,
     button.suggested-action:backdrop:checked,
     button.suggested-action.flat:backdrop:active,
@@ -570,15 +600,15 @@ button {
     button.suggested-action.osd popover.background.touch-selection button.flat:backdrop:checked,
     popover.background.touch-selection button.suggested-action.osd button.flat:backdrop:checked,
     button.suggested-action.osd popover.background.magnifier button.flat:backdrop:checked,
-    popover.background.magnifier button.suggested-action.osd button.flat:backdrop:checked, popover.background.touch-selection button.suggested-action.osd
-    button:backdrop:active, popover.background.magnifier button.suggested-action.osd
-    button:backdrop:active, popover.background.touch-selection button.suggested-action.osd
-    button:backdrop:checked, popover.background.magnifier button.suggested-action.osd
-    button:backdrop:checked, popover.background.touch-selection button.suggested-action.osd
-    button.flat:backdrop:active, popover.background.magnifier button.suggested-action.osd
-    button.flat:backdrop:active, popover.background.touch-selection button.suggested-action.osd
-    button.flat:backdrop:checked, popover.background.magnifier button.suggested-action.osd
-    button.flat:backdrop:checked,
+    popover.background.magnifier button.suggested-action.osd button.flat:backdrop:checked,
+    popover.background.touch-selection button.suggested-action.osd button:backdrop:active,
+    popover.background.magnifier button.suggested-action.osd button:backdrop:active,
+    popover.background.touch-selection button.suggested-action.osd button:backdrop:checked,
+    popover.background.magnifier button.suggested-action.osd button:backdrop:checked,
+    popover.background.touch-selection button.suggested-action.osd button.flat:backdrop:active,
+    popover.background.magnifier button.suggested-action.osd button.flat:backdrop:active,
+    popover.background.touch-selection button.suggested-action.osd button.flat:backdrop:checked,
+    popover.background.magnifier button.suggested-action.osd button.flat:backdrop:checked,
     button.suggested-action.osd
     button:backdrop:active,
     button.suggested-action.osd
@@ -590,7 +620,11 @@ button {
       color: white;
       border-color: #3daee9;
       background-image: linear-gradient(to bottom, #45b1ea, #25a4e6); }
-    popover.background.touch-selection button.suggested-action:backdrop:disabled, popover.background.magnifier button.suggested-action:backdrop:disabled, popover.background.touch-selection button.suggested-action.flat:backdrop:disabled, popover.background.magnifier button.suggested-action.flat:backdrop:disabled, popover.background.touch-selection button.suggested-action.osd button:backdrop:disabled, popover.background.magnifier button.suggested-action.osd button:backdrop:disabled, popover.background.touch-selection button.suggested-action.osd button.flat:backdrop:disabled, popover.background.magnifier button.suggested-action.osd button.flat:backdrop:disabled,
+    popover.background.touch-selection button.suggested-action:backdrop:disabled, popover.background.magnifier button.suggested-action:backdrop:disabled, popover.background.touch-selection button.suggested-action.flat:backdrop:disabled, popover.background.magnifier button.suggested-action.flat:backdrop:disabled,
+    popover.background.touch-selection button.suggested-action.osd button:backdrop:disabled,
+    popover.background.magnifier button.suggested-action.osd button:backdrop:disabled,
+    popover.background.touch-selection button.suggested-action.osd button.flat:backdrop:disabled,
+    popover.background.magnifier button.suggested-action.osd button.flat:backdrop:disabled,
     button.suggested-action:backdrop:disabled,
     button.suggested-action.flat:backdrop:disabled,
     button.suggested-action.osd popover.background.touch-selection button:backdrop:disabled,
@@ -600,11 +634,11 @@ button {
     button.suggested-action.osd popover.background.touch-selection button.flat:backdrop:disabled,
     popover.background.touch-selection button.suggested-action.osd button.flat:backdrop:disabled,
     button.suggested-action.osd popover.background.magnifier button.flat:backdrop:disabled,
-    popover.background.magnifier button.suggested-action.osd button.flat:backdrop:disabled, popover.background.touch-selection button.suggested-action.osd
-    button:backdrop:disabled, popover.background.magnifier button.suggested-action.osd
-    button:backdrop:disabled, popover.background.touch-selection button.suggested-action.osd
-    button.flat:backdrop:disabled, popover.background.magnifier button.suggested-action.osd
-    button.flat:backdrop:disabled,
+    popover.background.magnifier button.suggested-action.osd button.flat:backdrop:disabled,
+    popover.background.touch-selection button.suggested-action.osd button:backdrop:disabled,
+    popover.background.magnifier button.suggested-action.osd button:backdrop:disabled,
+    popover.background.touch-selection button.suggested-action.osd button.flat:backdrop:disabled,
+    popover.background.magnifier button.suggested-action.osd button.flat:backdrop:disabled,
     button.suggested-action.osd
     button:backdrop:disabled,
     button.suggested-action.osd
@@ -612,7 +646,15 @@ button {
       color: rgba(216, 218, 221, 0.35);
       border-color: rgba(88, 92, 95, 0.35);
       background-image: linear-gradient(to bottom, #2d3236, #2b3034); }
-      popover.background.touch-selection button.suggested-action:backdrop:disabled > .label, popover.background.magnifier button.suggested-action:backdrop:disabled > .label, popover.background.touch-selection button.suggested-action.flat:backdrop:disabled > .label, popover.background.magnifier button.suggested-action.flat:backdrop:disabled > .label, popover.background.touch-selection button.suggested-action.osd button:backdrop:disabled > .label, popover.background.magnifier button.suggested-action.osd popover.background.touch-selection button:backdrop:disabled > .label, popover.background.touch-selection button.suggested-action.osd popover.background.magnifier button:backdrop:disabled > .label, popover.background.magnifier button.suggested-action.osd button:backdrop:disabled > .label, popover.background.touch-selection button.suggested-action.osd button.flat:backdrop:disabled > .label, popover.background.magnifier button.suggested-action.osd popover.background.touch-selection button.flat:backdrop:disabled > .label, popover.background.touch-selection button.suggested-action.osd popover.background.magnifier button.flat:backdrop:disabled > .label, popover.background.magnifier button.suggested-action.osd button.flat:backdrop:disabled > .label,
+      popover.background.touch-selection button.suggested-action:backdrop:disabled > .label, popover.background.magnifier button.suggested-action:backdrop:disabled > .label, popover.background.touch-selection button.suggested-action.flat:backdrop:disabled > .label, popover.background.magnifier button.suggested-action.flat:backdrop:disabled > .label,
+      popover.background.touch-selection button.suggested-action.osd button:backdrop:disabled > .label,
+      popover.background.magnifier button.suggested-action.osd popover.background.touch-selection button:backdrop:disabled > .label,
+      popover.background.touch-selection button.suggested-action.osd popover.background.magnifier button:backdrop:disabled > .label,
+      popover.background.magnifier button.suggested-action.osd button:backdrop:disabled > .label,
+      popover.background.touch-selection button.suggested-action.osd button.flat:backdrop:disabled > .label,
+      popover.background.magnifier button.suggested-action.osd popover.background.touch-selection button.flat:backdrop:disabled > .label,
+      popover.background.touch-selection button.suggested-action.osd popover.background.magnifier button.flat:backdrop:disabled > .label,
+      popover.background.magnifier button.suggested-action.osd button.flat:backdrop:disabled > .label,
       button.suggested-action:backdrop:disabled > .label,
       button.suggested-action.flat:backdrop:disabled > .label,
       button.suggested-action.osd popover.background.touch-selection button:backdrop:disabled > .label,
@@ -622,17 +664,25 @@ button {
       button.suggested-action.osd popover.background.touch-selection button.flat:backdrop:disabled > .label,
       popover.background.touch-selection button.suggested-action.osd button.flat:backdrop:disabled > .label,
       button.suggested-action.osd popover.background.magnifier button.flat:backdrop:disabled > .label,
-      popover.background.magnifier button.suggested-action.osd button.flat:backdrop:disabled > .label, popover.background.touch-selection button.suggested-action.osd
-      button:backdrop:disabled > .label, popover.background.magnifier button.suggested-action.osd
-      button:backdrop:disabled > .label, popover.background.touch-selection button.suggested-action.osd
-      button.flat:backdrop:disabled > .label, popover.background.magnifier button.suggested-action.osd
-      button.flat:backdrop:disabled > .label,
+      popover.background.magnifier button.suggested-action.osd button.flat:backdrop:disabled > .label,
+      popover.background.touch-selection button.suggested-action.osd button:backdrop:disabled > .label,
+      popover.background.magnifier button.suggested-action.osd button:backdrop:disabled > .label,
+      popover.background.touch-selection button.suggested-action.osd button.flat:backdrop:disabled > .label,
+      popover.background.magnifier button.suggested-action.osd button.flat:backdrop:disabled > .label,
       button.suggested-action.osd
       button:backdrop:disabled > .label,
       button.suggested-action.osd
       button.flat:backdrop:disabled > .label {
         color: inherit; }
-      popover.background.touch-selection button.suggested-action:backdrop:disabled:active, popover.background.magnifier button.suggested-action:backdrop:disabled:active, popover.background.touch-selection button.suggested-action:backdrop:disabled:checked, popover.background.magnifier button.suggested-action:backdrop:disabled:checked, popover.background.touch-selection button.suggested-action.flat:backdrop:disabled:active, popover.background.magnifier button.suggested-action.flat:backdrop:disabled:active, popover.background.touch-selection button.suggested-action.flat:backdrop:disabled:checked, popover.background.magnifier button.suggested-action.flat:backdrop:disabled:checked, popover.background.touch-selection button.suggested-action.osd button:backdrop:disabled:active, popover.background.magnifier button.suggested-action.osd button:backdrop:disabled:active, popover.background.touch-selection button.suggested-action.osd button:backdrop:disabled:checked, popover.background.magnifier button.suggested-action.osd button:backdrop:disabled:checked, popover.background.touch-selection button.suggested-action.osd button.flat:backdrop:disabled:active, popover.background.magnifier button.suggested-action.osd button.flat:backdrop:disabled:active, popover.background.touch-selection button.suggested-action.osd button.flat:backdrop:disabled:checked, popover.background.magnifier button.suggested-action.osd button.flat:backdrop:disabled:checked,
+      popover.background.touch-selection button.suggested-action:backdrop:disabled:active, popover.background.magnifier button.suggested-action:backdrop:disabled:active, popover.background.touch-selection button.suggested-action:backdrop:disabled:checked, popover.background.magnifier button.suggested-action:backdrop:disabled:checked, popover.background.touch-selection button.suggested-action.flat:backdrop:disabled:active, popover.background.magnifier button.suggested-action.flat:backdrop:disabled:active, popover.background.touch-selection button.suggested-action.flat:backdrop:disabled:checked, popover.background.magnifier button.suggested-action.flat:backdrop:disabled:checked,
+      popover.background.touch-selection button.suggested-action.osd button:backdrop:disabled:active,
+      popover.background.magnifier button.suggested-action.osd button:backdrop:disabled:active,
+      popover.background.touch-selection button.suggested-action.osd button:backdrop:disabled:checked,
+      popover.background.magnifier button.suggested-action.osd button:backdrop:disabled:checked,
+      popover.background.touch-selection button.suggested-action.osd button.flat:backdrop:disabled:active,
+      popover.background.magnifier button.suggested-action.osd button.flat:backdrop:disabled:active,
+      popover.background.touch-selection button.suggested-action.osd button.flat:backdrop:disabled:checked,
+      popover.background.magnifier button.suggested-action.osd button.flat:backdrop:disabled:checked,
       button.suggested-action:backdrop:disabled:active,
       button.suggested-action:backdrop:disabled:checked,
       button.suggested-action.flat:backdrop:disabled:active,
@@ -652,15 +702,15 @@ button {
       button.suggested-action.osd popover.background.touch-selection button.flat:backdrop:disabled:checked,
       popover.background.touch-selection button.suggested-action.osd button.flat:backdrop:disabled:checked,
       button.suggested-action.osd popover.background.magnifier button.flat:backdrop:disabled:checked,
-      popover.background.magnifier button.suggested-action.osd button.flat:backdrop:disabled:checked, popover.background.touch-selection button.suggested-action.osd
-      button:backdrop:disabled:active, popover.background.magnifier button.suggested-action.osd
-      button:backdrop:disabled:active, popover.background.touch-selection button.suggested-action.osd
-      button:backdrop:disabled:checked, popover.background.magnifier button.suggested-action.osd
-      button:backdrop:disabled:checked, popover.background.touch-selection button.suggested-action.osd
-      button.flat:backdrop:disabled:active, popover.background.magnifier button.suggested-action.osd
-      button.flat:backdrop:disabled:active, popover.background.touch-selection button.suggested-action.osd
-      button.flat:backdrop:disabled:checked, popover.background.magnifier button.suggested-action.osd
-      button.flat:backdrop:disabled:checked,
+      popover.background.magnifier button.suggested-action.osd button.flat:backdrop:disabled:checked,
+      popover.background.touch-selection button.suggested-action.osd button:backdrop:disabled:active,
+      popover.background.magnifier button.suggested-action.osd button:backdrop:disabled:active,
+      popover.background.touch-selection button.suggested-action.osd button:backdrop:disabled:checked,
+      popover.background.magnifier button.suggested-action.osd button:backdrop:disabled:checked,
+      popover.background.touch-selection button.suggested-action.osd button.flat:backdrop:disabled:active,
+      popover.background.magnifier button.suggested-action.osd button.flat:backdrop:disabled:active,
+      popover.background.touch-selection button.suggested-action.osd button.flat:backdrop:disabled:checked,
+      popover.background.magnifier button.suggested-action.osd button.flat:backdrop:disabled:checked,
       button.suggested-action.osd
       button:backdrop:disabled:active,
       button.suggested-action.osd
@@ -672,7 +722,23 @@ button {
         color: rgba(232, 232, 232, 0.35);
         border-color: rgba(37, 164, 230, 0.35);
         background-image: linear-gradient(to bottom, rgba(44, 167, 231, 0.35), rgba(25, 152, 218, 0.35)); }
-        popover.background.touch-selection button.suggested-action:backdrop:disabled:active > .label, popover.background.magnifier button.suggested-action:backdrop:disabled:active > .label, popover.background.touch-selection button.suggested-action:backdrop:disabled:checked > .label, popover.background.magnifier button.suggested-action:backdrop:disabled:checked > .label, popover.background.touch-selection button.suggested-action.flat:backdrop:disabled:active > .label, popover.background.magnifier button.suggested-action.flat:backdrop:disabled:active > .label, popover.background.touch-selection button.suggested-action.flat:backdrop:disabled:checked > .label, popover.background.magnifier button.suggested-action.flat:backdrop:disabled:checked > .label, popover.background.touch-selection button.suggested-action.osd button:backdrop:disabled:active > .label, popover.background.magnifier button.suggested-action.osd popover.background.touch-selection button:backdrop:disabled:active > .label, popover.background.touch-selection button.suggested-action.osd popover.background.magnifier button:backdrop:disabled:active > .label, popover.background.magnifier button.suggested-action.osd button:backdrop:disabled:active > .label, popover.background.touch-selection button.suggested-action.osd button:backdrop:disabled:checked > .label, popover.background.magnifier button.suggested-action.osd popover.background.touch-selection button:backdrop:disabled:checked > .label, popover.background.touch-selection button.suggested-action.osd popover.background.magnifier button:backdrop:disabled:checked > .label, popover.background.magnifier button.suggested-action.osd button:backdrop:disabled:checked > .label, popover.background.touch-selection button.suggested-action.osd button.flat:backdrop:disabled:active > .label, popover.background.magnifier button.suggested-action.osd popover.background.touch-selection button.flat:backdrop:disabled:active > .label, popover.background.touch-selection button.suggested-action.osd popover.background.magnifier button.flat:backdrop:disabled:active > .label, popover.background.magnifier button.suggested-action.osd button.flat:backdrop:disabled:active > .label, popover.background.touch-selection button.suggested-action.osd button.flat:backdrop:disabled:checked > .label, popover.background.magnifier button.suggested-action.osd popover.background.touch-selection button.flat:backdrop:disabled:checked > .label, popover.background.touch-selection button.suggested-action.osd popover.background.magnifier button.flat:backdrop:disabled:checked > .label, popover.background.magnifier button.suggested-action.osd button.flat:backdrop:disabled:checked > .label,
+        popover.background.touch-selection button.suggested-action:backdrop:disabled:active > .label, popover.background.magnifier button.suggested-action:backdrop:disabled:active > .label, popover.background.touch-selection button.suggested-action:backdrop:disabled:checked > .label, popover.background.magnifier button.suggested-action:backdrop:disabled:checked > .label, popover.background.touch-selection button.suggested-action.flat:backdrop:disabled:active > .label, popover.background.magnifier button.suggested-action.flat:backdrop:disabled:active > .label, popover.background.touch-selection button.suggested-action.flat:backdrop:disabled:checked > .label, popover.background.magnifier button.suggested-action.flat:backdrop:disabled:checked > .label,
+        popover.background.touch-selection button.suggested-action.osd button:backdrop:disabled:active > .label,
+        popover.background.magnifier button.suggested-action.osd popover.background.touch-selection button:backdrop:disabled:active > .label,
+        popover.background.touch-selection button.suggested-action.osd popover.background.magnifier button:backdrop:disabled:active > .label,
+        popover.background.magnifier button.suggested-action.osd button:backdrop:disabled:active > .label,
+        popover.background.touch-selection button.suggested-action.osd button:backdrop:disabled:checked > .label,
+        popover.background.magnifier button.suggested-action.osd popover.background.touch-selection button:backdrop:disabled:checked > .label,
+        popover.background.touch-selection button.suggested-action.osd popover.background.magnifier button:backdrop:disabled:checked > .label,
+        popover.background.magnifier button.suggested-action.osd button:backdrop:disabled:checked > .label,
+        popover.background.touch-selection button.suggested-action.osd button.flat:backdrop:disabled:active > .label,
+        popover.background.magnifier button.suggested-action.osd popover.background.touch-selection button.flat:backdrop:disabled:active > .label,
+        popover.background.touch-selection button.suggested-action.osd popover.background.magnifier button.flat:backdrop:disabled:active > .label,
+        popover.background.magnifier button.suggested-action.osd button.flat:backdrop:disabled:active > .label,
+        popover.background.touch-selection button.suggested-action.osd button.flat:backdrop:disabled:checked > .label,
+        popover.background.magnifier button.suggested-action.osd popover.background.touch-selection button.flat:backdrop:disabled:checked > .label,
+        popover.background.touch-selection button.suggested-action.osd popover.background.magnifier button.flat:backdrop:disabled:checked > .label,
+        popover.background.magnifier button.suggested-action.osd button.flat:backdrop:disabled:checked > .label,
         button.suggested-action:backdrop:disabled:active > .label,
         button.suggested-action:backdrop:disabled:checked > .label,
         button.suggested-action.flat:backdrop:disabled:active > .label,
@@ -692,15 +758,15 @@ button {
         button.suggested-action.osd popover.background.touch-selection button.flat:backdrop:disabled:checked > .label,
         popover.background.touch-selection button.suggested-action.osd button.flat:backdrop:disabled:checked > .label,
         button.suggested-action.osd popover.background.magnifier button.flat:backdrop:disabled:checked > .label,
-        popover.background.magnifier button.suggested-action.osd button.flat:backdrop:disabled:checked > .label, popover.background.touch-selection button.suggested-action.osd
-        button:backdrop:disabled:active > .label, popover.background.magnifier button.suggested-action.osd
-        button:backdrop:disabled:active > .label, popover.background.touch-selection button.suggested-action.osd
-        button:backdrop:disabled:checked > .label, popover.background.magnifier button.suggested-action.osd
-        button:backdrop:disabled:checked > .label, popover.background.touch-selection button.suggested-action.osd
-        button.flat:backdrop:disabled:active > .label, popover.background.magnifier button.suggested-action.osd
-        button.flat:backdrop:disabled:active > .label, popover.background.touch-selection button.suggested-action.osd
-        button.flat:backdrop:disabled:checked > .label, popover.background.magnifier button.suggested-action.osd
-        button.flat:backdrop:disabled:checked > .label,
+        popover.background.magnifier button.suggested-action.osd button.flat:backdrop:disabled:checked > .label,
+        popover.background.touch-selection button.suggested-action.osd button:backdrop:disabled:active > .label,
+        popover.background.magnifier button.suggested-action.osd button:backdrop:disabled:active > .label,
+        popover.background.touch-selection button.suggested-action.osd button:backdrop:disabled:checked > .label,
+        popover.background.magnifier button.suggested-action.osd button:backdrop:disabled:checked > .label,
+        popover.background.touch-selection button.suggested-action.osd button.flat:backdrop:disabled:active > .label,
+        popover.background.magnifier button.suggested-action.osd button.flat:backdrop:disabled:active > .label,
+        popover.background.touch-selection button.suggested-action.osd button.flat:backdrop:disabled:checked > .label,
+        popover.background.magnifier button.suggested-action.osd button.flat:backdrop:disabled:checked > .label,
         button.suggested-action.osd
         button:backdrop:disabled:active > .label,
         button.suggested-action.osd
@@ -710,7 +776,13 @@ button {
         button.suggested-action.osd
         button.flat:backdrop:disabled:checked > .label {
           color: inherit; }
-  popover.background.touch-selection button.suggested-action.flat:backdrop, popover.background.magnifier button.suggested-action.flat:backdrop, popover.background.touch-selection button.suggested-action.flat:disabled, popover.background.magnifier button.suggested-action.flat:disabled, popover.background.touch-selection button.suggested-action.flat:backdrop:disabled, popover.background.magnifier button.suggested-action.flat:backdrop:disabled, popover.background.touch-selection button.suggested-action.osd button.flat:backdrop, popover.background.magnifier button.suggested-action.osd button.flat:backdrop, popover.background.touch-selection button.suggested-action.osd button.flat:disabled, popover.background.magnifier button.suggested-action.osd button.flat:disabled, popover.background.touch-selection button.suggested-action.osd button.flat:backdrop:disabled, popover.background.magnifier button.suggested-action.osd button.flat:backdrop:disabled,
+  popover.background.touch-selection button.suggested-action.flat:backdrop, popover.background.magnifier button.suggested-action.flat:backdrop, popover.background.touch-selection button.suggested-action.flat:disabled, popover.background.magnifier button.suggested-action.flat:disabled, popover.background.touch-selection button.suggested-action.flat:backdrop:disabled, popover.background.magnifier button.suggested-action.flat:backdrop:disabled,
+  popover.background.touch-selection button.suggested-action.osd button.flat:backdrop,
+  popover.background.magnifier button.suggested-action.osd button.flat:backdrop,
+  popover.background.touch-selection button.suggested-action.osd button.flat:disabled,
+  popover.background.magnifier button.suggested-action.osd button.flat:disabled,
+  popover.background.touch-selection button.suggested-action.osd button.flat:backdrop:disabled,
+  popover.background.magnifier button.suggested-action.osd button.flat:backdrop:disabled,
   button.suggested-action.flat:backdrop,
   button.suggested-action.flat:disabled,
   button.suggested-action.flat:backdrop:disabled,
@@ -725,13 +797,13 @@ button {
   button.suggested-action.osd popover.background.touch-selection button.flat:backdrop:disabled,
   popover.background.touch-selection button.suggested-action.osd button.flat:backdrop:disabled,
   button.suggested-action.osd popover.background.magnifier button.flat:backdrop:disabled,
-  popover.background.magnifier button.suggested-action.osd button.flat:backdrop:disabled, popover.background.touch-selection button.suggested-action.osd
-  button.flat:backdrop, popover.background.magnifier button.suggested-action.osd
-  button.flat:backdrop, popover.background.touch-selection button.suggested-action.osd
-  button.flat:disabled, popover.background.magnifier button.suggested-action.osd
-  button.flat:disabled, popover.background.touch-selection button.suggested-action.osd
-  button.flat:backdrop:disabled, popover.background.magnifier button.suggested-action.osd
-  button.flat:backdrop:disabled,
+  popover.background.magnifier button.suggested-action.osd button.flat:backdrop:disabled,
+  popover.background.touch-selection button.suggested-action.osd button.flat:backdrop,
+  popover.background.magnifier button.suggested-action.osd button.flat:backdrop,
+  popover.background.touch-selection button.suggested-action.osd button.flat:disabled,
+  popover.background.magnifier button.suggested-action.osd button.flat:disabled,
+  popover.background.touch-selection button.suggested-action.osd button.flat:backdrop:disabled,
+  popover.background.magnifier button.suggested-action.osd button.flat:backdrop:disabled,
   button.suggested-action.osd
   button.flat:backdrop,
   button.suggested-action.osd
@@ -746,31 +818,41 @@ button {
     text-shadow: none;
     -gtk-icon-shadow: none;
     color: rgba(61, 174, 233, 0.8); }
-  popover.background.touch-selection button.suggested-action:disabled, popover.background.magnifier button.suggested-action:disabled, popover.background.touch-selection button.suggested-action.osd button:disabled, popover.background.magnifier button.suggested-action.osd button:disabled,
+  popover.background.touch-selection button.suggested-action:disabled, popover.background.magnifier button.suggested-action:disabled,
+  popover.background.touch-selection button.suggested-action.osd button:disabled,
+  popover.background.magnifier button.suggested-action.osd button:disabled,
   button.suggested-action:disabled,
   button.suggested-action.osd popover.background.touch-selection button:disabled,
   popover.background.touch-selection button.suggested-action.osd button:disabled,
   button.suggested-action.osd popover.background.magnifier button:disabled,
-  popover.background.magnifier button.suggested-action.osd button:disabled, popover.background.touch-selection button.suggested-action.osd
-  button:disabled, popover.background.magnifier button.suggested-action.osd
-  button:disabled,
+  popover.background.magnifier button.suggested-action.osd button:disabled,
+  popover.background.touch-selection button.suggested-action.osd button:disabled,
+  popover.background.magnifier button.suggested-action.osd button:disabled,
   button.suggested-action.osd
   button:disabled {
     color: rgba(216, 218, 221, 0.35);
     border-color: rgba(88, 92, 95, 0.35);
     background-image: linear-gradient(to bottom, #2d3236, #2b3034); }
-    popover.background.touch-selection button.suggested-action:disabled > .label, popover.background.magnifier button.suggested-action:disabled > .label, popover.background.touch-selection button.suggested-action.osd button:disabled > .label, popover.background.magnifier button.suggested-action.osd popover.background.touch-selection button:disabled > .label, popover.background.touch-selection button.suggested-action.osd popover.background.magnifier button:disabled > .label, popover.background.magnifier button.suggested-action.osd button:disabled > .label,
+    popover.background.touch-selection button.suggested-action:disabled > .label, popover.background.magnifier button.suggested-action:disabled > .label,
+    popover.background.touch-selection button.suggested-action.osd button:disabled > .label,
+    popover.background.magnifier button.suggested-action.osd popover.background.touch-selection button:disabled > .label,
+    popover.background.touch-selection button.suggested-action.osd popover.background.magnifier button:disabled > .label,
+    popover.background.magnifier button.suggested-action.osd button:disabled > .label,
     button.suggested-action:disabled > .label,
     button.suggested-action.osd popover.background.touch-selection button:disabled > .label,
     popover.background.touch-selection button.suggested-action.osd button:disabled > .label,
     button.suggested-action.osd popover.background.magnifier button:disabled > .label,
-    popover.background.magnifier button.suggested-action.osd button:disabled > .label, popover.background.touch-selection button.suggested-action.osd
-    button:disabled > .label, popover.background.magnifier button.suggested-action.osd
-    button:disabled > .label,
+    popover.background.magnifier button.suggested-action.osd button:disabled > .label,
+    popover.background.touch-selection button.suggested-action.osd button:disabled > .label,
+    popover.background.magnifier button.suggested-action.osd button:disabled > .label,
     button.suggested-action.osd
     button:disabled > .label {
       color: inherit; }
-    popover.background.touch-selection button.suggested-action:disabled:active, popover.background.magnifier button.suggested-action:disabled:active, popover.background.touch-selection button.suggested-action:disabled:checked, popover.background.magnifier button.suggested-action:disabled:checked, popover.background.touch-selection button.suggested-action.osd button:disabled:active, popover.background.magnifier button.suggested-action.osd button:disabled:active, popover.background.touch-selection button.suggested-action.osd button:disabled:checked, popover.background.magnifier button.suggested-action.osd button:disabled:checked,
+    popover.background.touch-selection button.suggested-action:disabled:active, popover.background.magnifier button.suggested-action:disabled:active, popover.background.touch-selection button.suggested-action:disabled:checked, popover.background.magnifier button.suggested-action:disabled:checked,
+    popover.background.touch-selection button.suggested-action.osd button:disabled:active,
+    popover.background.magnifier button.suggested-action.osd button:disabled:active,
+    popover.background.touch-selection button.suggested-action.osd button:disabled:checked,
+    popover.background.magnifier button.suggested-action.osd button:disabled:checked,
     button.suggested-action:disabled:active,
     button.suggested-action:disabled:checked,
     button.suggested-action.osd popover.background.touch-selection button:disabled:active,
@@ -780,11 +862,11 @@ button {
     button.suggested-action.osd popover.background.touch-selection button:disabled:checked,
     popover.background.touch-selection button.suggested-action.osd button:disabled:checked,
     button.suggested-action.osd popover.background.magnifier button:disabled:checked,
-    popover.background.magnifier button.suggested-action.osd button:disabled:checked, popover.background.touch-selection button.suggested-action.osd
-    button:disabled:active, popover.background.magnifier button.suggested-action.osd
-    button:disabled:active, popover.background.touch-selection button.suggested-action.osd
-    button:disabled:checked, popover.background.magnifier button.suggested-action.osd
-    button:disabled:checked,
+    popover.background.magnifier button.suggested-action.osd button:disabled:checked,
+    popover.background.touch-selection button.suggested-action.osd button:disabled:active,
+    popover.background.magnifier button.suggested-action.osd button:disabled:active,
+    popover.background.touch-selection button.suggested-action.osd button:disabled:checked,
+    popover.background.magnifier button.suggested-action.osd button:disabled:checked,
     button.suggested-action.osd
     button:disabled:active,
     button.suggested-action.osd
@@ -792,7 +874,15 @@ button {
       color: rgba(232, 232, 232, 0.35);
       border-color: rgba(37, 164, 230, 0.35);
       background-image: linear-gradient(to bottom, rgba(44, 167, 231, 0.35), rgba(25, 152, 218, 0.35)); }
-      popover.background.touch-selection button.suggested-action:disabled:active > .label, popover.background.magnifier button.suggested-action:disabled:active > .label, popover.background.touch-selection button.suggested-action:disabled:checked > .label, popover.background.magnifier button.suggested-action:disabled:checked > .label, popover.background.touch-selection button.suggested-action.osd button:disabled:active > .label, popover.background.magnifier button.suggested-action.osd popover.background.touch-selection button:disabled:active > .label, popover.background.touch-selection button.suggested-action.osd popover.background.magnifier button:disabled:active > .label, popover.background.magnifier button.suggested-action.osd button:disabled:active > .label, popover.background.touch-selection button.suggested-action.osd button:disabled:checked > .label, popover.background.magnifier button.suggested-action.osd popover.background.touch-selection button:disabled:checked > .label, popover.background.touch-selection button.suggested-action.osd popover.background.magnifier button:disabled:checked > .label, popover.background.magnifier button.suggested-action.osd button:disabled:checked > .label,
+      popover.background.touch-selection button.suggested-action:disabled:active > .label, popover.background.magnifier button.suggested-action:disabled:active > .label, popover.background.touch-selection button.suggested-action:disabled:checked > .label, popover.background.magnifier button.suggested-action:disabled:checked > .label,
+      popover.background.touch-selection button.suggested-action.osd button:disabled:active > .label,
+      popover.background.magnifier button.suggested-action.osd popover.background.touch-selection button:disabled:active > .label,
+      popover.background.touch-selection button.suggested-action.osd popover.background.magnifier button:disabled:active > .label,
+      popover.background.magnifier button.suggested-action.osd button:disabled:active > .label,
+      popover.background.touch-selection button.suggested-action.osd button:disabled:checked > .label,
+      popover.background.magnifier button.suggested-action.osd popover.background.touch-selection button:disabled:checked > .label,
+      popover.background.touch-selection button.suggested-action.osd popover.background.magnifier button:disabled:checked > .label,
+      popover.background.magnifier button.suggested-action.osd button:disabled:checked > .label,
       button.suggested-action:disabled:active > .label,
       button.suggested-action:disabled:checked > .label,
       button.suggested-action.osd popover.background.touch-selection button:disabled:active > .label,
@@ -802,24 +892,27 @@ button {
       button.suggested-action.osd popover.background.touch-selection button:disabled:checked > .label,
       popover.background.touch-selection button.suggested-action.osd button:disabled:checked > .label,
       button.suggested-action.osd popover.background.magnifier button:disabled:checked > .label,
-      popover.background.magnifier button.suggested-action.osd button:disabled:checked > .label, popover.background.touch-selection button.suggested-action.osd
-      button:disabled:active > .label, popover.background.magnifier button.suggested-action.osd
-      button:disabled:active > .label, popover.background.touch-selection button.suggested-action.osd
-      button:disabled:checked > .label, popover.background.magnifier button.suggested-action.osd
-      button:disabled:checked > .label,
+      popover.background.magnifier button.suggested-action.osd button:disabled:checked > .label,
+      popover.background.touch-selection button.suggested-action.osd button:disabled:active > .label,
+      popover.background.magnifier button.suggested-action.osd button:disabled:active > .label,
+      popover.background.touch-selection button.suggested-action.osd button:disabled:checked > .label,
+      popover.background.magnifier button.suggested-action.osd button:disabled:checked > .label,
       button.suggested-action.osd
       button:disabled:active > .label,
       button.suggested-action.osd
       button:disabled:checked > .label {
         color: inherit; }
-popover.background.touch-selection button.destructive-action, popover.background.magnifier button.destructive-action, popover.background.touch-selection button.destructive-action.osd button, popover.background.magnifier button.destructive-action.osd button,
+
+popover.background.touch-selection button.destructive-action, popover.background.magnifier button.destructive-action,
+popover.background.touch-selection button.destructive-action.osd button,
+popover.background.magnifier button.destructive-action.osd button,
 button.destructive-action,
 button.destructive-action.osd popover.background.touch-selection button,
 popover.background.touch-selection button.destructive-action.osd button,
 button.destructive-action.osd popover.background.magnifier button,
-popover.background.magnifier button.destructive-action.osd button, popover.background.touch-selection button.destructive-action.osd
-button, popover.background.magnifier button.destructive-action.osd
-button,
+popover.background.magnifier button.destructive-action.osd button,
+popover.background.touch-selection button.destructive-action.osd button,
+popover.background.magnifier button.destructive-action.osd button,
 button.destructive-action.osd
 button {
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
@@ -828,14 +921,16 @@ button {
   color: #eff0f1;
   border-color: #da4453;
   background-image: linear-gradient(to bottom, #da4655, #d93d4d); }
-  popover.background.touch-selection button.destructive-action.flat, popover.background.magnifier button.destructive-action.flat, popover.background.touch-selection button.destructive-action.osd button.flat, popover.background.magnifier button.destructive-action.osd button.flat,
+  popover.background.touch-selection button.destructive-action.flat, popover.background.magnifier button.destructive-action.flat,
+  popover.background.touch-selection button.destructive-action.osd button.flat,
+  popover.background.magnifier button.destructive-action.osd button.flat,
   button.destructive-action.flat,
   button.destructive-action.osd popover.background.touch-selection button.flat,
   popover.background.touch-selection button.destructive-action.osd button.flat,
   button.destructive-action.osd popover.background.magnifier button.flat,
-  popover.background.magnifier button.destructive-action.osd button.flat, popover.background.touch-selection button.destructive-action.osd
-  button.flat, popover.background.magnifier button.destructive-action.osd
-  button.flat,
+  popover.background.magnifier button.destructive-action.osd button.flat,
+  popover.background.touch-selection button.destructive-action.osd button.flat,
+  popover.background.magnifier button.destructive-action.osd button.flat,
   button.destructive-action.osd
   button.flat {
     border-color: rgba(255, 255, 255, 0);
@@ -846,19 +941,25 @@ button {
     text-shadow: none;
     -gtk-icon-shadow: none;
     color: #da4453; }
-  popover.background.touch-selection button.destructive-action:hover, popover.background.magnifier button.destructive-action:hover, popover.background.touch-selection button.destructive-action.osd button:hover, popover.background.magnifier button.destructive-action.osd button:hover,
+  popover.background.touch-selection button.destructive-action:hover, popover.background.magnifier button.destructive-action:hover,
+  popover.background.touch-selection button.destructive-action.osd button:hover,
+  popover.background.magnifier button.destructive-action.osd button:hover,
   button.destructive-action:hover,
   button.destructive-action.osd popover.background.touch-selection button:hover,
   popover.background.touch-selection button.destructive-action.osd button:hover,
   button.destructive-action.osd popover.background.magnifier button:hover,
-  popover.background.magnifier button.destructive-action.osd button:hover, popover.background.touch-selection button.destructive-action.osd
-  button:hover, popover.background.magnifier button.destructive-action.osd
-  button:hover,
+  popover.background.magnifier button.destructive-action.osd button:hover,
+  popover.background.touch-selection button.destructive-action.osd button:hover,
+  popover.background.magnifier button.destructive-action.osd button:hover,
   button.destructive-action.osd
   button:hover {
     color: white;
     border-color: #da4453; }
-  popover.background.touch-selection button.destructive-action:active, popover.background.magnifier button.destructive-action:active, popover.background.touch-selection button.destructive-action:checked, popover.background.magnifier button.destructive-action:checked, popover.background.touch-selection button.destructive-action.osd button:active, popover.background.magnifier button.destructive-action.osd button:active, popover.background.touch-selection button.destructive-action.osd button:checked, popover.background.magnifier button.destructive-action.osd button:checked,
+  popover.background.touch-selection button.destructive-action:active, popover.background.magnifier button.destructive-action:active, popover.background.touch-selection button.destructive-action:checked, popover.background.magnifier button.destructive-action:checked,
+  popover.background.touch-selection button.destructive-action.osd button:active,
+  popover.background.magnifier button.destructive-action.osd button:active,
+  popover.background.touch-selection button.destructive-action.osd button:checked,
+  popover.background.magnifier button.destructive-action.osd button:checked,
   button.destructive-action:active,
   button.destructive-action:checked,
   button.destructive-action.osd popover.background.touch-selection button:active,
@@ -868,11 +969,11 @@ button {
   button.destructive-action.osd popover.background.touch-selection button:checked,
   popover.background.touch-selection button.destructive-action.osd button:checked,
   button.destructive-action.osd popover.background.magnifier button:checked,
-  popover.background.magnifier button.destructive-action.osd button:checked, popover.background.touch-selection button.destructive-action.osd
-  button:active, popover.background.magnifier button.destructive-action.osd
-  button:active, popover.background.touch-selection button.destructive-action.osd
-  button:checked, popover.background.magnifier button.destructive-action.osd
-  button:checked,
+  popover.background.magnifier button.destructive-action.osd button:checked,
+  popover.background.touch-selection button.destructive-action.osd button:active,
+  popover.background.magnifier button.destructive-action.osd button:active,
+  popover.background.touch-selection button.destructive-action.osd button:checked,
+  popover.background.magnifier button.destructive-action.osd button:checked,
   button.destructive-action.osd
   button:active,
   button.destructive-action.osd
@@ -880,7 +981,11 @@ button {
     color: white;
     border-color: #da4453;
     background-image: linear-gradient(to bottom, #db4b5a, #d62e3f); }
-  popover.background.touch-selection button.destructive-action:backdrop, popover.background.magnifier button.destructive-action:backdrop, popover.background.touch-selection button.destructive-action.flat:backdrop, popover.background.magnifier button.destructive-action.flat:backdrop, popover.background.touch-selection button.destructive-action.osd button:backdrop, popover.background.magnifier button.destructive-action.osd button:backdrop, popover.background.touch-selection button.destructive-action.osd button.flat:backdrop, popover.background.magnifier button.destructive-action.osd button.flat:backdrop,
+  popover.background.touch-selection button.destructive-action:backdrop, popover.background.magnifier button.destructive-action:backdrop, popover.background.touch-selection button.destructive-action.flat:backdrop, popover.background.magnifier button.destructive-action.flat:backdrop,
+  popover.background.touch-selection button.destructive-action.osd button:backdrop,
+  popover.background.magnifier button.destructive-action.osd button:backdrop,
+  popover.background.touch-selection button.destructive-action.osd button.flat:backdrop,
+  popover.background.magnifier button.destructive-action.osd button.flat:backdrop,
   button.destructive-action:backdrop,
   button.destructive-action.flat:backdrop,
   button.destructive-action.osd popover.background.touch-selection button:backdrop,
@@ -890,11 +995,11 @@ button {
   button.destructive-action.osd popover.background.touch-selection button.flat:backdrop,
   popover.background.touch-selection button.destructive-action.osd button.flat:backdrop,
   button.destructive-action.osd popover.background.magnifier button.flat:backdrop,
-  popover.background.magnifier button.destructive-action.osd button.flat:backdrop, popover.background.touch-selection button.destructive-action.osd
-  button:backdrop, popover.background.magnifier button.destructive-action.osd
-  button:backdrop, popover.background.touch-selection button.destructive-action.osd
-  button.flat:backdrop, popover.background.magnifier button.destructive-action.osd
-  button.flat:backdrop,
+  popover.background.magnifier button.destructive-action.osd button.flat:backdrop,
+  popover.background.touch-selection button.destructive-action.osd button:backdrop,
+  popover.background.magnifier button.destructive-action.osd button:backdrop,
+  popover.background.touch-selection button.destructive-action.osd button.flat:backdrop,
+  popover.background.magnifier button.destructive-action.osd button.flat:backdrop,
   button.destructive-action.osd
   button:backdrop,
   button.destructive-action.osd
@@ -902,7 +1007,15 @@ button {
     color: white;
     border-color: #616569;
     background-image: linear-gradient(to bottom, #da4655, #d93d4d); }
-    popover.background.touch-selection button.destructive-action:backdrop:active, popover.background.magnifier button.destructive-action:backdrop:active, popover.background.touch-selection button.destructive-action:backdrop:checked, popover.background.magnifier button.destructive-action:backdrop:checked, popover.background.touch-selection button.destructive-action.flat:backdrop:active, popover.background.magnifier button.destructive-action.flat:backdrop:active, popover.background.touch-selection button.destructive-action.flat:backdrop:checked, popover.background.magnifier button.destructive-action.flat:backdrop:checked, popover.background.touch-selection button.destructive-action.osd button:backdrop:active, popover.background.magnifier button.destructive-action.osd button:backdrop:active, popover.background.touch-selection button.destructive-action.osd button:backdrop:checked, popover.background.magnifier button.destructive-action.osd button:backdrop:checked, popover.background.touch-selection button.destructive-action.osd button.flat:backdrop:active, popover.background.magnifier button.destructive-action.osd button.flat:backdrop:active, popover.background.touch-selection button.destructive-action.osd button.flat:backdrop:checked, popover.background.magnifier button.destructive-action.osd button.flat:backdrop:checked,
+    popover.background.touch-selection button.destructive-action:backdrop:active, popover.background.magnifier button.destructive-action:backdrop:active, popover.background.touch-selection button.destructive-action:backdrop:checked, popover.background.magnifier button.destructive-action:backdrop:checked, popover.background.touch-selection button.destructive-action.flat:backdrop:active, popover.background.magnifier button.destructive-action.flat:backdrop:active, popover.background.touch-selection button.destructive-action.flat:backdrop:checked, popover.background.magnifier button.destructive-action.flat:backdrop:checked,
+    popover.background.touch-selection button.destructive-action.osd button:backdrop:active,
+    popover.background.magnifier button.destructive-action.osd button:backdrop:active,
+    popover.background.touch-selection button.destructive-action.osd button:backdrop:checked,
+    popover.background.magnifier button.destructive-action.osd button:backdrop:checked,
+    popover.background.touch-selection button.destructive-action.osd button.flat:backdrop:active,
+    popover.background.magnifier button.destructive-action.osd button.flat:backdrop:active,
+    popover.background.touch-selection button.destructive-action.osd button.flat:backdrop:checked,
+    popover.background.magnifier button.destructive-action.osd button.flat:backdrop:checked,
     button.destructive-action:backdrop:active,
     button.destructive-action:backdrop:checked,
     button.destructive-action.flat:backdrop:active,
@@ -922,15 +1035,15 @@ button {
     button.destructive-action.osd popover.background.touch-selection button.flat:backdrop:checked,
     popover.background.touch-selection button.destructive-action.osd button.flat:backdrop:checked,
     button.destructive-action.osd popover.background.magnifier button.flat:backdrop:checked,
-    popover.background.magnifier button.destructive-action.osd button.flat:backdrop:checked, popover.background.touch-selection button.destructive-action.osd
-    button:backdrop:active, popover.background.magnifier button.destructive-action.osd
-    button:backdrop:active, popover.background.touch-selection button.destructive-action.osd
-    button:backdrop:checked, popover.background.magnifier button.destructive-action.osd
-    button:backdrop:checked, popover.background.touch-selection button.destructive-action.osd
-    button.flat:backdrop:active, popover.background.magnifier button.destructive-action.osd
-    button.flat:backdrop:active, popover.background.touch-selection button.destructive-action.osd
-    button.flat:backdrop:checked, popover.background.magnifier button.destructive-action.osd
-    button.flat:backdrop:checked,
+    popover.background.magnifier button.destructive-action.osd button.flat:backdrop:checked,
+    popover.background.touch-selection button.destructive-action.osd button:backdrop:active,
+    popover.background.magnifier button.destructive-action.osd button:backdrop:active,
+    popover.background.touch-selection button.destructive-action.osd button:backdrop:checked,
+    popover.background.magnifier button.destructive-action.osd button:backdrop:checked,
+    popover.background.touch-selection button.destructive-action.osd button.flat:backdrop:active,
+    popover.background.magnifier button.destructive-action.osd button.flat:backdrop:active,
+    popover.background.touch-selection button.destructive-action.osd button.flat:backdrop:checked,
+    popover.background.magnifier button.destructive-action.osd button.flat:backdrop:checked,
     button.destructive-action.osd
     button:backdrop:active,
     button.destructive-action.osd
@@ -942,7 +1055,11 @@ button {
       color: white;
       border-color: #da4453;
       background-image: linear-gradient(to bottom, #db4b5a, #d62e3f); }
-    popover.background.touch-selection button.destructive-action:backdrop:disabled, popover.background.magnifier button.destructive-action:backdrop:disabled, popover.background.touch-selection button.destructive-action.flat:backdrop:disabled, popover.background.magnifier button.destructive-action.flat:backdrop:disabled, popover.background.touch-selection button.destructive-action.osd button:backdrop:disabled, popover.background.magnifier button.destructive-action.osd button:backdrop:disabled, popover.background.touch-selection button.destructive-action.osd button.flat:backdrop:disabled, popover.background.magnifier button.destructive-action.osd button.flat:backdrop:disabled,
+    popover.background.touch-selection button.destructive-action:backdrop:disabled, popover.background.magnifier button.destructive-action:backdrop:disabled, popover.background.touch-selection button.destructive-action.flat:backdrop:disabled, popover.background.magnifier button.destructive-action.flat:backdrop:disabled,
+    popover.background.touch-selection button.destructive-action.osd button:backdrop:disabled,
+    popover.background.magnifier button.destructive-action.osd button:backdrop:disabled,
+    popover.background.touch-selection button.destructive-action.osd button.flat:backdrop:disabled,
+    popover.background.magnifier button.destructive-action.osd button.flat:backdrop:disabled,
     button.destructive-action:backdrop:disabled,
     button.destructive-action.flat:backdrop:disabled,
     button.destructive-action.osd popover.background.touch-selection button:backdrop:disabled,
@@ -952,11 +1069,11 @@ button {
     button.destructive-action.osd popover.background.touch-selection button.flat:backdrop:disabled,
     popover.background.touch-selection button.destructive-action.osd button.flat:backdrop:disabled,
     button.destructive-action.osd popover.background.magnifier button.flat:backdrop:disabled,
-    popover.background.magnifier button.destructive-action.osd button.flat:backdrop:disabled, popover.background.touch-selection button.destructive-action.osd
-    button:backdrop:disabled, popover.background.magnifier button.destructive-action.osd
-    button:backdrop:disabled, popover.background.touch-selection button.destructive-action.osd
-    button.flat:backdrop:disabled, popover.background.magnifier button.destructive-action.osd
-    button.flat:backdrop:disabled,
+    popover.background.magnifier button.destructive-action.osd button.flat:backdrop:disabled,
+    popover.background.touch-selection button.destructive-action.osd button:backdrop:disabled,
+    popover.background.magnifier button.destructive-action.osd button:backdrop:disabled,
+    popover.background.touch-selection button.destructive-action.osd button.flat:backdrop:disabled,
+    popover.background.magnifier button.destructive-action.osd button.flat:backdrop:disabled,
     button.destructive-action.osd
     button:backdrop:disabled,
     button.destructive-action.osd
@@ -964,7 +1081,15 @@ button {
       color: rgba(216, 218, 221, 0.35);
       border-color: rgba(88, 92, 95, 0.35);
       background-image: linear-gradient(to bottom, #2d3236, #2b3034); }
-      popover.background.touch-selection button.destructive-action:backdrop:disabled > .label, popover.background.magnifier button.destructive-action:backdrop:disabled > .label, popover.background.touch-selection button.destructive-action.flat:backdrop:disabled > .label, popover.background.magnifier button.destructive-action.flat:backdrop:disabled > .label, popover.background.touch-selection button.destructive-action.osd button:backdrop:disabled > .label, popover.background.magnifier button.destructive-action.osd popover.background.touch-selection button:backdrop:disabled > .label, popover.background.touch-selection button.destructive-action.osd popover.background.magnifier button:backdrop:disabled > .label, popover.background.magnifier button.destructive-action.osd button:backdrop:disabled > .label, popover.background.touch-selection button.destructive-action.osd button.flat:backdrop:disabled > .label, popover.background.magnifier button.destructive-action.osd popover.background.touch-selection button.flat:backdrop:disabled > .label, popover.background.touch-selection button.destructive-action.osd popover.background.magnifier button.flat:backdrop:disabled > .label, popover.background.magnifier button.destructive-action.osd button.flat:backdrop:disabled > .label,
+      popover.background.touch-selection button.destructive-action:backdrop:disabled > .label, popover.background.magnifier button.destructive-action:backdrop:disabled > .label, popover.background.touch-selection button.destructive-action.flat:backdrop:disabled > .label, popover.background.magnifier button.destructive-action.flat:backdrop:disabled > .label,
+      popover.background.touch-selection button.destructive-action.osd button:backdrop:disabled > .label,
+      popover.background.magnifier button.destructive-action.osd popover.background.touch-selection button:backdrop:disabled > .label,
+      popover.background.touch-selection button.destructive-action.osd popover.background.magnifier button:backdrop:disabled > .label,
+      popover.background.magnifier button.destructive-action.osd button:backdrop:disabled > .label,
+      popover.background.touch-selection button.destructive-action.osd button.flat:backdrop:disabled > .label,
+      popover.background.magnifier button.destructive-action.osd popover.background.touch-selection button.flat:backdrop:disabled > .label,
+      popover.background.touch-selection button.destructive-action.osd popover.background.magnifier button.flat:backdrop:disabled > .label,
+      popover.background.magnifier button.destructive-action.osd button.flat:backdrop:disabled > .label,
       button.destructive-action:backdrop:disabled > .label,
       button.destructive-action.flat:backdrop:disabled > .label,
       button.destructive-action.osd popover.background.touch-selection button:backdrop:disabled > .label,
@@ -974,17 +1099,25 @@ button {
       button.destructive-action.osd popover.background.touch-selection button.flat:backdrop:disabled > .label,
       popover.background.touch-selection button.destructive-action.osd button.flat:backdrop:disabled > .label,
       button.destructive-action.osd popover.background.magnifier button.flat:backdrop:disabled > .label,
-      popover.background.magnifier button.destructive-action.osd button.flat:backdrop:disabled > .label, popover.background.touch-selection button.destructive-action.osd
-      button:backdrop:disabled > .label, popover.background.magnifier button.destructive-action.osd
-      button:backdrop:disabled > .label, popover.background.touch-selection button.destructive-action.osd
-      button.flat:backdrop:disabled > .label, popover.background.magnifier button.destructive-action.osd
-      button.flat:backdrop:disabled > .label,
+      popover.background.magnifier button.destructive-action.osd button.flat:backdrop:disabled > .label,
+      popover.background.touch-selection button.destructive-action.osd button:backdrop:disabled > .label,
+      popover.background.magnifier button.destructive-action.osd button:backdrop:disabled > .label,
+      popover.background.touch-selection button.destructive-action.osd button.flat:backdrop:disabled > .label,
+      popover.background.magnifier button.destructive-action.osd button.flat:backdrop:disabled > .label,
       button.destructive-action.osd
       button:backdrop:disabled > .label,
       button.destructive-action.osd
       button.flat:backdrop:disabled > .label {
         color: inherit; }
-      popover.background.touch-selection button.destructive-action:backdrop:disabled:active, popover.background.magnifier button.destructive-action:backdrop:disabled:active, popover.background.touch-selection button.destructive-action:backdrop:disabled:checked, popover.background.magnifier button.destructive-action:backdrop:disabled:checked, popover.background.touch-selection button.destructive-action.flat:backdrop:disabled:active, popover.background.magnifier button.destructive-action.flat:backdrop:disabled:active, popover.background.touch-selection button.destructive-action.flat:backdrop:disabled:checked, popover.background.magnifier button.destructive-action.flat:backdrop:disabled:checked, popover.background.touch-selection button.destructive-action.osd button:backdrop:disabled:active, popover.background.magnifier button.destructive-action.osd button:backdrop:disabled:active, popover.background.touch-selection button.destructive-action.osd button:backdrop:disabled:checked, popover.background.magnifier button.destructive-action.osd button:backdrop:disabled:checked, popover.background.touch-selection button.destructive-action.osd button.flat:backdrop:disabled:active, popover.background.magnifier button.destructive-action.osd button.flat:backdrop:disabled:active, popover.background.touch-selection button.destructive-action.osd button.flat:backdrop:disabled:checked, popover.background.magnifier button.destructive-action.osd button.flat:backdrop:disabled:checked,
+      popover.background.touch-selection button.destructive-action:backdrop:disabled:active, popover.background.magnifier button.destructive-action:backdrop:disabled:active, popover.background.touch-selection button.destructive-action:backdrop:disabled:checked, popover.background.magnifier button.destructive-action:backdrop:disabled:checked, popover.background.touch-selection button.destructive-action.flat:backdrop:disabled:active, popover.background.magnifier button.destructive-action.flat:backdrop:disabled:active, popover.background.touch-selection button.destructive-action.flat:backdrop:disabled:checked, popover.background.magnifier button.destructive-action.flat:backdrop:disabled:checked,
+      popover.background.touch-selection button.destructive-action.osd button:backdrop:disabled:active,
+      popover.background.magnifier button.destructive-action.osd button:backdrop:disabled:active,
+      popover.background.touch-selection button.destructive-action.osd button:backdrop:disabled:checked,
+      popover.background.magnifier button.destructive-action.osd button:backdrop:disabled:checked,
+      popover.background.touch-selection button.destructive-action.osd button.flat:backdrop:disabled:active,
+      popover.background.magnifier button.destructive-action.osd button.flat:backdrop:disabled:active,
+      popover.background.touch-selection button.destructive-action.osd button.flat:backdrop:disabled:checked,
+      popover.background.magnifier button.destructive-action.osd button.flat:backdrop:disabled:checked,
       button.destructive-action:backdrop:disabled:active,
       button.destructive-action:backdrop:disabled:checked,
       button.destructive-action.flat:backdrop:disabled:active,
@@ -1004,15 +1137,15 @@ button {
       button.destructive-action.osd popover.background.touch-selection button.flat:backdrop:disabled:checked,
       popover.background.touch-selection button.destructive-action.osd button.flat:backdrop:disabled:checked,
       button.destructive-action.osd popover.background.magnifier button.flat:backdrop:disabled:checked,
-      popover.background.magnifier button.destructive-action.osd button.flat:backdrop:disabled:checked, popover.background.touch-selection button.destructive-action.osd
-      button:backdrop:disabled:active, popover.background.magnifier button.destructive-action.osd
-      button:backdrop:disabled:active, popover.background.touch-selection button.destructive-action.osd
-      button:backdrop:disabled:checked, popover.background.magnifier button.destructive-action.osd
-      button:backdrop:disabled:checked, popover.background.touch-selection button.destructive-action.osd
-      button.flat:backdrop:disabled:active, popover.background.magnifier button.destructive-action.osd
-      button.flat:backdrop:disabled:active, popover.background.touch-selection button.destructive-action.osd
-      button.flat:backdrop:disabled:checked, popover.background.magnifier button.destructive-action.osd
-      button.flat:backdrop:disabled:checked,
+      popover.background.magnifier button.destructive-action.osd button.flat:backdrop:disabled:checked,
+      popover.background.touch-selection button.destructive-action.osd button:backdrop:disabled:active,
+      popover.background.magnifier button.destructive-action.osd button:backdrop:disabled:active,
+      popover.background.touch-selection button.destructive-action.osd button:backdrop:disabled:checked,
+      popover.background.magnifier button.destructive-action.osd button:backdrop:disabled:checked,
+      popover.background.touch-selection button.destructive-action.osd button.flat:backdrop:disabled:active,
+      popover.background.magnifier button.destructive-action.osd button.flat:backdrop:disabled:active,
+      popover.background.touch-selection button.destructive-action.osd button.flat:backdrop:disabled:checked,
+      popover.background.magnifier button.destructive-action.osd button.flat:backdrop:disabled:checked,
       button.destructive-action.osd
       button:backdrop:disabled:active,
       button.destructive-action.osd
@@ -1024,7 +1157,23 @@ button {
         color: rgba(232, 232, 232, 0.35);
         border-color: rgba(214, 46, 63, 0.35);
         background-image: linear-gradient(to bottom, rgba(215, 53, 69, 0.35), rgba(197, 39, 55, 0.35)); }
-        popover.background.touch-selection button.destructive-action:backdrop:disabled:active > .label, popover.background.magnifier button.destructive-action:backdrop:disabled:active > .label, popover.background.touch-selection button.destructive-action:backdrop:disabled:checked > .label, popover.background.magnifier button.destructive-action:backdrop:disabled:checked > .label, popover.background.touch-selection button.destructive-action.flat:backdrop:disabled:active > .label, popover.background.magnifier button.destructive-action.flat:backdrop:disabled:active > .label, popover.background.touch-selection button.destructive-action.flat:backdrop:disabled:checked > .label, popover.background.magnifier button.destructive-action.flat:backdrop:disabled:checked > .label, popover.background.touch-selection button.destructive-action.osd button:backdrop:disabled:active > .label, popover.background.magnifier button.destructive-action.osd popover.background.touch-selection button:backdrop:disabled:active > .label, popover.background.touch-selection button.destructive-action.osd popover.background.magnifier button:backdrop:disabled:active > .label, popover.background.magnifier button.destructive-action.osd button:backdrop:disabled:active > .label, popover.background.touch-selection button.destructive-action.osd button:backdrop:disabled:checked > .label, popover.background.magnifier button.destructive-action.osd popover.background.touch-selection button:backdrop:disabled:checked > .label, popover.background.touch-selection button.destructive-action.osd popover.background.magnifier button:backdrop:disabled:checked > .label, popover.background.magnifier button.destructive-action.osd button:backdrop:disabled:checked > .label, popover.background.touch-selection button.destructive-action.osd button.flat:backdrop:disabled:active > .label, popover.background.magnifier button.destructive-action.osd popover.background.touch-selection button.flat:backdrop:disabled:active > .label, popover.background.touch-selection button.destructive-action.osd popover.background.magnifier button.flat:backdrop:disabled:active > .label, popover.background.magnifier button.destructive-action.osd button.flat:backdrop:disabled:active > .label, popover.background.touch-selection button.destructive-action.osd button.flat:backdrop:disabled:checked > .label, popover.background.magnifier button.destructive-action.osd popover.background.touch-selection button.flat:backdrop:disabled:checked > .label, popover.background.touch-selection button.destructive-action.osd popover.background.magnifier button.flat:backdrop:disabled:checked > .label, popover.background.magnifier button.destructive-action.osd button.flat:backdrop:disabled:checked > .label,
+        popover.background.touch-selection button.destructive-action:backdrop:disabled:active > .label, popover.background.magnifier button.destructive-action:backdrop:disabled:active > .label, popover.background.touch-selection button.destructive-action:backdrop:disabled:checked > .label, popover.background.magnifier button.destructive-action:backdrop:disabled:checked > .label, popover.background.touch-selection button.destructive-action.flat:backdrop:disabled:active > .label, popover.background.magnifier button.destructive-action.flat:backdrop:disabled:active > .label, popover.background.touch-selection button.destructive-action.flat:backdrop:disabled:checked > .label, popover.background.magnifier button.destructive-action.flat:backdrop:disabled:checked > .label,
+        popover.background.touch-selection button.destructive-action.osd button:backdrop:disabled:active > .label,
+        popover.background.magnifier button.destructive-action.osd popover.background.touch-selection button:backdrop:disabled:active > .label,
+        popover.background.touch-selection button.destructive-action.osd popover.background.magnifier button:backdrop:disabled:active > .label,
+        popover.background.magnifier button.destructive-action.osd button:backdrop:disabled:active > .label,
+        popover.background.touch-selection button.destructive-action.osd button:backdrop:disabled:checked > .label,
+        popover.background.magnifier button.destructive-action.osd popover.background.touch-selection button:backdrop:disabled:checked > .label,
+        popover.background.touch-selection button.destructive-action.osd popover.background.magnifier button:backdrop:disabled:checked > .label,
+        popover.background.magnifier button.destructive-action.osd button:backdrop:disabled:checked > .label,
+        popover.background.touch-selection button.destructive-action.osd button.flat:backdrop:disabled:active > .label,
+        popover.background.magnifier button.destructive-action.osd popover.background.touch-selection button.flat:backdrop:disabled:active > .label,
+        popover.background.touch-selection button.destructive-action.osd popover.background.magnifier button.flat:backdrop:disabled:active > .label,
+        popover.background.magnifier button.destructive-action.osd button.flat:backdrop:disabled:active > .label,
+        popover.background.touch-selection button.destructive-action.osd button.flat:backdrop:disabled:checked > .label,
+        popover.background.magnifier button.destructive-action.osd popover.background.touch-selection button.flat:backdrop:disabled:checked > .label,
+        popover.background.touch-selection button.destructive-action.osd popover.background.magnifier button.flat:backdrop:disabled:checked > .label,
+        popover.background.magnifier button.destructive-action.osd button.flat:backdrop:disabled:checked > .label,
         button.destructive-action:backdrop:disabled:active > .label,
         button.destructive-action:backdrop:disabled:checked > .label,
         button.destructive-action.flat:backdrop:disabled:active > .label,
@@ -1044,15 +1193,15 @@ button {
         button.destructive-action.osd popover.background.touch-selection button.flat:backdrop:disabled:checked > .label,
         popover.background.touch-selection button.destructive-action.osd button.flat:backdrop:disabled:checked > .label,
         button.destructive-action.osd popover.background.magnifier button.flat:backdrop:disabled:checked > .label,
-        popover.background.magnifier button.destructive-action.osd button.flat:backdrop:disabled:checked > .label, popover.background.touch-selection button.destructive-action.osd
-        button:backdrop:disabled:active > .label, popover.background.magnifier button.destructive-action.osd
-        button:backdrop:disabled:active > .label, popover.background.touch-selection button.destructive-action.osd
-        button:backdrop:disabled:checked > .label, popover.background.magnifier button.destructive-action.osd
-        button:backdrop:disabled:checked > .label, popover.background.touch-selection button.destructive-action.osd
-        button.flat:backdrop:disabled:active > .label, popover.background.magnifier button.destructive-action.osd
-        button.flat:backdrop:disabled:active > .label, popover.background.touch-selection button.destructive-action.osd
-        button.flat:backdrop:disabled:checked > .label, popover.background.magnifier button.destructive-action.osd
-        button.flat:backdrop:disabled:checked > .label,
+        popover.background.magnifier button.destructive-action.osd button.flat:backdrop:disabled:checked > .label,
+        popover.background.touch-selection button.destructive-action.osd button:backdrop:disabled:active > .label,
+        popover.background.magnifier button.destructive-action.osd button:backdrop:disabled:active > .label,
+        popover.background.touch-selection button.destructive-action.osd button:backdrop:disabled:checked > .label,
+        popover.background.magnifier button.destructive-action.osd button:backdrop:disabled:checked > .label,
+        popover.background.touch-selection button.destructive-action.osd button.flat:backdrop:disabled:active > .label,
+        popover.background.magnifier button.destructive-action.osd button.flat:backdrop:disabled:active > .label,
+        popover.background.touch-selection button.destructive-action.osd button.flat:backdrop:disabled:checked > .label,
+        popover.background.magnifier button.destructive-action.osd button.flat:backdrop:disabled:checked > .label,
         button.destructive-action.osd
         button:backdrop:disabled:active > .label,
         button.destructive-action.osd
@@ -1062,7 +1211,13 @@ button {
         button.destructive-action.osd
         button.flat:backdrop:disabled:checked > .label {
           color: inherit; }
-  popover.background.touch-selection button.destructive-action.flat:backdrop, popover.background.magnifier button.destructive-action.flat:backdrop, popover.background.touch-selection button.destructive-action.flat:disabled, popover.background.magnifier button.destructive-action.flat:disabled, popover.background.touch-selection button.destructive-action.flat:backdrop:disabled, popover.background.magnifier button.destructive-action.flat:backdrop:disabled, popover.background.touch-selection button.destructive-action.osd button.flat:backdrop, popover.background.magnifier button.destructive-action.osd button.flat:backdrop, popover.background.touch-selection button.destructive-action.osd button.flat:disabled, popover.background.magnifier button.destructive-action.osd button.flat:disabled, popover.background.touch-selection button.destructive-action.osd button.flat:backdrop:disabled, popover.background.magnifier button.destructive-action.osd button.flat:backdrop:disabled,
+  popover.background.touch-selection button.destructive-action.flat:backdrop, popover.background.magnifier button.destructive-action.flat:backdrop, popover.background.touch-selection button.destructive-action.flat:disabled, popover.background.magnifier button.destructive-action.flat:disabled, popover.background.touch-selection button.destructive-action.flat:backdrop:disabled, popover.background.magnifier button.destructive-action.flat:backdrop:disabled,
+  popover.background.touch-selection button.destructive-action.osd button.flat:backdrop,
+  popover.background.magnifier button.destructive-action.osd button.flat:backdrop,
+  popover.background.touch-selection button.destructive-action.osd button.flat:disabled,
+  popover.background.magnifier button.destructive-action.osd button.flat:disabled,
+  popover.background.touch-selection button.destructive-action.osd button.flat:backdrop:disabled,
+  popover.background.magnifier button.destructive-action.osd button.flat:backdrop:disabled,
   button.destructive-action.flat:backdrop,
   button.destructive-action.flat:disabled,
   button.destructive-action.flat:backdrop:disabled,
@@ -1077,13 +1232,13 @@ button {
   button.destructive-action.osd popover.background.touch-selection button.flat:backdrop:disabled,
   popover.background.touch-selection button.destructive-action.osd button.flat:backdrop:disabled,
   button.destructive-action.osd popover.background.magnifier button.flat:backdrop:disabled,
-  popover.background.magnifier button.destructive-action.osd button.flat:backdrop:disabled, popover.background.touch-selection button.destructive-action.osd
-  button.flat:backdrop, popover.background.magnifier button.destructive-action.osd
-  button.flat:backdrop, popover.background.touch-selection button.destructive-action.osd
-  button.flat:disabled, popover.background.magnifier button.destructive-action.osd
-  button.flat:disabled, popover.background.touch-selection button.destructive-action.osd
-  button.flat:backdrop:disabled, popover.background.magnifier button.destructive-action.osd
-  button.flat:backdrop:disabled,
+  popover.background.magnifier button.destructive-action.osd button.flat:backdrop:disabled,
+  popover.background.touch-selection button.destructive-action.osd button.flat:backdrop,
+  popover.background.magnifier button.destructive-action.osd button.flat:backdrop,
+  popover.background.touch-selection button.destructive-action.osd button.flat:disabled,
+  popover.background.magnifier button.destructive-action.osd button.flat:disabled,
+  popover.background.touch-selection button.destructive-action.osd button.flat:backdrop:disabled,
+  popover.background.magnifier button.destructive-action.osd button.flat:backdrop:disabled,
   button.destructive-action.osd
   button.flat:backdrop,
   button.destructive-action.osd
@@ -1098,31 +1253,41 @@ button {
     text-shadow: none;
     -gtk-icon-shadow: none;
     color: rgba(218, 68, 83, 0.8); }
-  popover.background.touch-selection button.destructive-action:disabled, popover.background.magnifier button.destructive-action:disabled, popover.background.touch-selection button.destructive-action.osd button:disabled, popover.background.magnifier button.destructive-action.osd button:disabled,
+  popover.background.touch-selection button.destructive-action:disabled, popover.background.magnifier button.destructive-action:disabled,
+  popover.background.touch-selection button.destructive-action.osd button:disabled,
+  popover.background.magnifier button.destructive-action.osd button:disabled,
   button.destructive-action:disabled,
   button.destructive-action.osd popover.background.touch-selection button:disabled,
   popover.background.touch-selection button.destructive-action.osd button:disabled,
   button.destructive-action.osd popover.background.magnifier button:disabled,
-  popover.background.magnifier button.destructive-action.osd button:disabled, popover.background.touch-selection button.destructive-action.osd
-  button:disabled, popover.background.magnifier button.destructive-action.osd
-  button:disabled,
+  popover.background.magnifier button.destructive-action.osd button:disabled,
+  popover.background.touch-selection button.destructive-action.osd button:disabled,
+  popover.background.magnifier button.destructive-action.osd button:disabled,
   button.destructive-action.osd
   button:disabled {
     color: rgba(216, 218, 221, 0.35);
     border-color: rgba(88, 92, 95, 0.35);
     background-image: linear-gradient(to bottom, #2d3236, #2b3034); }
-    popover.background.touch-selection button.destructive-action:disabled > .label, popover.background.magnifier button.destructive-action:disabled > .label, popover.background.touch-selection button.destructive-action.osd button:disabled > .label, popover.background.magnifier button.destructive-action.osd popover.background.touch-selection button:disabled > .label, popover.background.touch-selection button.destructive-action.osd popover.background.magnifier button:disabled > .label, popover.background.magnifier button.destructive-action.osd button:disabled > .label,
+    popover.background.touch-selection button.destructive-action:disabled > .label, popover.background.magnifier button.destructive-action:disabled > .label,
+    popover.background.touch-selection button.destructive-action.osd button:disabled > .label,
+    popover.background.magnifier button.destructive-action.osd popover.background.touch-selection button:disabled > .label,
+    popover.background.touch-selection button.destructive-action.osd popover.background.magnifier button:disabled > .label,
+    popover.background.magnifier button.destructive-action.osd button:disabled > .label,
     button.destructive-action:disabled > .label,
     button.destructive-action.osd popover.background.touch-selection button:disabled > .label,
     popover.background.touch-selection button.destructive-action.osd button:disabled > .label,
     button.destructive-action.osd popover.background.magnifier button:disabled > .label,
-    popover.background.magnifier button.destructive-action.osd button:disabled > .label, popover.background.touch-selection button.destructive-action.osd
-    button:disabled > .label, popover.background.magnifier button.destructive-action.osd
-    button:disabled > .label,
+    popover.background.magnifier button.destructive-action.osd button:disabled > .label,
+    popover.background.touch-selection button.destructive-action.osd button:disabled > .label,
+    popover.background.magnifier button.destructive-action.osd button:disabled > .label,
     button.destructive-action.osd
     button:disabled > .label {
       color: inherit; }
-    popover.background.touch-selection button.destructive-action:disabled:active, popover.background.magnifier button.destructive-action:disabled:active, popover.background.touch-selection button.destructive-action:disabled:checked, popover.background.magnifier button.destructive-action:disabled:checked, popover.background.touch-selection button.destructive-action.osd button:disabled:active, popover.background.magnifier button.destructive-action.osd button:disabled:active, popover.background.touch-selection button.destructive-action.osd button:disabled:checked, popover.background.magnifier button.destructive-action.osd button:disabled:checked,
+    popover.background.touch-selection button.destructive-action:disabled:active, popover.background.magnifier button.destructive-action:disabled:active, popover.background.touch-selection button.destructive-action:disabled:checked, popover.background.magnifier button.destructive-action:disabled:checked,
+    popover.background.touch-selection button.destructive-action.osd button:disabled:active,
+    popover.background.magnifier button.destructive-action.osd button:disabled:active,
+    popover.background.touch-selection button.destructive-action.osd button:disabled:checked,
+    popover.background.magnifier button.destructive-action.osd button:disabled:checked,
     button.destructive-action:disabled:active,
     button.destructive-action:disabled:checked,
     button.destructive-action.osd popover.background.touch-selection button:disabled:active,
@@ -1132,11 +1297,11 @@ button {
     button.destructive-action.osd popover.background.touch-selection button:disabled:checked,
     popover.background.touch-selection button.destructive-action.osd button:disabled:checked,
     button.destructive-action.osd popover.background.magnifier button:disabled:checked,
-    popover.background.magnifier button.destructive-action.osd button:disabled:checked, popover.background.touch-selection button.destructive-action.osd
-    button:disabled:active, popover.background.magnifier button.destructive-action.osd
-    button:disabled:active, popover.background.touch-selection button.destructive-action.osd
-    button:disabled:checked, popover.background.magnifier button.destructive-action.osd
-    button:disabled:checked,
+    popover.background.magnifier button.destructive-action.osd button:disabled:checked,
+    popover.background.touch-selection button.destructive-action.osd button:disabled:active,
+    popover.background.magnifier button.destructive-action.osd button:disabled:active,
+    popover.background.touch-selection button.destructive-action.osd button:disabled:checked,
+    popover.background.magnifier button.destructive-action.osd button:disabled:checked,
     button.destructive-action.osd
     button:disabled:active,
     button.destructive-action.osd
@@ -1144,7 +1309,15 @@ button {
       color: rgba(232, 232, 232, 0.35);
       border-color: rgba(37, 164, 230, 0.35);
       background-image: linear-gradient(to bottom, rgba(215, 53, 69, 0.35), rgba(197, 39, 55, 0.35)); }
-      popover.background.touch-selection button.destructive-action:disabled:active > .label, popover.background.magnifier button.destructive-action:disabled:active > .label, popover.background.touch-selection button.destructive-action:disabled:checked > .label, popover.background.magnifier button.destructive-action:disabled:checked > .label, popover.background.touch-selection button.destructive-action.osd button:disabled:active > .label, popover.background.magnifier button.destructive-action.osd popover.background.touch-selection button:disabled:active > .label, popover.background.touch-selection button.destructive-action.osd popover.background.magnifier button:disabled:active > .label, popover.background.magnifier button.destructive-action.osd button:disabled:active > .label, popover.background.touch-selection button.destructive-action.osd button:disabled:checked > .label, popover.background.magnifier button.destructive-action.osd popover.background.touch-selection button:disabled:checked > .label, popover.background.touch-selection button.destructive-action.osd popover.background.magnifier button:disabled:checked > .label, popover.background.magnifier button.destructive-action.osd button:disabled:checked > .label,
+      popover.background.touch-selection button.destructive-action:disabled:active > .label, popover.background.magnifier button.destructive-action:disabled:active > .label, popover.background.touch-selection button.destructive-action:disabled:checked > .label, popover.background.magnifier button.destructive-action:disabled:checked > .label,
+      popover.background.touch-selection button.destructive-action.osd button:disabled:active > .label,
+      popover.background.magnifier button.destructive-action.osd popover.background.touch-selection button:disabled:active > .label,
+      popover.background.touch-selection button.destructive-action.osd popover.background.magnifier button:disabled:active > .label,
+      popover.background.magnifier button.destructive-action.osd button:disabled:active > .label,
+      popover.background.touch-selection button.destructive-action.osd button:disabled:checked > .label,
+      popover.background.magnifier button.destructive-action.osd popover.background.touch-selection button:disabled:checked > .label,
+      popover.background.touch-selection button.destructive-action.osd popover.background.magnifier button:disabled:checked > .label,
+      popover.background.magnifier button.destructive-action.osd button:disabled:checked > .label,
       button.destructive-action:disabled:active > .label,
       button.destructive-action:disabled:checked > .label,
       button.destructive-action.osd popover.background.touch-selection button:disabled:active > .label,
@@ -1154,44 +1327,60 @@ button {
       button.destructive-action.osd popover.background.touch-selection button:disabled:checked > .label,
       popover.background.touch-selection button.destructive-action.osd button:disabled:checked > .label,
       button.destructive-action.osd popover.background.magnifier button:disabled:checked > .label,
-      popover.background.magnifier button.destructive-action.osd button:disabled:checked > .label, popover.background.touch-selection button.destructive-action.osd
-      button:disabled:active > .label, popover.background.magnifier button.destructive-action.osd
-      button:disabled:active > .label, popover.background.touch-selection button.destructive-action.osd
-      button:disabled:checked > .label, popover.background.magnifier button.destructive-action.osd
-      button:disabled:checked > .label,
+      popover.background.magnifier button.destructive-action.osd button:disabled:checked > .label,
+      popover.background.touch-selection button.destructive-action.osd button:disabled:active > .label,
+      popover.background.magnifier button.destructive-action.osd button:disabled:active > .label,
+      popover.background.touch-selection button.destructive-action.osd button:disabled:checked > .label,
+      popover.background.magnifier button.destructive-action.osd button:disabled:checked > .label,
       button.destructive-action.osd
       button:disabled:active > .label,
       button.destructive-action.osd
       button:disabled:checked > .label {
         color: inherit; }
+
 popover.background.touch-selection .stack-switcher > button > label, popover.background.magnifier .stack-switcher > button > label, .stack-switcher >
 button > label {
   padding-left: 6px;
   padding-right: 6px; }
+
 popover.background.touch-selection .stack-switcher > button > image, popover.background.magnifier .stack-switcher > button > image, .stack-switcher >
 button > image {
   padding-left: 6px;
   padding-right: 6px;
   padding-top: 3px;
   padding-bottom: 3px; }
+
 popover.background.touch-selection .stack-switcher > button.text-button, popover.background.magnifier .stack-switcher > button.text-button, .stack-switcher >
 button.text-button {
   padding: 6px; }
+
 popover.background.touch-selection .stack-switcher > button.image-button, popover.background.magnifier .stack-switcher > button.image-button, .stack-switcher >
 button.image-button {
   padding: 3px 0px; }
-popover.background.touch-selection .stack-switcher > button.needs-attention:active > label, popover.background.magnifier .stack-switcher > button.needs-attention:active > label, popover.background.touch-selection .stack-switcher > button.needs-attention:active > image, popover.background.magnifier .stack-switcher > button.needs-attention:active > image, popover.background.touch-selection .stack-switcher > button.needs-attention:checked > label, popover.background.magnifier .stack-switcher > button.needs-attention:checked > label, popover.background.touch-selection .stack-switcher > button.needs-attention:checked > image, popover.background.magnifier .stack-switcher > button.needs-attention:checked > image, .stack-switcher >
-button.needs-attention:active > label, .stack-switcher >
-button.needs-attention:active > image, .stack-switcher >
-button.needs-attention:checked > label, .stack-switcher >
+
+popover.background.touch-selection .stack-switcher > button.needs-attention:active > label, popover.background.magnifier .stack-switcher > button.needs-attention:active > label,
+popover.background.touch-selection .stack-switcher > button.needs-attention:active > image,
+popover.background.magnifier .stack-switcher > button.needs-attention:active > image,
+popover.background.touch-selection .stack-switcher > button.needs-attention:checked > label,
+popover.background.magnifier .stack-switcher > button.needs-attention:checked > label,
+popover.background.touch-selection .stack-switcher > button.needs-attention:checked > image,
+popover.background.magnifier .stack-switcher > button.needs-attention:checked > image, .stack-switcher >
+button.needs-attention:active > label,
+.stack-switcher >
+button.needs-attention:active > image,
+.stack-switcher >
+button.needs-attention:checked > label,
+.stack-switcher >
 button.needs-attention:checked > image {
   animation: none;
   background-image: none; }
+
 .inline-toolbar popover.background.touch-selection button, popover.background.touch-selection .inline-toolbar button, .inline-toolbar popover.background.magnifier button, popover.background.magnifier .inline-toolbar button, .inline-toolbar popover.background.touch-selection button:backdrop, popover.background.touch-selection .inline-toolbar button:backdrop, .inline-toolbar popover.background.magnifier button:backdrop, popover.background.magnifier .inline-toolbar button:backdrop, .inline-toolbar
 button, .inline-toolbar
 button:backdrop {
   border-radius: 3px;
   border-width: 1px; }
+
 .primary-toolbar popover.background.touch-selection button, popover.background.touch-selection .primary-toolbar button, .primary-toolbar popover.background.magnifier button, popover.background.magnifier .primary-toolbar button, .primary-toolbar
 button {
   -gtk-icon-shadow: none; }
@@ -1204,80 +1393,71 @@ combobox arrow {
   min-height: 16px;
   min-width: 16px; }
 
-popover.background.touch-selection .stack-switcher > button.needs-attention > label, popover.background.magnifier .stack-switcher > button.needs-attention > label, popover.background.touch-selection .stack-switcher > button.needs-attention > image, popover.background.magnifier .stack-switcher > button.needs-attention > image, .stack-switcher >
-button.needs-attention > label, .stack-switcher >
-button.needs-attention > image, stacksidebar.sidebar row.needs-attention > .label {
+popover.background.touch-selection .stack-switcher > button.needs-attention > label, popover.background.magnifier .stack-switcher > button.needs-attention > label,
+popover.background.touch-selection .stack-switcher > button.needs-attention > image,
+popover.background.magnifier .stack-switcher > button.needs-attention > image, .stack-switcher > button.needs-attention > label,
+.stack-switcher > button.needs-attention > image, stacksidebar.sidebar row.needs-attention > .label {
   animation: needs_attention 150ms ease-in;
   background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(#3daee9), to(transparent)), -gtk-gradient(radial, center center, 0, center center, 0.5, to(#eff0f1), to(transparent));
   background-size: 6px 6px, 6px 6px;
   background-repeat: no-repeat;
   background-position: right 3px, right 4px; }
-  .stack-switcher >
-  button.needs-attention > label:backdrop, .stack-switcher >
-  button.needs-attention > image:backdrop, stacksidebar.sidebar row.needs-attention > .label:backdrop {
+  popover.background.touch-selection .stack-switcher > button.needs-attention > label:backdrop, popover.background.magnifier .stack-switcher > button.needs-attention > label:backdrop,
+  popover.background.touch-selection .stack-switcher > button.needs-attention > image:backdrop,
+  popover.background.magnifier .stack-switcher > button.needs-attention > image:backdrop, .stack-switcher > button.needs-attention > label:backdrop,
+  .stack-switcher > button.needs-attention > image:backdrop, stacksidebar.sidebar row.needs-attention > .label:backdrop {
     background-size: 6px 6px, 0 0; }
-  .stack-switcher >
-  button.needs-attention > label:dir(rtl), .stack-switcher >
-  button.needs-attention > image:dir(rtl), stacksidebar.sidebar row.needs-attention > .label:dir(rtl) {
+  popover.background.touch-selection .stack-switcher > button.needs-attention > label:dir(rtl), popover.background.magnifier .stack-switcher > button.needs-attention > label:dir(rtl),
+  popover.background.touch-selection .stack-switcher > button.needs-attention > image:dir(rtl),
+  popover.background.magnifier .stack-switcher > button.needs-attention > image:dir(rtl), .stack-switcher > button.needs-attention > label:dir(rtl),
+  .stack-switcher > button.needs-attention > image:dir(rtl), stacksidebar.sidebar row.needs-attention > .label:dir(rtl) {
     background-position: left 3px, left 4px; }
 
-.linked > combobox > box > button.combo:dir(ltr), .linked > combobox > box > button.combo:dir(rtl), .inline-toolbar popover.background.touch-selection button, popover.background.touch-selection .inline-toolbar button, .inline-toolbar popover.background.magnifier button, popover.background.magnifier .inline-toolbar button, .inline-toolbar
-button, .inline-toolbar
-button:backdrop, popover.background.touch-selection .linked > button, popover.background.magnifier .linked > button, .linked >
-button, .linked >
-button:hover, .linked >
-button:active, .linked >
-button:checked, .linked >
-button:backdrop {
+.linked > combobox > box > button.combo:dir(ltr), .linked > combobox > box > button.combo:dir(rtl), .inline-toolbar popover.background.touch-selection button, popover.background.touch-selection .inline-toolbar button, .inline-toolbar popover.background.magnifier button, popover.background.magnifier .inline-toolbar button, .inline-toolbar button, .inline-toolbar button:backdrop, popover.background.touch-selection .linked > button, popover.background.magnifier .linked > button, .linked > button,
+.linked > button:hover,
+.linked > button:active,
+.linked > button:checked,
+.linked > button:backdrop {
   border-radius: 3px; }
-  .linked > combobox > box > button.combo:dir(rtl), .inline-toolbar popover.background.touch-selection button:dir(rtl), popover.background.touch-selection .inline-toolbar button:dir(rtl), .inline-toolbar popover.background.magnifier button:dir(rtl), popover.background.magnifier .inline-toolbar button:dir(rtl), .inline-toolbar
-  button:dir(rtl), popover.background.touch-selection .linked > button:dir(rtl), popover.background.magnifier .linked > button:dir(rtl), .linked >
-  button:dir(rtl) {
+  .linked > combobox > box > button.combo:dir(rtl), .inline-toolbar popover.background.touch-selection button:dir(rtl), popover.background.touch-selection .inline-toolbar button:dir(rtl), .inline-toolbar popover.background.magnifier button:dir(rtl), popover.background.magnifier .inline-toolbar button:dir(rtl), .inline-toolbar button:dir(rtl), .inline-toolbar button:dir(rtl):backdrop, popover.background.touch-selection .linked > button:dir(rtl), popover.background.magnifier .linked > button:dir(rtl), .linked > button:dir(rtl),
+  .linked > button:dir(rtl):hover,
+  .linked > button:dir(rtl):active,
+  .linked > button:dir(rtl):checked,
+  .linked > button:dir(rtl):backdrop {
     border-radius: 3px; }
 
-.inline-toolbar popover.background.touch-selection button, popover.background.touch-selection .inline-toolbar button, .inline-toolbar popover.background.magnifier button, popover.background.magnifier .inline-toolbar button, .inline-toolbar
-button, .inline-toolbar
-button:backdrop, popover.background.touch-selection .linked > button, popover.background.magnifier .linked > button, .linked >
-button, .linked >
-button:hover, .linked >
-button:active, .linked >
-button:checked, .linked >
-button:backdrop {
+.inline-toolbar popover.background.touch-selection button, popover.background.touch-selection .inline-toolbar button, .inline-toolbar popover.background.magnifier button, popover.background.magnifier .inline-toolbar button, .inline-toolbar button, .inline-toolbar button:backdrop, popover.background.touch-selection .linked > button, popover.background.magnifier .linked > button, .linked > button,
+.linked > button:hover,
+.linked > button:active,
+.linked > button:checked,
+.linked > button:backdrop {
   margin-left: 2px;
   margin-right: 2px; }
-  .inline-toolbar popover.background.touch-selection button:first-child, popover.background.touch-selection .inline-toolbar button:first-child, .inline-toolbar popover.background.magnifier button:first-child, popover.background.magnifier .inline-toolbar button:first-child, .inline-toolbar
-  button:first-child, popover.background.touch-selection .linked > button:first-child, popover.background.magnifier .linked > button:first-child, .linked >
-  button:first-child, combobox.linked button:nth-child(2):dir(rtl), .linked:not(.vertical) > combobox:first-child > box > button.combo {
+  .inline-toolbar popover.background.touch-selection button:first-child, popover.background.touch-selection .inline-toolbar button:first-child, .inline-toolbar popover.background.magnifier button:first-child, popover.background.magnifier .inline-toolbar button:first-child, .inline-toolbar button:first-child, popover.background.touch-selection .linked > button:first-child, popover.background.magnifier .linked > button:first-child, .linked > button:first-child, combobox.linked button:nth-child(2):dir(rtl), .linked:not(.vertical) > combobox:first-child > box > button.combo {
     border-radius: 3px;
     border-style: solid; }
-  .inline-toolbar popover.background.touch-selection button:last-child, popover.background.touch-selection .inline-toolbar button:last-child, .inline-toolbar popover.background.magnifier button:last-child, popover.background.magnifier .inline-toolbar button:last-child, .inline-toolbar
-  button:last-child, popover.background.touch-selection .linked > button:last-child, popover.background.magnifier .linked > button:last-child, .linked >
-  button:last-child, combobox.linked button:nth-child(2):dir(ltr), .linked:not(.vertical) > combobox:last-child > box > button.combo {
+  .inline-toolbar popover.background.touch-selection button:last-child, popover.background.touch-selection .inline-toolbar button:last-child, .inline-toolbar popover.background.magnifier button:last-child, popover.background.magnifier .inline-toolbar button:last-child, .inline-toolbar button:last-child, popover.background.touch-selection .linked > button:last-child, popover.background.magnifier .linked > button:last-child, .linked > button:last-child, combobox.linked button:nth-child(2):dir(ltr), .linked:not(.vertical) > combobox:last-child > box > button.combo {
     border-radius: 3px; }
-  .inline-toolbar popover.background.touch-selection button:only-child, popover.background.touch-selection .inline-toolbar button:only-child, .inline-toolbar popover.background.magnifier button:only-child, popover.background.magnifier .inline-toolbar button:only-child, .inline-toolbar
-  button:only-child, popover.background.touch-selection .linked > button:only-child, popover.background.magnifier .linked > button:only-child, .linked >
-  button:only-child, .linked:not(.vertical) > combobox:only-child > box > button.combo {
+  .inline-toolbar popover.background.touch-selection button:only-child, popover.background.touch-selection .inline-toolbar button:only-child, .inline-toolbar popover.background.magnifier button:only-child, popover.background.magnifier .inline-toolbar button:only-child, .inline-toolbar button:only-child, popover.background.touch-selection .linked > button:only-child, popover.background.magnifier .linked > button:only-child, .linked > button:only-child, .linked:not(.vertical) > combobox:only-child > box > button.combo {
     border-radius: 3px;
     border-style: solid; }
 
-.linked.vertical > combobox > box > button.combo, popover.background.touch-selection .linked.vertical > button, popover.background.magnifier .linked.vertical > button, .linked.vertical >
-button, .linked.vertical >
-button:hover, .linked.vertical >
-button:active, .linked.vertical >
-button:checked, .linked.vertical >
-button:backdrop {
+.linked.vertical > combobox > box > button.combo, popover.background.touch-selection .linked.vertical > button, popover.background.magnifier .linked.vertical > button, .linked.vertical > button,
+.linked.vertical > button:hover,
+.linked.vertical > button:active,
+.linked.vertical > button:checked,
+.linked.vertical > button:backdrop {
   border-style: solid;
   border-radius: 3px; }
 
-popover.background.touch-selection .linked.vertical > button:first-child, popover.background.magnifier .linked.vertical > button:first-child, .linked.vertical >
-button:first-child, .linked.vertical > combobox:first-child > box > button.combo {
+popover.background.touch-selection .linked.vertical > button:first-child, popover.background.magnifier .linked.vertical > button:first-child, .linked.vertical > button:first-child, .linked.vertical > combobox:first-child > box > button.combo {
   border-radius: 3px; }
-popover.background.touch-selection .linked.vertical > button:last-child, popover.background.magnifier .linked.vertical > button:last-child, .linked.vertical >
-button:last-child, .linked.vertical > combobox:last-child > box > button.combo {
+
+popover.background.touch-selection .linked.vertical > button:last-child, popover.background.magnifier .linked.vertical > button:last-child, .linked.vertical > button:last-child, .linked.vertical > combobox:last-child > box > button.combo {
   border-radius: 3px;
   border-style: solid; }
-popover.background.touch-selection .linked.vertical > button:only-child, popover.background.magnifier .linked.vertical > button:only-child, .linked.vertical >
-button:only-child, .linked.vertical > combobox:only-child > box > button.combo {
+
+popover.background.touch-selection .linked.vertical > button:only-child, popover.background.magnifier .linked.vertical > button:only-child, .linked.vertical > button:only-child, .linked.vertical > combobox:only-child > box > button.combo {
   border-radius: 3px;
   border-style: solid; }
 
@@ -1404,6 +1584,7 @@ entry {
     spinbutton:not(.vertical) image:backdrop,
     entry image:backdrop {
       color: #eff0f1; }
+
 spinbutton:not(.vertical) progress,
 entry progress {
   margin: 1px;
@@ -1498,6 +1679,8 @@ calendar {
   background-color: #232629; }
   calendar:selected {
     background-color: #616569; }
+  calendar:disabled {
+    color: rgba(216, 218, 221, 0.35); }
   calendar.header {
     border: 1px solid #616569;
     border-radius: 0;
@@ -1505,6 +1688,8 @@ calendar {
     calendar.header:backdrop {
       color: #eff0f1;
       border-color: #616569; }
+    calendar.header:disabled {
+      color: rgba(216, 218, 221, 0.35); }
   calendar.button {
     color: #eff0f1; }
     calendar.button:hover {
@@ -1728,19 +1913,29 @@ radio {
   box-shadow: none; }
   :selected colorswatch.overlay, :selected colorswatch.overlay:hover {
     border-color: #eff0f1; }
+
 colorswatch:selected {
   box-shadow: none; }
-colorswatch.top, colorswatch.bottom, colorswatch.left, colorswatch:first-child:not(.overlay):not(.top), colorswatch.right, colorswatch:last-child:not(.overlay):not(.bottom), colorswatch:only-child:not(.overlay), colorswatch.top > .overlay, colorswatch.bottom > .overlay, colorswatch:first-child:not(.top) > .overlay, colorswatch:last-child:not(.bottom) > .overlay, colorswatch:only-child > .overlay {
+
+colorswatch.top, colorswatch.bottom, colorswatch.left, colorswatch:first-child:not(.overlay):not(.top), colorswatch.right, colorswatch:last-child:not(.overlay):not(.bottom), colorswatch:only-child:not(.overlay),
+colorswatch.top > .overlay,
+colorswatch.bottom > .overlay,
+colorswatch:first-child:not(.top) > .overlay,
+colorswatch:last-child:not(.bottom) > .overlay,
+colorswatch:only-child > .overlay {
   border-radius: 3px; }
+
 colorswatch:hover, colorswatch:hover:selected {
   background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0) 50%);
   box-shadow: inset 0 1px rgba(255, 255, 255, 0.4); }
   colorswatch:hover.color-dark, colorswatch:hover:selected.color-dark {
     background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0) 50%); }
-colorswatch:backdrop, colorswatch:backdrop:selected
-colorswatch.color-dark:backdrop, colorswatch.color-dark:backdrop:selected {
+
+colorswatch:backdrop,
+colorswatch:backdrop:selected colorswatch.color-dark:backdrop, colorswatch.color-dark:backdrop:selected {
   background-image: none;
   box-shadow: none; }
+
 GtkColorEditor colorswatch {
   border-radius: 3px; }
   GtkColorEditor colorswatch:hover {
@@ -1748,22 +1943,26 @@ GtkColorEditor colorswatch {
     box-shadow: none; }
   GtkColorEditor colorswatch:backdrop {
     box-shadow: none; }
+
 colorswatch.color-dark {
   color: white;
   outline-color: rgba(0, 0, 0, 0.3); }
   colorswatch.color-dark:backdrop {
     color: rgba(255, 255, 255, 0.3); }
+
 colorswatch.color-light {
   color: black;
   outline-color: rgba(255, 255, 255, 0.5); }
   colorswatch.color-light:backdrop {
     color: rgba(0, 0, 0, 0.3); }
+
 colorswatch overlay,
 colorswatch overlay:selected {
   border: 1px solid #616569; }
   colorswatch overlay:hover,
   colorswatch overlay:selected:hover {
     border-color: #3daee9; }
+
 colorswatch#add-color-button {
   border-style: solid;
   border-width: 1px;
@@ -1802,15 +2001,19 @@ GtkColorButton.button {
  ***********/
 messagedialog.background {
   background-color: #31363b; }
+
 messagedialog:backdrop {
   background-color: #31363b; }
+
 messagedialog .titlebar {
   min-height: 32px;
   background-color: transparent;
   background-image: linear-gradient(to bottom, #3b4147, #31363b);
   box-shadow: none; }
+
 messagedialog .dialog-action-area {
   padding: 8px; }
+
 messagedialog button {
   margin: 2px; }
 
@@ -1822,10 +2025,12 @@ filechooser .search-bar {
     background-color: #31363b;
     border-color: #31363b;
     color: #eff0f1; }
+
 filechooser .dialog-action-box {
   border-top: 1px solid #616569; }
   filechooser .dialog-action-box:backdrop {
     border-top-color: #616569; }
+
 filechooser #pathbarbox {
   background-color: #31363b;
   border-bottom: 1px solid #616569; }
@@ -1833,30 +2038,37 @@ filechooser #pathbarbox {
 /***************
  * Header bars *
  ***************/
+
 headerbar {
   transition: none;
   padding: 0px 6px;
   border-width: 0px 0px 1px 0px;
   border-radius: 3px 3px 0px 0px;
   border-style: solid;
-  border-color: #3daee9;
+  border-color: #616569;
   color: #eff0f1;
-  background-image: linear-gradient(to bottom, #3b4147, #31363b); }
+  background-image: linear-gradient(to bottom, #31363b, #31363b); }
+  
   headerbar:backdrop {
     border-color: transparent;
     background-image: none;
     background-color: #31363b;
     color: #7f8c8d;
     box-shadow: none; }
+  
   headerbar label {
     font-weight: normal; }
+    
     headerbar label:backdrop {
       color: #7f8c8d; }
+  
   headerbar .path-bar button {
     color: #eff0f1;
     font-weight: normal; }
+    
     headerbar .path-bar button:backdrop {
       color: #7f8c8d; }
+  
   headerbar button {
     transition: none;
     border-color: rgba(255, 255, 255, 0);
@@ -1866,6 +2078,7 @@ headerbar {
     color: #eff0f1;
     text-shadow: none;
     -gtk-icon-shadow: none; }
+    
     headerbar button.flat {
       border-color: rgba(255, 255, 255, 0);
       background-color: transparent;
@@ -1874,32 +2087,39 @@ headerbar {
       color: #eff0f1;
       text-shadow: none;
       -gtk-icon-shadow: none; }
+    
     headerbar button:hover {
       color: #eff0f1;
       border-color: #3daee9; }
+      
       headerbar button:hover:backdrop {
         border-color: #31363b; }
+    
     headerbar button:active,
     headerbar button:checked {
       color: #eff0f1;
       border-color: #3daee9;
       background-image: linear-gradient(to bottom, #45b1ea, #25a4e6); }
+      
       headerbar button:active:hover,
       headerbar button:checked:hover {
         color: #eff0f1;
         border-color: #3daee9;
         background-image: linear-gradient(to bottom, #45b1ea, #25a4e6); }
+      
       headerbar button:active:backdrop,
       headerbar button:checked:backdrop {
         background-image: none;
         background-color: #31363b;
         border-color: #31363b;
         color: #7f8c8d; }
+    
     headerbar button:backdrop {
       border-color: transparent;
       background-image: none;
       background-color: #31363b;
       color: #7f8c8d; }
+    
     headerbar button.flat:backdrop,
     headerbar button.flat:backdrop:disabled,
     headerbar button:disabled:backdrop {
@@ -1907,40 +2127,52 @@ headerbar {
       background-color: #31363b;
       color: #7f8c8d;
       border-color: transparent; }
+    
     headerbar button.flat:disabled {
       color: rgba(216, 218, 221, 0.35); }
+    
     headerbar button:disabled {
       background-color: transparent;
       background-image: none;
       border-color: transparent;
       color: rgba(216, 218, 221, 0.35); }
+      
       headerbar button:disabled:active,
       headerbar button:disabled:checked {
         color: rgba(216, 218, 221, 0.35);
         border-color: rgba(37, 164, 230, 0.35);
         background-image: linear-gradient(to bottom, rgba(44, 167, 231, 0.35), rgba(25, 152, 218, 0.35)); }
+        
         headerbar button:disabled:active > .label,
         headerbar button:disabled:checked > .label {
           color: inherit; }
+  
   headerbar .title {
     font-weight: normal;
     padding: 0px 12px; }
+    
     headerbar .title:backdrop {
       color: #7f8c8d; }
+  
   headerbar .subtitle {
     font-size: smaller;
     padding: 0 12px; }
+    
     headerbar .subtitle:backdrop {
       color: #7f8c8d; }
+  
   headerbar separator {
     border-width: 0px;
     background-color: transparent;
     background-image: none;
     border-color: transparent; }
+  
   headerbar.selection-mode .selection-menu {
     padding: 4px 6px; }
+    
     headerbar.selection-mode .selection-menu GtkArrow {
       -GtkArrow-arrow-scaling: 1; }
+    
     headerbar.selection-mode .selection-menu .arrow {
       -gtk-icon-source: -gtk-icontheme("pan-down-symbolic");
       -gtk-icon-shadow: none; }
@@ -1956,19 +2188,23 @@ headerbar button {
   margin-top: 3px;
   margin-bottom: 3px; }
 
+
 headerbar button.suggested-action,
 headerbar.selection-mode.suggested-action {
   background-image: none;
   background-color: #3daee9; }
+  
   headerbar button.suggested-action:hover,
   headerbar.selection-mode.suggested-action:hover {
     background-color: #3daee9;
     color: #eff0f1; }
+  
   headerbar button.suggested-action:disabled,
   headerbar.selection-mode.suggested-action:disabled {
     background-color: transparent;
     background-image: none;
     color: rgba(216, 218, 221, 0.35); }
+    
     headerbar button.suggested-action:disabled:active,
     headerbar.selection-mode.suggested-action:disabled:active,
     headerbar button.suggested-action:disabled:checked,
@@ -1976,16 +2212,15 @@ headerbar.selection-mode.suggested-action {
       color: rgba(216, 218, 221, 0.35);
       border-color: rgba(37, 164, 230, 0.35);
       background-image: linear-gradient(to bottom, rgba(44, 167, 231, 0.35), rgba(25, 152, 218, 0.35)); }
-      headerbar button.suggested-action:disabled:active > .label,
-      headerbar.selection-mode.suggested-action:disabled:active > .label,
-      headerbar button.suggested-action:disabled:checked > .label,
-      headerbar.selection-mode.suggested-action:disabled:checked > .label {
+      headerbar button.suggested-action:disabled:active > .label, headerbar.selection-mode.suggested-action:disabled:active > .label, headerbar button.suggested-action:disabled:checked > .label, headerbar.selection-mode.suggested-action:disabled:checked > .label {
         color: inherit; }
+  
   headerbar button.suggested-action:backdrop,
   headerbar.selection-mode.suggested-action:backdrop {
     background-color: #31363b;
     border-color: transparent;
     color: #7f8c8d; }
+    
     headerbar button.suggested-action:backdrop:disabled,
     headerbar.selection-mode.suggested-action:backdrop:disabled {
       color: rgba(115, 128, 129, 0.35); }
@@ -2017,8 +2252,7 @@ headerbar.selection-mode,
   .error:backdrop {
     background-color: #31363b;
     color: #f67400; }
-  .info button,
-  headerbar.selection-mode button,
+  .info button, headerbar.selection-mode button,
   .question button,
   .warning button,
   .error button {
@@ -2027,16 +2261,13 @@ headerbar.selection-mode,
     background-color: rgba(246, 116, 0, 0.5);
     border-color: rgba(246, 116, 0, 0.5);
     color: #eff0f1; }
-    .info button:hover,
-    headerbar.selection-mode button:hover,
+    .info button:hover, headerbar.selection-mode button:hover,
     .question button:hover,
     .warning button:hover,
     .error button:hover {
       background-color: rgba(246, 116, 0, 0.25);
       border-color: #f67400; }
-    .info button:active,
-    headerbar.selection-mode button:active, .info button:checked,
-    headerbar.selection-mode button:checked,
+    .info button:active, headerbar.selection-mode button:active, .info button:checked, headerbar.selection-mode button:checked,
     .question button:active,
     .question button:checked,
     .warning button:active,
@@ -2046,25 +2277,21 @@ headerbar.selection-mode,
       background-image: linear-gradient(to bottom, #f87500, #ef7100);
       color: #31363b;
       border-color: #f67400; }
-    .info button:disabled,
-    headerbar.selection-mode button:disabled,
+    .info button:disabled, headerbar.selection-mode button:disabled,
     .question button:disabled,
     .warning button:disabled,
     .error button:disabled {
       background-color: rgba(224, 105, 0, 0);
       border-color: rgba(224, 105, 0, 0);
       color: rgba(216, 218, 221, 0.35); }
-    .info button:backdrop,
-    headerbar.selection-mode button:backdrop,
+    .info button:backdrop, headerbar.selection-mode button:backdrop,
     .question button:backdrop,
     .warning button:backdrop,
     .error button:backdrop {
       background-color: rgba(246, 116, 0, 0.5);
       border-color: rgba(246, 116, 0, 0.5);
       color: #eff0f1; }
-      .info button:backdrop:active,
-      headerbar.selection-mode button:backdrop:active, .info button:backdrop:checked,
-      headerbar.selection-mode button:backdrop:checked,
+      .info button:backdrop:active, headerbar.selection-mode button:backdrop:active, .info button:backdrop:checked, headerbar.selection-mode button:backdrop:checked,
       .question button:backdrop:active,
       .question button:backdrop:checked,
       .warning button:backdrop:active,
@@ -2074,17 +2301,14 @@ headerbar.selection-mode,
         background-image: linear-gradient(to bottom, #f87500, #ef7100);
         color: #31363b;
         border-color: #f67400; }
-      .info button:backdrop:disabled,
-      headerbar.selection-mode button:backdrop:disabled,
+      .info button:backdrop:disabled, headerbar.selection-mode button:backdrop:disabled,
       .question button:backdrop:disabled,
       .warning button:backdrop:disabled,
       .error button:backdrop:disabled {
         background-color: rgba(224, 105, 0, 0);
         border-color: rgba(224, 105, 0, 0);
         color: rgba(216, 218, 221, 0.35); }
-      .info button:backdrop:disabled:active,
-      headerbar.selection-mode button:backdrop:disabled:active, .info button:backdrop:disabled:checked,
-      headerbar.selection-mode button:backdrop:disabled:checked,
+      .info button:backdrop:disabled:active, headerbar.selection-mode button:backdrop:disabled:active, .info button:backdrop:disabled:checked, headerbar.selection-mode button:backdrop:disabled:checked,
       .question button:backdrop:disabled:active,
       .question button:backdrop:disabled:checked,
       .warning button:backdrop:disabled:active,
@@ -2110,9 +2334,7 @@ button:visited {
   button:visited {
     color: #7f8c8d; }
     *:selected button:link > label:visited,
-    *:selected button:visited > label:visited, *:selected
-    *:link:visited, *:selected
-    button:visited:link,
+    *:selected button:visited > label:visited, *:selected *:link:visited, *:selected button:visited:link,
     *:selected button:visited {
       color: #a8d6ee; }
   button:link > label:hover,
@@ -2122,9 +2344,7 @@ button:visited {
   button:hover:visited {
     color: #409ad5; }
     *:selected button:link > label:hover,
-    *:selected button:visited > label:hover, *:selected
-    *:link:hover, *:selected
-    button:hover:link,
+    *:selected button:visited > label:hover, *:selected *:link:hover, *:selected button:hover:link,
     *:selected button:hover:visited {
       color: #dde9f0; }
   button:link > label:active,
@@ -2134,9 +2354,7 @@ button:visited {
   button:active:visited {
     color: #2980b9; }
     *:selected button:link > label:active,
-    *:selected button:visited > label:active, *:selected
-    *:link:active, *:selected
-    button:active:link,
+    *:selected button:visited > label:active, *:selected *:link:active, *:selected button:active:link,
     *:selected button:active:visited {
       color: #cbe3ef; }
   button:link > label:backdrop,
@@ -2160,9 +2378,7 @@ button:visited {
   *:link:selected,
   headerbar.selection-mode .subtitle:link,
   button:selected:link,
-  button:selected:visited, *:selected
-  *:link, *:selected
-  button:link,
+  button:selected:visited, *:selected *:link, *:selected button:link,
   *:selected button:visited {
     color: #cbe3ef; }
 
@@ -2337,6 +2553,7 @@ menu,
 
 menuitem accelerator {
   color: alpha(currentColor,0.55); }
+
 menuitem check,
 menuitem radio {
   min-height: 18px;
@@ -2374,40 +2591,32 @@ popover.background radiobutton,
   .menuitem.button.flat:backdrop,
   .menuitem.button.flat:backdrop:hover {
     color: #eff0f1; }
-  modelbutton.flat check:hover, popover.background checkbutton check:hover,
-  popover.background radiobutton check:hover,
+  modelbutton.flat check:hover, popover.background checkbutton check:hover, popover.background radiobutton check:hover,
   .menuitem.button.flat check:hover {
     -gtk-icon-source: -gtk-scaled(url("../assets/check-unchecked.png"), url("../assets/check-unchecked@2.png")); }
-  modelbutton.flat radio:hover, popover.background checkbutton radio:hover,
-  popover.background radiobutton radio:hover,
+  modelbutton.flat radio:hover, popover.background checkbutton radio:hover, popover.background radiobutton radio:hover,
   .menuitem.button.flat radio:hover {
     -gtk-icon-source: -gtk-scaled(url("../assets/radio-unchecked.png"), url("../assets/radio-unchecked@2.png")); }
-  modelbutton.flat check:checked:hover, popover.background checkbutton check:checked:hover,
-  popover.background radiobutton check:checked:hover,
+  modelbutton.flat check:checked:hover, popover.background checkbutton check:checked:hover, popover.background radiobutton check:checked:hover,
   .menuitem.button.flat check:checked:hover {
     -gtk-icon-source: -gtk-scaled(url("../assets/check-checked-active.png"), url("../assets/check-checked-active@2.png")); }
-  modelbutton.flat radio:checked:hover, popover.background checkbutton radio:checked:hover,
-  popover.background radiobutton radio:checked:hover,
+  modelbutton.flat radio:checked:hover, popover.background checkbutton radio:checked:hover, popover.background radiobutton radio:checked:hover,
   .menuitem.button.flat radio:checked:hover {
     -gtk-icon-source: -gtk-scaled(url("../assets/radio-checked-active.png"), url("../assets/radio-checked-active@2.png")); }
-  modelbutton.flat check:indeterminate:hover, popover.background checkbutton check:indeterminate:hover,
-  popover.background radiobutton check:indeterminate:hover,
+  modelbutton.flat check:indeterminate:hover, popover.background checkbutton check:indeterminate:hover, popover.background radiobutton check:indeterminate:hover,
   .menuitem.button.flat check:indeterminate:hover {
     -gtk-icon-source: -gtk-scaled(url("../assets/check-mixed.png"), url("../assets/check-mixed@2.png")); }
-  modelbutton.flat radio:indeterminate:hover, popover.background checkbutton radio:indeterminate:hover,
-  popover.background radiobutton radio:indeterminate:hover,
+  modelbutton.flat radio:indeterminate:hover, popover.background checkbutton radio:indeterminate:hover, popover.background radiobutton radio:indeterminate:hover,
   .menuitem.button.flat radio:indeterminate:hover {
     -gtk-icon-source: -gtk-scaled(url("../assets/radio-mixed.png"), url("../assets/radio-mixed@2.png")); }
-  modelbutton.flat check:last-child, popover.background checkbutton check:last-child,
-  popover.background radiobutton check:last-child,
+  modelbutton.flat check:last-child, popover.background checkbutton check:last-child, popover.background radiobutton check:last-child,
   modelbutton.flat radio:last-child,
   popover.background checkbutton radio:last-child,
   popover.background radiobutton radio:last-child,
   .menuitem.button.flat check:last-child,
   .menuitem.button.flat radio:last-child {
     margin-right: 0px; }
-  modelbutton.flat check:first-child, popover.background checkbutton check:first-child,
-  popover.background radiobutton check:first-child,
+  modelbutton.flat check:first-child, popover.background checkbutton check:first-child, popover.background radiobutton check:first-child,
   modelbutton.flat radio:first-child,
   popover.background checkbutton radio:first-child,
   popover.background radiobutton radio:first-child,
@@ -2415,21 +2624,16 @@ popover.background radiobutton,
   .menuitem.button.flat radio:first-child {
     margin-left: 0px; }
 
-modelbutton.flat arrow, popover.background checkbutton arrow,
-popover.background radiobutton arrow {
+modelbutton.flat arrow, popover.background checkbutton arrow, popover.background radiobutton arrow {
   background: none; }
-  modelbutton.flat arrow:hover, popover.background checkbutton arrow:hover,
-  popover.background radiobutton arrow:hover {
+  modelbutton.flat arrow:hover, popover.background checkbutton arrow:hover, popover.background radiobutton arrow:hover {
     background: none; }
-  modelbutton.flat arrow.left, popover.background checkbutton arrow.left,
-  popover.background radiobutton arrow.left {
+  modelbutton.flat arrow.left, popover.background checkbutton arrow.left, popover.background radiobutton arrow.left {
     -gtk-icon-source: -gtk-icontheme("pan-start-symbolic"); }
-  modelbutton.flat arrow.right, popover.background checkbutton arrow.right,
-  popover.background radiobutton arrow.right {
+  modelbutton.flat arrow.right, popover.background checkbutton arrow.right, popover.background radiobutton arrow.right {
     -gtk-icon-source: -gtk-icontheme("pan-end-symbolic"); }
 
 popover.background {
-  margin: -10px;
   padding: 0px;
   border: 1px solid #616569;
   border-radius: 3px;
@@ -2467,6 +2671,7 @@ printdialog paper {
     color: #eff0f1;
     border-color: #616569;
     background: white; }
+
 printdialog .dialog-action-box {
   margin: 12px; }
 
@@ -2495,6 +2700,7 @@ actionbar > revealer > box {
 
 scrolledwindow viewport.frame {
   border-style: none; }
+
 scrolledwindow junction {
   border-color: transparent;
   background-color: transparent;
@@ -2541,6 +2747,7 @@ paned > separator {
     paned > separator.wide:backdrop {
       background-color: #31363b;
       background-image: image(#616569), image(#616569); }
+
 paned.horizontal > separator {
   background-repeat: repeat-y; }
   paned.horizontal > separator:dir(ltr) {
@@ -2556,6 +2763,7 @@ paned.horizontal > separator {
     padding: 0;
     background-repeat: repeat-y, repeat-y;
     background-position: left, right; }
+
 paned.vertical > separator {
   margin: 0 0 -8px 0;
   padding: 0 0 8px 0;
@@ -2573,6 +2781,7 @@ paned.vertical > separator {
 @keyframes spin {
   to {
     -gtk-icon-transform: rotate(1turn); } }
+
 spinner {
   background-image: none;
   opacity: 0;
@@ -2588,12 +2797,13 @@ spinner {
  * Tabs          *
  *****************/
 /*************
- * Notebooks *
- *************/
+  * Notebooks *
+  *************/
 notebook.frame {
   border: none;
   padding: 0px;
   box-shadow: inset 0px 0px 0px 1px #616569; }
+
 notebook > header {
   padding: 0px;
   border: none;
@@ -2835,6 +3045,7 @@ notebook > header {
     notebook > header button.flat:backdrop {
       background-color: #616569;
       color: #31363b; }
+
 notebook > stack:not(:only-child) {
   background-color: transparent;
   border-style: solid;
@@ -2857,6 +3068,7 @@ scrolledwindow overshoot.top {
     background-color: transparent;
     border: none;
     box-shadow: none; }
+
 scrolledwindow overshoot.bottom {
   background-image: -gtk-gradient(radial, center bottom, 0, center bottom, 0.5, to(#494c4e), to(rgba(73, 76, 78, 0))), -gtk-gradient(radial, center bottom, 0, center bottom, 0.6, from(rgba(239, 240, 241, 0.07)), to(rgba(239, 240, 241, 0)));
   background-size: 100% 5%, 100% 100%;
@@ -2873,6 +3085,7 @@ scrolledwindow overshoot.bottom {
     background-color: transparent;
     border: none;
     box-shadow: none; }
+
 scrolledwindow overshoot.left {
   background-image: -gtk-gradient(radial, left center, 0, left center, 0.5, to(#494c4e), to(rgba(73, 76, 78, 0))), -gtk-gradient(radial, left center, 0, left center, 0.6, from(rgba(239, 240, 241, 0.07)), to(rgba(239, 240, 241, 0)));
   background-size: 5% 100%, 100% 100%;
@@ -2889,6 +3102,7 @@ scrolledwindow overshoot.left {
     background-color: transparent;
     border: none;
     box-shadow: none; }
+
 scrolledwindow overshoot.right {
   background-image: -gtk-gradient(radial, right center, 0, right center, 0.5, to(#494c4e), to(rgba(73, 76, 78, 0))), -gtk-gradient(radial, right center, 0, right center, 0.6, from(rgba(239, 240, 241, 0.07)), to(rgba(239, 240, 241, 0)));
   background-size: 5% 100%, 100% 100%;
@@ -2905,6 +3119,7 @@ scrolledwindow overshoot.right {
     background-color: transparent;
     border: none;
     box-shadow: none; }
+
 scrolledwindow undershoot {
   background-image: none;
   border: none; }
@@ -2984,6 +3199,7 @@ treeview.view.progressbar {
   background-image: none; }
   treeview.view.progressbar:selected:focus, treeview.view.progressbar:selected {
     background-color: rgba(239, 240, 241, 0.25); }
+
 treeview.view.trough {
   background-color: #6a6e72; }
   treeview.view.trough:selected:focus, treeview.view.trough:selected {
@@ -2995,9 +3211,11 @@ treeview.view.trough {
 levelbar block {
   min-width: 32px;
   min-height: 6px; }
+
 levelbar.vertical block {
   min-width: 6px;
   min-height: 32px; }
+
 levelbar trough {
   border: 1px solid;
   padding: 2px;
@@ -3010,10 +3228,13 @@ levelbar trough {
     color: #eff0f1;
     border-color: #616569;
     background-color: #232629; }
+
 levelbar.horizontal.discrete block {
   margin: 0 1px; }
+
 levelbar.vertical.discrete block {
   margin: 1px 0; }
+
 levelbar block:not(.empty) {
   border: 1px solid #3daee9;
   background-color: #3daee9;
@@ -3022,24 +3243,28 @@ levelbar block:not(.empty) {
   levelbar block:not(.empty):backdrop {
     border-color: #3daee9;
     background-color: #3daee9; }
+
 levelbar block.low {
   border-color: #f67400;
   background-color: #f67400; }
   levelbar block.low:backdrop {
     background-color: #f67400;
     border-color: #f67400; }
+
 levelbar block.high {
   border-color: #27ae60;
   background-color: #27ae60; }
   levelbar block.high:backdrop {
     background-color: #27ae60;
     border-color: #27ae60; }
+
 levelbar block.full {
   border-color: #27ae60;
   background-color: #27ae60; }
   levelbar block.full:backdrop {
     background-color: #27ae60;
     border-color: #27ae60; }
+
 levelbar block.empty {
   background-color: rgba(239, 240, 241, 0.3);
   border-color: transparent;
@@ -3053,6 +3278,7 @@ levelbar block.empty {
 scale.fine-tune.trough {
   margin: 8px;
   border-radius: 3px; }
+
 scale slider {
   min-width: 18px;
   min-height: 18px;
@@ -3085,6 +3311,7 @@ scale slider {
   scale slider:backdrop {
     background-color: #31363b;
     border-color: #616569; }
+
 scale trough {
   min-width: 6px;
   min-height: 6px;
@@ -3103,6 +3330,7 @@ scale trough {
   scale trough:backdrop {
     background-color: #6a6e72;
     border-color: #6a6e72; }
+
 scale highlight {
   border: 0px solid;
   border-radius: 3px;
@@ -3123,38 +3351,38 @@ scale highlight {
  * Scrollbars *
  **************/
 scrollbar {
-  -GtkScrollbar-has-backward-stepper: true;
-  -GtkScrollbar-has-forward-stepper: true;
+  -GtkScrollbar-has-backward-stepper: false;
+  -GtkScrollbar-has-forward-stepper: false;
   background-color: #31363b;
-  border-width: 3px 0px;
+  border-width: 0px 0px;
   border-color: #31363b;
   margin: 0px; }
   scrollbar button {
     min-width: 14px;
     min-height: 14px;
     margin: 0px;
-    padding: 0px 3px;
+    padding: 0px 0px;
     border: none;
     border-radius: 0px;
     background-image: none;
-    background-color: #31363b;
-    color: #eff0f1;
+    background-color: transparent;
+    color: transparent;
     box-shadow: none; }
     scrollbar button:hover {
       border: none;
       background-image: none;
       background-color: #31363b;
-      color: #3daee9; }
+      color: transparent; }
     scrollbar button:active, scrollbar button:active:hover {
       border: none;
       background-image: none;
       background-color: #31363b;
-      color: #3daee9; }
+      color: transparent; }
     scrollbar button:disabled {
       border: none;
       background-color: #31363b;
       background-image: none;
-      color: rgba(216, 218, 221, 0.35); }
+      color: transparent; }
     scrollbar button:backdrop {
       color: #eff0f1; }
       scrollbar button:backdrop:disabled {
@@ -3165,59 +3393,44 @@ scrollbar {
     opacity: 0.999; }
   scrollbar.overlay-indicator:not(.dragging):not(.hovering) {
     -GtkScrollbar-has-backward-stepper: false;
-    -GtkScrollbar-has-forward-stepper: false;
-    background: none; }
+    -GtkScrollbar-has-forward-stepper: false; }
     scrollbar.overlay-indicator:not(.dragging):not(.hovering) slider {
-      min-width: 4px;
-      margin: 2px;
-      border: none;
-      border-radius: 2px;
-      background-color: #adafb2; }
+      min-width: 6px;
+      border-radius: 8px;
+      background-color: rgba(173, 175, 178, 0.8); }
       scrollbar.overlay-indicator:not(.dragging):not(.hovering) slider:backdrop {
         background-color: #adafb2; }
-    scrollbar.overlay-indicator:not(.dragging):not(.hovering) trough {
-      min-width: 4px;
-      min-height: 4px;
-      border: none;
-      background: none;
-      box-shadow: none; }
     scrollbar.overlay-indicator:not(.dragging):not(.hovering).horizontal slider {
-      min-height: 4px; }
+      min-height: 6px; }
+  scrollbar.overlay-indicator {
+    background: none; }
   scrollbar trough {
-    min-width: 16px;
-    min-height: 16px;
-    border: 0px solid transparent;
+    transition-duration: 0.1s;
+    min-width: 6px;
+    min-height: 14px;
+    border: 0px solid #31363b;
     border-radius: 8px;
+    background-color: transparent; }
+  scrollbar:hover trough {
     background-color: #6a6e72;
-    box-shadow: inset 0px 0px 0px 3px #31363b; }
+    box-shadow: inset 0px 0px 0px 5px #31363b; }
   scrollbar slider {
-    min-width: 10px;
+    transition-duration: 0.1s;
+    min-width: 6px;
     min-height: 30px;
-    border: 2px solid transparent;
+    border: 5px solid transparent;
     border-radius: 8px;
     background-clip: padding-box;
     background-color: #adafb2; }
     scrollbar slider:hover {
       background-color: #3daee9; }
-    scrollbar slider:active {
-      background-color: #3daee9; }
-    scrollbar slider:disabled {
-      background-color: rgba(157, 159, 163, 0.35); }
     scrollbar slider:backdrop {
       background-color: #adafb2; }
     scrollbar slider:backdrop:disabled {
       background-color: rgba(157, 159, 163, 0.35); }
   scrollbar.horizontal slider {
     min-width: 30px;
-    min-height: 10px; }
-  scrollbar.vertical button.down {
-    -gtk-icon-source: -gtk-icontheme("pan-down-symbolic"); }
-  scrollbar.vertical button.up {
-    -gtk-icon-source: -gtk-icontheme("pan-up-symbolic"); }
-  scrollbar.horizontal button.down {
-    -gtk-icon-source: -gtk-icontheme("pan-end-symbolic"); }
-  scrollbar.horizontal button.up {
-    -gtk-icon-source: -gtk-icontheme("pan-start-symbolic"); }
+    min-height: 6px; }
 
 /***********
  * Sidebar *
@@ -3230,6 +3443,7 @@ scrollbar {
 
 placessidebar > viewport.frame {
   border-style: none; }
+
 placessidebar row {
   min-height: 36px;
   padding: 0px; }
@@ -3272,11 +3486,14 @@ placessidebar row {
 placesview .server-list-button > image {
   transition: 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
   -gtk-icon-transform: rotate(0turn); }
+
 placesview .server-list-button:checked > image {
   transition: 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
   -gtk-icon-transform: rotate(-0.5turn); }
+
 placesview row.activatable:hover {
   background-color: transparent; }
+
 placesview > actionbar > revealer > box > label {
   padding-left: 8px;
   padding-right: 8px; }
@@ -3332,13 +3549,17 @@ spinbutton:not(.vertical) {
       border-radius: 0 3px 3px 0; }
     spinbutton:not(.vertical) button:dir(rtl):first-child {
       border-radius: 3px 0 0 3px; }
+
 spinbutton.vertical:disabled {
   color: rgba(216, 218, 221, 0.35); }
+
 spinbutton.vertical:backdrop:disabled {
   color: rgba(216, 218, 221, 0.35); }
+
 spinbutton.vertical:drop(active) {
   border-color: transparent;
   box-shadow: none; }
+
 spinbutton.vertical entry {
   margin: 0px;
   min-height: 26px;
@@ -3355,6 +3576,7 @@ spinbutton.vertical entry {
     color: rgba(216, 218, 221, 0.35);
     background-color: #202325;
     border-color: rgba(88, 92, 95, 0.35); }
+
 spinbutton.vertical button {
   min-height: 26px;
   min-width: 26px;
@@ -3376,12 +3598,15 @@ spinbutton.vertical button {
     color: rgba(216, 218, 221, 0.35);
     background-color: #202325;
     border-color: rgba(88, 92, 95, 0.35); }
+
 spinbutton.vertical button.up {
   border-radius: 3px 3px 0 0;
   border-style: solid solid none solid; }
+
 spinbutton.vertical button.down {
   border-radius: 0 0 3px 3px;
   border-style: none solid solid solid; }
+
 treeview spinbutton:not(.vertical) {
   min-height: 0;
   border-style: none;
@@ -3491,7 +3716,8 @@ tooltip {
   /* not working */
   border-radius: 3px;
   box-shadow: none;
-  text-shadow: none; }
+  text-shadow: none;
+  border: 1px solid #616569; }
   tooltip.background {
     background-color: #31363b;
     background-clip: padding-box; }
@@ -3627,7 +3853,9 @@ decoration {
   box-shadow: 0 2px 6px 1px rgba(0, 0, 0, 0.5);
   /* this is used for the resize cursor area */
   margin: 10px; }
-  .maximized decoration, .fullscreen decoration, .tiled decoration {
+  .maximized decoration,
+  .fullscreen decoration,
+  .tiled decoration {
     border-radius: 0; }
   .popup decoration {
     border-radius: 3px;
@@ -3647,18 +3875,19 @@ decoration {
     margin: 0;
     padding: 1px;
     border: none;
-    background-color: #616569;
+    background-color: #31363b;
     box-shadow: none; }
 
 headerbar.default-decoration button.titlebutton,
 .titlebar.default-decoration button.titlebutton {
-  padding: 6px 1px;
+  padding: 1px;
   min-height: 18px;
   min-width: 18px;
   margin: 0; }
+
 headerbar button.titlebutton,
 .titlebar button.titlebutton {
-  padding: 6px; }
+  padding: 1px; }
   headerbar button.titlebutton:hover, headerbar button.titlebutton:active, headerbar button.titlebutton:checked, headerbar button.titlebutton:backdrop, headerbar button.titlebutton:active:hover,
   .titlebar button.titlebutton:hover,
   .titlebar button.titlebutton:active,
@@ -3668,7 +3897,7 @@ headerbar button.titlebutton,
     transition: none; }
   headerbar button.titlebutton.close,
   .titlebar button.titlebutton.close {
-    padding: 6px 1px;
+    padding: 1px;
     color: transparent;
     border-image: none;
     box-shadow: none;
@@ -3692,7 +3921,7 @@ headerbar button.titlebutton,
     background-image: -gtk-scaled(url("../assets/titlebutton-close-backdrop.png"), url("../assets/titlebutton-close-backdrop@2.png")); }
   headerbar button.titlebutton.maximize,
   .titlebar button.titlebutton.maximize {
-    padding: 6px 1px;
+    padding: 1px;
     color: transparent;
     border-image: none;
     box-shadow: none;
@@ -3716,7 +3945,7 @@ headerbar button.titlebutton,
     background-image: -gtk-scaled(url("../assets/titlebutton-maximize-backdrop.png"), url("../assets/titlebutton-maximize-backdrop@2.png")); }
   headerbar button.titlebutton.minimize,
   .titlebar button.titlebutton.minimize {
-    padding: 6px 1px;
+    padding: 1px;
     color: transparent;
     border-image: none;
     box-shadow: none;
@@ -3738,25 +3967,29 @@ headerbar button.titlebutton,
     border-color: transparent;
     background-color: transparent;
     background-image: -gtk-scaled(url("../assets/titlebutton-minimize-backdrop.png"), url("../assets/titlebutton-minimize-backdrop@2.png")); }
+
 .maximized headerbar button.titlebutton.maximize, .maximized
 .titlebar button.titlebutton.maximize {
-  padding: 6px 1px;
+  padding: 1px;
   color: transparent;
   border-image: none;
   box-shadow: none;
   background-position: center;
   background-repeat: no-repeat;
   background-image: -gtk-scaled(url("../assets/titlebutton-maximize-maximized.png"), url("../assets/titlebutton-maximize-maximized@2.png")); }
+
 .maximized headerbar button.titlebutton.maximize:hover, .maximized
 .titlebar button.titlebutton.maximize:hover {
   border-color: transparent;
   background-color: transparent;
   background-image: -gtk-scaled(url("../assets/titlebutton-maximize-maximized-hover.png"), url("../assets/titlebutton-maximize-maximized-hover@2.png")); }
+
 .maximized headerbar button.titlebutton.maximize:active, .maximized
 .titlebar button.titlebutton.maximize:active {
   border-color: transparent;
   background-color: transparent;
   background-image: -gtk-scaled(url("../assets/titlebutton-maximize-maximized-active.png"), url("../assets/titlebutton-maximize-maximized-active@2.png")); }
+
 .maximized headerbar button.titlebutton.maximize:backdrop, .maximized
 .titlebar button.titlebutton.maximize:backdrop {
   border-color: transparent;
@@ -3769,5 +4002,3 @@ headerbar.selection-mode button.titlebutton,
   headerbar.selection-mode button.titlebutton:backdrop,
   .titlebar.selection-mode button.titlebutton:backdrop {
     -gtk-icon-shadow: none; }
-
-/*# sourceMappingURL=gtk.css.map */
