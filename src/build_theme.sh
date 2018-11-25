@@ -29,7 +29,9 @@ render_theme () {
   mv -f "$2" "$HOME/.local/share/themes/"
 }
 
-if [ -z "$1" ]; then
+COLOR_SCHEME="$1"
+
+if [ -z "$COLOR_SCHEME" ]; then
   if [ -f "$HOME/.config/kdeglobals" ]; then
     render_theme "$HOME/.config/kdeglobals" Breeze
   else
@@ -37,12 +39,12 @@ if [ -z "$1" ]; then
     render_theme /usr/share/color-schemes/Breeze.colors Breeze
   fi
 else
-  if [ -f "/usr/share/color-schemes/$1.colors" ]; then
-    render_theme "/usr/share/color-schemes/$1.colors" "$1"
-  elif [ -f "$HOME/.local/share/color-schemes/$1.colors" ]; then
-    render_theme "$HOME/.local/share/color-schemes/$1.colors" "$1"
+  if [ -f "/usr/share/color-schemes/$COLOR_SCHEME.colors" ]; then
+    render_theme "/usr/share/color-schemes/$COLOR_SCHEME.colors" "$COLOR_SCHEME"
+  elif [ -f "$HOME/.local/share/color-schemes/$COLOR_SCHEME.colors" ]; then
+    render_theme "$HOME/.local/share/color-schemes/$COLOR_SCHEME.colors" "$COLOR_SCHEME"
   else
-    echo "colorscheme $1 not found"
+    echo "colorscheme $COLOR_SCHEME not found"
   fi
 fi
         
