@@ -1,22 +1,19 @@
-#!/bin/bash
+#!/bin/sh
 
 create_folders () {
-  FOLDERS=(gtk-2.0 gtk-3.0 gtk-3.20)
-  for j in "${FOLDERS[@]}"
-    do
-      if ! [ -d "$1/$j" ]
-        then mkdir -p "$1/$j";
-      fi
+  for j in gtk-2.0 gtk-3.0 gtk-3.20; do
+    if ! [ -d "$1/$j" ]; then
+        mkdir -p "$1/$j"
+    fi
   done 
 }
 
 build_sass() {
-    if command -v sassc &>/dev/null
-    then
+  if command -v sassc >/dev/null 2>&1; then
       sassc "$1" "$2"
-    else
+  else
       sass --cache-location /tmp/sass-cache "$1" "$2"
-    fi
+  fi
 }
 
 render_theme () {
@@ -26,27 +23,23 @@ render_theme () {
   build_sass gtk320/gtk.scss "$2/gtk-3.20/gtk.css"
   mv assets "$2/"
   cp -R gtk2/* "$2/gtk-2.0/"
-  if [ -d "$HOME/.local/share/themes/$2" ]
-    then rm -rf "$HOME/.local/share/themes/$2";
+  if [ -d "$HOME/.local/share/themes/$2" ]; then
+    rm -rf "$HOME/.local/share/themes/$2";
   fi
   mv -f "$2" "$HOME/.local/share/themes/"
 }
 
-if [ -z "$1" ]
-then
-  if [ -f "$HOME/.config/kdeglobals" ]
-  then
+if [ -z "$1" ]; then
+  if [ -f "$HOME/.config/kdeglobals" ]; then
     render_theme "$HOME/.config/kdeglobals" Breeze
   else
     echo "$HOME/.config/kdeglobals not found, using defaults"
     render_theme /usr/share/color-schemes/Breeze.colors Breeze
   fi
 else
-  if [ -f "/usr/share/color-schemes/$1.colors" ]
-  then
+  if [ -f "/usr/share/color-schemes/$1.colors" ]; then
     render_theme "/usr/share/color-schemes/$1.colors" "$1"
-  elif [ -f "$HOME/.local/share/color-schemes/$1.colors" ]
-  then
+  elif [ -f "$HOME/.local/share/color-schemes/$1.colors" ]; then
     render_theme "$HOME/.local/share/color-schemes/$1.colors" "$1"
   else
     echo "colorscheme $1 not found"
