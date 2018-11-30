@@ -93,7 +93,7 @@ extra colors for the color scheme script */
 @define-color expander_hover #ffffff;
 @define-color overshoot_color #494c4e;
 @define-color trough_color #6a6e72;
-@define-color trough_scale_color rgba(96, 100, 104, 0.35)
+@define-color trough_scale_color rgba(96, 100, 104, 0.35);
 @define-color scrollbar_overlay_color #adafb2;
 @define-color scrollbar_backdrop_color rgba(157, 159, 163, 0.35);
 @define-color dark_overlay_color #31363b;
