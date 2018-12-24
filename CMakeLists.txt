@@ -9,6 +9,13 @@ include(FeatureSummary)
 
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR} "${CMAKE_SOURCE_DIR}/cmake")
 find_package(GTKEngine)
+find_package(Sass REQUIRED)
+
+if(${CMAKE_VERSION} GREATER_EQUAL 3.12.0)
+    find_package(Python3 COMPONENTS Interpreter REQUIRED)
+else()
+    find_package(PythonInterp 3 REQUIRED)
+endif()
 
 include(KDEInstallDirs)
 
@@ -23,5 +30,6 @@ set(directory_EXCLUDES
 add_subdirectory(Breeze-dark-gtk)
 add_subdirectory(Breeze-gtk)
 add_subdirectory(kconf_update)
+add_subdirectory(src)
 
 feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)

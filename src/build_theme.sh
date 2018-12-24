@@ -2,9 +2,10 @@
 # Usage: build_theme.sh [<colorscheme> [<install-target>]]
 # If <colorscheme> is unset or empty, colors from kdeglobals are used
 # If <install-target> is unset or empty, the theme is installed into ~/.local/share/themes/<theme name>
+set -e
 
 create_folders () {
-  for j in gtk-2.0 gtk-3.0 gtk-3.20; do
+  for j in gtk-2.0 gtk-3.18 gtk-3.20; do
     if ! [ -d "$1/$j" ]; then
         mkdir -p "$1/$j"
     fi
@@ -26,7 +27,7 @@ install_theme () {
     INSTALL_TARGET="$HOME/.local/share/themes/$COLOR_SCHEME"
   fi
   mkdir -p "$INSTALL_TARGET"
-  for dir in assets gtk-2.0 gtk-3.0 gtk-3.20; do
+  for dir in assets gtk-2.0 gtk-3.18 gtk-3.20; do
     if [ -d "$INSTALL_TARGET/$dir" ]; then
       rm -rf "${INSTALL_TARGET:?}/$dir"
     fi
@@ -38,7 +39,7 @@ install_theme () {
 render_theme () {
   python3 render_assets.py "$1"
   create_folders "$2"
-  build_sass gtk318/gtk.scss "$2/gtk-3.0/gtk.css"
+  build_sass gtk318/gtk.scss "$2/gtk-3.18/gtk.css"
   build_sass gtk320/gtk.scss "$2/gtk-3.20/gtk.css"
   mv assets "$2/"
   cp -R gtk2/* "$2/gtk-2.0/"
