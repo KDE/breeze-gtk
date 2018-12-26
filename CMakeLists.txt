@@ -19,16 +19,6 @@ endif()
 
 include(KDEInstallDirs)
 
-# Exclude these patterns when installing directories as they have no use
-# in production.
-set(directory_EXCLUDES
-    PATTERN "render-assets.sh" EXCLUDE
-    PATTERN "assets.svg" EXCLUDE
-    PATTERN "assets.txt" EXCLUDE
-)
-
-add_subdirectory(Breeze-dark-gtk)
-add_subdirectory(Breeze-gtk)
 add_subdirectory(kconf_update)
 add_subdirectory(src)
 
