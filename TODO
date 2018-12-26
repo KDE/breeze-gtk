@@ -1,4 +1,3 @@
 * Remove SASS deprecation warnings 
 * Fix theme name for GTK+2.0
-* Document build_theme.sh
 * Build the theme into ${CMAKE_BINARY_DIR}

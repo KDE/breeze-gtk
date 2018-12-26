@@ -1,7 +1,4 @@
 #!/bin/sh
-# Usage: build_theme.sh [<colorscheme> [<install-target>]]
-# If <colorscheme> is unset or empty, colors from kdeglobals are used
-# If <install-target> is unset or empty, the theme is installed into ~/.local/share/themes/<theme name>
 set -e
 
 # Usage: create_folders <target-directory>
@@ -23,7 +20,7 @@ build_sass() {
 }
 
 # Usage: install_theme <theme-directory> <theme-name> <install-target-dir>
-# If <insall-target-dir> is unset empty, install to $HOME/.local/share/themes/$THEME_NAME
+# If <install-target-dir> is unset or empty, install to $HOME/.local/share/themes/$THEME_NAME
 install_theme () {
   THEME_INSTALL_TARGET="$3"
   if [ -z "${THEME_INSTALL_TARGET}" ]; then
@@ -52,24 +49,55 @@ render_theme () {
   install_theme "${THEME_BUILD_DIR}" "$2" "$3"
 }
 
-# TODO : add --help and improve parameter parsing
+COLOR_SCHEME=""
+INSTALL_TARGET=""
+THEME_NAME=""
 
-COLOR_SCHEME="$1"
-INSTALL_TARGET="$2"
+while [ "$#" -gt 0 ]; do
+  case "$1" in
+    -h|--help)
+      echo "$0: build Breeze theme"
+      echo "Usage: $0 [-c COLOR_SCHEME] [-t TARGET_DIRECTORY]"
+      echo
+      echo "Arguments:"
+      echo "  -h, --help          show this help"
+      echo "  -c COLOR_SCHEME     use color scheme with name COLOR_SCHEME. If unset or"
+      echo "                      empty, the value from ~/.config/kdeglobals is used"
+      echo "  -t TARGET_DIRECTORY the directory to install the color scheme. If unset or"
+      echo "                      empty, it is installed into"
+      echo "                      ~/.local/share/themes/THEME_NAME"
+      exit 0
+    ;;
+    -c)
+      shift
+      COLOR_SCHEME="$1"
+    ;;
+    -t)
+      shift
+      INSTALL_TARGET="$1"
+    ;;
+  esac
+  shift
+done
 
-if [ -z "$COLOR_SCHEME" ]; then
-  if [ -f "$HOME/.config/kdeglobals" ]; then
-    render_theme "$HOME/.config/kdeglobals" Breeze "$INSTALL_TARGET"
+if [ -z "${COLOR_SCHEME}" ]; then
+  THEME_NAME="Breeze"
+  if [ -f "${HOME}/.config/kdeglobals" ]; then
+    COLOR_SCHEME="${HOME}/.config/kdeglobals"
   else
-    echo "$HOME/.config/kdeglobals not found, using defaults"
-    render_theme /usr/share/color-schemes/Breeze.colors Breeze "$INSTALL_TARGET"
+    echo "${HOME}/.config/kdeglobals not found, using defaults"
+    COLOR_SCHEME="/usr/share/color-schemes/Breeze.colors"
   fi
 else
-  if [ -f "/usr/share/color-schemes/$COLOR_SCHEME.colors" ]; then
-    render_theme "/usr/share/color-schemes/$COLOR_SCHEME.colors" "$COLOR_SCHEME" "$INSTALL_TARGET"
-  elif [ -f "$HOME/.local/share/color-schemes/$COLOR_SCHEME.colors" ]; then
-    render_theme "$HOME/.local/share/color-schemes/$COLOR_SCHEME.colors" "$COLOR_SCHEME" "$INSTALL_TARGET"
+  THEME_NAME="${COLOR_SCHEME}"
+  if [ -f "/usr/share/color-schemes/${COLOR_SCHEME}.colors" ]; then
+    COLOR_SCHEME="/usr/share/color-schemes/${COLOR_SCHEME}.colors"
+  elif [ -f "${HOME}/.local/share/color-schemes/${COLOR_SCHEME}.colors" ]; then
+    COLOR_SCHEME="${HOME}/.local/share/color-schemes/${COLOR_SCHEME}.colors"
   else
-    echo "colorscheme $COLOR_SCHEME not found"
+    echo "colorscheme ${COLOR_SCHEME} not found"
+    exit 1
   fi
 fi
+
+render_theme "${COLOR_SCHEME}" "${THEME_NAME}" "${INSTALL_TARGET}"
