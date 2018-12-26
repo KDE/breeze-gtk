@@ -37,11 +37,10 @@ install_theme () {
 }
 
 render_theme () {
-  python3 render_assets.py "$1"
   create_folders "$2"
+  python3 render_assets.py "$1" "$2/assets"
   build_sass gtk318/gtk.scss "$2/gtk-3.18/gtk.css"
   build_sass gtk320/gtk.scss "$2/gtk-3.20/gtk.css"
-  mv assets "$2/"
   cp -R gtk2/* "$2/gtk-2.0/"
   install_theme "$2" "$3"
 }

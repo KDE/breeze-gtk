@@ -157,7 +157,7 @@ class Assets(object):
         if  filename == 'png':
             self.surface = cairo.ImageSurface(cairo.FORMAT_ARGB32, scl*width, scl*height)
         else:
-            self.surface = cairo.SVGSurface('assets/' + filename, scl*width, scl*height)
+            self.surface = cairo.SVGSurface(os.path.join(assets_path, filename), scl*width, scl*height)
         cr = self.cr = cairo.Context(self.surface)
         if rotation != 0:
             cr.translate(scl*width/2,scl*height/2)
@@ -328,7 +328,7 @@ class Assets(object):
         self.cr.stroke()
 
     def save(self, filename):
-        self.surface.write_to_png('assets/' + filename)
+        self.surface.write_to_png(os.path.join(assets_path, filename))
 
 
 def check_items(color1,color2,state,alpha=1.0):
@@ -654,12 +654,17 @@ def mix(color, mix_color, amount):
     return (r,g,b)
 #___________________________________________________________________________________
 
-if len(sys.argv) == 2:
+if len(sys.argv) >= 2:
     filename = sys.argv[1]
 else:
     filename = '/usr/share/color-schemes/Breeze.colors'
 
-make_sure_path_exists('assets')
+if len(sys.argv) >= 3:
+    assets_path = sys.argv[2]
+else:
+    assets_path = 'assets'
+
+make_sure_path_exists(assets_path)
 
 _colors = ReadKdeGlobals().read_globals(filename)
 
