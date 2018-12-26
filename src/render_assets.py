@@ -6,6 +6,7 @@ import os
 import errno
 import sys
 import re
+import argparse
 
 def make_sure_path_exists(path):
     try:
@@ -654,19 +655,18 @@ def mix(color, mix_color, amount):
     return (r,g,b)
 #___________________________________________________________________________________
 
-if len(sys.argv) >= 2:
-    filename = sys.argv[1]
-else:
-    filename = '/usr/share/color-schemes/Breeze.colors'
+parser = argparse.ArgumentParser(description='Pregenerates Breeze assets according to the specified color scheme.')
+parser.add_argument('--colorscheme', '-c', action='store', default='/usr/share/color-schemes/Breeze.colors', help='color scheme to use')
+parser.add_argument('--assets-dir', '-a', action='store', default='assets', help='location of the directory to place assets')
+parser.add_argument('--gtk2-dir', '-g', action='store', default='gtk2', help='location of gtk2 directory to define the colorscheme variables')
+parser.add_argument('--gtk3-scss-dir', '-G', action='store', default='.', help='location of _global.scss to define the colorscheme variables')
 
-if len(sys.argv) >= 3:
-    assets_path = sys.argv[2]
-else:
-    assets_path = 'assets'
+args = parser.parse_args()
 
+assets_path = args.assets_dir
 make_sure_path_exists(assets_path)
 
-_colors = ReadKdeGlobals().read_globals(filename)
+_colors = ReadKdeGlobals().read_globals(args.colorscheme)
 
 border_color    = Color(_colors,'WindowBackgroundNormal','WindowForegroundNormal', 0.75)
 window_bg       = Color(_colors,'WindowBackgroundNormal')
@@ -746,7 +746,7 @@ mixed(border_color.rgb,window_bg.rgb,button_active.rgb)
 
 toolbar(border_color.rgb,window_bg.rgb,button_hover.rgb)
 
-gtk2 = open('gtk2/gtkrc', 'w')
+gtk2 = open(os.path.join(args.gtk2_dir, 'gtkrc'), 'w')
 gtk2.write(
 '# Theme:       Breeze-gtk\n'
 '# Description: Breeze theme for GTK+2.0\n'
@@ -781,7 +781,7 @@ gtk2.write(
 )
 gtk2.close()
 
-gtk3 = open('_global.scss', 'w')
+gtk3 = open(os.path.join(args.gtk3_scss_dir, '_global.scss'), 'w')
 for key in sorted(_colors):
     if key == 'DisabledColor' or key == 'InactiveColor':
         gtk3.write('${0}:rgb({1});\n'.format(key,_colors[key]))

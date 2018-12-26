@@ -14,9 +14,9 @@ create_folders () {
 
 build_sass() {
   if command -v sassc >/dev/null 2>&1; then
-      sassc "$1" "$2"
+      sassc -I "$3" "$1" "$2"
   else
-      sass --cache-location /tmp/sass-cache "$1" "$2"
+      sass -I "$3" --cache-location /tmp/sass-cache "$1" "$2"
   fi
 }
 
@@ -38,12 +38,15 @@ install_theme () {
 
 render_theme () {
   create_folders "$2"
-  python3 render_assets.py "$1" "$2/assets"
-  build_sass gtk318/gtk.scss "$2/gtk-3.18/gtk.css"
-  build_sass gtk320/gtk.scss "$2/gtk-3.20/gtk.css"
   cp -R gtk2/* "$2/gtk-2.0/"
+  python3 render_assets.py -c "$1" -a "$2/assets" -g "$2/gtk-2.0" -G "$2"
+  build_sass gtk318/gtk.scss "$2/gtk-3.18/gtk.css" "$2"
+  build_sass gtk320/gtk.scss "$2/gtk-3.20/gtk.css" "$2"
+  rm -f "$2/_global.scss"
   install_theme "$2" "$3"
 }
+
+# TODO : add --help and improve parameter parsing
 
 COLOR_SCHEME="$1"
 INSTALL_TARGET="$2"
