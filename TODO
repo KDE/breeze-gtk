@@ -1,2 +1,2 @@
-* Remove SASS deprecation warnings 
+* Remove SASS deprecation warnings
 * Build the theme into ${CMAKE_BINARY_DIR}
