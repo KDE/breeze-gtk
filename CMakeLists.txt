@@ -11,10 +11,10 @@ set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR} "${CMAKE_SOURCE_D
 find_package(GTKEngine)
 find_package(Sass REQUIRED)
 
-if(${CMAKE_VERSION} GREATER_EQUAL 3.12.0)
-    find_package(Python3 COMPONENTS Interpreter REQUIRED)
-else()
+if(CMAKE_VERSION VERSION_LESS 3.12.0)
     find_package(PythonInterp 3 REQUIRED)
+else()
+    find_package(Python3 COMPONENTS Interpreter REQUIRED)
 endif()
 
 include(KDEInstallDirs)
