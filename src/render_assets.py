@@ -24,7 +24,7 @@ class ReadKdeGlobals():
             '/usr/share/color-schemes/Breeze.colors')
 
     def read_globals(self, filename):
-        with open(filename, 'r') as _kde:
+        with open(filename, 'r', encoding="utf-8") as _kde:
             for widget in ['Disabled', 'Inactive', 'Button', 'Selection',
                            'Tooltip', 'View', 'Window', 'WM']:
                 for line in _kde:
