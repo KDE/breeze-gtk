@@ -1,0 +1,111 @@
+/**************
+ * Scrollbars *
+ **************/
+
+scrollbar {
+
+  -GtkScrollbar-has-backward-stepper: false;
+  -GtkScrollbar-has-forward-stepper: false;
+
+  background-color: w_color(normal);
+  border-width: 0px 0px;
+  border-color: w_color(normal);
+  margin: 0px;
+
+  button {
+  min-width: 14px;
+  min-height: 14px;
+  margin: 0px;
+  padding: 0px 0px;
+	border: none;
+  border-radius: 0px;
+  background-image: none;
+  background-color: transparent;
+  color: transparent;
+  box-shadow: none;
+	&:hover {
+    border: none;
+    background-image: none;
+    background-color: w_color(normal);
+		color: transparent;
+		}
+  &:active,
+  &:active:hover {
+    border: none;
+    background-image: none;
+    background-color: w_color(normal);
+		color: transparent;
+  }
+	&:disabled {
+    border: none;
+    background-color: w_color(normal);
+    background-image: none;
+    color: transparent;
+    }
+  &:backdrop {
+    @extend %undecorated_button;
+    color: backdrop(b_color(text));
+    &:disabled {color: backdrop(insensitive(b_color(text)));}
+    @extend %undecorated_button;
+    }
+	}
+
+  // Overlay Scrollbars
+  &.dragging,                                                             // if this isn't set, the scrollbars don't update their size correctly
+  &.hovering { opacity: 0.9910; }                                          // probably a gtk bug
+  &.overlay-indicator:not(.dragging):not(.hovering) { opacity: 0.999; }     //
+
+
+  &.overlay-indicator:not(.dragging):not(.hovering) {
+   -GtkScrollbar-has-backward-stepper: false;
+   -GtkScrollbar-has-forward-stepper: false;
+
+    slider {
+      min-width: 6px;
+      border-radius: 8px;
+      background-color: transparentize($scrollbar_color, 0.2);
+      &:backdrop { background-color: backdrop($scrollbar_color); }
+    }
+
+    &.horizontal slider { min-height: 6px;}
+  }
+
+  &.overlay-indicator {
+    background: none;
+  }
+
+  trough {
+    //margin: 0px;
+    transition-duration: 0.1s;
+    min-width: 6px;
+    min-height: 14px;
+    border: 0px solid w_color(normal);
+    border-radius: 8px;
+    background-color: transparent;
+  }
+  
+  &:hover {
+    trough {
+      background-color: backdrop($trough_color);
+      box-shadow: inset 0px 0px 0px 5px w_color(normal);
+    }
+  }
+  
+  slider {
+    //margin: 0px;
+    transition-duration: 0.1s;
+    min-width: 6px;
+    min-height: 30px;
+    border: 5px solid transparent;
+    border-radius: 8px;
+    background-clip: padding-box;
+    background-color: $scrollbar_color;
+    &:hover { background-color: b_color(hover); }
+    &:backdrop { background-color: backdrop($scrollbar_color); }
+    &:backdrop:disabled { background-color: backdrop(insensitive($scrollbar_color)); }
+  }
+  &.horizontal slider {
+    min-width: 30px;
+    min-height: 6px;
+  }
+}

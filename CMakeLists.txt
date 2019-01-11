@@ -9,19 +9,17 @@ include(FeatureSummary)
 
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR} "${CMAKE_SOURCE_DIR}/cmake")
 find_package(GTKEngine)
+find_package(Sass REQUIRED)
+
+if(CMAKE_VERSION VERSION_LESS 3.12.0)
+    find_package(PythonInterp 3 REQUIRED)
+else()
+    find_package(Python3 COMPONENTS Interpreter REQUIRED)
+endif()
 
 include(KDEInstallDirs)
 
-# Exclude these patterns when installing directories as they have no use
-# in production.
-set(directory_EXCLUDES
-    PATTERN "render-assets.sh" EXCLUDE
-    PATTERN "assets.svg" EXCLUDE
-    PATTERN "assets.txt" EXCLUDE
-)
-
-add_subdirectory(Breeze-dark-gtk)
-add_subdirectory(Breeze-gtk)
 add_subdirectory(kconf_update)
+add_subdirectory(src)
 
 feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)
