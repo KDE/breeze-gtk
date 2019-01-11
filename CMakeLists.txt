@@ -10,6 +10,8 @@ include(FeatureSummary)
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR} "${CMAKE_SOURCE_DIR}/cmake")
 find_package(GTKEngine)
 find_package(Sass REQUIRED)
+find_package(Breeze)
+set_package_properties(Breeze PROPERTIES TYPE REQUIRED PURPOSE "Required to build the Breeze GTK+ styles")
 
 if(CMAKE_VERSION VERSION_LESS 3.12.0)
     find_package(PythonInterp 3 REQUIRED)
