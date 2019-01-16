@@ -36,22 +36,25 @@ install_theme () {
   rmdir "$1"
 }
 
-# Usage render_theme <colorscheme> <theme-name> <theme-install-target>
+# Usage render_theme <colorscheme> <theme-name> <theme-install-target> <colorschemebase>
 render_theme () {
   THEME_BUILD_DIR="$(mktemp -d)"
   create_folders "${THEME_BUILD_DIR}"
   cp -R gtk2/* "${THEME_BUILD_DIR}/gtk-2.0/"
   python3 render_assets.py -c "$1" -a "${THEME_BUILD_DIR}/assets" \
-    -g "${THEME_BUILD_DIR}/gtk-2.0" -G "${THEME_BUILD_DIR}"
+    -g "${THEME_BUILD_DIR}/gtk-2.0" -G "${THEME_BUILD_DIR}" -b $4
   build_sass gtk318/gtk.scss "${THEME_BUILD_DIR}/gtk-3.18/gtk.css" "${THEME_BUILD_DIR}"
   build_sass gtk320/gtk.scss "${THEME_BUILD_DIR}/gtk-3.20/gtk.css" "${THEME_BUILD_DIR}"
   rm -f "${THEME_BUILD_DIR}/_global.scss"
   install_theme "${THEME_BUILD_DIR}" "$2" "$3"
+
+  echo "Installing into $3"
 }
 
 COLOR_SCHEME=""
 INSTALL_TARGET=""
 THEME_NAME=""
+COLOR_SCHEME_ROOT="/usr/share/color-schemes"
 
 while [ "$#" -gt 0 ]; do
   case "$1" in
@@ -60,12 +63,14 @@ while [ "$#" -gt 0 ]; do
       echo "Usage: $0 [-c COLOR_SCHEME] [-t TARGET_DIRECTORY]"
       echo
       echo "Arguments:"
-      echo "  -h, --help          show this help"
-      echo "  -c COLOR_SCHEME     use color scheme with name COLOR_SCHEME. If unset or"
-      echo "                      empty, the value from ~/.config/kdeglobals is used"
-      echo "  -t TARGET_DIRECTORY the directory to install the color scheme. If unset or"
-      echo "                      empty, it is installed into"
-      echo "                      ~/.local/share/themes/THEME_NAME"
+      echo "  -h, --help           show this help"
+      echo "  -c COLOR_SCHEME      use color scheme with name COLOR_SCHEME. If unset or"
+      echo "                       empty, the value from ~/.config/kdeglobals is used"
+      echo "  -r COLOR_SCHEME_ROOT The base path of all color schemes or"
+      echo "                       /usr/share/color-schemes if unset"
+      echo "  -t TARGET_DIRECTORY  the directory to install the color scheme. If unset or"
+      echo "                       empty, it is installed into"
+      echo "                       ~/.local/share/themes/THEME_NAME"
       exit 0
     ;;
     -c)
@@ -76,6 +81,9 @@ while [ "$#" -gt 0 ]; do
       shift
       INSTALL_TARGET="$1"
     ;;
+    -r)
+      shift
+      COLOR_SCHEME_ROOT="$1"
   esac
   shift
 done
@@ -86,12 +94,12 @@ if [ -z "${COLOR_SCHEME}" ]; then
     COLOR_SCHEME="${HOME}/.config/kdeglobals"
   else
     echo "${HOME}/.config/kdeglobals not found, using defaults"
-    COLOR_SCHEME="/usr/share/color-schemes/Breeze.colors"
+    COLOR_SCHEME="${COLOR_SCHEME_ROOT}/Breeze.colors"
   fi
 else
   THEME_NAME="${COLOR_SCHEME}"
-  if [ -f "/usr/share/color-schemes/${COLOR_SCHEME}.colors" ]; then
-    COLOR_SCHEME="/usr/share/color-schemes/${COLOR_SCHEME}.colors"
+  if [ -f "${COLOR_SCHEME_ROOT}/${COLOR_SCHEME}.colors" ]; then
+    COLOR_SCHEME="${COLOR_SCHEME_ROOT}/${COLOR_SCHEME}.colors"
   elif [ -f "${HOME}/.local/share/color-schemes/${COLOR_SCHEME}.colors" ]; then
     COLOR_SCHEME="${HOME}/.local/share/color-schemes/${COLOR_SCHEME}.colors"
   else
@@ -100,4 +108,4 @@ else
   fi
 fi
 
-render_theme "${COLOR_SCHEME}" "${THEME_NAME}" "${INSTALL_TARGET}"
+render_theme "${COLOR_SCHEME}" "${THEME_NAME}" "${INSTALL_TARGET}" "${COLOR_SCHEME_ROOT}/Breeze.colors"

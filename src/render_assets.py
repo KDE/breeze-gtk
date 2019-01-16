@@ -18,10 +18,9 @@ def make_sure_path_exists(path):
 
 
 class ReadKdeGlobals():
-    def __init__(self):
+    def __init__(self, base_file_name):
         self._colors = {}
-        self._colors = self.read_globals(
-            '/usr/share/color-schemes/Breeze.colors')
+        self._colors = self.read_globals(base_file_name)
 
     def read_globals(self, filename):
         with open(filename, 'r', encoding="utf-8") as _kde:
@@ -696,6 +695,10 @@ parser = argparse.ArgumentParser(
 parser.add_argument('--colorscheme', '-c', action='store',
                     default='/usr/share/color-schemes/Breeze.colors',
                     help='color scheme to use')
+parser.add_argument('--basecolorscheme', '-b', action='store',
+                    default='/usr/share/color-schemes/Breeze.colors',
+                    help='base color scheme')
+
 parser.add_argument('--assets-dir', '-a', action='store',
                     default='assets',
                     help='location of the directory to place assets')
@@ -711,7 +714,7 @@ args = parser.parse_args()
 assets_path = args.assets_dir
 make_sure_path_exists(assets_path)
 
-_colors = ReadKdeGlobals().read_globals(args.colorscheme)
+_colors = ReadKdeGlobals(args.basecolorscheme).read_globals(args.colorscheme)
 
 border_color = Color(_colors, 'WindowBackgroundNormal',
                      'WindowForegroundNormal', 0.75)

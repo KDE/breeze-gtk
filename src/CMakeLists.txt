@@ -31,7 +31,7 @@ list(APPEND Breeze_TARGETS
 add_custom_command(
     OUTPUT ${Breeze-Dark_TARGETS}
     DEPENDS ${SOURCES}
-    COMMAND ./build_theme.sh -c BreezeDark -t "${PROJECT_BINARY_DIR}/Breeze-Dark"
+    COMMAND ./build_theme.sh -c BreezeDark -t "${PROJECT_BINARY_DIR}/Breeze-Dark" -r "${BREEZE_COLOR_INSTALL_ROOT}"
     WORKING_DIRECTORY "${PROJECT_SOURCE_DIR}/src"
 )
 add_custom_target(Breeze-Dark ALL DEPENDS ${Breeze-Dark_TARGETS})
@@ -39,7 +39,7 @@ add_custom_target(Breeze-Dark ALL DEPENDS ${Breeze-Dark_TARGETS})
 add_custom_command(
     OUTPUT ${Breeze_TARGETS}
     DEPENDS ${SOURCES}
-    COMMAND ./build_theme.sh -c Breeze -t "${PROJECT_BINARY_DIR}/Breeze"
+    COMMAND ./build_theme.sh -c Breeze -t "${PROJECT_BINARY_DIR}/Breeze" -r "${BREEZE_COLOR_INSTALL_ROOT}"
     COMMAND cp gtk-dark-3.18.css "${PROJECT_BINARY_DIR}/Breeze/gtk-3.18/gtk-dark.css"
     COMMAND cp gtk-dark-3.20.css "${PROJECT_BINARY_DIR}/Breeze/gtk-3.20/gtk-dark.css"
     WORKING_DIRECTORY "${PROJECT_SOURCE_DIR}/src"
