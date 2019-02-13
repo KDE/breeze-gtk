@@ -2,12 +2,13 @@ file(GLOB_RECURSE SCSS_SOURCES "*.scss")
 file(GLOB CSS_SOURCES "*.css")
 file(GLOB_RECURSE GTK2_SOURCES "gtk2/*")
 
+configure_file(build_theme.sh.cmake ${CMAKE_CURRENT_BINARY_DIR}/build_theme.sh @ONLY)
+
 set(SOURCES
     ${SCSS_SOURCES}
     ${CSS_SOURCES}
     ${GTK2_SOURCES}
     render_assets.py
-    build_theme.sh
 )
 
 function(gen_targets THEME_NAME)
@@ -28,16 +29,16 @@ list(APPEND Breeze_TARGETS
 
 add_custom_command(
     OUTPUT ${Breeze-Dark_TARGETS}
-    DEPENDS ${SOURCES}
-    COMMAND ./build_theme.sh -c BreezeDark -t "${PROJECT_BINARY_DIR}/Breeze-Dark" -r "${BREEZE_COLOR_INSTALL_ROOT}"
+    DEPENDS ${SOURCES} ${CMAKE_CURRENT_BINARY_DIR}/build_theme.sh
+    COMMAND ${CMAKE_CURRENT_BINARY_DIR}/build_theme.sh -c BreezeDark -t "${PROJECT_BINARY_DIR}/Breeze-Dark" -r "${BREEZE_COLOR_INSTALL_ROOT}"
     WORKING_DIRECTORY "${PROJECT_SOURCE_DIR}/src"
 )
 add_custom_target(Breeze-Dark ALL DEPENDS ${Breeze-Dark_TARGETS})
 
 add_custom_command(
     OUTPUT ${Breeze_TARGETS}
-    DEPENDS ${SOURCES}
-    COMMAND ./build_theme.sh -c Breeze -t "${PROJECT_BINARY_DIR}/Breeze" -r "${BREEZE_COLOR_INSTALL_ROOT}"
+    DEPENDS ${SOURCES} ${CMAKE_CURRENT_BINARY_DIR}/build_theme.sh
+    COMMAND ${CMAKE_CURRENT_BINARY_DIR}/build_theme.sh -c Breeze -t "${PROJECT_BINARY_DIR}/Breeze" -r "${BREEZE_COLOR_INSTALL_ROOT}"
     COMMAND cp gtk-dark-3.0.css "${PROJECT_BINARY_DIR}/Breeze/gtk-3.0/gtk-dark.css"
     WORKING_DIRECTORY "${PROJECT_SOURCE_DIR}/src"
 )
