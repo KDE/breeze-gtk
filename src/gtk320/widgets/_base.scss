@@ -9,24 +9,16 @@ $ease-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
   -GtkToolButton-icon-spacing: 4;
   -GtkTextView-error-underline-color: $error_color;
 
-  -GtkButton-child-displacement-x: 0;
-  -GtkButton-child-displacement-y: 0;
-
-  -GtkCheckButton-indicator-size: 18;
-  -GtkCheckMenuItem-indicator-size: 18;
-
   // The size for scrollbars. The slider is 2px smaller, but we keep it
   // up so that the whole area is sensitive to button presses for the
   // slider. The stepper button is larger in both directions, the slider
   // only in the width
 
   -GtkScrolledWindow-scrollbar-spacing: 0;
-  -GtkScrolledWindow-scrollbars-within-bevel: 0;
 
   -GtkScrolled-window-overlay-scrolling: FALSE;
 
   -GtkToolItemGroup-expander-size: 11;
-  -GtkExpander-expander-size: 16;
   -GtkTreeView-expander-size: 11;
 
   -GtkTreeView-horizontal-separator: 4;
@@ -36,8 +28,6 @@ $ease-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
   -GtkDialog-button-spacing: 4;
   -GtkDialog-action-area-border: 0;
-
-  -GtkStatusbar-shadow-type: none;
 
   outline-width: 0px;
 }
