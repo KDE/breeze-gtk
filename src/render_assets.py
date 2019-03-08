@@ -732,16 +732,13 @@ view_bg = Color(_colors, 'ViewBackgroundNormal')
 view_fg = Color(_colors, 'ViewForegroundNormal')
 view_hover = Color(_colors, 'ViewDecorationHover')
 view_active = Color(_colors, 'ViewDecorationFocus')
-titlebutton = Color(_colors, 'WindowForegroundNormal')
-titlebutton_active = Color(
-    _colors, 'WindowBackgroundNormal', 'WindowForegroundNormal', 0.3)
+titlebutton = Color(_colors, 'WMactiveForeground')
+titlebutton_active = Color(_colors, 'WMactiveForeground')
 closebutton_hover = Color(_colors, 'ViewForegroundNegative')
 closebutton_hover.lighten_color(0.5)
 closebutton_active = Color(_colors, 'ViewForegroundNegative')
-titlebutton_inactive = Color(_colors, 'WindowForegroundNormal')
-titlebutton_inactive_active = Color(
-    _colors, 'WindowBackgroundNormal', 'WindowForegroundNormal', 0.3)
-
+titlebutton_inactive = Color(_colors, 'WMinactiveForeground')
+titlebutton_inactive_active = Color(_colors, 'WMinactiveForeground')
 tooltip_fg = Color(_colors, 'TooltipForegroundNormal')
 tooltip_bg = Color(_colors, 'TooltipBackgroundNormal')
 

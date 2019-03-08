@@ -13,7 +13,8 @@ headerbar {
   border-style: solid;
   border-color: $border_color;
   color: t_color(text);
-  background-image: linear-gradient(to bottom,t_color(background-light),t_color(background));
+  background-image: none;
+  background-color: t_color(background);
   &:backdrop {
     border-color: transparent;
     background-image: none;

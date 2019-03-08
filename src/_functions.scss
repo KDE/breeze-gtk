@@ -69,10 +69,10 @@
 // Titlebar color
 @function t_color($c: text) {
   @if $c == text {
-    @return $WindowForegroundNormal;
+    @return $WMactiveForeground;
   }
   @if $c == background {
-    @return $WindowBackgroundNormal;
+    @return $WMactiveBackground;
   }
   @if $c == background-light {
     @return $WindowBackgroundNormal;
@@ -81,7 +81,7 @@
     @return $WMinactiveForeground;
   }
   @if $c == backdrop-background {
-    @return $WindowBackgroundNormal;
+    @return $WMinactiveBackground;
   }
 }
 
