@@ -28,7 +28,6 @@
   }
   & > .menuitem {
     padding: 6px 8px;
-    border: 1px solid w_color(normal);
     &:hover { //Seems like it :hover even with keyboard focus
       background-color: b_color(active);
       color: b_color(active-text);
@@ -43,7 +42,6 @@
     }
     &:backdrop {
       background-color: backdrop(w_color(normal));
-      border-color: backdrop(w_color(normal));
       color: backdrop(w_color(text));
     }
   }
