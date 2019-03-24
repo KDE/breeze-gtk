@@ -1,3 +1,5 @@
+@charset "UTF-8";
+
 @mixin _border($name, $width: 1px 1px 2px 1px, $image-width: 2 2 3 2 / 2px 2px 3px 2px) {
   border-image: -gtk-scaled(url("../assets/#{$name}.png"),url("../assets/#{$name}@2.png")) $image-width stretch;
   border-width: $width;
