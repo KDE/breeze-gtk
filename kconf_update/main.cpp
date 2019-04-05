@@ -133,6 +133,7 @@ int setGtk2()
     out << QStringLiteral("    font_name=\"Noto Sans Regular\"\n");
     out << QStringLiteral("}\n");
     out << QStringLiteral("widget_class \"*\" style \"user-font\"\n");
+    out << QStringLiteral("gtk-cursor-theme-name=\"breeze_cursors\"\n");
     out << QStringLiteral("gtk-font-name=\"Noto Sans Regular 10\"\n"); // matches plasma-workspace:startkde/startkde.cmake
     out << QStringLiteral("gtk-theme-name=\"Breeze\"\n");
     out << QStringLiteral("gtk-icon-theme-name=\"breeze\"\n");
@@ -175,6 +176,7 @@ int setGtk3()
     }
     QTextStream out(&gtkrc3writer);
     out << QStringLiteral("[Settings]\n");
+    out << QStringLiteral("gtk-cursor-theme-name=breeze_cursors\n");
     out << QStringLiteral("gtk-font-name=Noto Sans 10\n"); // matches plasma-workspace:startkde/startkde.cmake
     out << QStringLiteral("gtk-theme-name=")+gtk3Theme+QStringLiteral("\n");
     out << QStringLiteral("gtk-icon-theme-name=breeze\n");
