@@ -68,7 +68,7 @@ $trough_color: transparentize(w_color(text),0.7);
 		margin: 2px;
     border: 5px solid transparent;
   	border-radius: 8px;
-  	background-color: $trough_color;
+	background-color: transparent;
   	&:backdrop { background-color: backdrop($trough_color); }
   }
   &.slider {

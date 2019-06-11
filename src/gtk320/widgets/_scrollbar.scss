@@ -12,14 +12,14 @@ scrollbar {
   background-color: w_color(normal);
   border-width: 0px 0px;
   border-color: w_color(normal);
-  margin: 0px;
+  margin: 5px;
 
   button {
   min-width: 14px;
   min-height: 14px;
   margin: 0px;
   padding: 0px 0px;
-	border: none;
+  border: none;
   border-radius: 0px;
   background-image: none;
   background-color: transparent;
@@ -29,14 +29,14 @@ scrollbar {
     border: none;
     background-image: none;
     background-color: w_color(normal);
-		color: transparent;
+               color: transparent;
 		}
   &:active,
   &:active:hover {
     border: none;
     background-image: none;
     background-color: w_color(normal);
-		color: transparent;
+    color: transparent;
   }
 	&:disabled {
     border: none;
@@ -49,7 +49,7 @@ scrollbar {
     color: backdrop(b_color(text));
     &:disabled {color: backdrop(insensitive(b_color(text)));}
     @extend %undecorated_button;
-    }
+        }
 	}
 
   // Overlay Scrollbars
@@ -62,14 +62,7 @@ scrollbar {
    -GtkScrollbar-has-backward-stepper: false;
    -GtkScrollbar-has-forward-stepper: false;
 
-    slider {
-      min-width: 6px;
-      border-radius: 8px;
-      background-color: transparentize($scrollbar_color, 0.2);
-      &:backdrop { background-color: backdrop($scrollbar_color); }
-    }
 
-    &.horizontal slider { min-height: 6px;}
   }
 
   &.overlay-indicator {
@@ -79,9 +72,8 @@ scrollbar {
   trough {
     //margin: 0px;
     transition-duration: 0.1s;
-    min-width: 6px;
+    min-width: 3px;
     min-height: 14px;
-    border: 0px solid w_color(normal);
     border-radius: 8px;
     background-color: transparent;
   }
@@ -89,25 +81,66 @@ scrollbar {
   &:hover {
     trough {
       background-color: backdrop($trough_color);
-      box-shadow: inset 0px 0px 0px 5px w_color(normal);
+      min-width: 6px;
+    }
+    slider {
+        min-width: 6px;
+       background-color: b_color(hover);
+    }
+  }
+
+  &.horizontal trough {
+    //margin: 0px;
+    transition-duration: 0.1s;
+    min-width: 14px;
+    min-height: 3px;
+    border-radius: 8px;
+    background-color: transparent;
+  }
+
+  &.horizontal:hover {
+    &.horizontal trough {
+      background-color: backdrop($trough_color);
+      min-height: 6px;
+    }
+    &.horizontal slider {
+        min-height: 6px;
+        background-color: b_color(hover);
     }
   }
   
   slider {
     //margin: 0px;
     transition-duration: 0.1s;
-    min-width: 6px;
+    min-width: 3px;
     min-height: 30px;
-    border: 5px solid transparent;
     border-radius: 8px;
     background-clip: padding-box;
-    background-color: $scrollbar_color;
-    &:hover { background-color: b_color(hover); }
-    &:backdrop { background-color: backdrop($scrollbar_color); }
-    &:backdrop:disabled { background-color: backdrop(insensitive($scrollbar_color)); }
+    background-color: transparentize($scrollbar_color, 0.2);
+    &:backdrop { 
+        background-color: backdrop($scrollbar_color); 
+    }
+    &:hover {
+        min-width: 6px;
+       background-color: b_color(hover);
+
+    }
   }
   &.horizontal slider {
+    transition-duration: 0.1s;
     min-width: 30px;
-    min-height: 6px;
+    min-height: 3px;
+    border-radius: 8px;
+    background-clip: padding-box;
+    background-color: transparentize($scrollbar_color, 0.2);
+    &:backdrop { 
+        background-color: backdrop($scrollbar_color); 
+    }
+    &:hover {
+        min-height: 6px;
+        background-color: b_color(hover);
+        
+    }
+
   }
 }
