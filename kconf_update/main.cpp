@@ -63,7 +63,7 @@ static QString gtk2ThemePath(QString themeName, QString settingsFile)
 }
 
 /*
- * Check if gtk theme is already set to oxygen or Orion, if it is then we want to upgrade to the breeze theme
+ * Check if gtk theme is already set to oxygen, BreezyGTK or Orion, if it is then we want to upgrade to the breeze theme
  * gtkSettingsFile: filename to use
  * settingsKey: ini group to read from
  * returns: full path to settings file
@@ -84,9 +84,11 @@ bool isGtkThemeSetToOldTheme(QString gtkSettingsFile, QString settingsKey)
         if (!settingsKey.isNull()) {
             gtkrcSettings.beginGroup(settingsKey);
         }
-        //if it is set to Oxygen or Orion then we want to upgrade it to Breeze
-        if (gtkrcSettings.value("gtk-theme-name") == QLatin1String("oxygen-gtk") || gtkrcSettings.value("gtk-theme-name") == QLatin1String("Orion")) {
-            qCDebug(GTKBREEZE) << "using oxygen or orion " << gtkrcSettings.value("gtk-theme-name");
+        //if it is set to Oxygen, BreezyGTK or Orion then we want to upgrade it to Breeze
+        if (gtkrcSettings.value("gtk-theme-name") == QLatin1String("oxygen-gtk")
+         || gtkrcSettings.value("gtk-theme-name") == QLatin1String("BreezyGTK")
+         || gtkrcSettings.value("gtk-theme-name") == QLatin1String("Orion")) {
+            qCDebug(GTKBREEZE) << "using oxygen, BreezyGTK or orion " << gtkrcSettings.value("gtk-theme-name");
             return true;
         } else {
             return false;
@@ -115,11 +117,11 @@ int setGtk2()
 
     bool needsUpdate = isGtkThemeSetToOldTheme(gtkrc2path, QString());
     if (needsUpdate == false) {
-        qCDebug(GTKBREEZE) << "gtkrc2 already exists and is not using oxygen or orion, quitting";
+        qCDebug(GTKBREEZE) << "gtkrc2 already exists and is not using oxygen, BreezyGTK or orion, quitting";
         return 0;
     }
 
-    qCDebug(GTKBREEZE) << "no gtkrc2 file or oxygen/orion being used, setting to new theme";
+    qCDebug(GTKBREEZE) << "no gtkrc2 file or oxygen/BreezyGTK/orion being used, setting to new theme";
     QFile gtkrc2writer(gtkrc2path);
     bool opened = gtkrc2writer.open(QIODevice::WriteOnly | QIODevice::Text);
     if (!opened) {
@@ -161,13 +163,13 @@ int setGtk3()
     QString gtkrc3path = configPath + "/gtk-3.0/settings.ini";
     bool needsUpdate = isGtkThemeSetToOldTheme(gtkrc3path, "Settings");
     if ( !needsUpdate ) {
-        qCDebug(GTKBREEZE) << "gtkrc3 already exists and is not using oxygen/orion, quitting";
+        qCDebug(GTKBREEZE) << "gtkrc3 already exists and is not using oxygen/BreezyGTK/orion, quitting";
         return 0;
     }
     QDir dir = QFileInfo(gtkrc3path).dir();
     dir.mkpath(dir.path());
 
-    qCDebug(GTKBREEZE) << "no gtkrc3 file or oxygen/orion being used, setting to new theme";
+    qCDebug(GTKBREEZE) << "no gtkrc3 file or oxygen/BreezyGTK/orion being used, setting to new theme";
     QFile gtkrc3writer(gtkrc3path);
     bool opened = gtkrc3writer.open(QIODevice::WriteOnly | QIODevice::Text);
     if (!opened) {
