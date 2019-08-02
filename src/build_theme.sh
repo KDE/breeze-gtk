@@ -3,7 +3,7 @@ set -e
 
 # Usage: create_folders <target-directory>
 create_folders () {
-  for j in gtk-2.0 gtk-3.18 gtk-3.20; do
+  for j in gtk-2.0 gtk-3.0; do
     if ! [ -d "$1/$j" ]; then
         mkdir -p "$1/$j"
     fi
@@ -28,7 +28,7 @@ install_theme () {
   fi
   echo "Installing into ${THEME_INSTALL_TARGET}"
   mkdir -p "${THEME_INSTALL_TARGET}"
-  for dir in assets gtk-2.0 gtk-3.18 gtk-3.20; do
+  for dir in assets gtk-2.0 gtk-3.0; do
     if [ -d "${THEME_INSTALL_TARGET}/$dir" ]; then
       rm -rf "${THEME_INSTALL_TARGET:?}/$dir"
     fi
@@ -44,8 +44,7 @@ render_theme () {
   cp -R gtk2/* "${THEME_BUILD_DIR}/gtk-2.0/"
   python3 render_assets.py -c "$1" -a "${THEME_BUILD_DIR}/assets" \
     -g "${THEME_BUILD_DIR}/gtk-2.0" -G "${THEME_BUILD_DIR}" -b "$4"
-  build_sass gtk318/gtk.scss "${THEME_BUILD_DIR}/gtk-3.18/gtk.css" "${THEME_BUILD_DIR}"
-  build_sass gtk320/gtk.scss "${THEME_BUILD_DIR}/gtk-3.20/gtk.css" "${THEME_BUILD_DIR}"
+  build_sass gtk3/gtk.scss "${THEME_BUILD_DIR}/gtk-3.0/gtk.css" "${THEME_BUILD_DIR}"
   rm -f "${THEME_BUILD_DIR}/_global.scss"
   install_theme "${THEME_BUILD_DIR}" "$2" "$3"
 }
