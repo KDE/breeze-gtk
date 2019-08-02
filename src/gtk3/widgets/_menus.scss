@@ -136,6 +136,9 @@ menuitem {
     &:dir(ltr) { margin-right: 6px; }
     &:dir(rtl) { margin-left: 6px; }
   }
+  &:active check, &:active radio {
+    -gtk-icon-transform: translate(1px,1px);
+  }
 }
 /***************
  * Popovers   *
@@ -175,6 +178,9 @@ modelbutton.flat,
 
   check:first-child,
   radio:first-child { margin-left: 0px; }
+  &:active check, &:active radio {
+    -gtk-icon-transform: translate(1px,1px);
+  }
 }
 
 modelbutton.flat arrow {

@@ -27,6 +27,9 @@ checkbutton.text-button, radiobutton.text-button {
    &:first-child { margin-left: 4px; }
    &:last-child { margin-right: 4px; }
  }
+ &:active check, &:active radio {
+  -gtk-icon-transform: translate(1px,1px);
+ }
 }
 
 @each $a in ('check','radio') {
