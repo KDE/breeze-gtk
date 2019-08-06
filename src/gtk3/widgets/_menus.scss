@@ -31,13 +31,20 @@ menubar,
   >menuitem {
     min-height: 16px;
     padding: 4px 6px;
-    border-bottom: 3px solid transparent;
+    @if $new-highlight {
+      border-bottom: 3px solid transparent;
+    }
 
     &:hover {
       //Seems like it :hover even with keyboard focus
-      background-color: gtkalpha(gtk("@theme_button_decoration_focus"), 0.3);
-      color: gtk("@theme_button_foreground_active");
-      border-bottom: 3px solid gtk("@theme_button_decoration_focus");
+      @if $new-highlight {
+        background-color: gtkalpha(gtk("@theme_button_decoration_focus"), 0.3);
+        color: gtk("@theme_button_foreground_active");
+        border-bottom: 3px solid gtk("@theme_button_decoration_focus");
+      } @else {
+        background-color: gtk("@theme_button_decoration_focus");
+        color: gtk("@theme_button_foreground_active");
+      }
     }
 
     &:disabled {
@@ -148,10 +155,10 @@ menu,
       -gtk-icon-source: -gtk-icontheme('pan-down-symbolic');
     }
 
-    &:hover { color: b_color(hover); }
-    &:active { color: b_color(active)}
+    &:hover { color: gtk("@theme_button_decoration_hover"); }
+    &:active { color: gtk("@theme_button_decoration_focus");}
 
-    &:backdrop { background-color: backdrop($menu_color); }
+    &:backdrop { background-color: gtk("@theme_unfocused_bg_color"); }
 
     &:disabled {
       color: transparent;
@@ -185,18 +192,18 @@ modelbutton.flat,
  padding: 4px 8px;
 
  @extend %undecorated_button;
- color: w_color(text);
+ color: gtk("@theme_fg_color");
  &:hover {
-    background-color: b_color(active);
-    color: b_color(active-text)
+    background-color: gtk("@theme_button_decoration_focus");
+    color: gtk("@theme_button_foreground_active");
   }
  &:selected {
-    background-color: b_color(active);
-    color: b_color(active-text)
+    background-color: gtk("@theme_button_decoration_focus");
+    color: gtk("@theme_button_foreground_active");
   }
  &:backdrop, &:backdrop:hover {
     @extend %undecorated_button;
-    color: backdrop(w_color(text));
+    color: gtk("@theme_unfocused_fg_color");
   }
   check:hover {-gtk-icon-source: -gtk-scaled(url("../assets/check-unchecked.png"), url("../assets/check-unchecked@2.png"));}
   radio:hover {-gtk-icon-source: -gtk-scaled(url("../assets/radio-unchecked.png"), url("../assets/radio-unchecked@2.png"));}
@@ -230,9 +237,9 @@ modelbutton.flat arrow {
 
 popover.background {
   padding: 0px;
-  border: 1px solid $border_color;
+  border: 1px solid gtk("@borders");
   border-radius: 3px;
-  background-color: w_color(normal);
+  background-color: gtk("@theme_bg_color");
 
   box-shadow: 0 2px 3px transparentize(black, 0.1);
 
@@ -251,7 +258,7 @@ popover.background {
     &.magnifier {
       @extend %osd;
 
-      border: 1px solid $border_color;
+      border: 1px solid gtk("@borders");
 
       button { @extend %button };
     }
