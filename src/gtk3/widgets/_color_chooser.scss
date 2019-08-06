@@ -9,7 +9,7 @@ colorswatch {
   :selected & {
     box-shadow: none;
     &.overlay, &.overlay:hover {
-      border-color: s_color(text);
+      border-color: gtk("@theme_selected_fg_color");
     }
   }
 
@@ -70,8 +70,10 @@ colorswatch {
   // border color
   overlay,
   overlay:selected {
-    border: 1px solid $border_color;
-    &:hover { border-color: b_color(hover); }
+    border: 1px solid gtk("@borders");
+    &:hover { 
+      border-color: gtk("@theme_button_decoration_hover");
+    }
   }
 
   // make the add color button looks like, well, a button

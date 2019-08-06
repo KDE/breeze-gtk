@@ -6,13 +6,13 @@
  %toolbar {
   -GtkWidget-window-dragging: true;
   padding: 4px;
-  background-color: w_color(normal);
+  background-color: gtk("@theme_bg_color");
 }
 toolbar {
   @extend %toolbar;
   padding: 4px 3px 3px 4px;
   &:backdrop {
-    background-color: backdrop(w_color(normal));
+    background-color: gtk("@theme_unfocused_bg_color");
     box-shadow: none;
   }
   button {
@@ -35,10 +35,10 @@ toolbar {
     padding: 13px;
     border: none;
     border-radius: $r;
-    background-color: w_color(normal);
+    background-color: gtk("@theme_bg_color");
     &:backdrop {
-      border-color: backdrop($border_color);
-      background-color: backdrop(w_color(normal));
+      border-color: gtk("@unfocused_borders");
+      background-color: gtk("@theme_unfocused_bg_color");
       box-shadow: none;
     }
     &.left,
@@ -66,7 +66,7 @@ searchbar,
 
 %inset-bar {
   border-style: solid;
-  border-color: $border_color;
+  border-color: gtk("@borders");
   text-shadow: none;
-  background-color: w_color(normal);
+  background-color: gtk("@theme_bg_color");
 }

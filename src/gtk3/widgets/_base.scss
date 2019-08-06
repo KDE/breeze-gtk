@@ -1,15 +1,11 @@
 @charset "UTF-8";
 
-@function gtkalpha($c,$a) {
-  @return unquote("alpha(#{$c},#{$a})");
-}
-
 $ease-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
 * {
   padding: 0;
   -GtkToolButton-icon-spacing: 4;
-  -GtkTextView-error-underline-color: $error_color;
+  -GtkTextView-error-underline-color: gtk("@error_color");
 
   // The size for scrollbars. The slider is 2px smaller, but we keep it
   // up so that the whole area is sensitive to button presses for the
@@ -40,14 +36,14 @@ $ease-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
  ***************/
 
 .background {
-  color: w_color(text);
-  background-color: w_color(normal);
+  color: gtk("@theme_fg_color");
+  background-color: gtk("@theme_bg_color");
 
   &:backdrop {
     text-shadow: none;
     -gtk-icon-shadow: none;
-    color: backdrop(w_color(text));
-    background-color: backdrop(w_color(normal));
+    color: gtk("@theme_unfocused_fg_color");
+    background-color: gtk("@theme_unfocused_bg_color");
   }
 }
 
@@ -63,38 +59,38 @@ $ease-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .gtkstyle-fallback {
-  background-color: w_color(normal);
-  color: w_color(text);
+  background-color: gtk("@theme_bg_color");
+  color: gtk("@theme_fg_color");
   &:hover {
-    background-color: lighten(w_color(normal), 10%);
-    color: w_color(text);
+    background-color: gtkshade("@theme_bg_color", 1.1);
+    color: gtk("@theme_fg_color");
   }
   &:active {
-    background-color: darken(w_color(normal), 10%);
-    color: w_color(text);
+    background-color: gtkshade("@theme_bg_color", 0.9);
+    color: gtk("@theme_fg_color");
   }
   &:disabled {
-    background-color: insensitive(w_color(normal));
-    color: insensitive(w_color(text));
+    background-color: gtk("@insensitive_fg_color");
+    color: gtk("@insensitive_fg_color");
   }
   &:selected {
-    background-color: s_color(normal);
-    color: s_color(text);
+    background-color: gtk("@theme_selected_bg_color");
+    color: gtk("@theme_selected_fg_color");
   }
 }
 
 %view,
 .view {
-  color: v_color(text);
-  background-color: v_color(normal);
+  color: gtk("@theme_text_color");
+  background-color: gtk("@theme_base_color");
 
   &:backdrop {
-    color: backdrop(v_color(text));
-    background-color: backdrop(v_color(normal));
+    color: gtk("@theme_unfocused_text_color");
+    background-color: gtk("@theme_unfocused_base_color");
   }
   
   &:disabled {
-    color: insensitive(v_color(text));
+    color: gtk("@insensitive_base_fg_color");
   }
 
   &:selected {
@@ -115,11 +111,13 @@ textview {
 }
 
 textview border {
-  background-color: v_color(normal);
-  background-image: image($border_color); // HACK: the border node just draws background so,
+  background-color: gtk("@theme_base_color");
+  background-image: image(gtk("@borders")); // HACK: the border node just draws background so,
   background-repeat: no-repeat;                        // using a background-image to draw the border
 
-  &:backdrop { background-color: backdrop(v_color(normal)); }
+  &:backdrop { 
+    background-color: gtk("@theme_unfocused_base_color"); 
+  }
 
   &.bottom {
     background-size: 100% 1px;
@@ -144,11 +142,11 @@ textview border {
 
 .rubberband,
 rubberband {
-  border: 1px solid s_color(normal);
-  background-color: transparentize(s_color(normal),0.8);
+  border: 1px solid gtk("@theme_selected_bg_color");
+  background-color: gtkalpha("@theme_selected_bg_color", 0.8);
   &:backdrop {
-    border-color: backdrop(s_color(normal));
-    background-color: backdrop(transparentize(s_color(normal),0.8));
+    border-color: gtk("@theme_unfocused_selected_bg_color");
+    background-color: gtkalpha("@theme_unfocused_selected_bg_color", 0.8);
   }
 }
 
@@ -169,23 +167,27 @@ flowbox {
 
 label {
   &.separator {
-    color: w_color(text);
+    color: gtk("@theme_fg_color");
     @extend .dim-label;
-    &:backdrop { color: backdrop(w_color(text)); }
+    &:backdrop { 
+      color: gtk("@theme_unfocused_fg_color");
+    }
   }
 
   selection {
-    background-color: s_color(normal);
-    color: s_color(text)
+    background-color: gtk("@theme_selected_bg_color");
+    color: gtk("@theme_selected_fg_color");
   }
   &:disabled {
-    color: insensitive(w_color(text));
+    color: gtk("@insensitive_fg_color");
     selection { @extend %selected_items:disabled; }
 
-    &:backdrop { color: backdrop(insensitive(w_color(text))); }
+    &:backdrop { 
+      color: gtk("@insensitive_unfocused_fg_color")
+    }
   }
   &:backdrop {
-    color:backdrop(w_color(text));
+    color: gtk("@theme_unfocused_text_color");
 
     selction {@extend %selected_items:backdrop;}
   }
@@ -198,12 +200,12 @@ label {
 
 assistant {
   .sidebar {
-    background-color: v_color(text);
-    border-top: 1px solid $border_color;
+    background-color: gtk("@theme_text_color");
+    border-top: 1px solid gtk("@borders");
 
     &:backdrop {
-      background-color: backdrop(v_color(text));
-      border-color: backdrop($border_color);
+      background-color: gtk("@theme_unfocused_text_color");
+      border-color: gtk("@unfocused_borders");
     }
   }
   &.csd .sidebar { border-top-style: none; }
@@ -211,52 +213,56 @@ assistant {
     padding: 6px 12px;
   }
   .sidebar label.highlight {
-    background-color: mix(v_color(normal), v_color(text), 80%);
+    background-color: gtkmix("@theme_base_color", "@theme_text_color", 0.8);
   }
 }
 
 %osd, 
 .osd {
-  color: w_color(text);
-  border: 1px solid $border_color;
-  background-color: transparentize(w_color(normal),0.2);
+  color: gtk("@theme_fg_color");
+  border: 1px solid gtk("@borders");
+  background-color: gtkalpha("@theme_bg_color",0.8);
   background-clip: padding-box;
   box-shadow: none;
   text-shadow: none;
   -gtk-icon-shadow: none;
   &:backdrop {
-    color: backdrop(w_color(text));
-    background-color: backdrop(transparentize(w_color(normal),0.2));
+    color: gtk("@theme_unfocused_text_color");
+    background-color: gtkalpha("@theme_unfocused_bg_color", 0.8);
     -gtk-icon-shadow: none;
   }
 }
 
 %selected_items {
-  background-color: s_color(normal);
-  color: s_color(text);
+  background-color: gtk("@theme_selected_bg_color");
+  color: gtk("@theme_selected_fg_color");
   &:hover {
-    background-color: s_color(hover);
-    color: w_color(text);
+    background-color: gtk("@theme_hovering_selected_bg_color");
+    color: gtk("@theme_fg_color");
   }
   &:backdrop {
-    background-color: backdrop(s_color(backdrop));
-    color: backdrop(v_color(normal));
+    background-color: gtk("@theme_unfocused_selected_bg_color");
+    color: gtk("@theme_unfocused_base_color");
   }
 }
 
 %selected_items {
-  background-color: s_color(normal);
+  background-color: gtk("@theme_selected_bg_color");
   border-radius: 0px;
 
   @at-root %nobg_selected_items, & {
-    color: s_color(text);
+    color: gtk("@theme_selected_fg_color");
 
-    &:disabled { color: insensitive(s_color(text)); }
+    &:disabled { 
+      color: gtk("@insensitive_selected_fg_color");
+    }
 
     &:backdrop {
-      color: backdrop(s_color(text));
+      color: gtk("@theme_unfocused_selected_fg_color");
 
-      &:disabled { color: backdrop(insensitive(s_color(text))); }
+      &:disabled { 
+        color: gtk("@insensitive_unfocused_selected_fg_color");
+      }
     }
   }
 }

@@ -5,25 +5,31 @@
  *********/
 %link,
 *:link {
-  color: $link_color;
+  color: gtk("@link_color");
   &:visited {
-    color: $link_visited_color;
-    *:selected & { color: mix(s_color(text), s_color(normal), 60%); }
+    color: gtk("@link_visited_color");
+    *:selected & { 
+      color: gtkmix(gtk("@theme_selected_fg_color"), gtk("@theme_selected_bg_color"), 0.6); 
+    }
   }
   &:hover {
-    color: lighten($link_color,10%);
-    *:selected & { color: mix(s_color(text), s_color(normal), 90%); }
+    color: gtkshade("@link_color", 1.1);
+    *:selected & { 
+      color: gtkmix(gtk("@theme_selected_fg_color"), gtk("@theme_selected_bg_color"), 0.9);
+    }
   }
   &:active {
-    color: $link_color;
-    *:selected & { color: mix(s_color(text), s_color(normal), 80%); }
+    color: gtk("@link_color");
+    *:selected & {
+      color: gtkmix(gtk("@theme_selected_fg_color"), gtk("@theme_selected_bg_color"), 0.8); 
+    }
   }
   &:backdrop, &:backdrop:hover, &:backdrop:hover:selected {
-    color: backdrop(s_color(backdrop));
+    color: gtk("@theme_unfocused_selected_bg_color");
   }
   @at-root %link_selected,
   &:selected, *:selected & {
-    color: mix(s_color(text), s_color(normal), 80%);
+    color: gtkmix("@theme_selected_fg_color", "@theme_selected_bg_color", 0.8);
   }
 }
 

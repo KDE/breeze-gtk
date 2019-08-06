@@ -30,32 +30,32 @@
        margin: 0;
        padding-bottom: 0;
        padding-top: 0;
-       color: v_color(text);
+       color: gtk("@theme_text_color");
        background-image: none;
        background-color: transparent;
        border-style: none;
        box-shadow: none;
 
        &:hover {
-         color: v_color(hover);
+         color: gtk("@theme_view_hover_decoration_color");
        }
 
        &:disabled {
-         color: insensitive(v_color(text));
+         color: gtk("@insensitive_base_fg_color");
        }
 
        &:active {
-         color: v_color(active);
+         color: gtk("@theme_view_active_decoration_color");
          box-shadow: none;
        }
 
        &:backdrop {
-         color: backdrop(v_color(text));
+         color: gtk("@theme_unfocused_text_color");
          background-color: transparent;
        }
 
        &:backdrop:disabled {
-         color: backdrop(insensitive(v_color(text)));
+         color: gtk("@theme_unfocused_view_text_color");
          background-color: transparent;
          border-style: none; // It is needed or it gets overridden
        }
@@ -74,9 +74,9 @@
 
      // FIXME: this should not be set at all, but otherwise it gets the wrong
      // color
-     &:disabled { color: insensitive(v_color(text)); }
+     &:disabled { color: gtk("@insensitive_base_fg_color"); }
 
-     &:backdrop:disabled { color: backdrop(insensitive(v_color(text))); }
+     &:backdrop:disabled { color: gtk("@theme_unfocused_view_text_color"); }
 
      &:drop(active) {
        border-color: transparent;
@@ -88,18 +88,18 @@
        min-height: 26px;
        min-width: 26px;
        border-style: none solid none solid;
-       border-color: $border_color;
+       border-color: gtk("@borders");
        padding: 0;
        border-radius: 0;
        &:disabled {
-        color: insensitive(v_color(text));
-        background-color: insensitive(v_color(normal));
-        border-color: insensitive($border_color);
+        color: gtk("@insensitive_base_fg_color");
+        background-color: gtk("@insensitive_base_color");
+        border-color: gtk("@insensitive_borders");
         }
        &:backdrop:disabled {
-         color: backdrop(insensitive(v_color(text)));
-         background-color: backdrop(insensitive(v_color(normal)));
-         border-color: backdrop(insensitive($border_color));
+         color: gtk("@theme_unfocused_view_text_color");
+         background-color: gtk("@theme_unfocused_view_bg_color");
+         border-color: gtk("@unfocused_insensitive_borders");
         }
      }
 
@@ -109,20 +109,20 @@
        padding: 0;
        box-shadow: none;
        background-image: none;
-       background-color: v_color(normal);
-       color: v_color(text);
-       border-color: $border_color;
-       &:hover { color: v_color(hover);}
-       &:active { color: v_color(active);}
+       background-color: gtk("@theme_base_color");
+       color: gtk("@theme_base_fg_color");
+       border-color: gtk("@borders");
+       &:hover { color: gtk("@theme_view_hover_decoration_color");}
+       &:active { color: gtk("@theme_view_active_decoration_color");}
        &:disabled {
-        color: insensitive(v_color(text));
-        background-color: insensitive(v_color(normal));
-        border-color: insensitive($border_color);
+        color: gtk("@insensitive_base_fg_color");
+        background-color: gtk("@insensitive_base_color");
+        border-color: gtk("@insensitive_borders");
         }
        &:backdrop:disabled {
-         color: backdrop(insensitive(v_color(text)));
-         background-color: backdrop(insensitive(v_color(normal)));
-         border-color: backdrop(insensitive($border_color));
+         color: gtk("@theme_unfocused_view_text_color");
+         background-color: gtk("@theme_unfocused_view_bg_color");
+         border-color: gtk("@unfocused_insensitive_borders");
         }
 
        &.up {

@@ -13,19 +13,19 @@ switch {
  border: 0px solid;
  border-radius: 12px;
  color: transparent;
- background-color: transparentize(b_color(text),0.7);
+ background-color: gtkalpha("@theme_button_foreground_normal",0.3);
  text-shadow: none;
 
  &:checked {
-   background-color: s_color(normal);
+   background-color: gtk("@theme_selected_bg_color");
  }
 
  &:backdrop {
-   background-color: backdrop(transparentize(b_color(text),0.7));
+   background-color: gtkalpha("@theme_button_foreground_backdrop", 0.3);
    text-shadow: none;
 
    &:checked {
-     background-color: backdrop(s_color(normal));
+     background-color: gtk("@theme_unfocused_selected_bg_color_alt");
    }
  }
 
@@ -34,21 +34,21 @@ switch {
    min-height: 22px;
    border: 1px solid;
    border-radius: 11px;
-   background-color: w_color(normal);
-   border-color: $border_color;
+   background-color: gtk("@theme_bg_color");
+   border-color: gtk("@borders");
  }
 
- &:hover slider { border-color: b_color(hover); }
+ &:hover slider { border-color: gtk("@theme_button_decoration_hover"); }
 
  &:disabled slider {
-   background-color:insensitive(w_color(normal));
+   background-color: gtk("@insensitive_bg_color");
  }
 
  &:backdrop {
    slider {
-     background-color: backdrop(w_color(normal));
+     background-color: gtk("@theme_unfocused_bg_color");
    }
 
-   &:disabled slider { background-color: backdrop(insensitive(w_color(normal))); }
+   &:disabled slider { background-color: gtk("@insensitive_unfocused_bg_color"); }
  }
 }

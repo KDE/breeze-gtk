@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-@mixin entry($t, $fc:v_color(active)) {
+@mixin entry($t, $fc:gtk("@theme_view_active_decoration_color")) {
 //
 // Entries drawing function
 //
@@ -13,9 +13,9 @@
 // normal, focus, insensitive, backdrop, backdrop-insensitive, osd, osd-focus, osd-backdrop;
 //
   @if $t==normal {
-    color: v_color(text);
-    border-color: $border_color;
-    background-color: v_color(normal);
+    color: gtk("@theme_text_color");
+    border-color: gtk("@borders");
+    background-color: gtk("@theme_base_color");
     box-shadow: none;
   }
 
@@ -24,21 +24,21 @@
   }
 
   @if $t==insensitive {
-    color: insensitive(v_color(text));
-    border-color: insensitive($border_color);
-    background-color: insensitive(v_color(normal));
+    color: gtk("@insensitive_base_fg_color");
+    border-color: gtk("@insensitive_borders");
+    background-color: gtk("@insensitive_base_color");
   }
 
   @if $t==backdrop {
-    color: backdrop(v_color(text));
-    border-color: backdrop($border_color);
-    background-color: backdrop(v_color(normal));
+    color: gtk("@theme_unfocused_text_color");
+    border-color: gtk("@unfocused_borders");
+    background-color: gtk("@theme_unfocused_base_color");
   }
 
   @if $t==backdrop-insensitive {
-    color: backdrop(insensitive(v_color(text)));
-    border-color: backdrop(insensitive($border_color));
-    background-color: backdrop(insensitive(v_color(normal)));
+    color: gtk("@theme_unfocused_view_text_color");
+    border-color: gtk("@unfocused_insensitive_borders");
+    background-color: gtk("@theme_unfocused_view_bg_color");
   }
 }
 
@@ -82,30 +82,36 @@ entry {
 
       selection { &:focus, & { @extend %selected_items; }}
 
-      @each $e_type, $e_color in (error, $error_color),
-                                 (warning, $warning_color) {
+      @each $e_type, $e_color in (error, gtk("@error_color")),
+                                 (warning, gtk("@warning_color")) {
         &.#{$e_type} {
           color: $e_color;
           border-color: $e_color;
-          background-color: transparentize($e_color, 0.5);
+          background-color: gtkalpha($e_color, 0.5);
           &:focus {
             @include entry(focus, $e_color);
-            background-color: transparentize($e_color, 0.5);
+            background-color: gtkalpha($e_color, 0.5);
           }
           &:selected, &:selected:focus { background-color: $e_color; }
           &:backdrop {
-            color: backdrop($e_color);
-            border-color: backdrop($e_color);
-            background-color: backdrop(transparentize($e_color, 0.5));
+            @if $e_color == gtk("@error_color") {
+              color: gtk("@error_color_backdrop");
+              border-color: gtk("@error_color_backdrop");
+              background-color: gtkalpha("@error_color_backdrop", 0.5);
+            } @else if $e_color == gtk("@warning_color") {
+              color: gtk("@warning_color_backdrop");
+              border-color: gtk("@warning_color_backdrop");
+              background-color: gtkalpha("@warning_color_backdrop", 0.5);
+            }
           }
         }
       }
 
       image { // entry icons colors
-        color: mix(w_color(text),v_color(text), 80%);
-        &:hover { color: b_color(hover); }
-        &:active { color: b_color(active); }
-        &:backdrop { color: backdrop(mix(w_color(text), v_color(text), 80%)); }
+        color: gtkmix(gtk("@theme_fg_color"),gtk("@theme_text_color"), 0.8);
+        &:hover { color: gtk("@theme_button_decoration_hover"); }
+        &:active { color: gtk("@theme_button_decoration_focus"); }
+        &:backdrop { color: gtkmix(gtk("@theme_unfocused_fg_color"), gtk("@theme_unfocused_fg_color"), 0.8); }
       }
     //   FIXME
     //   &:drop(active) {
@@ -120,28 +126,28 @@ entry {
     margin: 1px;
     border-radius: 0;
     border-width: 0 0 2px;
-    border-color: s_color(normal);
+    border-color: gtk("@theme_selected_bg_color");
     border-style: solid;
     background-image: none;
     background-color: transparent;
     box-shadow: none;
     &:backdrop {
       background-color: transparent;
-      border-color: backdrop(s_color(backdrop));
+      border-color: gtk("@theme_unfocused_selected_bg_color");
     }
   }
 }
 
 treeview acceleditor > label {
-    background-color: s_color(normal);
+    background-color: gtk("@theme_selected_bg_color");
 }
 
 treeview entry {
   &.flat, & {
     border-radius: 0;
     background-image: none;
-    background-color: v_color(normal);
+    background-color: gtk("@theme_base_color");
 
-    &:focus { border-color: v_color(active); }
+    &:focus { border-color: gtk("@theme_view_active_decoration_color"); }
   }
 }

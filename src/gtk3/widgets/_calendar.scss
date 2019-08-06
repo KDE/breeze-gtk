@@ -4,63 +4,63 @@
  * Calendar *
  ***********/
 calendar {
-  color: v_color(text);
-  border: 1px solid $border_color;
-  background-color: v_color(normal);
+  color: gtk("@theme_text_color");
+  border: 1px solid gtk("@borders");
+  background-color: gtk("@theme_base_color");
   &:selected {
-    background-color: $border_color;
+    background-color: gtk("@borders");
   }
   &:disabled {
-    color: insensitive(v_color(text));
+    color: gtk("@insensitive_base_fg_color");
   }
 
   &.header {
-    border: 1px solid $border_color;
+    border: 1px solid gtk("@borders");
     border-radius: 0;
-    color: v_color(text);
+    color: gtk("@theme_text_color");
 
     &:backdrop {
-      color: backdrop(v_color(text));
-      border-color: backdrop($border_color);
+      color: gtk("@theme_unfocused_text_color");
+      border-color: gtk("@unfocused_borders");
     }
     
     &:disabled {
-      color: insensitive(v_color(text));
+      color: gtk("@insensitive_base_fg_color");
     }
   }
 
   &.button {
     @extend %undecorated_button;
-    color: b_color(text);
+    color: gtk("@theme_button_foreground_normal");
 
     &:hover {
       @extend %undecorated_button;
-      color: b_color(hover);
+      color: gtk("@theme_button_decoration_hover");
     }
     &:active {
       @extend %undecorated_button;
-      color: b_color(active);
+      color: gtk("@theme_button_decoration_focus");
     }
     &:backdrop {
       @extend %undecorated_button;
-      color: backdrop(b_color(text));
+      color: gtk("@theme_button_foreground_backdrop");
     }
   }
 
   &:indeterminate,
   &.highlight {
-    color: transparentize(v_color(text),0.5);
+    color: gtkalpha(gtk("@theme_text_color"),0.5);
   }
 
   &:indeterminate:backdrop,
   &.highlight:backdrop {
-    color: backdrop(transparentize(v_color(text),0.5));
+    color:gtkalpha(gtk("@theme_unfocused_text_color"),0.5);
   }
 
 
   &:backdrop {
-    color: backdrop(v_color(text));
-    border-color: backdrop($border_color);
-    background-color: backdrop(v_color(normal));
+    color: gtk("@theme_unfocused_text_color");
+    border-color: gtk("@unfocused_borders");
+    background-color: gtk("@theme_unfocused_base_color");
   }
 }

@@ -19,11 +19,11 @@
       text-shadow: none;
       &:hover {
         @extend %undecorated_button;
-        color: b_color(hover);
+        color: gtk("@theme_button_decoration_hover");
       }
       &:active {
         @extend %undecorated_button;
-        color: b_color(active);
+        color: gtk("@theme_button_decoration_focus");
       }
       &:backdrop,
       &:disabled,

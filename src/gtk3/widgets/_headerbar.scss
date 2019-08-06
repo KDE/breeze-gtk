@@ -11,36 +11,41 @@ headerbar {
   border-width: 0px 0px 1px 0px;
   border-radius: 3px 3px 0px 0px;
   border-style: solid;
-  border-color: $border_color;
-  color: t_color(text);
+  border-color: gtk("@borders");
+  color: gtk("@theme_titlebar_foreground");
   background-image: none;
-  background-color: t_color(background);
+  background-color: gtk("@theme_titlebar_background");
   &:backdrop {
     border-color: transparent;
     background-image: none;
-    background-color: t_color(backdrop-background);
-    color: t_color(backdrop-text);
+    background-color: gtk("@theme_titlebar_background_backdrop");
+    color: gtk("@theme_titlebar_foreground_backdrop");
     box-shadow: none;
   }
   label {
     font-weight: normal;
-    &:backdrop { color: t_color(backdrop-text); }
+    &:backdrop { color: gtk("@theme_titlebar_foreground_backdrop"); }
   }
   .path-bar button {
-    color: t_color(text);
+    color: gtk("@theme_titlebar_foreground");
     font-weight: normal;
-    &:backdrop { color: t_color(backdrop-text)}
+    &:backdrop { 
+      color: gtk("@theme_titlebar_foreground_backdrop");
+    }
     }
   button {
     transition: none;
-    @include button(undecorated, $tc: t_color(text));
+    @include button(undecorated);
+    color: gtk("@theme_titlebar_foreground");
 
     &.flat {
-      @include button(undecorated,$tc: t_color(text));
+      @include button(undecorated);
+      color: gtk("@theme_titlebar_foreground");
     }
     &:hover {
-      @include button(hover, $tc: t_color(text));
-      &:backdrop { border-color: t_color(backdrop-background); }
+      @include button(hover);
+      color: gtk("@theme_titlebar_foreground");
+      &:backdrop { border-color: gtk("@theme_titlebar_background_backdrop"); }
     }
     &:active, &:checked {
       @include button(active);
@@ -49,9 +54,9 @@ headerbar {
       }
       &:backdrop {
         background-image: none;
-        background-color: t_color(backdrop-background);
-        border-color: t_color(backdrop-background);
-        color: t_color(backdrop-text);
+        background-color: gtk("@theme_titlebar_background_backdrop");
+        border-color: gtk("@theme_titlebar_background_backdrop");
+        color: gtk("@theme_titlebar_foreground_backdrop");
       }
     }
 
@@ -62,25 +67,25 @@ headerbar {
     &:backdrop {
       border-color: transparent;
       background-image: none;
-      background-color: t_color(backdrop-background);
-      color: t_color(backdrop-text);
+      background-color: gtk("@theme_titlebar_background_backdrop");
+      color: gtk("@theme_titlebar_foreground_backdrop");
       }
 
     &.flat:backdrop, &.flat:backdrop:disabled, &:disabled:backdrop {
       background-image: none;
-      background-color: t_color(backdrop-background);
-      color: t_color(backdrop-text);
+      background-color: gtk("@theme_titlebar_background_backdrop");
+      color: gtk("@theme_titlebar_foreground_backdrop");
       border-color: transparent;
       }
     &.flat:disabled {
       @extend %undecorated_button;;
-      color: insensitive(t_color(text));
+      color: gtk("@theme_titlebar_foreground_insensitive");
       }
     &:disabled {
       background-color: transparent;
       background-image: none;
       border-color: transparent;
-      color: insensitive(t_color(text));
+      color: gtk("@theme_titlebar_foreground_insensitive");
       &:active, &:checked {
         @include button(insensitive-active);
       }
@@ -90,14 +95,18 @@ headerbar {
   .title {
     font-weight: normal;
     padding: 0px 12px;
-    &:backdrop { color: t_color(backdrop-text)}
+    &:backdrop { 
+      color: gtk("@theme_titlebar_foreground_backdrop");
+    }
   }
 
   .subtitle {
     font-size: smaller;
     padding: 0 12px;
     @extend .dim-label;
-    &:backdrop { color: t_color(backdrop-text)}
+    &:backdrop { 
+      color: gtk("@theme_titlebar_foreground_backdrop");
+    }
   }
 
   separator {
@@ -147,25 +156,25 @@ headerbar {
 
 %suggested-action {
   background-image: none;
-  background-color: b_color(active);
+  background-color: gtk("@theme_button_decoration_focus");
   &:hover {
-    background-color: b_color(hover);
-    color: b_color(text)
+    background-color: gtk("@theme_button_decoration_hover");
+    color: gtk("@theme_button_foreground_normal");
     }
   &:disabled {
     background-color: transparent;
     background-image: none;
-    color: insensitive(t_color(text));
+    color: gtk("@theme_titlebar_foreground_insensitive");
     &:active, &:checked {
       @include button(insensitive-active);
       }
     }
   &:backdrop {
-    background-color: t_color(backdrop-background);
+    background-color: gtk("@theme_titlebar_background_backdrop");
     border-color: transparent;
-    color: t_color(backdrop-text);
+    color: gtk("@theme_titlebar_foreground_backdrop");
     &:disabled {
-      color: insensitive(t_color(backdrop-text));
+      color: gtk("@theme_titlebar_foreground_insensitive_backdrop");
     }
   }
 }

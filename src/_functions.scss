@@ -1,12 +1,33 @@
 @charset "UTF-8";
 
+// GTK functions
+
+// escape string entirely
+@function gtk ($str) {
+  @return unquote($str);
+}
+
+// alpha function
+@function gtkalpha($c,$a) {
+  @return unquote("alpha(#{$c},#{$a})");
+}
+
+// shade function
+@function gtkshade($c, $a) {
+  @return unquote("shade(#{$c},#{$a})");
+}
+
+// mix function
+@function gtkmix($c1, $c2, $m) {
+  @return unquote("mix(#{$c1},#{$c2},#{$m})");
+}
+
 //
 // Theme color functions
 //
 
-
 // Button Color
-@function b_color($c: normal) {
+@function internal_b_color($c: normal) {
   @if $c == normal {
     @return $ButtonBackgroundNormal;
   }
@@ -25,7 +46,7 @@
 }
 
 // Selection Color
-@function s_color($c: normal) {
+@function internal_s_color($c: normal) {
   @if $c == normal {
     @return $SelectionBackgroundNormal;
   }
@@ -41,7 +62,7 @@
 }
 
 // View Color
-@function v_color($c: normal) {
+@function internal_v_color($c: normal) {
   @if $c == normal {
     @return $ViewBackgroundNormal;
   }
@@ -57,7 +78,7 @@
 }
 
 // Window Color
-@function w_color($c: normal) {
+@function internal_w_color($c: normal) {
   @if $c == normal {
     @return $WindowBackgroundNormal;
   }
@@ -67,7 +88,7 @@
 }
 
 // Titlebar color
-@function t_color($c: text) {
+@function internal_t_color($c: text) {
   @if $c == text {
     @return $WMactiveForeground;
   }
@@ -85,7 +106,7 @@
   }
 }
 
-@function tooltip($c: text) {
+@function internal_tooltip($c: text) {
   @if $c == text {
     @return $TooltipForegroundNormal;
   }
@@ -97,7 +118,7 @@
   }
 }
 
-@function button_gradient($c, $state: normal) {
+@function internal_button_gradient($c, $state: normal) {
   @if $state == normal {
     @return linear-gradient(to bottom, change-color($c, $lightness: min(lightness($c)*1.01,100%)), change-color($c, $lightness:min(lightness($c)/1.03,100%)));
   }
@@ -107,7 +128,7 @@
 }
 
 $border_color: mix($WindowBackgroundNormal,$WindowForegroundNormal, 75%);
-$menu_color: w_color(normal);
+$menu_color: internal_w_color(normal);
 $link_color: $ViewForegroundLink;
 $link_visited_color: $ViewForegroundVisited;
 
@@ -116,8 +137,14 @@ $error_color: $ViewForegroundNegative;
 $success_color: $ViewForegroundPositive;
 $destructive_color: $error_color;
 
-$trough_color: mix(w_color(normal),w_color(text),70%);
-$scrollbar_color: mix($trough_color,v_color(text),50%);
+$trough_color:                      gtkmix(gtk("@theme_bg_color"),gtk("@theme_fg_color"),0.7);
+$trough_color_backdrop:             gtkmix(gtk("@theme_unfocused_bg_color"),gtk("@theme_unfocused_fg_color"),0.7);
+$trough_color_insensitive:          gtkmix(gtk("@insensitive_bg_color"),gtk("@insensitive_fg_color"),0.7);
+$trough_color_backdrop_insensitive: gtkmix(gtk("@insensitive_unfocused_bg_color"),gtk("@insensitive_unfocused_fg_color"),0.7);
+
+$scrollbar_color: gtkmix($trough_color,gtk("@theme_text_color"),0.5);
+$scrollbar_color_backdrop: gtkmix($trough_color_backdrop,gtk("@theme_unfocused_text_color"),0.5);
+
 //
 // Color effects
 //
@@ -155,34 +182,34 @@ $IntensityEffect: (
 
 $r: 3px; // standard radius
 
-@function insensitive($c) {
-  @return Color(Intensity(Contrast($c, Disabled), Disabled), Disabled);
+@function internal_insensitive($c) {
+  @return internal_Color(internal_Intensity(internal_Contrast($c, Disabled), Disabled), Disabled);
 }
 
-@function backdrop($c) {
+@function internal_backdrop($c) {
   @if $InactiveEnable == true {
-    @return Color(Intensity(Contrast($c, Inactive), Inactive), Inactive);
+    @return internal_Color(internal_Intensity(internal_Contrast($c, Inactive), Inactive), Inactive);
   }
   @else {
     @return $c;
   }
 }
 
-@function Contrast($c, $state) {
+@function internal_Contrast($c, $state) {
 
   @if map-get($ContrastEffect, $state) == 0 {
     @return $c;
   }
 
   @if map-get($ContrastEffect, $state) == 1 {
-    @if lightness(w_color()) > lightness(w_color(text)) {
-      @if lightness($c) < lightness(w_color()) or ($c == t_color(text) and lightness(t_color(background)) <= lightness(t_color(text))) {
+    @if lightness(internal_w_color()) > lightness(internal_w_color(text)) {
+      @if lightness($c) < lightness(internal_w_color()) or ($c == internal_t_color(text) and lightness(internal_t_color(background)) <= lightness(internal_t_color(text))) {
         @return transparentize($c, map-get($ContrastAmount, $state));
       }
       @else { @return $c; }
     }
-    @if lightness(w_color()) <= lightness(w_color(text)) {
-      @if lightness($c) > lightness(w_color()) or ($c == t_color(text) and lightness(t_color(background)) > lightness(t_color(text))) {
+    @if lightness(internal_w_color()) <= lightness(internal_w_color(text)) {
+      @if lightness($c) > lightness(internal_w_color()) or ($c == internal_t_color(text) and lightness(internal_t_color(background)) > lightness(internal_t_color(text))) {
         @return transparentize($c, map-get($ContrastAmount, $state));
       }
       @else { @return $c; }
@@ -190,14 +217,14 @@ $r: 3px; // standard radius
   }
 
   @if map-get($ContrastEffect, $state) == 2 {
-    @if lightness(w_color()) > lightness(w_color(text)) {  // don't know what a reasonable lightness treshhold is for Contrast
-      @if lightness($c) < lightness(w_color()) or ($c == t_color(text) and lightness(t_color(background)) <= lightness(t_color(text))) {
+    @if lightness(internal_w_color()) > lightness(internal_w_color(text)) {  // don't know what a reasonable lightness treshhold is for Contrast
+      @if lightness($c) < lightness(internal_w_color()) or ($c == internal_t_color(text) and lightness(internal_t_color(background)) <= lightness(internal_t_color(text))) {
         @return transparentize($c, map-get($ContrastAmount, $state));
       }
       @else { @return $c; }
     }
-    @if lightness(w_color()) <= lightness(w_color(text)) {
-      @if lightness($c) > lightness(w_color()) or ($c == t_color(text) and lightness(t_color(background)) > lightness(t_color(text))){
+    @if lightness(internal_w_color()) <= lightness(internal_w_color(text)) {
+      @if lightness($c) > lightness(internal_w_color()) or ($c == internal_t_color(text) and lightness(internal_t_color(background)) > lightness(internal_t_color(text))){
         @return transparentize($c, map-get($ContrastAmount, $state));
       }
       @else { @return $c; }
@@ -205,7 +232,7 @@ $r: 3px; // standard radius
   }
 }
 
-@function Color($c, $state) {
+@function internal_Color($c, $state) {
 
   @if map-get($ColorEffect, $state) ==0 {
     @return $c;
@@ -225,7 +252,7 @@ $r: 3px; // standard radius
   }
 }
 
-@function Intensity($c, $state) {
+@function internal_Intensity($c, $state) {
 
   @if map-get($IntensityEffect, $state) == 0 {
     @return $c;
@@ -253,7 +280,7 @@ $r: 3px; // standard radius
   }
 }
 
-@function alpha2solid($c,$background) {
+@function internal_alpha2solid($c,$background) {
   $amount:alpha($c);
   $c:rgb(red($c),green($c),blue($c));
   @return mix($c,$background,$amount);

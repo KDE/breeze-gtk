@@ -1,9 +1,20 @@
 @charset "UTF-8";
 
+@mixin item-highlight {
+  @if $new-highlight {
+    background-color: gtk("@theme_selected_bg_color");
+    color: gtk("@theme_button_foreground_active");
+    border: 1px solid gtk("@theme_button_decoration_focus");
+  } @else {
+    background-color: gtk("@theme_button_decoration_focus");
+    color: gtk("@theme_button_foreground_active")
+  }
+  border-radius: 3px;
+}
+
 /*********
  * Menus *
  *********/
-
 
 menubar,
 .menubar {
@@ -11,28 +22,37 @@ menubar,
   padding: 0px;
   box-shadow: none;
   border-style: none;
-  background-color: w_color(normal);
+  background-color: gtk("@theme_bg_color");
+
   &:backdrop {
-    background-color: backdrop(w_color(normal));
+    background-color: gtk("@theme_unfocused_bg_color");
   }
-  > menuitem {
+
+  >menuitem {
     min-height: 16px;
     padding: 4px 6px;
-    &:hover { //Seems like it :hover even with keyboard focus
-      background-color: b_color(active);
-      color: b_color(active-text);
+    border-bottom: 3px solid transparent;
+
+    &:hover {
+      //Seems like it :hover even with keyboard focus
+      background-color: gtkalpha(gtk("@theme_button_decoration_focus"), 0.3);
+      color: gtk("@theme_button_foreground_active");
+      border-bottom: 3px solid gtk("@theme_button_decoration_focus");
     }
+
     &:disabled {
-      color: insensitive(w_color(text));
+      color: gtk("@insensitive_fg_color");
       box-shadow: none;
+
       &:backdrop {
-        background-color: backdrop(w_color(normal));
-        color: backdrop(insensitive(w_color(text)));
+        background-color: gtk("@theme_unfocused_bg_color");
+        color: gtk("@insensitive_unfocused_fg_color");
       }
     }
+
     &:backdrop {
-      background-color: backdrop(w_color(normal));
-      color: backdrop(w_color(text));
+      background-color: gtk("@theme_unfocused_bg_color");
+      color: gtk("@theme_unfocused_fg_color");
     }
   }
 }
@@ -40,41 +60,55 @@ menubar,
 menu,
 .menu {
   padding: 0px;
-  background-color: $menu_color;
+  background-color: gtk("@theme_bg_color");
   border: 0px solid transparent;
   // FIXME workaround for libreoffice gtk3, should be a border
   //border: 1px solid $border_color; // adds borders in a non composited env
-  box-shadow: inset 0px 0px 0px 1px $border_color;
+  box-shadow: inset 0px 0px 0px 1px gtk("@borders");
 
   border-radius: $r;
+
   .csd & {
     //background-color: transparent;
     border: 0px solid;
     border-radius: $r;
     //box-shadow: 0px 0px 0px 1px $border_color, 2px 2px 2px 1px rgba(0, 0, 0, 0.1);
-  }  // axes borders in a composited env
-  separator {
-    color: $border_color;
-    margin-top: 3px;
-    margin-bottom: 3px;
   }
+
+  // axes borders in a composited env
+  separator {
+    color: gtk("@borders");
+  }
+
   menuitem {
-	  text-shadow: none;
+    text-shadow: none;
     min-height: 16px;
     min-width: 40px;
     padding: 4px 4px;
+
+    @if $new-highlight{ 
+      border: 1px solid transparent;
+      margin: 4px;
+    }
+
     &:hover {
-      color: b_color(active-text);
-      background-color: b_color(active);
+      @include item-highlight();
     }
+
     &:disabled {
-      color: insensitive(w_color(text));
-      &:backdrop { color: backdrop(insensitive(w_color(text))); }
+      color: gtk("@insensitive_fg_color");
+
+      &:backdrop {
+        color: gtk("@insensitive_unfocused_fg_color");
+      }
     }
-    &:backdrop, &:backdrop:hover {
-      color: backdrop(w_color(text));
-      background-color: backdrop(w_color(normal));
+
+    &:backdrop,
+    &:backdrop:hover {
+      color: gtk("@theme_unfocused_fg_color");
+      background-color: gtk("@theme_unfocused_bg_color");
     }
+
     // submenu indicators
     arrow {
       min-height: 16px;
@@ -86,13 +120,14 @@ menu,
       }
 
       &:dir(rtl) {
-        -gtk-icon-source:-gtk-icontheme('pan-start-symbolic');
+        -gtk-icon-source: -gtk-icontheme('pan-start-symbolic');
         margin-right: 10px;
       }
     }
   }
+
   // overflow arrows
-  > arrow {
+  >arrow {
     @include button(undecorated);
 
     min-height: 16px;

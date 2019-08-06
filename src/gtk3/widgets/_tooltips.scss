@@ -8,16 +8,16 @@ tooltip {
   &.background {
     // background-color needs to be set this way otherwise it gets drawn twice
     // see https://bugzilla.gnome.org/show_bug.cgi?id=736155 for details.
-    background-color: tooltip(background);
+    background-color: gtk("@tooltip_background");
     background-clip: padding-box;
   }
 
-  color: tooltip(text);
+  color: gtk("@tooltip_text");
   padding: 4px; /* not working */
   border-radius: $r;
   box-shadow: none; // otherwise it gets inherited by windowframe.csd
   text-shadow: none;
-  border: 1px solid tooltip(border);
+  border: 1px solid gtk("@tooltip_border");
   &.window-frame.csd {
     background-color: transparent;
     box-shadow: none;
@@ -28,5 +28,5 @@ tooltip {
 tooltip * { //Yeah this is ugly
   padding: 0px;
   background-color: transparent;
-  color: tooltip(text); // just to be sure
+  color: gtk("@tooltip_text"); // just to be sure
 }

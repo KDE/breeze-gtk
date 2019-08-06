@@ -4,13 +4,25 @@
  * Lists *
  *********/
 
+@mixin list-item-highlight {
+  @if $new-highlight {
+    background-color: gtk("@theme_selected_bg_color");
+    color: gtk("@theme_button_foreground_active");
+    border-top: 1px solid gtk("@theme_button_decoration_focus");
+    border-bottom: 1px solid gtk("@theme_button_decoration_focus");
+    border-radius: 0px;
+  } @else {
+    background-color: gtk("@theme_selected_bg_color");
+  }
+}
+
 list {
-  background-color: w_color(normal);
-  color: w_color(text);
+  background-color: gtk("@theme_bg_color");
+  color: gtk("@theme_fg_color");
   border-width: 0px;
   &:backdrop {
-    background-color: backdrop(w_color(normal));
-    color: backdrop(w_color(text));
+    background-color: gtk("@theme_unfocused_bg_color");
+    color: gtk("@theme_unfocused_fg_color");
   }
   row { padding: 2px; }
 }
@@ -21,28 +33,35 @@ row {
   &:hover { transition: none; }
 
   &.activatable {
+    @if $new-highlight {
+      border: 1px solid transparent;
+    }
+
     &.has-open-popup, // this is for indicathing which row generated a popover see https://bugzilla.gnome.org/show_bug.cgi?id=754411
 
-    &:hover { background-color: transparentize(s_color(normal), 0.5); }
+    &:hover { 
+      @include list-item-highlight();
+    }
 
     &:active {
       box-shadow: none;
-      background-color: s_color(normal);
+      @include list-item-highlight();
     }
 
     &:selected {
       &:active {
         box-shadow: none;
-        background-color: s_color(normal);
+        @include list-item-highlight();
       }
 
       &.has-open-popup,
       &:hover {
-        color: w_color(text);
-        background-color: s_color(hover);
+        @include list-item-highlight();
       }
 
-      &:backdrop { background-color: backdrop(s_color(normal)); }
+      &:backdrop { 
+        background-color: gtk("@theme_unfocused_selected_bg_color_alt");
+      }
     }
   }
 

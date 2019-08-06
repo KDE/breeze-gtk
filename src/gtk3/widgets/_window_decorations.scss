@@ -44,7 +44,7 @@ decoration {
     margin: 0;
     padding: 1px;
     border: none;
-    background-color: t_color(background-light);
+    background-color: gtk("@theme_titlebar_background_light");
     box-shadow: none;
   }
 }

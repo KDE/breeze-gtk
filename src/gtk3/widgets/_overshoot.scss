@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-@mixin overshoot($p, $t:normal, $c:w_color(text)) {
+@mixin overshoot($p, $t:normal, $c:gtk("@theme_fg_color")) {
 //
 // overshoot
 //
@@ -42,24 +42,24 @@
   $_small_gradient_color: $c;
   $_big_gradient_color: $c;
 
-  @if $c==w_color(text) {
-    $_small_gradient_color: darken($border_color, 10%);
-    $_big_gradient_color: w_color(text);
+  @if $c==gtk("@theme_fg_color") {
+    $_small_gradient_color: gtkshade("@borders", 0.9);
+    $_big_gradient_color: gtk("@theme_fg_color");
 
-    @if $t==backdrop { $_small_gradient_color: backdrop($border_color); }
+    @if $t==backdrop { $_small_gradient_color: gtk("@unfocused_borders"); }
   }
 
   $_small_gradient: -gtk-gradient(radial,
                                   $_position, 0,
                                   $_position, 0.5,
                                   to($_small_gradient_color),
-                                  to(transparentize($_small_gradient_color, 1)));
+                                  to(gtkalpha($_small_gradient_color, 0)));
 
   $_big_gradient: -gtk-gradient(radial,
                                 $_position, 0,
                                 $_position, 0.6,
-                                from(transparentize($_big_gradient_color, 0.93)),
-                                to(transparentize($_big_gradient_color, 1)));
+                                from(gtkalpha($_big_gradient_color, 0.07)),
+                                to(gtkalpha($_big_gradient_color, 0)));
 
   @if $t==normal {
     background-image: $_small_gradient, $_big_gradient;

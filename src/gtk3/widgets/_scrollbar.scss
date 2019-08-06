@@ -9,9 +9,9 @@ scrollbar {
   -GtkScrollbar-has-backward-stepper: false;
   -GtkScrollbar-has-forward-stepper: false;
 
-  background-color: w_color(normal);
+  background-color: gtk("@theme_bg_color");
   border-width: 0px 0px;
-  border-color: w_color(normal);
+  border-color: gtk("@theme_bg_color");
   margin: 5px;
 
   button {
@@ -28,26 +28,28 @@ scrollbar {
 	&:hover {
     border: none;
     background-image: none;
-    background-color: w_color(normal);
+    background-color: gtk("@theme_bg_color");
                color: transparent;
 		}
   &:active,
   &:active:hover {
     border: none;
     background-image: none;
-    background-color: w_color(normal);
+    background-color: gtk("@theme_bg_color");
     color: transparent;
   }
 	&:disabled {
     border: none;
-    background-color: w_color(normal);
+    background-color: gtk("@theme_bg_color");
     background-image: none;
     color: transparent;
     }
   &:backdrop {
     @extend %undecorated_button;
-    color: backdrop(b_color(text));
-    &:disabled {color: backdrop(insensitive(b_color(text)));}
+    color: gtk("@theme_button_foreground_backdrop");
+    &:disabled {
+      color: gtk("@theme_button_foreground_backdrop_insensitive");
+    }
     @extend %undecorated_button;
         }
 	}
@@ -80,12 +82,12 @@ scrollbar {
   
   &:hover {
     trough {
-      background-color: backdrop($trough_color);
+      background-color: $trough_color_backdrop;
       min-width: 6px;
     }
     slider {
         min-width: 6px;
-       background-color: b_color(hover);
+       background-color: gtk("@theme_button_decoration_hover");
     }
   }
 
@@ -100,12 +102,12 @@ scrollbar {
 
   &.horizontal:hover {
     &.horizontal trough {
-      background-color: backdrop($trough_color);
+      background-color: $trough_color_backdrop;
       min-height: 6px;
     }
     &.horizontal slider {
         min-height: 6px;
-        background-color: b_color(hover);
+        background-color: gtk("@theme_button_decoration_hover");
     }
   }
   
@@ -116,13 +118,13 @@ scrollbar {
     min-height: 30px;
     border-radius: 8px;
     background-clip: padding-box;
-    background-color: transparentize($scrollbar_color, 0.2);
+    background-color: gtkalpha($scrollbar_color_backdrop, 0.2);
     &:backdrop { 
-        background-color: backdrop($scrollbar_color); 
+        background-color: $scrollbar_color_backdrop; 
     }
     &:hover {
         min-width: 6px;
-       background-color: b_color(hover);
+       background-color: gtk("@theme_button_decoration_hover");
 
     }
   }
@@ -132,13 +134,13 @@ scrollbar {
     min-height: 3px;
     border-radius: 8px;
     background-clip: padding-box;
-    background-color: transparentize($scrollbar_color, 0.2);
+    background-color: gtkalpha($scrollbar_color_backdrop, 0.2);
     &:backdrop { 
-        background-color: backdrop($scrollbar_color); 
+        background-color: $scrollbar_color_backdrop; 
     }
     &:hover {
         min-height: 6px;
-        background-color: b_color(hover);
+        background-color: gtk("@theme_button_decoration_hover");
         
     }
 
