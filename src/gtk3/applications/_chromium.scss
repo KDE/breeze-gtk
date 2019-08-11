@@ -1,0 +1,23 @@
+window.background.chromium {
+    background-color: gtk("@theme_base_color");
+    border-color: gtk("@borders");
+    menubar, .menubar {
+        color: gtk("@theme_titlebar_foreground_backdrop");
+        background-color: gtk("@theme_bg_color");
+        &:backdrop {
+            background-color: gtk("@theme_unfocused_bg_color");    
+            color: gtk("@theme_titlebar_foreground_backdrop");
+        }
+    }
+    entry {
+        background-color: gtk("@theme_base_color");
+    }
+    &.csd {
+        menubar, .menubar {
+            background-color: gtk("@theme_titlebar_background");
+            &:backdrop {
+                background-color: gtk("@theme_titlebar_background_backdrop"); 
+            }
+        }
+    }
+}
