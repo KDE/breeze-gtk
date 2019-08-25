@@ -57,6 +57,7 @@ headerbar,
     min-width: 18px;
     margin: 0;
   }
+  $titlebutton-size: 16px 16px;
   button.titlebutton {
     padding: 1px;
     &:hover,
@@ -69,77 +70,88 @@ headerbar,
 
     &.close {
       padding: 1px;
-      color: transparent;
       border-image: none;
       box-shadow: none;
       background-position: center;
       background-repeat: no-repeat;
-      background-image: -gtk-scaled(url('../assets/titlebutton-close.png'),url('../assets/titlebutton-close@2.png'));
+      background-size: $titlebutton-size;
+      background-image: -gtk-recolor(url('../assets/breeze-close-symbolic.svg'), color gtk("@theme_text_color"));
+      -gtk-icon-source: none;
+      image {
+        color: transparent;
+      }
     }
     &.close:hover {
       border-color: transparent;
       background-color: transparent;
-      background-image: -gtk-scaled(url('../assets/titlebutton-close-hover.png'),url('../assets/titlebutton-close-hover@2.png'));
+      background-image: -gtk-recolor(url('../assets/breeze-close-hover-symbolic.svg'));
     }
     &.close:active {
       border-color: transparent;
       background-color: transparent;
-      background-image: -gtk-scaled(url('../assets/titlebutton-close-active.png'),url('../assets/titlebutton-close-active@2.png'));
+      background-image: -gtk-recolor(url('../assets/breeze-close-active-symbolic.svg'));
     }
     &.close:backdrop {
       border-color: transparent;
       background-color: transparent;
-      background-image: -gtk-scaled(url('../assets/titlebutton-close-backdrop.png'),url('../assets/titlebutton-close-backdrop@2.png'));
+      background-image: -gtk-recolor(url('../assets/breeze-close-symbolic.svg'));
     }
 
     &.maximize {
       padding: 1px;
-      color: transparent;
       border-image: none;
       box-shadow: none;
       background-position: center;
       background-repeat: no-repeat;
-      background-image: -gtk-scaled(url('../assets/titlebutton-maximize.png'),url('../assets/titlebutton-maximize@2.png'));
+      background-size: $titlebutton-size;
+      background-image: -gtk-recolor(url('../assets/breeze-maximize-symbolic.svg'));
+      image {
+        color: transparent;
+      }
     }
     &.maximize:hover {
     	border-color: transparent;
       background-color: transparent;
-    	background-image: -gtk-scaled(url('../assets/titlebutton-maximize-hover.png'),url('../assets/titlebutton-maximize-hover@2.png'));
+      background-size: contain;
+    	background-image: -gtk-recolor(url('../assets/breeze-maximize-hover-symbolic.svg'));
   	}
     &.maximize:active {
     	border-color: transparent;
       background-color: transparent;
-    	background-image: -gtk-scaled(url('../assets/titlebutton-maximize-active.png'),url('../assets/titlebutton-maximize-active@2.png'));
+    	background-image: -gtk-recolor(url('../assets/breeze-maximize-active-symbolic.svg'));
   	}
     &.maximize:backdrop {
     	border-color: transparent;
       background-color: transparent;
-    	background-image: -gtk-scaled(url('../assets/titlebutton-maximize-backdrop.png'),url('../assets/titlebutton-maximize-backdrop@2.png'));
+    	background-image: -gtk-recolor(url('../assets/breeze-maximize-symbolic.svg'));
   	}
 
     &.minimize {
       padding: 1px;
-      color: transparent;
       border-image: none;
       box-shadow: none;
       background-position: center;
       background-repeat: no-repeat;
-      background-image: -gtk-scaled(url('../assets/titlebutton-minimize.png'),url('../assets/titlebutton-minimize@2.png'));
+      background-size: $titlebutton-size;
+      background-image: -gtk-recolor(url('../assets/breeze-minimize-symbolic.svg'));
+      image {
+        color: transparent;
+      }
     }
     &.minimize:hover {
   	  border-color: transparent;
       background-color: transparent;
-      background-image: -gtk-scaled(url('../assets/titlebutton-minimize-hover.png'),url('../assets/titlebutton-minimize-hover@2.png'));
+      background-image: -gtk-recolor(url('../assets/breeze-minimize-hover-symbolic.svg'));
     }
     &.minimize:active {
   	  border-color: transparent;
       background-color: transparent;
-      background-image: -gtk-scaled(url('../assets/titlebutton-minimize-active.png'),url('../assets/titlebutton-minimize-active@2.png'));
+      background-image: -gtk-recolor(url('../assets/breeze-minimize-active-symbolic.svg'));
     }
     &.minimize:backdrop {
   	  border-color: transparent;
       background-color: transparent;
-      background-image: -gtk-scaled(url('../assets/titlebutton-minimize-backdrop.png'),url('../assets/titlebutton-minimize-backdrop@2.png'));
+      background-image: -gtk-recolor(url('../assets/breeze-minimize-symbolic.svg'));
     }
   }
 
@@ -147,27 +159,30 @@ headerbar,
     button.titlebutton {
       &.maximize {
         padding: 1px;
-        color: transparent;
         border-image: none;
         box-shadow: none;
         background-position: center;
+        background-size: $titlebutton-size;
         background-repeat: no-repeat;
-        background-image: -gtk-scaled(url('../assets/titlebutton-maximize-maximized.png'),url('../assets/titlebutton-maximize-maximized@2.png'));
+        background-image: -gtk-recolor(url('../assets/breeze-maximized-symbolic.svg'));
+        image {
+          color: transparent;
+        }
       }
       &.maximize:hover {
       	border-color: transparent;
         background-color: transparent;
-      	background-image: -gtk-scaled(url('../assets/titlebutton-maximize-maximized-hover.png'),url('../assets/titlebutton-maximize-maximized-hover@2.png'));
+      	background-image: -gtk-recolor(url('../assets/breeze-maximized-hover-symbolic.svg'));
     	}
       &.maximize:active {
       	border-color: transparent;
         background-color: transparent;
-      	background-image: -gtk-scaled(url('../assets/titlebutton-maximize-maximized-active.png'),url('../assets/titlebutton-maximize-maximized-active@2.png'));
+      	background-image: -gtk-recolor(url('../assets/breeze-maximized-active-symbolic.svg'));
     	}
       &.maximize:backdrop {
       	border-color: transparent;
         background-color: transparent;
-      	background-image: -gtk-scaled(url('../assets/titlebutton-maximize-maximized-backdrop.png'),url('../assets/titlebutton-maximize-maximized-backdrop@2.png'));
+      	background-image: -gtk-recolor(url('../assets/breeze-maximized-symbolic.svg'));
     	}
     }
   }

@@ -108,3 +108,4 @@ else
 fi
 
 render_theme "${COLOR_SCHEME}" "${THEME_NAME}" "${INSTALL_TARGET}" "${COLOR_SCHEME_ROOT}/Breeze.colors"
+cp -r assets/ "${INSTALL_TARGET}"
