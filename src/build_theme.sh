@@ -108,4 +108,5 @@ else
 fi
 
 render_theme "${COLOR_SCHEME}" "${THEME_NAME}" "${INSTALL_TARGET}" "${COLOR_SCHEME_ROOT}/Breeze.colors"
+[[ -z "${INSTALL_TARGET}" ]] && INSTALL_TARGET="${HOME}/.local/share/themes/${THEME_NAME}"
 cp -r assets/ "${INSTALL_TARGET}"
