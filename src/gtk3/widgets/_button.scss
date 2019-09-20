@@ -89,6 +89,15 @@
     background-color: gtk("@theme_button_background_backdrop");
   }
 
+  @else if $t==backdrop-hover {
+  //
+  // backdrop hover button
+  //
+    color: gtk("@theme_button_foreground_backdrop");
+    border-color: gtk("@theme_button_decoration_hover");
+    background-color: gtk("@theme_button_background_backdrop");
+  }
+
   @else if $t==backdrop-active {
   //
   // backdrop pushed button
@@ -194,6 +203,9 @@ $_dot_color: gtk("@theme_button_decoration_focus");
    &:backdrop {
      @include button(backdrop);
      -gtk-icon-effect: none;
+     &:hover {
+       @include button(backdrop-hover);
+     }
      &:active, &:checked, &:focus {
        @include button(backdrop-active);
      }
