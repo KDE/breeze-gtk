@@ -162,7 +162,7 @@ $_dot_color: gtk("@theme_button_decoration_focus");
 
     border: 1px solid;
     border-radius: $r;
-    padding: 4px 6px;
+    padding: 6px 6px;
     background-clip: border-box;
     transition: $_button_transition;
     @include button(normal);
@@ -176,7 +176,7 @@ $_dot_color: gtk("@theme_button_decoration_focus");
       &:hover {
         transition: $_button_transition;
         transition-duration: 500ms;
-        &:active { transition: $_button_transition; }
+        &:active, &:focus { transition: $_button_transition; }
       }
       &:checked { background-color: gtk("@borders");}
     }
@@ -184,7 +184,7 @@ $_dot_color: gtk("@theme_button_decoration_focus");
       @include button(hover);
       -gtk-icon-effect: none;  // Do we want this?
     }
-    &:active, &:checked {
+    &:active, &:checked, &:focus {
       @include button(active);
       transition-duration: 50ms;
       &:hover {
@@ -194,13 +194,13 @@ $_dot_color: gtk("@theme_button_decoration_focus");
    &:backdrop {
      @include button(backdrop);
      -gtk-icon-effect: none;
-     &:active, &:checked {
+     &:active, &:checked, &:focus {
        @include button(backdrop-active);
      }
      &:disabled {
        @include button(backdrop-insensitive);
      }
-     &:disabled:active, &:disabled:checked {
+     &:disabled:active, &:disabled:checked, &:disabled:focus {
        @include button(backdrop-insensitive-active);
      }
    }
@@ -219,7 +219,7 @@ $_dot_color: gtk("@theme_button_decoration_focus");
     }
     &:disabled {
       @include button(insensitive);
-      &:active, &:checked {
+      &:active, &:checked, &:focus {
         @include button(insensitive-active);
       }
     }
@@ -299,7 +299,7 @@ button {
         color: white; //! FIXME - No hardcoded colors.
         background-color: $button_color;
       }
-      &:active, &:checked { 
+      &:active, &:checked, &:focus { 
         @include button(active); 
         background-color: $button_color;
         color: white;
@@ -308,14 +308,14 @@ button {
         @include button(backdrop);
         background-color: $button_color;
         color: white;
-        &:active, &:checked {
+        &:active, &:checked, &:focus {
           @include button(backdrop-active);
           background-color: $button_color;
           color: white;
         }
         &:disabled {
           @include button(backdrop-insensitive);
-          &:active, &:checked {
+          &:active, &:checked, &:focus {
             @include button(backdrop-insensitive-active);
             background-color: $button_color;
             color: white;
@@ -328,7 +328,7 @@ button {
       }
       &:disabled {
         @include button(insensitive);
-        &:active, &:checked {
+        &:active, &:checked, &:focus {
           @include button(insensitive-active);
           background-color: $button_color;
           color: white;
@@ -364,6 +364,8 @@ button {
     &.needs-attention > image { @extend %needs_attention; }
     &.needs-attention:active > label,
     &.needs-attention:active > image,
+    &.needs-attention:focus > label,
+    &.needs-attention:focus > image,
     &.needs-attention:checked > label,
     &.needs-attention:checked > image {
       animation: none;
@@ -383,12 +385,14 @@ button {
   .linked > &,
   .linked > &:hover,
   .linked > &:active,
+  .linked > &:focus,
   .linked > &:checked,
   .linked > &:backdrop { @extend %linked; }
 
   .linked.vertical > &,
   .linked.vertical > &:hover,
   .linked.vertical > &:active,
+  .linked.vertical > &:focus,
   .linked.vertical > &:checked,
   .linked.vertical > &:backdrop { @extend %linked_vertical; }
 }
