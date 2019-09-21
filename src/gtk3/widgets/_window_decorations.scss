@@ -42,10 +42,16 @@ decoration {
   .solid-csd & {
     border-radius: 0;
     margin: 0;
-    padding: 1px;
-    border: none;
+    padding: 0px;
+    border: 5px solid gtk("@theme_titlebar_background");
     background-color: gtk("@theme_titlebar_background_light");
     box-shadow: none;
+  }
+}
+
+window.solid-csd {
+  headerbar.titlebar, paned.titlebar, .titlebar, paned.titlebar headerbar {
+    border-radius: 0;
   }
 }
 
