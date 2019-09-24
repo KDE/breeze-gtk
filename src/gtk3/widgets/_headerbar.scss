@@ -121,9 +121,17 @@ headerbar {
     border-color: transparent;
   }
 
-  &.selection-mode {
-
-    @extend .info;
+  &.selection-mode, &.selection-mode headerbar {
+    background-color: gtkmix("@theme_titlebar_background", "@theme_button_decoration_focus", 0.5);
+    separator {
+      background-color: gtk("@theme_button_decoration_focus");
+    }
+    button:not(.titlebutton) {
+      background-color: gtkalpha("@theme_button_decoration_focus", 0.5);
+      &:active, &:focus {
+        background-color: gtk("@theme_button_decoration_focus");
+      }
+    }
 
     &.suggested-action {
       @extend %suggested-action;
