@@ -128,7 +128,7 @@ headerbar {
 		}
 
 		.subtitle:link {
-			@extend %link:selected;
+			@extend %link, :selected;
 		}
 
 		.selection-menu {

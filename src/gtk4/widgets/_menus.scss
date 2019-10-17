@@ -340,7 +340,7 @@ popover.background {
 
 	checkbutton,
 	radiobutton {
-		@extend modelbutton.flat;
+		@extend modelbutton, .flat;
 	}
 }
 

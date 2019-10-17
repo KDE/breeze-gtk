@@ -170,7 +170,7 @@ label {
 	&:disabled {
 		color: gtk("@insensitive_fg_color");
 		selection {
-			@extend %selected_items:disabled;
+			@extend %selected_items, :disabled;
 		}
 
 		&:backdrop {
@@ -181,7 +181,7 @@ label {
 		color: gtk("@theme_unfocused_text_color");
 
 		selction {
-			@extend %selected_items:backdrop;
+			@extend %selected_items, :backdrop;
 		}
 	}
 }
