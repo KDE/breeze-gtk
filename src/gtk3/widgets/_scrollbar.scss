@@ -44,14 +44,6 @@ scrollbar {
     background-image: none;
     color: transparent;
     }
-  &:backdrop {
-    @extend %undecorated_button;
-    color: gtk("@theme_button_foreground_backdrop");
-    &:disabled {
-      color: gtk("@theme_button_foreground_backdrop_insensitive");
-    }
-    @extend %undecorated_button;
-        }
 	}
 
   // Overlay Scrollbars
@@ -118,10 +110,7 @@ scrollbar {
     min-height: 30px;
     border-radius: 8px;
     background-clip: padding-box;
-    background-color: gtkalpha($scrollbar_color_backdrop, 0.2);
-    &:backdrop { 
-        background-color: $scrollbar_color_backdrop; 
-    }
+    background-color: gtkalpha("@theme_fg_color", 0.5);
     &:hover {
         min-width: 6px;
        background-color: gtk("@theme_button_decoration_hover");
@@ -134,10 +123,7 @@ scrollbar {
     min-height: 3px;
     border-radius: 8px;
     background-clip: padding-box;
-    background-color: gtkalpha($scrollbar_color_backdrop, 0.2);
-    &:backdrop { 
-        background-color: $scrollbar_color_backdrop; 
-    }
+    background-color: gtkalpha("@theme_fg_color", 0.5);
     &:hover {
         min-height: 6px;
         background-color: gtk("@theme_button_decoration_hover");
