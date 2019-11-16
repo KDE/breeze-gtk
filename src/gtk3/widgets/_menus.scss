@@ -205,14 +205,27 @@ modelbutton.flat,
     @extend %undecorated_button;
     color: gtk("@theme_unfocused_fg_color");
   }
-  check:hover {-gtk-icon-source: -gtk-scaled(url("../assets/check-unchecked.png"), url("../assets/check-unchecked@2.png"));}
-  radio:hover {-gtk-icon-source: -gtk-scaled(url("../assets/radio-unchecked.png"), url("../assets/radio-unchecked@2.png"));}
-
-  check:checked:hover {-gtk-icon-source: -gtk-scaled(url("../assets/check-checked-active.png"), url("../assets/check-checked-active@2.png"));}
-  radio:checked:hover {-gtk-icon-source: -gtk-scaled(url("../assets/radio-checked-active.png"), url("../assets/radio-checked-active@2.png"));}
-
-  check:indeterminate:hover {-gtk-icon-source: -gtk-scaled(url("../assets/check-mixed.png"), url("../assets/check-mixed@2.png"));}
-  radio:indeterminate:hover {-gtk-icon-source: -gtk-scaled(url("../assets/radio-mixed.png"), url("../assets/radio-mixed@2.png"));}
+  check, radio {
+    -gtk-icon-palette: error gtk("@theme_button_decoration_focus"), success gtk("@borders"), warning gtk("@theme_button_background_normal");
+    -gtk-icon-shadow: 1px 1px rgba(35,38,41,0.2);
+  
+    &:hover {
+      -gtk-icon-palette: error gtk("@theme_button_decoration_focus"), success gtk("@theme_button_decoration_focus"), warning gtk("@theme_button_background_normal");
+    }
+    &:disabled {
+      -gtk-icon-palette: error gtk("@theme_button_decoration_focus_insensitive"), success gtk("@insensitive_borders"), warning gtk("@theme_button_background_insensitive");
+    }
+  }
+  @each $type in ('check', 'radio') {
+    #{$type} {
+      -gtk-icon-source: -gtk-recolor(url("../assets/breeze-#{$type}-unchecked-symbolic.svg"));
+      @each $state in ('checked', 'indeterminate') {
+        &:#{$state} {
+          -gtk-icon-source: -gtk-recolor(url("../assets/breeze-#{$type}-#{$state}-symbolic.svg"));
+        }
+      }
+    }
+  }
 
   // FIXME: remove the following when the checks/radios rewrite lands
   check:last-child,
