@@ -90,7 +90,7 @@ treeview.view {
     min-width: 16px;
     min-height: 16px;
     -gtk-icon-source: -gtk-icontheme('pan-end-symbolic');
-    color: gtk("@theme_base_fg_color");
+    color: gtk("@theme_fg_color");
     &:dir(rtl) { -gtk-icon-source: -gtk-icontheme('pan-start-symbolic'); };
     &:hover { color: gtk("@theme_button_decoration_hover"); }
     &:selected { color: gtk("@theme_selected_fg_color"); }
