@@ -1,6 +1,18 @@
 @charset "UTF-8";
 
-@mixin item-highlight-middle {
+@mixin item-hover-middle {
+  @if $new-highlight {
+    background-color: gtk("@theme_selected_bg_color");
+    border-left-color: gtk("@theme_selected_fg_color");
+    border-top-color: gtk("@theme_selected_fg_color");
+  } @else {
+    background-color: gtkalpha("@theme_selected_bg_color", 0.3);
+    border-left-color: gtk("@theme_fg_color");
+    border-top-color: gtk("@theme_fg_color");
+  }
+}
+
+@mixin item-selected-middle {
   @if $new-highlight {
     background-color: gtkalpha(gtk("@theme_button_decoration_focus"), 0.3);
     color: gtk("@theme_button_foreground_active");
@@ -15,7 +27,7 @@
   }
 }
 
-@mixin item-highlight-middle-backdrop {
+@mixin item-selected-middle-backdrop {
   @if $new-highlight {
     background-color: gtkalpha(gtk("@theme_button_decoration_focus_backdrop"), 0.3);
     color: gtk("@theme_button_foreground_active_backdrop");
@@ -48,15 +60,15 @@ treeview.view {
   &:selected { border-radius: 0; } // rest border radius in lists
 
   &:hover {
-    @include item-highlight-middle();
+    @include item-hover-middle();
   }
 
   &:selected  {
-    @include item-highlight-middle();
+    @include item-selected-middle();
   }
   
   &:backdrop:selected {
-    @include item-highlight-middle-backdrop();
+    @include item-selected-middle-backdrop();
   }
 
   &:disabled {
