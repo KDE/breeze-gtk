@@ -18,7 +18,6 @@ set_package_properties(Breeze PROPERTIES TYPE REQUIRED PURPOSE "Required to buil
 
 include(KDEInstallDirs)
 
-add_subdirectory(kconf_update)
 add_subdirectory(src)
 
 feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)
