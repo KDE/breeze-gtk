@@ -4,7 +4,7 @@
 
 // escape string entirely
 @function gtk ($str) {
-  @return unquote($str);
+  @return unquote("#{$str}_breeze");
 }
 
 // alpha function
@@ -14,7 +14,7 @@
 
 // shade function
 @function gtkshade($c, $a) {
-  @return unquote("shade(#{$c},#{$a})");
+  @return unquote("shade(#{$c}_breeze,#{$a})");
 }
 
 // mix function

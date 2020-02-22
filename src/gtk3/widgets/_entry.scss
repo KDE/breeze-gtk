@@ -97,11 +97,11 @@ entry {
             @if $e_color == gtk("@error_color") {
               color: gtk("@error_color_backdrop");
               border-color: gtk("@error_color_backdrop");
-              background-color: gtkalpha("@error_color_backdrop", 0.5);
+              background-color: gtkalpha(gtk("@error_color_backdrop"), 0.5);
             } @else if $e_color == gtk("@warning_color") {
               color: gtk("@warning_color_backdrop");
               border-color: gtk("@warning_color_backdrop");
-              background-color: gtkalpha("@warning_color_backdrop", 0.5);
+              background-color: gtkalpha(gtk("@warning_color_backdrop"), 0.5);
             }
           }
         }

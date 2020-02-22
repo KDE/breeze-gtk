@@ -127,7 +127,7 @@ headerbar {
       background-color: gtk("@theme_button_decoration_focus");
     }
     button:not(.titlebutton) {
-      background-color: gtkalpha("@theme_button_decoration_focus", 0.5);
+      background-color: gtkalpha(gtk("@theme_button_decoration_focus"), 0.5);
       &:active, &:focus {
         background-color: gtk("@theme_button_decoration_focus");
       }

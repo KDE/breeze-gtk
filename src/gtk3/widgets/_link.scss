@@ -29,7 +29,7 @@
   }
   @at-root %link_selected,
   &:selected, *:selected & {
-    color: gtkmix("@theme_selected_fg_color", "@theme_selected_bg_color", 0.8);
+    color: gtkmix(gtk("@theme_selected_fg_color"), gtk("@theme_selected_bg_color"), 0.8);
   }
 }
 

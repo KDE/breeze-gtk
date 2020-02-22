@@ -13,7 +13,7 @@ switch {
  border: 0px solid;
  border-radius: 12px;
  color: transparent;
- background-color: gtkalpha("@theme_button_foreground_normal",0.3);
+ background-color: gtkalpha(gtk("@theme_button_foreground_normal"),0.3);
  text-shadow: none;
 
  &:checked {
@@ -21,7 +21,7 @@ switch {
  }
 
  &:backdrop {
-   background-color: gtkalpha("@theme_button_foreground_backdrop", 0.3);
+   background-color: gtkalpha(gtk("@theme_button_foreground_backdrop"), 0.3);
    text-shadow: none;
 
    &:checked {

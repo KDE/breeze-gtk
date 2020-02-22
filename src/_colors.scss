@@ -9,208 +9,208 @@
 // warning, it's innocuous and can be defeated by using "" + $var
 /*
 widget text/foreground color */
-@define-color theme_fg_color #{"" + internal_w_color(text)}; // KCM'd
+@define-color theme_fg_color_breeze #{"" + internal_w_color(text)}; // KCM'd
 
 /*
 text color for entries, views and content in general */
-@define-color theme_text_color #{"" + internal_v_color(text)}; // KCM'd
+@define-color theme_text_color_breeze #{"" + internal_v_color(text)}; // KCM'd
 
 /*
 widget base background color */
-@define-color theme_bg_color #{"" + internal_w_color(normal)}; // KCM'd
+@define-color theme_bg_color_breeze #{"" + internal_w_color(normal)}; // KCM'd
 
 /*
 text widgets and the like base background color */
-@define-color theme_base_color #{"" + internal_v_color(normal)}; // KCM'd
+@define-color theme_base_color_breeze #{"" + internal_v_color(normal)}; // KCM'd
 
 /*
 view hover decoration color*/
-@define-color theme_view_hover_decoration_color #{"" + internal_v_color(hover)}; // KCM'd
+@define-color theme_view_hover_decoration_color_breeze #{"" + internal_v_color(hover)}; // KCM'd
 
 /*
 background color of hovering selected widgets*/
-@define-color theme_hovering_selected_bg_color #{"" + internal_s_color(hover)}; // KCM'd
+@define-color theme_hovering_selected_bg_color_breeze #{"" + internal_s_color(hover)}; // KCM'd
 
 /*
 base background color of selections */
-@define-color theme_selected_bg_color #{"" + internal_s_color(normal)}; // KCM'd
+@define-color theme_selected_bg_color_breeze #{"" + internal_s_color(normal)}; // KCM'd
 
 /*
 text/foreground color of selections */
-@define-color theme_selected_fg_color #{"" + internal_s_color(text)}; // KCM'd
+@define-color theme_selected_fg_color_breeze #{"" + internal_s_color(text)}; // KCM'd
 
 /*
 decoration color of views */
-@define-color theme_view_active_decoration_color #{"" + internal_v_color(active)}; // KCM'd
+@define-color theme_view_active_decoration_color_breeze #{"" + internal_v_color(active)}; // KCM'd
 
 /*
 base background color of insensitive selections */
-@define-color insensitive_selected_bg_color #{"" + internal_insensitive(internal_s_color(normal))};
+@define-color insensitive_selected_bg_color_breeze #{"" + internal_insensitive(internal_s_color(normal))};
 
 /*
 base background color of insensitive widgets */
-@define-color insensitive_bg_color #{"" + internal_insensitive(internal_w_color(normal))};
+@define-color insensitive_bg_color_breeze #{"" + internal_insensitive(internal_w_color(normal))};
 
 /*
 text foreground color of insensitive widgets */
-@define-color insensitive_fg_color #{"" + internal_insensitive(internal_w_color(text))};
+@define-color insensitive_fg_color_breeze #{"" + internal_insensitive(internal_w_color(text))};
 
 /*
 insensitive text widgets and the like base background color */
-@define-color insensitive_base_color #{"" + internal_insensitive(internal_v_color(text))};
+@define-color insensitive_base_color_breeze #{"" + internal_insensitive(internal_v_color(text))};
 
 /*
 insensitive text widgets and the like base foreground color */
-@define-color insensitive_base_fg_color #{"" + internal_insensitive(internal_v_color(normal))};
+@define-color insensitive_base_fg_color_breeze #{"" + internal_insensitive(internal_v_color(normal))};
 
 /*
 insensitive selected text widgets and the like base background color */
-@define-color insensitive_selected_fg_color #{"" + internal_insensitive(internal_s_color(text))};
+@define-color insensitive_selected_fg_color_breeze #{"" + internal_insensitive(internal_s_color(text))};
 
 /*
 widget text/foreground color on backdrop windows */
-@define-color theme_unfocused_fg_color #{"" + internal_backdrop(internal_w_color(text))};
+@define-color theme_unfocused_fg_color_breeze #{"" + internal_backdrop(internal_w_color(text))};
 
 /*
 text color for entries, views and content in general on backdrop windows */
-@define-color theme_unfocused_text_color #{"" + internal_backdrop(internal_v_color(text))};
+@define-color theme_unfocused_text_color_breeze #{"" + internal_backdrop(internal_v_color(text))};
 
 /*
 widget base background color on backdrop windows */
-@define-color theme_unfocused_bg_color #{"" + internal_backdrop(internal_w_color(normal))};
+@define-color theme_unfocused_bg_color_breeze #{"" + internal_backdrop(internal_w_color(normal))};
 
 /*
 text widgets and the like base background color on backdrop windows */
-@define-color theme_unfocused_base_color #{"" + internal_backdrop(internal_v_color(normal))};
+@define-color theme_unfocused_base_color_breeze #{"" + internal_backdrop(internal_v_color(normal))};
 
 /*
 base background color of selections on backdrop windows, alt */
-@define-color theme_unfocused_selected_bg_color_alt #{"" + internal_backdrop(internal_s_color(normal))};
+@define-color theme_unfocused_selected_bg_color_alt_breeze #{"" + internal_backdrop(internal_s_color(normal))};
 
 /*
 base background color of selections on backdrop windows */
-@define-color theme_unfocused_selected_bg_color #{"" + internal_backdrop(internal_s_color(backdrop))};
+@define-color theme_unfocused_selected_bg_color_breeze #{"" + internal_backdrop(internal_s_color(backdrop))};
 
 /*
 text/foreground color of selections on backdrop windows */
-@define-color theme_unfocused_selected_fg_color #{"" + internal_backdrop(internal_s_color(text))};
+@define-color theme_unfocused_selected_fg_color_breeze #{"" + internal_backdrop(internal_s_color(text))};
 
 /*
 base background color of insensitive selections on backdrop windows */
-@define-color insensitive_unfocused_selected_bg_color #{"" + internal_backdrop(internal_insensitive(internal_s_color(normal)))};
+@define-color insensitive_unfocused_selected_bg_color_breeze #{"" + internal_backdrop(internal_insensitive(internal_s_color(normal)))};
 
 /*
 text foreground color of insensitive widgets on backdrop windows*/
-@define-color insensitive_unfocused_fg_color #{"" + internal_backdrop(internal_insensitive(internal_w_color(text)))};
+@define-color insensitive_unfocused_fg_color_breeze #{"" + internal_backdrop(internal_insensitive(internal_w_color(text)))};
 
 /*
 backdground color of insensitive widgets on backdrop windows*/
-@define-color insensitive_unfocused_bg_color #{"" + internal_backdrop(internal_insensitive(internal_w_color(normal)))};
+@define-color insensitive_unfocused_bg_color_breeze #{"" + internal_backdrop(internal_insensitive(internal_w_color(normal)))};
 
 /*
 text foreground color of insensitive selected widgets on backdrop windows*/
-@define-color insensitive_unfocused_selected_fg_color #{"" + internal_backdrop(internal_insensitive(internal_s_color(text)))};
+@define-color insensitive_unfocused_selected_fg_color_breeze #{"" + internal_backdrop(internal_insensitive(internal_s_color(text)))};
 
 /*
 view text foreground color of insensitive widgets on backdrop windows */
-@define-color theme_unfocused_view_text_color #{"" + internal_backdrop(internal_insensitive(internal_v_color(text)))};
+@define-color theme_unfocused_view_text_color_breeze #{"" + internal_backdrop(internal_insensitive(internal_v_color(text)))};
 
 /*
 insensitive view background color on backdrop windows */
-@define-color theme_unfocused_view_bg_color #{"" + internal_backdrop(internal_insensitive(internal_v_color(normal)))};
+@define-color theme_unfocused_view_bg_color_breeze #{"" + internal_backdrop(internal_insensitive(internal_v_color(normal)))};
 
 /*
 widgets main borders color */
-@define-color borders #{"" +$border_color};
+@define-color borders_breeze #{"" +$border_color};
 
 /*
 widgets main borders color on backdrop windows */
-@define-color unfocused_borders #{"" + internal_backdrop($border_color)};
+@define-color unfocused_borders_breeze #{"" + internal_backdrop($border_color)};
 
 /*
 widgets main borders color insensitive */
-@define-color insensitive_borders #{"" + internal_insensitive($border_color)};
+@define-color insensitive_borders_breeze #{"" + internal_insensitive($border_color)};
 
 /*
 widgets main borders color insensitive backdrop */
-@define-color unfocused_insensitive_borders #{"" + internal_backdrop(internal_insensitive($border_color))};
+@define-color unfocused_insensitive_borders_breeze #{"" + internal_backdrop(internal_insensitive($border_color))};
 
 /*
 *
 * Button Colors
 *
 */
-@define-color theme_button_background_normal #{"" + internal_b_color(normal)};
-@define-color theme_button_decoration_hover  #{"" + internal_b_color(hover)};
-@define-color theme_button_decoration_focus  #{"" + internal_b_color(active)};
-@define-color theme_button_foreground_normal #{"" + internal_b_color(text)};
-@define-color theme_button_foreground_active #{"" + internal_b_color(active-text)};
+@define-color theme_button_background_normal_breeze #{"" + internal_b_color(normal)};
+@define-color theme_button_decoration_hover_breeze  #{"" + internal_b_color(hover)};
+@define-color theme_button_decoration_focus_breeze  #{"" + internal_b_color(active)};
+@define-color theme_button_foreground_normal_breeze #{"" + internal_b_color(text)};
+@define-color theme_button_foreground_active_breeze #{"" + internal_b_color(active-text)};
 
-@define-color theme_button_background_insensitive        #{"" + internal_insensitive(internal_b_color(normal))};
-@define-color theme_button_decoration_hover_insensitive  #{"" + internal_insensitive(internal_b_color(hover))};
-@define-color theme_button_decoration_focus_insensitive  #{"" + internal_insensitive(internal_b_color(active))};
-@define-color theme_button_foreground_insensitive        #{"" + internal_insensitive(internal_b_color(text))};
-@define-color theme_button_foreground_active_insensitive #{"" + internal_insensitive(internal_b_color(active-text))};
+@define-color theme_button_background_insensitive_breeze        #{"" + internal_insensitive(internal_b_color(normal))};
+@define-color theme_button_decoration_hover_insensitive_breeze  #{"" + internal_insensitive(internal_b_color(hover))};
+@define-color theme_button_decoration_focus_insensitive_breeze  #{"" + internal_insensitive(internal_b_color(active))};
+@define-color theme_button_foreground_insensitive_breeze        #{"" + internal_insensitive(internal_b_color(text))};
+@define-color theme_button_foreground_active_insensitive_breeze #{"" + internal_insensitive(internal_b_color(active-text))};
 
-@define-color theme_button_background_backdrop        #{"" + internal_backdrop(internal_b_color(normal))};
-@define-color theme_button_decoration_hover_backdrop  #{"" + internal_backdrop(internal_b_color(hover))};
-@define-color theme_button_decoration_focus_backdrop  #{"" + internal_backdrop(internal_b_color(active))};
-@define-color theme_button_foreground_backdrop        #{"" + internal_backdrop(internal_b_color(text))};
-@define-color theme_button_foreground_active_backdrop #{"" + internal_backdrop(internal_b_color(active-text))};
+@define-color theme_button_background_backdrop_breeze        #{"" + internal_backdrop(internal_b_color(normal))};
+@define-color theme_button_decoration_hover_backdrop_breeze  #{"" + internal_backdrop(internal_b_color(hover))};
+@define-color theme_button_decoration_focus_backdrop_breeze  #{"" + internal_backdrop(internal_b_color(active))};
+@define-color theme_button_foreground_backdrop_breeze        #{"" + internal_backdrop(internal_b_color(text))};
+@define-color theme_button_foreground_active_backdrop_breeze #{"" + internal_backdrop(internal_b_color(active-text))};
 
-@define-color theme_button_background_backdrop_insensitive        #{"" + internal_insensitive(internal_backdrop(internal_b_color(normal)))};
-@define-color theme_button_decoration_hover_backdrop_insensitive  #{"" + internal_insensitive(internal_backdrop(internal_b_color(hover)))};
-@define-color theme_button_decoration_focus_backdrop_insensitive  #{"" + internal_insensitive(internal_backdrop(internal_b_color(active)))};
-@define-color theme_button_foreground_backdrop_insensitive        #{"" + internal_insensitive(internal_backdrop(internal_b_color(text)))};
-@define-color theme_button_foreground_active_backdrop_insensitive #{"" + internal_insensitive(internal_backdrop(internal_b_color(active-text)))};
+@define-color theme_button_background_backdrop_insensitive_breeze        #{"" + internal_insensitive(internal_backdrop(internal_b_color(normal)))};
+@define-color theme_button_decoration_hover_backdrop_insensitive_breeze  #{"" + internal_insensitive(internal_backdrop(internal_b_color(hover)))};
+@define-color theme_button_decoration_focus_backdrop_insensitive_breeze  #{"" + internal_insensitive(internal_backdrop(internal_b_color(active)))};
+@define-color theme_button_foreground_backdrop_insensitive_breeze        #{"" + internal_insensitive(internal_backdrop(internal_b_color(text)))};
+@define-color theme_button_foreground_active_backdrop_insensitive_breeze #{"" + internal_insensitive(internal_backdrop(internal_b_color(active-text)))};
 
 /*
 these are pretty self explicative */
-@define-color warning_color #{"" + $warning_color};
-@define-color error_color   #{"" + $error_color};
-@define-color success_color #{"" + $success_color};
+@define-color warning_color_breeze #{"" + $warning_color};
+@define-color error_color_breeze   #{"" + $error_color};
+@define-color success_color_breeze #{"" + $success_color};
 
-@define-color warning_color_backdrop #{"" + internal_backdrop($warning_color)};
-@define-color error_color_backdrop   #{"" + internal_backdrop($error_color)};
-@define-color success_color_backdrop #{"" + internal_backdrop($success_color)};
+@define-color warning_color_backdrop_breeze #{"" + internal_backdrop($warning_color)};
+@define-color error_color_backdrop_breeze   #{"" + internal_backdrop($error_color)};
+@define-color success_color_backdrop_breeze #{"" + internal_backdrop($success_color)};
 
-@define-color warning_color_insensitive #{"" + internal_insensitive($warning_color)};
-@define-color error_color_insensitive   #{"" + internal_insensitive($error_color)};
-@define-color success_color_insensitive #{"" + internal_insensitive($success_color)};
+@define-color warning_color_insensitive_breeze #{"" + internal_insensitive($warning_color)};
+@define-color error_color_insensitive_breeze   #{"" + internal_insensitive($error_color)};
+@define-color success_color_insensitive_breeze #{"" + internal_insensitive($success_color)};
 
-@define-color warning_color_insensitive_backdrop #{"" + internal_insensitive(internal_backdrop($warning_color))};
-@define-color error_color_insensitive_backdrop   #{"" + internal_insensitive(internal_backdrop($error_color))};
-@define-color success_color_insensitive_backdrop #{"" + internal_insensitive(internal_backdrop($success_color))};
+@define-color warning_color_insensitive_backdrop_breeze #{"" + internal_insensitive(internal_backdrop($warning_color))};
+@define-color error_color_insensitive_backdrop_breeze   #{"" + internal_insensitive(internal_backdrop($error_color))};
+@define-color success_color_insensitive_backdrop_breeze #{"" + internal_insensitive(internal_backdrop($success_color))};
 
-@define-color link_color #{"" + $link_color};
-@define-color link_visited_color #{"" + $link_visited_color};
+@define-color link_color_breeze #{"" + $link_color};
+@define-color link_visited_color_breeze #{"" + $link_visited_color};
 
 /*
 *
 * Titlebar Colors
 *
 */
-@define-color theme_titlebar_background          #{"" + internal_t_color(background)};
-@define-color theme_titlebar_foreground          #{"" + internal_t_color(text)};
-@define-color theme_titlebar_background_light    #{"" + internal_t_color(background-light)};
-@define-color theme_titlebar_foreground_backdrop #{"" + internal_t_color(backdrop-text)};
-@define-color theme_titlebar_background_backdrop #{"" + internal_t_color(backdrop-background)};
+@define-color theme_titlebar_background_breeze          #{"" + internal_t_color(background)};
+@define-color theme_titlebar_foreground_breeze          #{"" + internal_t_color(text)};
+@define-color theme_titlebar_background_light_breeze    #{"" + internal_t_color(background-light)};
+@define-color theme_titlebar_foreground_backdrop_breeze #{"" + internal_t_color(backdrop-text)};
+@define-color theme_titlebar_background_backdrop_breeze #{"" + internal_t_color(backdrop-background)};
 
-@define-color theme_titlebar_foreground_insensitive #{"" + internal_insensitive(internal_t_color(text))};
+@define-color theme_titlebar_foreground_insensitive_breeze #{"" + internal_insensitive(internal_t_color(text))};
 
-@define-color theme_titlebar_foreground_insensitive_backdrop #{"" + internal_insensitive(internal_t_color(backdrop-text))};
+@define-color theme_titlebar_foreground_insensitive_backdrop_breeze #{"" + internal_insensitive(internal_t_color(backdrop-text))};
 
 /*
 * Tooltips
 */
-@define-color tooltip_text #{"" + internal_tooltip(text)};
-@define-color tooltip_background #{"" + internal_tooltip(background)};
-@define-color tooltip_border #{"" + internal_tooltip(border)};
+@define-color tooltip_text_breeze #{"" + internal_tooltip(text)};
+@define-color tooltip_background_breeze #{"" + internal_tooltip(background)};
+@define-color tooltip_border_breeze #{"" + internal_tooltip(border)};
 
 /*
 * Misc
 */
-@define-color print_paper_backdrop #{"" internal_backdrop(white)};
+@define-color print_paper_backdrop_breeze #{"" internal_backdrop(white)};
 
 //@!define-color destructive_color #{$destructive_color}
 
@@ -242,4 +242,31 @@ these are pretty self explicative */
 
 //FIXME this is really an API
 
-@define-color content_view_bg #{"" + internal_v_color(normal)};
+@define-color content_view_bg_breeze #{"" + internal_v_color(normal)};
+
+/*
+ * GTK API color re-defs
+ */
+
+@define-color theme_fg_color @theme_fg_color_breeze;
+@define-color theme_text_color @theme_text_color_breeze;
+@define-color theme_bg_color @theme_bg_color_breeze;
+@define-color theme_base_color @theme_base_color_breeze;
+@define-color theme_selected_bg_color @theme_selected_bg_color_breeze;
+@define-color theme_selected_fg_color @theme_selected_fg_color_breeze;
+@define-color insensitive_bg_color @insensitive_bg_color_breeze;
+@define-color insensitive_fg_color @insensitive_fg_color_breeze;
+@define-color insensitive_base_color @insensitive_base_color_breeze;
+@define-color theme_unfocused_fg_color @theme_unfocused_fg_color_breeze;
+@define-color theme_unfocused_text_color @theme_unfocused_text_color_breeze;
+@define-color theme_unfocused_bg_color @theme_unfocused_bg_color_breeze;
+@define-color theme_unfocused_base_color @theme_unfocused_base_color_breeze;
+@define-color theme_unfocused_selected_bg_color @theme_unfocused_selected_bg_color_breeze;
+@define-color theme_unfocused_selected_fg_color @theme_unfocused_selected_fg_color_breeze;
+@define-color unfocused_insensitive_color @unfocused_insensitive_color_breeze;
+@define-color borders @borders_breeze;
+@define-color unfocused_borders @unfocused_borders_breeze;
+@define-color warning_color @warning_color_breeze;
+@define-color error_color @error_color_breeze;
+@define-color success_color @success_color_breeze;
+@define-color content_view_bg @content_view_bg_breeze;

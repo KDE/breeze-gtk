@@ -25,7 +25,7 @@ progressbar {
    background-color: gtkalpha(gtk("@theme_button_foreground_normal"),0.3);
   }
 
- &:backdrop trough { background-color: gtkalpha("@theme_button_foreground_backdrop",0.3); } // looks like states are not passed to the trough component here
+ &:backdrop trough { background-color: gtkalpha(gtk("@theme_button_foreground_backdrop"),0.3); } // looks like states are not passed to the trough component here
 
  progress {
    background-color: gtk("@theme_selected_bg_color");
@@ -60,7 +60,7 @@ treeview.view {
     background-color: $trough_color;
     &:selected {
       &:focus, & {
-        background-color: gtkalpha("@theme_selected_fg_color",0.3);
+        background-color: gtkalpha(gtk("@theme_selected_fg_color"),0.3);
       }
     }
   }
@@ -138,7 +138,7 @@ levelbar {
      border-color: transparent;
      box-shadow: none;
      &:backdrop { 
-       background-color: gtkalpha("@theme_button_foreground_insensitive",0.3); 
+       background-color: gtkalpha(gtk("@theme_button_foreground_insensitive"),0.3); 
       }
    }
  }

@@ -6,7 +6,7 @@
     border-left-color: gtk("@theme_selected_fg_color");
     border-top-color: gtk("@theme_selected_fg_color");
   } @else {
-    background-color: gtkalpha("@theme_selected_bg_color", 0.3);
+    background-color: gtkalpha(gtk("@theme_selected_bg_color"), 0.3);
     border-left-color: gtk("@theme_fg_color");
     border-top-color: gtk("@theme_fg_color");
   }
@@ -123,14 +123,14 @@ treeview.view {
       &:hover {
         @extend %column_header_button;
         color: gtk("@theme_button_foreground_normal");
-        background-color: gtkalpha("@theme_button_decoration_hover", 0.5);
+        background-color: gtkalpha(gtk("@theme_button_decoration_hover"), 0.5);
         box-shadow: none;
         transition: none; //I shouldn't need this
       }
       &:active {
         @extend %column_header_button;
         color: gtk("@theme_button_foreground_normal");
-        background-color: gtkalpha("@theme_button_decoration_hover", 0.5);
+        background-color: gtkalpha(gtk("@theme_button_decoration_hover"), 0.5);
         transition: none; //I shouldn't need this
       }
     }

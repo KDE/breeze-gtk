@@ -143,10 +143,10 @@ textview border {
 .rubberband,
 rubberband {
   border: 1px solid gtk("@theme_selected_bg_color");
-  background-color: gtkalpha("@theme_selected_bg_color", 0.8);
+  background-color: gtkalpha(gtk("@theme_selected_bg_color"), 0.8);
   &:backdrop {
     border-color: gtk("@theme_unfocused_selected_bg_color");
-    background-color: gtkalpha("@theme_unfocused_selected_bg_color", 0.8);
+    background-color: gtkalpha(gtk("@theme_unfocused_selected_bg_color"), 0.8);
   }
 }
 
@@ -213,7 +213,7 @@ assistant {
     padding: 6px 12px;
   }
   .sidebar label.highlight {
-    background-color: gtkmix("@theme_base_color", "@theme_text_color", 0.8);
+    background-color: gtkmix(gtk("@theme_base_color"), gtk("@theme_text_color"), 0.8);
   }
 }
 
@@ -221,14 +221,14 @@ assistant {
 .osd {
   color: gtk("@theme_fg_color");
   border: 1px solid gtk("@borders");
-  background-color: gtkalpha("@theme_bg_color",0.8);
+  background-color: gtkalpha(gtk("@theme_bg_color"),0.8);
   background-clip: padding-box;
   box-shadow: none;
   text-shadow: none;
   -gtk-icon-shadow: none;
   &:backdrop {
     color: gtk("@theme_unfocused_text_color");
-    background-color: gtkalpha("@theme_unfocused_bg_color", 0.8);
+    background-color: gtkalpha(gtk("@theme_unfocused_bg_color"), 0.8);
     -gtk-icon-shadow: none;
   }
 }

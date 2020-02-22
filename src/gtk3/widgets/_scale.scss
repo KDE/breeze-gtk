@@ -33,11 +33,11 @@ scale {
     &:disabled {
       border-style: solid; // needed for double marks scales or they'll get
       border-radius: 50%;  // overridden
-      background-color: gtkalpha("@theme_button_background_insensitive", 100.0);
+      background-color: gtkalpha(gtk("@theme_button_background_insensitive"), 100.0);
       opacity: 1.0;
       border-color: gtk("@insensitive_borders");
       &:backdrop {
-        background-color: gtkalpha("@theme_button_background_backdrop_insensitive", 100.0);
+        background-color: gtkalpha(gtk("@theme_button_background_backdrop_insensitive"), 100.0);
         border-color: gtk("@unfocused_insensitive_borders");
       }
     }

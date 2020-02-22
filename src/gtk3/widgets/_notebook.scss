@@ -53,13 +53,13 @@
         > tabs {
           > tab {
             padding: 4px 6px;
-            border: 1px solid gtkalpha("@theme_fg_color", 0.2);
-            background-color: gtkalpha("@theme_fg_color", 0.2);
+            border: 1px solid gtkalpha(gtk("@theme_fg_color"), 0.2);
+            background-color: gtkalpha(gtk("@theme_fg_color"), 0.2);
             border-radius: #{$_radius};
             border-#{$_border}-color: transparent;
             &:hover, &.prelight-page {
-              background-color: gtkalpha("@theme_selected_bg_color", 0.2);
-              border-color:     gtkalpha("@theme_selected_bg_color", 0.2);
+              background-color: gtkalpha(gtk("@theme_selected_bg_color"), 0.2);
+              border-color:     gtkalpha(gtk("@theme_selected_bg_color"), 0.2);
             }
             &:checked {
               border-color: gtk("@borders");
@@ -93,7 +93,7 @@
             border-#{$_border}-color: gtk("@borders");
             box-shadow: inset #{$_shadow1} gtk("@theme_bg_color");
               &:hover, &.prelight-page {
-                box-shadow: inset 0px -3px 0px 0px gtkalpha("@theme_selected_bg_color",0.2), inset $_shadow1 gtk("@theme_bg_color");
+                box-shadow: inset 0px -3px 0px 0px gtkalpha(gtk("@theme_selected_bg_color"),0.2), inset $_shadow1 gtk("@theme_bg_color");
               }
               &:checked {
                 box-shadow: inset 0px -3px 0px 0px gtk("@theme_selected_bg_color"), inset $_shadow1 gtk("@theme_bg_color");
