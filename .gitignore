@@ -1,2 +1,5 @@
 build
 install 
+.clang-format
+CMakeLists.txt.user*
+/build*/
