@@ -22,10 +22,10 @@ menubar,
   padding: 0px;
   box-shadow: none;
   border-style: none;
-  background-color: gtk("@theme_bg_color");
+  background-color: gtk("@theme_titlebar_background_breeze");
 
   &:backdrop {
-    background-color: gtk("@theme_unfocused_bg_color");
+    background-color: gtk("@theme_titlebar_background_backdrop_breeze");
   }
 
   >menuitem {

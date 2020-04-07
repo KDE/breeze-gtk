@@ -47,6 +47,15 @@ toolbar {
     &.bottom { border-radius: 0; } // positional classes for `attached` osd toolbars
   }
 }
+.primary-toolbar toolbar, .primary-toolbar .inline-toolbar, .primary-toolbar:not(.libreoffice-toolbar), menubar+toolbar {
+  background-color: gtk("@theme_titlebar_background_breeze");
+  color: gtk("@theme_titlebar_foreground_breeze");
+  border-bottom: 1px solid gtk("@borders");
+  &:backdrop {
+    background-color: gtk("@theme_titlebar_background_backdrop_breeze");
+    color: gtk("@theme_titlebar_foreground_backdrop_breeze");
+  }
+}
 
 //searchbar, location-bar & inline-toolbar
 .inline-toolbar {
