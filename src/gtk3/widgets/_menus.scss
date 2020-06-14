@@ -254,7 +254,7 @@ popover.background {
   border-radius: 3px;
   background-color: gtk("@theme_bg_color");
 
-  box-shadow: 0 2px 3px transparentize(black, 0.1);
+  box-shadow: 0 2px 3px transparentize(black, 0.5);
 
   &:backdrop {
     box-shadow: none;
