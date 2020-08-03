@@ -198,25 +198,6 @@ label {
   text-shadow: none;
 }
 
-assistant {
-  .sidebar {
-    background-color: gtk("@theme_text_color");
-    border-top: 1px solid gtk("@borders");
-
-    &:backdrop {
-      background-color: gtk("@theme_unfocused_text_color");
-      border-color: gtk("@unfocused_borders");
-    }
-  }
-  &.csd .sidebar { border-top-style: none; }
-  .sidebar label {
-    padding: 6px 12px;
-  }
-  .sidebar label.highlight {
-    background-color: gtkmix(gtk("@theme_base_color"), gtk("@theme_text_color"), 0.8);
-  }
-}
-
 %osd, 
 .osd {
   color: gtk("@theme_fg_color");
