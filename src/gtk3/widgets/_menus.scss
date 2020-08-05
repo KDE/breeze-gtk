@@ -249,12 +249,14 @@ modelbutton.flat arrow {
 }
 
 popover.background {
+  $shadow: rgba(0, 0, 0, 0.25);
+
   padding: 0px;
   border: 1px solid gtk("@borders");
   border-radius: 3px;
   background-color: gtk("@theme_bg_color");
 
-  box-shadow: 0 2px 3px transparentize(black, 0.5);
+  box-shadow: 0px 0px 8px $shadow, 0px 1px 4px scale-color($shadow, $alpha: -40%);
 
   &:backdrop {
     box-shadow: none;
