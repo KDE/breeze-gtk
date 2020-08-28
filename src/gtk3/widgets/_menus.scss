@@ -91,7 +91,7 @@ menu,
     text-shadow: none;
     min-height: 16px;
     min-width: 40px;
-    padding: 4px 4px;
+    padding: 8px 10px;
 
     @if $new-highlight{ 
       border: 1px solid transparent;
@@ -189,7 +189,7 @@ menuitem {
 modelbutton.flat,
 .menuitem.button.flat {
  min-height: 16px;
- padding: 4px 8px;
+ padding: 7px 8px;
 
  @extend %undecorated_button;
  color: gtk("@theme_fg_color");
