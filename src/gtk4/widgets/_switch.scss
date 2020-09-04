@@ -1,0 +1,54 @@
+@charset "UTF-8";
+
+/**********
+ * Switch *
+ **********/
+
+switch {
+ margin: 2px;
+ font-weight: bold;
+ font-size: smaller;
+ min-width: 48px;
+ min-height: 24px;
+ border: 0px solid;
+ border-radius: 12px;
+ color: transparent;
+ background-color: gtkalpha(gtk("@theme_button_foreground_normal"),0.3);
+ text-shadow: none;
+
+ &:checked {
+   background-color: gtk("@theme_selected_bg_color");
+ }
+
+ &:backdrop {
+   background-color: gtkalpha(gtk("@theme_button_foreground_backdrop"), 0.3);
+   text-shadow: none;
+
+   &:checked {
+     background-color: gtk("@theme_unfocused_selected_bg_color_alt");
+   }
+ }
+
+ slider {
+   min-width: 22px;
+   min-height: 22px;
+   border: 1px solid;
+   border-radius: 11px;
+   background-color: gtk("@theme_bg_color");
+   border-color: gtk("@borders");
+ }
+
+ &:hover slider { border-color: gtk("@theme_button_decoration_hover"); }
+
+ &:disabled slider {
+   background-color: gtk("@insensitive_bg_color");
+ }
+
+ &:backdrop {
+   slider {
+     background-color: gtk("@theme_unfocused_bg_color");
+   }
+
+   &:disabled slider { background-color: gtk("@insensitive_unfocused_bg_color"); }
+ }
+}

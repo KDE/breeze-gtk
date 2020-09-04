@@ -1,0 +1,69 @@
+@charset "UTF-8";
+
+/*********
+ * Lists *
+ *********/
+
+@mixin list-item-highlight {
+  @if $new-highlight {
+    background-color: gtk("@theme_selected_bg_color");
+    color: gtk("@theme_button_foreground_active");
+    border-top: 1px solid gtk("@theme_button_decoration_focus");
+    border-bottom: 1px solid gtk("@theme_button_decoration_focus");
+    border-radius: 0px;
+  } @else {
+    background-color: gtk("@theme_selected_bg_color");
+  }
+}
+
+list {
+  background-color: gtk("@theme_bg_color");
+  color: gtk("@theme_fg_color");
+  border-width: 0px;
+  &:backdrop {
+    background-color: gtk("@theme_unfocused_bg_color");
+    color: gtk("@theme_unfocused_fg_color");
+  }
+  row { padding: 2px; }
+}
+
+row {
+  transition: all 150ms $ease-out-quad;
+
+  &:hover { transition: none; }
+
+  &.activatable {
+    @if $new-highlight {
+      border: 1px solid transparent;
+    }
+
+    &.has-open-popup, // this is for indicathing which row generated a popover see https://bugzilla.gnome.org/show_bug.cgi?id=754411
+
+    &:hover { 
+      @include list-item-highlight();
+    }
+
+    &:active {
+      box-shadow: none;
+      @include list-item-highlight();
+    }
+
+    &:selected {
+      &:active {
+        box-shadow: none;
+        @include list-item-highlight();
+      }
+
+      &.has-open-popup,
+      &:hover {
+        @include list-item-highlight();
+      }
+
+      &:backdrop { 
+        background-color: gtk("@theme_unfocused_selected_bg_color_alt");
+      }
+    }
+  }
+
+  &:selected { @extend %selected_items; }
+}

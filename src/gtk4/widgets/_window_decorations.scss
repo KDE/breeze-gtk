@@ -1,0 +1,202 @@
+@charset "UTF-8";
+
+/**********************
+ * Window Decorations *
+ *********************/
+
+window {
+  $shadow: rgba(0, 0, 0, 0.5);
+
+  //border: 1px solid transparent;
+  border-radius: $r $r 0 0;
+  border-width: 0px;
+  box-shadow: 0px 0px 16px $shadow, 0px 2px 8px scale-color($shadow, $alpha: -40%);
+
+  /* this is used for the resize cursor area */
+  margin: 10px;
+
+  .maximized &,
+  .fullscreen &,
+  .tiled & {
+    border-radius: 0;
+  }
+  .popup & {
+    border-radius: $r;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.1)
+  }
+  // server-side decorations as used by mutter
+  .ssd &{
+	  box-shadow: 0 2px 6px 1px rgba(0, 0, 0, 0.1);
+  }
+  .csd & {
+    border-radius: $r;
+    &.popup {
+      box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.1)
+    }
+    &.tooltip {
+      box-shadow: none;
+    }
+    &.message-dialog {
+      box-shadow: 0 2px 6px 1px rgba(0, 0, 0, 0.5)
+    }
+  }
+  .solid-csd & {
+    border-radius: 0;
+    margin: 0;
+    padding: 0px;
+    border: 5px solid gtk("@theme_titlebar_background");
+    background-color: gtk("@theme_titlebar_background_light");
+    box-shadow: none;
+  }
+}
+
+window.solid-csd {
+  headerbar.titlebar, paned.titlebar, .titlebar, paned.titlebar headerbar {
+    border-radius: 0;
+  }
+}
+
+headerbar,
+.titlebar {
+  &.default-decoration button.titlebutton {
+    padding: 1px;
+    min-height: 18px;
+    min-width: 18px;
+    margin: 0;
+  }
+  $titlebutton-size: 18px 18px;
+  button.titlebutton {
+    padding: 1px;
+    &:hover,
+    &:active,
+    &:checked,
+    &:backdrop,
+    &:active:hover {
+      transition: none;
+    }
+
+    &.close {
+      padding: 1px;
+      border-image: none;
+      box-shadow: none;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: $titlebutton-size;
+      background-image: -gtk-recolor(url('../assets/breeze-close-symbolic.svg'), color gtk("@theme_text_color"));
+      -gtk-icon-source: none;
+      image {
+        color: transparent;
+      }
+    }
+    &.close:hover {
+      border-color: transparent;
+      background-color: transparent;
+      background-image: -gtk-recolor(url('../assets/breeze-close-hover-symbolic.svg'));
+    }
+    &.close:active {
+      border-color: transparent;
+      background-color: transparent;
+      background-image: -gtk-recolor(url('../assets/breeze-close-active-symbolic.svg'));
+    }
+    &.close:backdrop {
+      border-color: transparent;
+      background-color: transparent;
+      background-image: -gtk-recolor(url('../assets/breeze-close-symbolic.svg'));
+    }
+
+    &.maximize {
+      padding: 1px;
+      border-image: none;
+      box-shadow: none;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: $titlebutton-size;
+      background-image: -gtk-recolor(url('../assets/breeze-maximize-symbolic.svg'));
+      image {
+        color: transparent;
+      }
+    }
+    &.maximize:hover {
+    	border-color: transparent;
+      background-color: transparent;
+      background-size: contain;
+    	background-image: -gtk-recolor(url('../assets/breeze-maximize-hover-symbolic.svg'));
+  	}
+    &.maximize:active {
+    	border-color: transparent;
+      background-color: transparent;
+    	background-image: -gtk-recolor(url('../assets/breeze-maximize-active-symbolic.svg'));
+  	}
+    &.maximize:backdrop {
+    	border-color: transparent;
+      background-color: transparent;
+    	background-image: -gtk-recolor(url('../assets/breeze-maximize-symbolic.svg'));
+  	}
+
+    &.minimize {
+      padding: 1px;
+      border-image: none;
+      box-shadow: none;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: $titlebutton-size;
+      background-image: -gtk-recolor(url('../assets/breeze-minimize-symbolic.svg'));
+      image {
+        color: transparent;
+      }
+    }
+    &.minimize:hover {
+  	  border-color: transparent;
+      background-color: transparent;
+      background-image: -gtk-recolor(url('../assets/breeze-minimize-hover-symbolic.svg'));
+    }
+    &.minimize:active {
+  	  border-color: transparent;
+      background-color: transparent;
+      background-image: -gtk-recolor(url('../assets/breeze-minimize-active-symbolic.svg'));
+    }
+    &.minimize:backdrop {
+  	  border-color: transparent;
+      background-color: transparent;
+      background-image: -gtk-recolor(url('../assets/breeze-minimize-symbolic.svg'));
+    }
+  }
+
+  .maximized & {
+    button.titlebutton {
+      &.maximize {
+        padding: 1px;
+        border-image: none;
+        box-shadow: none;
+        background-position: center;
+        background-size: $titlebutton-size;
+        background-repeat: no-repeat;
+        background-image: -gtk-recolor(url('../assets/breeze-maximized-symbolic.svg'));
+        image {
+          color: transparent;
+        }
+      }
+      &.maximize:hover {
+      	border-color: transparent;
+        background-color: transparent;
+      	background-image: -gtk-recolor(url('../assets/breeze-maximized-hover-symbolic.svg'));
+    	}
+      &.maximize:active {
+      	border-color: transparent;
+        background-color: transparent;
+      	background-image: -gtk-recolor(url('../assets/breeze-maximized-active-symbolic.svg'));
+    	}
+      &.maximize:backdrop {
+      	border-color: transparent;
+        background-color: transparent;
+      	background-image: -gtk-recolor(url('../assets/breeze-maximized-symbolic.svg'));
+    	}
+    }
+  }
+}
+
+headerbar.selection-mode button.titlebutton,
+.titlebar.selection-mode button.titlebutton {
+  text-shadow: none;
+  &:backdrop { -gtk-icon-shadow: none; }
+}

@@ -1,0 +1,24 @@
+assistant {
+  .sidebar {
+    background-color: gtk("@theme_base_color");
+    color: gtk("@theme_text_color");
+    border-top: 1px solid gtk("@borders");
+    border-right: 1px solid gtk("@borders");
+
+    &:backdrop {
+      background-color: gtk("@theme_unfocused_base_color");
+      color: gtk("@theme_unfocused_text_color");
+      border-color: gtk("@unfocused_borders");
+    }
+  }
+  &.csd .sidebar {
+    border-top-style: none;
+  }
+  .sidebar label {
+    padding: 6px 12px;
+  }
+  .sidebar label.highlight {
+    background-color: gtk("@theme_selected_bg_color");
+    color: gtk("@theme_fg_color");
+  }
+}

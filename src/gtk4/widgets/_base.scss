@@ -1,0 +1,223 @@
+@charset "UTF-8";
+
+$ease-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+* {
+  padding: 0;
+
+  outline-width: 0px;
+}
+
+
+/***************
+ * Base States *
+ ***************/
+
+.background {
+  color: gtk("@theme_fg_color");
+  background-color: gtk("@theme_bg_color");
+
+  &:backdrop {
+    text-shadow: none;
+    -gtk-icon-shadow: none;
+    color: gtk("@theme_unfocused_fg_color");
+    background-color: gtk("@theme_unfocused_bg_color");
+  }
+}
+
+/*
+   These wildcard seems unavoidable, need to investigate.
+   Wildcards are bad and troublesome, use them with care,
+   or better, just don't.
+   Everytime a wildcard is used a kitten dies, painfully.
+*/
+
+.gtkstyle-fallback {
+  background-color: gtk("@theme_bg_color");
+  color: gtk("@theme_fg_color");
+  &:hover {
+    background-color: gtkshade("@theme_bg_color", 1.1);
+    color: gtk("@theme_fg_color");
+  }
+  &:active {
+    background-color: gtkshade("@theme_bg_color", 0.9);
+    color: gtk("@theme_fg_color");
+  }
+  &:disabled {
+    background-color: gtk("@insensitive_fg_color");
+    color: gtk("@insensitive_fg_color");
+  }
+  &:selected {
+    background-color: gtk("@theme_selected_bg_color");
+    color: gtk("@theme_selected_fg_color");
+  }
+}
+
+%view,
+.view {
+  color: gtk("@theme_text_color");
+  background-color: gtk("@theme_base_color");
+
+  &:backdrop {
+    color: gtk("@theme_unfocused_text_color");
+    background-color: gtk("@theme_unfocused_base_color");
+  }
+  
+  &:disabled {
+    color: gtk("@insensitive_base_fg_color");
+  }
+
+  &:selected {
+    &:focus, & {
+    border-radius: $r;
+    @extend %selected_items;
+    }
+  }
+}
+
+.view,
+textview {
+  text {
+    @extend %view;
+
+    selection { &:focus, & { @extend %selected_items; }}
+  }
+}
+
+textview border {
+  background-color: gtk("@theme_base_color");
+  background-image: image(gtk("@borders")); // HACK: the border node just draws background so,
+  background-repeat: no-repeat;                        // using a background-image to draw the border
+
+  &:backdrop { 
+    background-color: gtk("@theme_unfocused_base_color"); 
+  }
+
+  &.bottom {
+    background-size: 100% 1px;
+    background-position: top;
+  }
+
+  &.top {
+    background-size: 100% 1px;
+    background-position: bottom;
+  }
+
+  &.left {
+    background-size: 1px 100%;
+    background-position: right;
+  }
+
+  &.right {
+    background-size: 1px 100%;
+    background-position: left;
+  }
+}
+
+.rubberband,
+rubberband {
+  border: 1px solid gtk("@theme_selected_bg_color");
+  background-color: gtkalpha(gtk("@theme_selected_bg_color"), 0.8);
+  &:backdrop {
+    border-color: gtk("@theme_unfocused_selected_bg_color");
+    background-color: gtkalpha(gtk("@theme_unfocused_selected_bg_color"), 0.8);
+  }
+}
+
+flowbox {
+  rubberband { @extend rubberband; }
+
+  flowboxchild {
+    padding: 3px;
+    border-radius: $r;
+
+    &:selected {
+      @extend %selected_items;
+
+      outline-offset: 0px;
+    }
+  }
+}
+
+label {
+  &.separator {
+    color: gtk("@theme_fg_color");
+    @extend .dim-label;
+    &:backdrop { 
+      color: gtk("@theme_unfocused_fg_color");
+    }
+  }
+
+  selection {
+    background-color: gtk("@theme_selected_bg_color");
+    color: gtk("@theme_selected_fg_color");
+  }
+  &:disabled {
+    color: gtk("@insensitive_fg_color");
+    selection { @extend %selected_items:disabled; }
+
+    &:backdrop { 
+      color: gtk("@insensitive_unfocused_fg_color")
+    }
+  }
+  &:backdrop {
+    color: gtk("@theme_unfocused_text_color");
+
+    selction {@extend %selected_items:backdrop;}
+  }
+}
+
+.dim-label {
+  opacity: 0.5;
+  text-shadow: none;
+}
+
+%osd, 
+.osd {
+  color: gtk("@theme_fg_color");
+  border: 1px solid gtk("@borders");
+  background-color: gtkalpha(gtk("@theme_bg_color"),0.8);
+  background-clip: padding-box;
+  box-shadow: none;
+  text-shadow: none;
+  -gtk-icon-shadow: none;
+  &:backdrop {
+    color: gtk("@theme_unfocused_text_color");
+    background-color: gtkalpha(gtk("@theme_unfocused_bg_color"), 0.8);
+    -gtk-icon-shadow: none;
+  }
+}
+
+%selected_items {
+  background-color: gtk("@theme_selected_bg_color");
+  color: gtk("@theme_selected_fg_color");
+  &:hover {
+    background-color: gtk("@theme_hovering_selected_bg_color");
+    color: gtk("@theme_fg_color");
+  }
+  &:backdrop {
+    background-color: gtk("@theme_unfocused_selected_bg_color");
+    color: gtk("@theme_unfocused_base_color");
+  }
+}
+
+%selected_items {
+  background-color: gtk("@theme_selected_bg_color");
+  border-radius: 0px;
+
+  @at-root %nobg_selected_items, & {
+    color: gtk("@theme_selected_fg_color");
+
+    &:disabled { 
+      color: gtk("@insensitive_selected_fg_color");
+    }
+
+    &:backdrop {
+      color: gtk("@theme_unfocused_selected_fg_color");
+
+      &:disabled { 
+        color: gtk("@insensitive_unfocused_selected_fg_color");
+      }
+    }
+  }
+}

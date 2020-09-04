@@ -1,0 +1,51 @@
+@charset "UTF-8";
+
+hdydialer {
+    button {
+        font-weight: lighter;
+        background-color: transparent;
+        border: 0;
+        box-shadow: none;
+        &:backdrop {
+            background-color: transparent;
+        }
+        &:focus {
+            background-color: transparent;
+            border: none;
+        }
+    }
+}
+hdyviewswitcher {
+    > button {
+        border: 0;
+        background-color: transparent;
+        &:backdrop:hover, &:hover, &:active, &:hover:focus, &:active:focus, &:checked, &:checked:hover {
+            background-color: transparent;
+        }
+        &:checked, &:checked:backdrop {
+            border-top: 0;
+            border-left: 0;
+            border-right: 0;
+            background-color: transparent;
+            > stack {
+                border-bottom: 3px solid transparent;
+                border-top: 3px solid gtk("@theme_button_decoration_focus");
+            }
+        }
+        &.needs-attention > stack > box label {
+            animation: needs_attention 150ms ease-in;
+            background-image: radial-gradient(circle, gtk("@theme_button_decoration_focus") 0%, transparent 5px);
+            background-size: 6px 6px, 6px 6px;
+            background-repeat: no-repeat;
+            background-position: right 0px, right 1px;
+        }
+    }
+}
+headerbar hdyviewswitcher > button:checked > stack {
+    &:backdrop {
+        border-top: 3px solid transparent;
+        border-bottom: 3px solid gtk("@theme_button_decoration_focus");
+    }
+    border-top: 3px solid transparent;
+    border-bottom: 3px solid gtk("@theme_button_decoration_focus");
+}

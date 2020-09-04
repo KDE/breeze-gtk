@@ -1,0 +1,176 @@
+@charset "UTF-8";
+
+@mixin item-hover-middle {
+  @if $new-highlight {
+    background-color: gtk("@theme_selected_bg_color");
+    border-left-color: gtk("@theme_selected_fg_color");
+    border-top-color: gtk("@theme_selected_fg_color");
+  } @else {
+    background-color: gtkalpha(gtk("@theme_selected_bg_color"), 0.3);
+    border-left-color: gtk("@theme_fg_color");
+    border-top-color: gtk("@theme_fg_color");
+  }
+}
+
+@mixin item-selected-middle {
+  @if $new-highlight {
+    background-color: gtkalpha(gtk("@theme_button_decoration_focus"), 0.3);
+    color: gtk("@theme_button_foreground_active");
+    border: 1px solid gtk("@theme_button_decoration_focus");
+    border-left: 0;
+    border-right: 0;
+    border-radius: 0px;
+  } @else {
+    background-color: gtk("@theme_selected_bg_color");
+    border-left-color: gtk("@theme_selected_fg_color");
+    border-top-color: gtk("@theme_selected_fg_color");
+  }
+}
+
+@mixin item-selected-middle-backdrop {
+  @if $new-highlight {
+    background-color: gtkalpha(gtk("@theme_button_decoration_focus_backdrop"), 0.3);
+    color: gtk("@theme_button_foreground_active_backdrop");
+    border: 1px solid gtk("@theme_button_decoration_focus_backdrop");
+    border-left: 0;
+    border-right: 0;
+    border-radius: 0px;
+  } @else {
+    background-color: gtk("@theme_unfocused_selected_bg_color");
+    border-left-color: gtk("@theme_unfocused_selected_fg_color");
+    border-top-color: gtk("@theme_unfocused_selected_fg_color");
+  }
+}
+
+/**************
+ * Tree Views *
+ **************/
+treeview.view {
+
+  border-left-color: gtk("@borders"); // this is actually the tree lines color,
+  border-top-color: transparent;                    // while this is the grid lines color, better then nothing
+
+  rubberband { @extend rubberband; } // to avoid borders being overridden by the previously set props
+
+  &:selected { border-radius: 0; } // rest border radius in lists
+
+  &:hover {
+    @include item-hover-middle();
+  }
+
+  &:selected  {
+    @include item-selected-middle();
+  }
+  
+  &:backdrop:selected {
+    @include item-selected-middle-backdrop();
+  }
+
+  &:disabled {
+    color: gtk("@insensitive_borders");
+    &:selected {
+      color: gtk("@insensitive_selected_fg_color");
+      &:backdrop { color: gtk("@insensitive_unfocused_selected_fg_color"); }
+    }
+    &:backdrop { color: gtk("@unfocused_insensitive_borders"); }
+  }
+  &.separator {
+    min-height: 2px;
+    color: gtk("@borders");
+  }
+  &.separator:backdrop {
+    color: gtk("@unfocused_borders");
+  }
+
+  &:backdrop {
+    border-left-color: gtk("@unfocused_borders");
+  }
+
+  &:drop(active) {
+    border-style: solid none;
+    border-width: 1px;
+    border-color: gtk("@theme_button_decoration_hover");
+  }
+
+  &.expander {
+    // GtkTreeView uses the larger of the expander’s min-width and min-height
+    min-width: 16px;
+    min-height: 16px;
+    -gtk-icon-source: -gtk-icontheme('pan-end-symbolic');
+    color: gtk("@theme_fg_color");
+    &:dir(rtl) { -gtk-icon-source: -gtk-icontheme('pan-start-symbolic'); };
+    &:hover { color: gtk("@theme_button_decoration_hover"); }
+    &:selected { color: gtk("@theme_selected_fg_color"); }
+    &:checked {
+       -gtk-icon-source: -gtk-icontheme('pan-down-symbolic');
+      &:selected { color: gtk("@theme_selected_fg_color"); }
+      &:backdrop { color: gtk("@theme_unfocused_base_color"); }
+    }
+    &:backdrop { color: gtk("@theme_unfocused_base_color"); }
+  }
+  header {
+    button {
+      @extend %column_header_button;
+      color: gtk("@theme_button_foreground_normal");
+      background-color: gtk("@theme_button_background_normal");
+      text-shadow: none;
+      box-shadow: none;
+      &:hover {
+        @extend %column_header_button;
+        color: gtk("@theme_button_foreground_normal");
+        background-color: gtkalpha(gtk("@theme_button_decoration_hover"), 0.5);
+        box-shadow: none;
+        transition: none; //I shouldn't need this
+      }
+      &:active {
+        @extend %column_header_button;
+        color: gtk("@theme_button_foreground_normal");
+        background-color: gtkalpha(gtk("@theme_button_decoration_hover"), 0.5);
+        transition: none; //I shouldn't need this
+      }
+    }
+    button:last-child { &:backdrop, & { border-right-style: none; }}
+    }
+    button.dnd,
+    header.button.dnd { // for treeview-like derive widgets
+      &:active, &:selected, &:hover, & {
+        padding: 0 6px;
+        color: gtk("@theme_selected_fg_color");
+        background-image: none;
+        background-color: gtk("@theme_selected_bg_color");
+        border-style: none;
+        border-radius: 0;
+        box-shadow: none;
+        text-shadow: none;
+        transition: none;
+      }
+    }
+}
+
+%column_header_button {
+  padding: 6px;
+  border-style: none solid solid none;
+  border-radius: 0;
+  background-image: none;
+  border-color: gtk("@borders");
+  text-shadow: none;
+  &:disabled {
+    border-color: gtk("@insensitive_borders");
+    color: gtk("@theme_button_foreground_insensitive");
+    background-color: gtk("@theme_button_background_insensitive");
+    background-image: none;
+  }
+  &:backdrop {
+    border-color: gtk("@unfocused_borders");
+    border-style: none solid solid none;
+    color: gtk("@theme_button_foreground_backdrop");
+    background-image: none;
+    background-color: gtk("@theme_button_background_backdrop");
+    &:disabled {
+      border-color: gtk("@unfocused_insensitive_borders");
+      background-image: none;
+      background-color: gtk("@theme_button_background_backdrop_insensitive");
+      color: gtk("@theme_button_foreground_backdrop_insensitive");
+    }
+  }
+}

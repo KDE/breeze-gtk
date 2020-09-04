@@ -1,0 +1,145 @@
+@charset "UTF-8";
+
+/*****************
+ * Progress bars *
+ *****************/
+progressbar {
+ // sizing
+ &.horizontal {
+   trough,
+   progress { min-height: 6px; }
+ }
+
+ &.vertical {
+   trough,
+   progress { min-width: 6px; }
+ }
+
+ // FIXME: insensitive state missing and some other state should be set probably
+ font-size: smaller;
+ color: gtkalpha(gtk("@theme_button_foreground_normal"), 0.3);
+
+ trough {
+   border: 0px solid transparent;
+   border-radius: $r;
+   background-color: gtkalpha(gtk("@theme_button_foreground_normal"),0.3);
+  }
+
+ &:backdrop trough { background-color: gtkalpha(gtk("@theme_button_foreground_backdrop"),0.3); } // looks like states are not passed to the trough component here
+
+ progress {
+   background-color: gtk("@theme_selected_bg_color");
+   border: 0px solid transparent;
+   border-radius: 3px;
+   box-shadow: none; //needed for clipping
+ }
+
+ &:backdrop progress { 
+   background-color: gtk("@theme_unfocused_selected_bg_color_alt");
+  } // states not passed here as well
+
+ &.osd { // progressbar.osd used for epiphany page loading progress
+   background-color: transparent;
+ }
+}
+
+treeview.view {
+  &.progressbar {
+    border: 0px solid transparent;
+    border-radius: $r;
+    background-color: gtk("@theme_selected_bg_color");
+    color: gtk("@theme_selected_fg_color");
+    background-image: none;
+    &:selected {
+      &:focus, & {
+        background-color: gtkalpha(gtk("@theme_selected_bg_color"),0.25);
+      }
+    }
+  }
+  &.trough {
+    background-color: $trough_color;
+    &:selected {
+      &:focus, & {
+        background-color: gtkalpha(gtk("@theme_selected_fg_color"),0.3);
+      }
+    }
+  }
+}
+
+/*************
+ * Level Bar *
+ *************/
+levelbar {
+ block {
+   min-width: 32px;
+   min-height: 6px;
+ }
+
+ &.vertical block {
+   min-width: 6px;
+   min-height: 32px;
+ }
+
+ trough {
+   border: 1px solid;
+   padding: 2px;
+   border-radius: 3px;
+   @include entry(normal);
+
+   &:backdrop { @include entry(backdrop); }
+ }
+
+ &.horizontal.discrete block { margin: 0 1px; }
+
+ &.vertical.discrete block { margin: 1px 0; }
+
+ block:not(.empty) {
+   border: 1px solid gtk("@theme_selected_bg_color");
+   background-color: gtk("@theme_selected_bg_color");
+   box-shadow: none;
+   border-radius: 1px;
+
+   &:backdrop {
+     border-color:     gtk("@theme_unfocused_selected_bg_color_alt");
+     background-color: gtk("@theme_unfocused_selected_bg_color_alt");
+   }
+ }
+
+ block {
+   &.low {
+     border-color:     gtk("@warning_color");
+     background-color: gtk("@warning_color");
+     &:backdrop {
+       background-color: gtk("@warning_color_backdrop");
+       border-color:     gtk("@warning_color_backdrop");
+     }
+   }
+
+   &.high {
+     border-color:     gtk("@success_color");
+     background-color: gtk("@success_color");
+     &:backdrop {
+       background-color: gtk("@success_color_backdrop");
+       border-color:     gtk("@success_color_backdrop");
+     }
+   }
+
+   &.full {
+    border-color:     gtk("@success_color");
+    background-color: gtk("@success_color");
+    &:backdrop {
+      background-color: gtk("@success_color_backdrop");
+      border-color:     gtk("@success_color_backdrop");
+    }
+   }
+
+   &.empty {
+     background-color: gtkalpha(gtk("@theme_button_foreground_normal"),0.3);
+     border-color: transparent;
+     box-shadow: none;
+     &:backdrop { 
+       background-color: gtkalpha(gtk("@theme_button_foreground_insensitive"),0.3); 
+      }
+   }
+ }
+}

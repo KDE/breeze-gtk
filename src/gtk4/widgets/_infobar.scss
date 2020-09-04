@@ -1,0 +1,70 @@
+@charset "UTF-8";
+
+/**************
+ * GtkInfoBar *
+ **************/
+infobar {
+  border-style: none;
+  border-bottom: 1px solid gtk("@borders");
+  background-color: gtk("@theme_bg_color");
+  background-image: none;
+  &:backdrop {
+    border-bottom: 1px solid gtk("@unfocused_borders");
+  }
+}
+
+.info,
+.question,
+.warning,
+.error {
+  background-color: gtk("@theme_bg_color");
+  background-image: none;
+  color: gtk("@warning_color");
+  text-shadow: none;
+  &:backdrop {
+    background-color: gtk("@theme_unfocused_bg_color");
+    color: gtk("@warning_color_backdrop");
+  }
+  button {
+    box-shadow: none;
+    background-image:none;
+    background-color: gtkalpha(gtk("@warning_color"), 0.5);
+    border-color: gtkalpha(gtk("@warning_color"), 0.5);
+    color: gtk("@theme_button_foreground_normal");
+    &:hover {
+      background-color: gtkalpha(gtk("@warning_color"), 0.25);
+      border-color: gtk("@warning_color");
+    }
+    &:active, &:checked {
+      background-color: gtk("@warning_color");
+      color: gtk("@theme_bg_color");
+      border-color: gtk("@warning_color");
+    }
+    &:disabled {
+      background-color: gtkalpha(gtk("@warning_color_insensitive"), 0.5);
+      border-color: gtkalpha(gtk("@warning_color_insensitive"), 0.5);
+      color: gtk("@theme_button_foreground_insensitive");
+    }
+    &:backdrop {
+      background-color: gtkalpha(gtk("@warning_color_backdrop"), 0.5);
+      border-color: gtkalpha(gtk("@warning_color_backdrop"), 0.5);
+      color: gtk("@theme_button_foreground_backdrop");
+      &:active, &:checked {
+        background-color: gtk("@warning_color_backdrop");
+        color: gtk("@theme_unfocused_bg_color");
+        border-color: gtk("@warning_color_backdrop");
+      }
+      &:disabled {
+        background-color: gtkalpha(gtk("@warning_color_insensitive_backdrop"), 0.5);
+        border-color: gtkalpha(gtk("@warning_color_insensitive_backdrop"), 0.5);
+        color: gtk("@theme_button_foreground_backdrop_insensitive");
+      }
+      &:disabled:active,
+      &:disabled:checked {
+        background-color: gtk("@warning_color_insensitive_backdrop");
+        color: gtk("@insensitive_unfocused_bg_color");
+        border-color: gtk("@warning_color_insensitive_backdrop");
+      }
+    }
+  }
+}

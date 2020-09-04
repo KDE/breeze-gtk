@@ -1,0 +1,99 @@
+@charset "UTF-8";
+
+/************
+ * GtkScale *
+ ************/
+scale {
+
+  &.fine-tune {
+    &.trough {
+      margin: 8px;
+      border-radius: $r;
+    }
+  }
+
+  slider {
+    min-width: 18px;
+    min-height: 18px;
+    background-color: gtk("@theme_button_background_normal");
+    border: 1px solid gtk("@borders");
+    border-radius: 50%;
+    box-shadow: none;
+    margin: -9px;
+    &:hover {
+      border-style: solid;
+  	  border-width: 2px;
+      border-color: gtk("@theme_button_decoration_hover");
+      border-radius: 50%; // needed for double marks scales
+      &:backdrop {
+        background-color: gtk("@theme_button_background_backdrop");
+        border-color: gtk("@theme_button_decoration_hover_insensitive");
+      }
+    }
+    &:disabled {
+      border-style: solid; // needed for double marks scales or they'll get
+      border-radius: 50%;  // overridden
+      background-color: gtkalpha(gtk("@theme_button_background_insensitive"), 100.0);
+      opacity: 1.0;
+      border-color: gtk("@insensitive_borders");
+      &:backdrop {
+        background-color: gtkalpha(gtk("@theme_button_background_backdrop_insensitive"), 100.0);
+        border-color: gtk("@unfocused_insensitive_borders");
+      }
+    }
+    &:active {
+      border: 2px solid gtk("@theme_button_decoration_focus");
+      &:backdrop {
+        background-color: gtk("@theme_button_background_normal");
+        border-color: gtk("@theme_button_decoration_focus_backdrop");
+      }
+    }
+    &:backdrop {
+      background-color: gtk("@theme_button_background_backdrop");
+      border-color: gtk("@unfocused_borders");
+    }
+  }
+  trough {
+    min-width: 6px;
+    min-height: 6px;
+    margin: 9px;
+    border: 0px solid;
+    border-radius: $r;
+    background-color: $trough_color;
+    box-shadow: none;
+
+    &:disabled, &.vertical:disabled {
+      border-color: $trough_color_insensitive;
+      background-color: $trough_color_insensitive;
+      box-shadow: none;
+      &:backdrop {
+        background-color: $trough_color_backdrop_insensitive;
+        border-color: $trough_color_backdrop_insensitive;
+      }
+    }
+    &:backdrop {
+      background-color: $trough_color_backdrop;
+      border-color: $trough_color_backdrop;
+    }
+  }
+  highlight {
+    border: 0px solid;
+    border-radius: 3px;
+    background-color: gtk("@theme_selected_bg_color");
+    border-color:     gtk("@theme_selected_bg_color");
+    &.vertical {
+      background-color: gtk("@theme_selected_bg_color");
+      border-color:     gtk("@theme_selected_bg_color");
+    }
+    &:disabled { 
+      background-color: gtk("@insensitive_selected_bg_color");
+    }
+    &:backdrop {
+      background-color: gtk("@theme_unfocused_selected_bg_color");
+      border-color:     gtk("@theme_unfocused_selected_bg_color");
+      &:disabled {
+        background-color: gtk("@insensitive_unfocused_selected_bg_color");
+      }
+    }
+  }
+}

@@ -1,0 +1,44 @@
+@charset "UTF-8";
+
+/************
+ * Pathbars *
+ ************/
+.path-bar {
+  background-color: gtk("@theme_bg_color");
+  border-bottom: 1px solid gtk("@borders");
+}
+
+.path-bar button {
+  @include button(undecorated);
+  padding: 4px 8px;
+  color: gtk("@theme_fg_color");
+  &:hover {border-color: gtk("@theme_button_decoration_hover"); }
+  &:active, &:checked {
+    background-color: gtk("@borders");
+    font-weight: normal;
+    }
+  &.text-button, &.image-button, & {
+    padding-left: 4px;
+    padding-right: 4px;
+  }
+
+  &.text-button.image-button label {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  &.text-button.image-button, & {
+    label:last-child { padding-right: 8px; }
+    label:first-child { padding-left: 8px; }
+  }
+
+  image {
+    padding-left: 4px;
+    padding-right: 4px;
+  }
+
+  &.slider-button {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}

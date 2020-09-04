@@ -1,0 +1,123 @@
+@charset "UTF-8";
+
+/**************
+ * Scrollbars *
+ **************/
+
+scrollbar {
+
+  background-color: gtk("@theme_bg_color");
+  border-width: 0px 0px;
+  border-color: gtk("@theme_bg_color");
+  margin: 5px;
+
+  button {
+  min-width: 14px;
+  min-height: 14px;
+  margin: 0px;
+  padding: 0px 0px;
+  border: none;
+  border-radius: 0px;
+  background-image: none;
+  background-color: transparent;
+  color: transparent;
+  box-shadow: none;
+	&:hover {
+    border: none;
+    background-image: none;
+    background-color: gtk("@theme_bg_color");
+               color: transparent;
+		}
+  &:active,
+  &:active:hover {
+    border: none;
+    background-image: none;
+    background-color: gtk("@theme_bg_color");
+    color: transparent;
+  }
+	&:disabled {
+    border: none;
+    background-color: gtk("@theme_bg_color");
+    background-image: none;
+    color: transparent;
+    }
+	}
+
+  // Overlay Scrollbars
+  &.dragging,                                                             // if this isn't set, the scrollbars don't update their size correctly
+  &.hovering { opacity: 0.9910; }                                          // probably a gtk bug
+  &.overlay-indicator:not(.dragging):not(.hovering) { opacity: 0.999; }     //
+
+  &.overlay-indicator {
+    background: none;
+  }
+
+  trough {
+    //margin: 0px;
+    transition-duration: 0.1s;
+    min-width: 3px;
+    min-height: 14px;
+    border-radius: 8px;
+    background-color: transparent;
+  }
+  
+  &:hover {
+    trough {
+      background-color: $trough_color_backdrop;
+      min-width: 6px;
+    }
+    slider {
+        min-width: 6px;
+       background-color: gtk("@theme_button_decoration_hover");
+    }
+  }
+
+  &.horizontal trough {
+    //margin: 0px;
+    transition-duration: 0.1s;
+    min-width: 14px;
+    min-height: 3px;
+    border-radius: 8px;
+    background-color: transparent;
+  }
+
+  &.horizontal:hover {
+    &.horizontal trough {
+      background-color: $trough_color_backdrop;
+      min-height: 6px;
+    }
+    &.horizontal slider {
+        min-height: 6px;
+        background-color: gtk("@theme_button_decoration_hover");
+    }
+  }
+  
+  slider {
+    //margin: 0px;
+    transition-duration: 0.1s;
+    min-width: 3px;
+    min-height: 30px;
+    border-radius: 8px;
+    background-clip: padding-box;
+    background-color: gtkalpha(gtk("@theme_fg_color"), 0.5);
+    &:hover {
+        min-width: 6px;
+       background-color: gtk("@theme_button_decoration_hover");
+
+    }
+  }
+  &.horizontal slider {
+    transition-duration: 0.1s;
+    min-width: 30px;
+    min-height: 3px;
+    border-radius: 8px;
+    background-clip: padding-box;
+    background-color: gtkalpha(gtk("@theme_fg_color"), 0.5);
+    &:hover {
+        min-height: 6px;
+        background-color: gtk("@theme_button_decoration_hover");
+        
+    }
+
+  }
+}

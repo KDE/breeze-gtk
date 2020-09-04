@@ -1,0 +1,66 @@
+@charset "UTF-8";
+
+/************
+ * Calendar *
+ ***********/
+calendar {
+  color: gtk("@theme_text_color");
+  border: 1px solid gtk("@borders");
+  background-color: gtk("@theme_base_color");
+  &:selected {
+    background-color: gtk("@borders");
+  }
+  &:disabled {
+    color: gtk("@insensitive_base_fg_color");
+  }
+
+  &.header {
+    border: 1px solid gtk("@borders");
+    border-radius: 0;
+    color: gtk("@theme_text_color");
+
+    &:backdrop {
+      color: gtk("@theme_unfocused_text_color");
+      border-color: gtk("@unfocused_borders");
+    }
+    
+    &:disabled {
+      color: gtk("@insensitive_base_fg_color");
+    }
+  }
+
+  &.button {
+    @extend %undecorated_button;
+    color: gtk("@theme_button_foreground_normal");
+
+    &:hover {
+      @extend %undecorated_button;
+      color: gtk("@theme_button_decoration_hover");
+    }
+    &:active {
+      @extend %undecorated_button;
+      color: gtk("@theme_button_decoration_focus");
+    }
+    &:backdrop {
+      @extend %undecorated_button;
+      color: gtk("@theme_button_foreground_backdrop");
+    }
+  }
+
+  &:indeterminate,
+  &.highlight {
+    color: gtkalpha(gtk("@theme_text_color"),0.5);
+  }
+
+  &:indeterminate:backdrop,
+  &.highlight:backdrop {
+    color:gtkalpha(gtk("@theme_unfocused_text_color"),0.5);
+  }
+
+
+  &:backdrop {
+    color: gtk("@theme_unfocused_text_color");
+    border-color: gtk("@unfocused_borders");
+    background-color: gtk("@theme_unfocused_base_color");
+  }
+}

@@ -1,0 +1,57 @@
+@charset "UTF-8";
+
+/*********
+ * Links *
+ *********/
+%link,
+*:link {
+  color: gtk("@link_color");
+  &:visited {
+    color: gtk("@link_visited_color");
+    *:selected & { 
+      color: gtkmix(gtk("@theme_selected_fg_color"), gtk("@theme_selected_bg_color"), 0.6); 
+    }
+  }
+  &:hover {
+    color: gtkshade("@link_color", 1.1);
+    *:selected & { 
+      color: gtkmix(gtk("@theme_selected_fg_color"), gtk("@theme_selected_bg_color"), 0.9);
+    }
+  }
+  &:active {
+    color: gtk("@link_color");
+    *:selected & {
+      color: gtkmix(gtk("@theme_selected_fg_color"), gtk("@theme_selected_bg_color"), 0.8); 
+    }
+  }
+  &:backdrop, &:backdrop:hover, &:backdrop:hover:selected {
+    color: gtk("@theme_unfocused_selected_bg_color");
+  }
+  @at-root %link_selected,
+  &:selected, *:selected & {
+    color: gtkmix(gtk("@theme_selected_fg_color"), gtk("@theme_selected_bg_color"), 0.8);
+  }
+}
+
+button:link,
+button:visited {
+  @extend %undecorated_button;
+
+  @extend *:link;
+
+  text-shadow: none;
+
+  &:hover,
+  &:active,
+  &:checked {
+    @extend %undecorated_button;
+
+    text-shadow: none;
+  }
+
+  > label {
+    @extend %link;
+
+    text-decoration-line: underline;
+  }
+}

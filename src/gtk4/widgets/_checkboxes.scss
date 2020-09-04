@@ -1,0 +1,60 @@
+@charset "UTF-8";
+
+/*************************
+ * Check and Radio items *
+ *************************/
+
+checkbutton.text-button, radiobutton.text-button {
+ // this is for a nice focus on check and radios text
+ padding: 2px 0;
+ outline-offset: 0;
+
+ label:not(:only-child) {
+   &:first-child { margin-left: 4px; }
+   &:last-child { margin-right: 4px; }
+ }
+ &:active check, &:active radio {
+  -gtk-icon-transform: translate(1px,1px);
+ }
+}
+
+check, radio {
+  margin: 0 4px;
+
+  &:only-child { margin: 0; }
+
+  min-height: 18px;
+  min-width: 18px;
+  //border: none;
+  animation: none;
+  background-color: transparent;
+  -gtk-icon-palette: error gtk("@theme_button_decoration_focus"), success gtk("@borders"), warning gtk("@theme_button_background_normal");
+  -gtk-icon-shadow: 1px 1px rgba(35,38,41,0.2);
+
+  &:hover {
+    -gtk-icon-palette: error gtk("@theme_button_decoration_focus"), success gtk("@theme_button_decoration_focus"), warning gtk("@theme_button_background_normal");
+  }
+  &:disabled {
+    -gtk-icon-palette: error gtk("@theme_button_decoration_focus_insensitive"), success gtk("@insensitive_borders"), warning gtk("@theme_button_background_insensitive");
+  }
+
+  menu menuitem & {
+    margin: 0; // this is a workaround for a menu check/radio size allocation issue
+    min-height: 18px;
+    min-width: 18px;
+    background-color: transparent;
+    box-shadow: none;
+    -gtk-icon-shadow: none;
+    animation: none;
+  }
+}
+@each $type in ('check', 'radio') {
+  #{$type} {
+    -gtk-icon-source: -gtk-recolor(url("../assets/breeze-#{$type}-unchecked-symbolic.svg"));
+    @each $state in ('checked', 'indeterminate') {
+      &:#{$state} {
+        -gtk-icon-source: -gtk-recolor(url("../assets/breeze-#{$type}-#{$state}-symbolic.svg"));
+      }
+    }
+  }
+}
