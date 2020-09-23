@@ -66,7 +66,7 @@ scrollbar {
   trough {
     //margin: 0px;
     transition-duration: 0.1s;
-    min-width: 3px;
+    min-width: 6px;
     min-height: 14px;
     border-radius: 8px;
     background-color: transparent;
@@ -87,7 +87,7 @@ scrollbar {
     //margin: 0px;
     transition-duration: 0.1s;
     min-width: 14px;
-    min-height: 3px;
+    min-height: 6px;
     border-radius: 8px;
     background-color: transparent;
   }
@@ -106,7 +106,7 @@ scrollbar {
   slider {
     //margin: 0px;
     transition-duration: 0.1s;
-    min-width: 3px;
+    min-width: 6px;
     min-height: 30px;
     border-radius: 8px;
     background-clip: padding-box;
