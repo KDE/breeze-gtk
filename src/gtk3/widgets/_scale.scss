@@ -4,7 +4,6 @@
  * GtkScale *
  ************/
 scale {
-
   &.fine-tune {
     &.trough {
       margin: 8px;
@@ -22,7 +21,7 @@ scale {
     margin: -9px;
     &:hover {
       border-style: solid;
-  	  border-width: 2px;
+      border-width: 2px;
       border-color: gtk("@theme_button_decoration_hover");
       border-radius: 50%; // needed for double marks scales
       &:backdrop {
@@ -32,12 +31,18 @@ scale {
     }
     &:disabled {
       border-style: solid; // needed for double marks scales or they'll get
-      border-radius: 50%;  // overridden
-      background-color: gtkalpha(gtk("@theme_button_background_insensitive"), 100.0);
-      opacity: 1.0;
+      border-radius: 50%; // overridden
+      background-color: gtkalpha(
+        gtk("@theme_button_background_insensitive"),
+        100
+      );
+      opacity: 1;
       border-color: gtk("@insensitive_borders");
       &:backdrop {
-        background-color: gtkalpha(gtk("@theme_button_background_backdrop_insensitive"), 100.0);
+        background-color: gtkalpha(
+          gtk("@theme_button_background_backdrop_insensitive"),
+          100
+        );
         border-color: gtk("@unfocused_insensitive_borders");
       }
     }
@@ -62,7 +67,8 @@ scale {
     background-color: $trough_color;
     box-shadow: none;
 
-    &:disabled, &.vertical:disabled {
+    &:disabled,
+    &.vertical:disabled {
       border-color: $trough_color_insensitive;
       background-color: $trough_color_insensitive;
       box-shadow: none;
@@ -80,17 +86,17 @@ scale {
     border: 0px solid;
     border-radius: 3px;
     background-color: gtk("@theme_selected_bg_color");
-    border-color:     gtk("@theme_selected_bg_color");
+    border-color: gtk("@theme_selected_bg_color");
     &.vertical {
       background-color: gtk("@theme_selected_bg_color");
-      border-color:     gtk("@theme_selected_bg_color");
+      border-color: gtk("@theme_selected_bg_color");
     }
-    &:disabled { 
+    &:disabled {
       background-color: gtk("@insensitive_selected_bg_color");
     }
     &:backdrop {
       background-color: gtk("@theme_unfocused_selected_bg_color");
-      border-color:     gtk("@theme_unfocused_selected_bg_color");
+      border-color: gtk("@theme_unfocused_selected_bg_color");
       &:disabled {
         background-color: gtk("@insensitive_unfocused_selected_bg_color");
       }

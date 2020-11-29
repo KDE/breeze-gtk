@@ -23,7 +23,7 @@ calendar {
       color: gtk("@theme_unfocused_text_color");
       border-color: gtk("@unfocused_borders");
     }
-    
+
     &:disabled {
       color: gtk("@insensitive_base_fg_color");
     }
@@ -49,14 +49,13 @@ calendar {
 
   &:indeterminate,
   &.highlight {
-    color: gtkalpha(gtk("@theme_text_color"),0.5);
+    color: gtkalpha(gtk("@theme_text_color"), 0.5);
   }
 
   &:indeterminate:backdrop,
   &.highlight:backdrop {
-    color:gtkalpha(gtk("@theme_unfocused_text_color"),0.5);
+    color: gtkalpha(gtk("@theme_unfocused_text_color"), 0.5);
   }
-
 
   &:backdrop {
     color: gtk("@theme_unfocused_text_color");

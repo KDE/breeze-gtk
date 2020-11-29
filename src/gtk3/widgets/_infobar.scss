@@ -27,7 +27,7 @@ infobar {
   }
   button {
     box-shadow: none;
-    background-image:none;
+    background-image: none;
     background-color: gtkalpha(gtk("@warning_color"), 0.5);
     border-color: gtkalpha(gtk("@warning_color"), 0.5);
     color: gtk("@theme_button_foreground_normal");
@@ -35,7 +35,8 @@ infobar {
       background-color: gtkalpha(gtk("@warning_color"), 0.25);
       border-color: gtk("@warning_color");
     }
-    &:active, &:checked {
+    &:active,
+    &:checked {
       background-color: gtk("@warning_color");
       color: gtk("@theme_bg_color");
       border-color: gtk("@warning_color");
@@ -49,13 +50,17 @@ infobar {
       background-color: gtkalpha(gtk("@warning_color_backdrop"), 0.5);
       border-color: gtkalpha(gtk("@warning_color_backdrop"), 0.5);
       color: gtk("@theme_button_foreground_backdrop");
-      &:active, &:checked {
+      &:active,
+      &:checked {
         background-color: gtk("@warning_color_backdrop");
         color: gtk("@theme_unfocused_bg_color");
         border-color: gtk("@warning_color_backdrop");
       }
       &:disabled {
-        background-color: gtkalpha(gtk("@warning_color_insensitive_backdrop"), 0.5);
+        background-color: gtkalpha(
+          gtk("@warning_color_insensitive_backdrop"),
+          0.5
+        );
         border-color: gtkalpha(gtk("@warning_color_insensitive_backdrop"), 0.5);
         color: gtk("@theme_button_foreground_backdrop_insensitive");
       }

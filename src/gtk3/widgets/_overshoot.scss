@@ -1,19 +1,19 @@
 @charset "UTF-8";
 
-@mixin overshoot($p, $t:normal, $c:gtk("@theme_fg_color")) {
-//
-// overshoot
-//
-// $p: position
-// $t: type
-// $c: base color
-//
-// possible $p values:
-// top, bottom, right, left
-//
-// possible $t values:
-// normal, backdrop
-//
+@mixin overshoot($p, $t: normal, $c: gtk("@theme_fg_color")) {
+  //
+  // overshoot
+  //
+  // $p: position
+  // $t: type
+  // $c: base color
+  //
+  // possible $p values:
+  // top, bottom, right, left
+  //
+  // possible $t values:
+  // normal, backdrop
+  //
 
   $_small_gradient_length: 5%;
   $_big_gradient_length: 100%;
@@ -25,15 +25,11 @@
   @if $p==bottom {
     $_position: center bottom;
     $_linear_gradient_direction: to top;
-  }
-
-  @else if $p==right {
+  } @else if $p==right {
     $_position: right center;
     $_small_gradient_size: $_small_gradient_length 100%;
     $_big_gradient_size: $_big_gradient_length 100%;
-  }
-
-  @else if $p==left {
+  } @else if $p==left {
     $_position: left center;
     $_small_gradient_size: $_small_gradient_length 100%;
     $_big_gradient_size: $_big_gradient_length 100%;
@@ -46,27 +42,35 @@
     $_small_gradient_color: gtkshade("@borders", 0.9);
     $_big_gradient_color: gtk("@theme_fg_color");
 
-    @if $t==backdrop { $_small_gradient_color: gtk("@unfocused_borders"); }
+    @if $t==backdrop {
+      $_small_gradient_color: gtk("@unfocused_borders");
+    }
   }
 
-  $_small_gradient: -gtk-gradient(radial,
-                                  $_position, 0,
-                                  $_position, 0.5,
-                                  to($_small_gradient_color),
-                                  to(gtkalpha($_small_gradient_color, 0)));
+  $_small_gradient: -gtk-gradient(
+    radial,
+    $_position,
+    0,
+    $_position,
+    0.5,
+    to($_small_gradient_color),
+    to(gtkalpha($_small_gradient_color, 0))
+  );
 
-  $_big_gradient: -gtk-gradient(radial,
-                                $_position, 0,
-                                $_position, 0.6,
-                                from(gtkalpha($_big_gradient_color, 0.07)),
-                                to(gtkalpha($_big_gradient_color, 0)));
+  $_big_gradient: -gtk-gradient(
+    radial,
+    $_position,
+    0,
+    $_position,
+    0.6,
+    from(gtkalpha($_big_gradient_color, 0.07)),
+    to(gtkalpha($_big_gradient_color, 0))
+  );
 
   @if $t==normal {
     background-image: $_small_gradient, $_big_gradient;
     background-size: $_small_gradient_size, $_big_gradient_size;
-  }
-
-  @else if $t==backdrop {
+  } @else if $t==backdrop {
     background-image: $_small_gradient;
     background-size: $_small_gradient_size;
   }
@@ -75,10 +79,10 @@
   background-position: $_position;
 
   background-color: transparent; // reset some properties to be sure to not inherit them somehow
-  border: none;                  //
-  box-shadow: none;              //
+  border: none; //
+  box-shadow: none; //
 }
- 
+
 scrolledwindow {
   // This is used when content is touch-dragged past boundaries.
   // draws a box on top of the content, the size changes programmatically.
@@ -86,25 +90,33 @@ scrolledwindow {
     &.top {
       @include overshoot(top);
 
-      &:backdrop { @include overshoot(top, backdrop); }
+      &:backdrop {
+        @include overshoot(top, backdrop);
+      }
     }
 
     &.bottom {
       @include overshoot(bottom);
 
-      &:backdrop { @include overshoot(bottom, backdrop); }
+      &:backdrop {
+        @include overshoot(bottom, backdrop);
+      }
     }
 
     &.left {
       @include overshoot(left);
 
-      &:backdrop { @include overshoot(left, backdrop); }
+      &:backdrop {
+        @include overshoot(left, backdrop);
+      }
     }
 
     &.right {
       @include overshoot(right);
 
-      &:backdrop { @include overshoot(right, backdrop); }
+      &:backdrop {
+        @include overshoot(right, backdrop);
+      }
     }
   }
 

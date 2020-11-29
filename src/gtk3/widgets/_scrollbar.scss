@@ -5,9 +5,8 @@
  **************/
 
 scrollbar {
-
-  -GtkScrollbar-has-backward-stepper: false;
-  -GtkScrollbar-has-forward-stepper: false;
+  -gtkscrollbar-has-backward-stepper: false;
+  -gtkscrollbar-has-forward-stepper: false;
 
   background-color: gtk("@theme_bg_color");
   border-width: 0px 0px;
@@ -15,48 +14,49 @@ scrollbar {
   margin: 5px;
 
   button {
-  min-width: 14px;
-  min-height: 14px;
-  margin: 0px;
-  padding: 0px 0px;
-  border: none;
-  border-radius: 0px;
-  background-image: none;
-  background-color: transparent;
-  color: transparent;
-  box-shadow: none;
-	&:hover {
+    min-width: 14px;
+    min-height: 14px;
+    margin: 0px;
+    padding: 0px 0px;
     border: none;
+    border-radius: 0px;
     background-image: none;
-    background-color: gtk("@theme_bg_color");
-               color: transparent;
-		}
-  &:active,
-  &:active:hover {
-    border: none;
-    background-image: none;
-    background-color: gtk("@theme_bg_color");
+    background-color: transparent;
     color: transparent;
-  }
-	&:disabled {
-    border: none;
-    background-color: gtk("@theme_bg_color");
-    background-image: none;
-    color: transparent;
+    box-shadow: none;
+    &:hover {
+      border: none;
+      background-image: none;
+      background-color: gtk("@theme_bg_color");
+      color: transparent;
     }
-	}
+    &:active,
+    &:active:hover {
+      border: none;
+      background-image: none;
+      background-color: gtk("@theme_bg_color");
+      color: transparent;
+    }
+    &:disabled {
+      border: none;
+      background-color: gtk("@theme_bg_color");
+      background-image: none;
+      color: transparent;
+    }
+  }
 
   // Overlay Scrollbars
   &.dragging,                                                             // if this isn't set, the scrollbars don't update their size correctly
-  &.hovering { opacity: 0.9910; }                                          // probably a gtk bug
-  &.overlay-indicator:not(.dragging):not(.hovering) { opacity: 0.999; }     //
-
+  &.hovering {
+    opacity: 0.991;
+  } // probably a gtk bug
+  &.overlay-indicator:not(.dragging):not(.hovering) {
+    opacity: 0.999;
+  } //
 
   &.overlay-indicator:not(.dragging):not(.hovering) {
-   -GtkScrollbar-has-backward-stepper: false;
-   -GtkScrollbar-has-forward-stepper: false;
-
-
+    -gtkscrollbar-has-backward-stepper: false;
+    -gtkscrollbar-has-forward-stepper: false;
   }
 
   &.overlay-indicator {
@@ -71,15 +71,15 @@ scrollbar {
     border-radius: 8px;
     background-color: transparent;
   }
-  
+
   &:hover {
     trough {
       background-color: $trough_color_backdrop;
       min-width: 6px;
     }
     slider {
-        min-width: 6px;
-       background-color: gtk("@theme_button_decoration_hover");
+      min-width: 6px;
+      background-color: gtk("@theme_button_decoration_hover");
     }
   }
 
@@ -98,11 +98,11 @@ scrollbar {
       min-height: 6px;
     }
     &.horizontal slider {
-        min-height: 6px;
-        background-color: gtk("@theme_button_decoration_hover");
+      min-height: 6px;
+      background-color: gtk("@theme_button_decoration_hover");
     }
   }
-  
+
   slider {
     //margin: 0px;
     transition-duration: 0.1s;
@@ -112,9 +112,8 @@ scrollbar {
     background-clip: padding-box;
     background-color: gtkalpha(gtk("@theme_fg_color"), 0.5);
     &:hover {
-        min-width: 6px;
-       background-color: gtk("@theme_button_decoration_hover");
-
+      min-width: 6px;
+      background-color: gtk("@theme_button_decoration_hover");
     }
   }
   &.horizontal slider {
@@ -125,10 +124,8 @@ scrollbar {
     background-clip: padding-box;
     background-color: gtkalpha(gtk("@theme_fg_color"), 0.5);
     &:hover {
-        min-height: 6px;
-        background-color: gtk("@theme_button_decoration_hover");
-        
+      min-height: 6px;
+      background-color: gtk("@theme_button_decoration_hover");
     }
-
   }
 }

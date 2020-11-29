@@ -3,8 +3,8 @@
 /************
  * Toolbars *
  ************/
- %toolbar {
-  -GtkWidget-window-dragging: true;
+%toolbar {
+  -gtkwidget-window-dragging: true;
   padding: 4px;
   background-color: gtk("@theme_bg_color");
 }
@@ -18,7 +18,8 @@ toolbar {
   button {
     margin: 2px;
     padding: 3px;
-    &.image-button, &.text-button.image-button {
+    &.image-button,
+    &.text-button.image-button {
       padding: 3px;
     }
   }
@@ -30,7 +31,9 @@ toolbar {
     margin: 3px;
   }
   // on OSD
-  .osd & { background-color: transparent; }
+  .osd & {
+    background-color: transparent;
+  }
   &.osd {
     padding: 13px;
     border: none;
@@ -44,7 +47,9 @@ toolbar {
     &.left,
     &.right,
     &.top,
-    &.bottom { border-radius: 0; } // positional classes for `attached` osd toolbars
+    &.bottom {
+      border-radius: 0;
+    } // positional classes for `attached` osd toolbars
   }
 }
 

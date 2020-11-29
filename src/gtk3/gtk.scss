@@ -2,9 +2,9 @@
 
 $new-highlight: false;
 
-@import 'global';
-@import '../functions';
-@import '../colors';
+@import "global";
+@import "../functions";
+@import "../colors";
 
 @import "widgets/base";
 @import "widgets/button";

@@ -12,12 +12,17 @@
   @include button(undecorated);
   padding: 4px 8px;
   color: gtk("@theme_fg_color");
-  &:hover {border-color: gtk("@theme_button_decoration_hover"); }
-  &:active, &:checked {
+  &:hover {
+    border-color: gtk("@theme_button_decoration_hover");
+  }
+  &:active,
+  &:checked {
     background-color: gtk("@borders");
     font-weight: normal;
-    }
-  &.text-button, &.image-button, & {
+  }
+  &.text-button,
+  &.image-button,
+  & {
     padding-left: 4px;
     padding-right: 4px;
   }
@@ -27,9 +32,14 @@
     padding-right: 0;
   }
 
-  &.text-button.image-button, & {
-    label:last-child { padding-right: 8px; }
-    label:first-child { padding-left: 8px; }
+  &.text-button.image-button,
+  & {
+    label:last-child {
+      padding-right: 8px;
+    }
+    label:first-child {
+      padding-left: 8px;
+    }
   }
 
   image {

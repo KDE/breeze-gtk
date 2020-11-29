@@ -24,15 +24,17 @@ headerbar {
   }
   label {
     font-weight: normal;
-    &:backdrop { color: gtk("@theme_titlebar_foreground_backdrop"); }
+    &:backdrop {
+      color: gtk("@theme_titlebar_foreground_backdrop");
+    }
   }
   .path-bar button {
     color: gtk("@theme_titlebar_foreground");
     font-weight: normal;
-    &:backdrop { 
+    &:backdrop {
       color: gtk("@theme_titlebar_foreground_backdrop");
     }
-    }
+  }
   button {
     transition: none;
     @include button(undecorated);
@@ -45,21 +47,22 @@ headerbar {
     &:hover {
       @include button(hover);
       color: gtk("@theme_titlebar_foreground");
-      &:backdrop { 
+      &:backdrop {
         @include button(backdrop-hover);
       }
     }
-    &:active, &:checked {
+    &:active,
+    &:checked {
       @include button(active);
       &:hover {
-  	  @include button(active-hover);
+        @include button(active-hover);
       }
       &:backdrop {
         background-image: none;
         background-color: gtk("@theme_titlebar_background_backdrop");
         border-color: gtk("@theme_titlebar_background_backdrop");
         color: gtk("@theme_titlebar_foreground_backdrop");
-        &:hover { 
+        &:hover {
           @include button(backdrop-hover);
         }
       }
@@ -74,24 +77,27 @@ headerbar {
       background-image: none;
       background-color: gtk("@theme_titlebar_background_backdrop");
       color: gtk("@theme_titlebar_foreground_backdrop");
-      }
+    }
 
-    &.flat:backdrop, &.flat:backdrop:disabled, &:disabled:backdrop {
+    &.flat:backdrop,
+    &.flat:backdrop:disabled,
+    &:disabled:backdrop {
       background-image: none;
       background-color: gtk("@theme_titlebar_background_backdrop");
       color: gtk("@theme_titlebar_foreground_backdrop");
       border-color: transparent;
-      }
+    }
     &.flat:disabled {
-      @extend %undecorated_button;;
+      @extend %undecorated_button;
       color: gtk("@theme_titlebar_foreground_insensitive");
-      }
+    }
     &:disabled {
       background-color: transparent;
       background-image: none;
       border-color: transparent;
       color: gtk("@theme_titlebar_foreground_insensitive");
-      &:active, &:checked {
+      &:active,
+      &:checked {
         @include button(insensitive-active);
       }
     }
@@ -100,7 +106,7 @@ headerbar {
   .title {
     font-weight: normal;
     padding: 0px 12px;
-    &:backdrop { 
+    &:backdrop {
       color: gtk("@theme_titlebar_foreground_backdrop");
     }
   }
@@ -109,7 +115,7 @@ headerbar {
     font-size: smaller;
     padding: 0 12px;
     @extend .dim-label;
-    &:backdrop { 
+    &:backdrop {
       color: gtk("@theme_titlebar_foreground_backdrop");
     }
   }
@@ -121,14 +127,20 @@ headerbar {
     border-color: transparent;
   }
 
-  &.selection-mode, &.selection-mode headerbar {
-    background-color: gtkmix("@theme_titlebar_background", "@theme_button_decoration_focus", 0.5);
+  &.selection-mode,
+  &.selection-mode headerbar {
+    background-color: gtkmix(
+      "@theme_titlebar_background",
+      "@theme_button_decoration_focus",
+      0.5
+    );
     separator {
       background-color: gtk("@theme_button_decoration_focus");
     }
     button:not(.titlebutton) {
       background-color: gtkalpha(gtk("@theme_button_decoration_focus"), 0.5);
-      &:active, &:focus {
+      &:active,
+      &:focus {
         background-color: gtk("@theme_button_decoration_focus");
       }
     }
@@ -137,21 +149,26 @@ headerbar {
       @extend %suggested-action;
     }
 
-    .subtitle:link { @extend *:link:selected;  }
+    .subtitle:link {
+      @extend *:link:selected;
+    }
 
     .selection-menu {
       padding: 4px 6px;
 
-      GtkArrow { -GtkArrow-arrow-scaling: 1; }
+      GtkArrow {
+        -gtkarrow-arrow-scaling: 1;
+      }
 
       .arrow {
-        -gtk-icon-source: -gtk-icontheme('pan-down-symbolic');
+        -gtk-icon-source: -gtk-icontheme("pan-down-symbolic");
         -gtk-icon-shadow: none;
       }
     }
   }
 
-  .tiled &, .maximized & {
+  .tiled &,
+  .maximized & {
     border-radius: 0; // squared corners when the window is max'd or tiled
   }
 }
@@ -173,15 +190,16 @@ headerbar {
   &:hover {
     background-color: gtk("@theme_button_decoration_hover");
     color: gtk("@theme_button_foreground_normal");
-    }
+  }
   &:disabled {
     background-color: transparent;
     background-image: none;
     color: gtk("@theme_titlebar_foreground_insensitive");
-    &:active, &:checked {
+    &:active,
+    &:checked {
       @include button(insensitive-active);
-      }
     }
+  }
   &:backdrop {
     background-color: gtk("@theme_titlebar_background_backdrop");
     border-color: transparent;

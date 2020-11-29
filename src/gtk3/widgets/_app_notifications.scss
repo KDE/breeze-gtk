@@ -10,7 +10,9 @@
   padding: 10px;
   border-top-width: 0px;
   border-radius: 0px 0px 3px 3px;
-  &:backdrop { background-image: none; }
+  &:backdrop {
+    background-image: none;
+  }
   button {
     @include button(normal);
     &.flat {
@@ -27,9 +29,13 @@
       }
       &:backdrop,
       &:disabled,
-      &:backdrop:disabled { @extend %undecorated_button; }
+      &:backdrop:disabled {
+        @extend %undecorated_button;
+      }
     }
-    &:hover { @include button(hover); }
+    &:hover {
+      @include button(hover);
+    }
     &:active,
     &:checked,
     &:backdrop:active,
@@ -37,10 +43,14 @@
       @include button(active);
     }
     &:disabled,
-    &:backdrop:disabled{
+    &:backdrop:disabled {
       @include button(insensitive);
     }
-    &:backdrop { @include button(backdrop); }
+    &:backdrop {
+      @include button(backdrop);
+    }
   }
-  border {border: none;}
+  border {
+    border: none;
+  }
 }

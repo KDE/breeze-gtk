@@ -4,32 +4,31 @@ $ease-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
 * {
   padding: 0;
-  -GtkToolButton-icon-spacing: 4;
-  -GtkTextView-error-underline-color: gtk("@error_color");
+  -gtktoolbutton-icon-spacing: 4;
+  -gtktextview-error-underline-color: gtk("@error_color");
 
   // The size for scrollbars. The slider is 2px smaller, but we keep it
   // up so that the whole area is sensitive to button presses for the
   // slider. The stepper button is larger in both directions, the slider
   // only in the width
 
-  -GtkScrolledWindow-scrollbar-spacing: 0;
+  -gtkscrolledwindow-scrollbar-spacing: 0;
 
-  -GtkScrolled-window-overlay-scrolling: FALSE;
+  -gtkscrolled-window-overlay-scrolling: FALSE;
 
-  -GtkToolItemGroup-expander-size: 11;
-  -GtkTreeView-expander-size: 11;
+  -gtktoolitemgroup-expander-size: 11;
+  -gtktreeview-expander-size: 11;
 
-  -GtkTreeView-horizontal-separator: 4;
+  -gtktreeview-horizontal-separator: 4;
 
-  -GtkWidget-text-handle-width: 20;
-  -GtkWidget-text-handle-height: 20;
+  -gtkwidget-text-handle-width: 20;
+  -gtkwidget-text-handle-height: 20;
 
-  -GtkDialog-button-spacing: 4;
-  -GtkDialog-action-area-border: 0;
+  -gtkdialog-button-spacing: 4;
+  -gtkdialog-action-area-border: 0;
 
   outline-width: 0px;
 }
-
 
 /***************
  * Base States *
@@ -88,15 +87,16 @@ $ease-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
     color: gtk("@theme_unfocused_text_color");
     background-color: gtk("@theme_unfocused_base_color");
   }
-  
+
   &:disabled {
     color: gtk("@insensitive_base_fg_color");
   }
 
   &:selected {
-    &:focus, & {
-    border-radius: $r;
-    @extend %selected_items;
+    &:focus,
+    & {
+      border-radius: $r;
+      @extend %selected_items;
     }
   }
 }
@@ -106,17 +106,24 @@ textview {
   text {
     @extend %view;
 
-    selection { &:focus, & { @extend %selected_items; }}
+    selection {
+      &:focus,
+      & {
+        @extend %selected_items;
+      }
+    }
   }
 }
 
 textview border {
   background-color: gtk("@theme_base_color");
-  background-image: image(gtk("@borders")); // HACK: the border node just draws background so,
-  background-repeat: no-repeat;                        // using a background-image to draw the border
+  background-image: image(
+    gtk("@borders")
+  ); // HACK: the border node just draws background so,
+  background-repeat: no-repeat; // using a background-image to draw the border
 
-  &:backdrop { 
-    background-color: gtk("@theme_unfocused_base_color"); 
+  &:backdrop {
+    background-color: gtk("@theme_unfocused_base_color");
   }
 
   &.bottom {
@@ -151,7 +158,9 @@ rubberband {
 }
 
 flowbox {
-  rubberband { @extend rubberband; }
+  rubberband {
+    @extend rubberband;
+  }
 
   flowboxchild {
     padding: 3px;
@@ -169,7 +178,7 @@ label {
   &.separator {
     color: gtk("@theme_fg_color");
     @extend .dim-label;
-    &:backdrop { 
+    &:backdrop {
       color: gtk("@theme_unfocused_fg_color");
     }
   }
@@ -180,16 +189,20 @@ label {
   }
   &:disabled {
     color: gtk("@insensitive_fg_color");
-    selection { @extend %selected_items:disabled; }
+    selection {
+      @extend %selected_items:disabled;
+    }
 
-    &:backdrop { 
-      color: gtk("@insensitive_unfocused_fg_color")
+    &:backdrop {
+      color: gtk("@insensitive_unfocused_fg_color");
     }
   }
   &:backdrop {
     color: gtk("@theme_unfocused_text_color");
 
-    selction {@extend %selected_items:backdrop;}
+    selction {
+      @extend %selected_items:backdrop;
+    }
   }
 }
 
@@ -198,11 +211,11 @@ label {
   text-shadow: none;
 }
 
-%osd, 
+%osd,
 .osd {
   color: gtk("@theme_fg_color");
   border: 1px solid gtk("@borders");
-  background-color: gtkalpha(gtk("@theme_bg_color"),0.8);
+  background-color: gtkalpha(gtk("@theme_bg_color"), 0.8);
   background-clip: padding-box;
   box-shadow: none;
   text-shadow: none;
@@ -231,17 +244,18 @@ label {
   background-color: gtk("@theme_selected_bg_color");
   border-radius: 0px;
 
-  @at-root %nobg_selected_items, & {
+  @at-root %nobg_selected_items,
+    & {
     color: gtk("@theme_selected_fg_color");
 
-    &:disabled { 
+    &:disabled {
       color: gtk("@insensitive_selected_fg_color");
     }
 
     &:backdrop {
       color: gtk("@theme_unfocused_selected_fg_color");
 
-      &:disabled { 
+      &:disabled {
         color: gtk("@insensitive_unfocused_selected_fg_color");
       }
     }

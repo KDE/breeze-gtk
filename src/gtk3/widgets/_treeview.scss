@@ -29,7 +29,10 @@
 
 @mixin item-selected-middle-backdrop {
   @if $new-highlight {
-    background-color: gtkalpha(gtk("@theme_button_decoration_focus_backdrop"), 0.3);
+    background-color: gtkalpha(
+      gtk("@theme_button_decoration_focus_backdrop"),
+      0.3
+    );
     color: gtk("@theme_button_foreground_active_backdrop");
     border: 1px solid gtk("@theme_button_decoration_focus_backdrop");
     border-left: 0;
@@ -46,27 +49,31 @@
  * Tree Views *
  **************/
 treeview.view {
-  -GtkTreeView-grid-line-width: 0;
-  -GtkTreeView-grid-line-pattern: '';
-  -GtkTreeView-tree-line-width: 1;
-  -GtkTreeView-tree-line-pattern: '';
-  -GtkTreeView-expander-size: 16;
+  -gtktreeview-grid-line-width: 0;
+  -gtktreeview-grid-line-pattern: "";
+  -gtktreeview-tree-line-width: 1;
+  -gtktreeview-tree-line-pattern: "";
+  -gtktreeview-expander-size: 16;
 
   border-left-color: gtk("@borders"); // this is actually the tree lines color,
-  border-top-color: transparent;                    // while this is the grid lines color, better then nothing
+  border-top-color: transparent; // while this is the grid lines color, better then nothing
 
-  rubberband { @extend rubberband; } // to avoid borders being overridden by the previously set props
+  rubberband {
+    @extend rubberband;
+  } // to avoid borders being overridden by the previously set props
 
-  &:selected { border-radius: 0; } // rest border radius in lists
+  &:selected {
+    border-radius: 0;
+  } // rest border radius in lists
 
   &:hover {
     @include item-hover-middle();
   }
 
-  &:selected  {
+  &:selected {
     @include item-selected-middle();
   }
-  
+
   &:backdrop:selected {
     @include item-selected-middle-backdrop();
   }
@@ -75,9 +82,13 @@ treeview.view {
     color: gtk("@insensitive_borders");
     &:selected {
       color: gtk("@insensitive_selected_fg_color");
-      &:backdrop { color: gtk("@insensitive_unfocused_selected_fg_color"); }
+      &:backdrop {
+        color: gtk("@insensitive_unfocused_selected_fg_color");
+      }
     }
-    &:backdrop { color: gtk("@unfocused_insensitive_borders"); }
+    &:backdrop {
+      color: gtk("@unfocused_insensitive_borders");
+    }
   }
   &.separator {
     min-height: 2px;
@@ -101,17 +112,29 @@ treeview.view {
     // GtkTreeView uses the larger of the expander’s min-width and min-height
     min-width: 16px;
     min-height: 16px;
-    -gtk-icon-source: -gtk-icontheme('pan-end-symbolic');
+    -gtk-icon-source: -gtk-icontheme("pan-end-symbolic");
     color: gtk("@theme_fg_color");
-    &:dir(rtl) { -gtk-icon-source: -gtk-icontheme('pan-start-symbolic'); };
-    &:hover { color: gtk("@theme_button_decoration_hover"); }
-    &:selected { color: gtk("@theme_selected_fg_color"); }
-    &:checked {
-       -gtk-icon-source: -gtk-icontheme('pan-down-symbolic');
-      &:selected { color: gtk("@theme_selected_fg_color"); }
-      &:backdrop { color: gtk("@theme_unfocused_base_color"); }
+    &:dir(rtl) {
+      -gtk-icon-source: -gtk-icontheme("pan-start-symbolic");
     }
-    &:backdrop { color: gtk("@theme_unfocused_base_color"); }
+    &:hover {
+      color: gtk("@theme_button_decoration_hover");
+    }
+    &:selected {
+      color: gtk("@theme_selected_fg_color");
+    }
+    &:checked {
+      -gtk-icon-source: -gtk-icontheme("pan-down-symbolic");
+      &:selected {
+        color: gtk("@theme_selected_fg_color");
+      }
+      &:backdrop {
+        color: gtk("@theme_unfocused_base_color");
+      }
+    }
+    &:backdrop {
+      color: gtk("@theme_unfocused_base_color");
+    }
   }
   header {
     button {
@@ -134,22 +157,31 @@ treeview.view {
         transition: none; //I shouldn't need this
       }
     }
-    button:last-child { &:backdrop, & { border-right-style: none; }}
-    }
-    button.dnd,
-    header.button.dnd { // for treeview-like derive widgets
-      &:active, &:selected, &:hover, & {
-        padding: 0 6px;
-        color: gtk("@theme_selected_fg_color");
-        background-image: none;
-        background-color: gtk("@theme_selected_bg_color");
-        border-style: none;
-        border-radius: 0;
-        box-shadow: none;
-        text-shadow: none;
-        transition: none;
+    button:last-child {
+      &:backdrop,
+      & {
+        border-right-style: none;
       }
     }
+  }
+  button.dnd,
+  header.button.dnd {
+    // for treeview-like derive widgets
+    &:active,
+    &:selected,
+    &:hover,
+    & {
+      padding: 0 6px;
+      color: gtk("@theme_selected_fg_color");
+      background-image: none;
+      background-color: gtk("@theme_selected_bg_color");
+      border-style: none;
+      border-radius: 0;
+      box-shadow: none;
+      text-shadow: none;
+      transition: none;
+    }
+  }
 }
 
 %column_header_button {

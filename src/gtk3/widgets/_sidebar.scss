@@ -33,14 +33,16 @@
   &:selected {
     @extend %selected_items;
   }
-  &:backdrop { 
+  &:backdrop {
     background-color: gtk("@theme_unfocused_bg_color");
   }
   row {
     transition: all 150ms $ease-out-quad;
-  
-    &:hover { transition: none; }
-  
+
+    &:hover {
+      transition: none;
+    }
+
     &.activatable {
       border: 0;
       &:dir(ltr) {
@@ -49,23 +51,23 @@
       &:dir(rtl) {
         border-left: 3px solid transparent;
       }
-      
+
       &.has-open-popup, // this is for indicathing which row generated a popover see https://bugzilla.gnome.org/show_bug.cgi?id=754411
   
-      &:hover:dir(ltr) { 
+      &:hover:dir(ltr) {
         @include selected-item-highlight();
       }
       &:hover:dir(rtl) {
         @include selected-item-highlight-rtl();
       }
-  
+
       &:active:dir(ltr) {
         @include selected-item-highlight();
       }
       &:active:dir(rtl) {
         @include selected-item-highlight-rtl();
       }
-  
+
       &:selected {
         &:dir(ltr) {
           @include selected-item-highlight();
@@ -82,7 +84,7 @@
             @include selected-item-highlight-rtl();
           }
         }
-  
+
         &.has-open-popup,
         &:hover {
           &:dir(ltr) {
@@ -92,20 +94,24 @@
             @include selected-item-highlight-rtl();
           }
         }
-  
-        &:backdrop { 
+
+        &:backdrop {
           background-color: gtk("@theme_unfocused_selected_bg_color_alt");
         }
       }
     }
-  
-    &:selected { @extend %selected_items; }
+
+    &:selected {
+      @extend %selected_items;
+    }
   }
 }
 
 // Places sidebar is a special case, since the view here have to look like chrome not content, so we override text color
 placessidebar {
-  > viewport.frame { border-style: none; }
+  > viewport.frame {
+    border-style: none;
+  }
 
   row {
     // Needs overriding of the GtkListBoxRow padding
@@ -114,37 +120,46 @@ placessidebar {
 
     // Using margins/padding directly in the SidebarRow
     // will make the animation of the new bookmark row jump
-    > revealer { padding: 0 14px; }
+    > revealer {
+      padding: 0 14px;
+    }
 
-    &:selected { 
+    &:selected {
       color: gtk("@theme_selected_fg_color");
     }
 
-    &:disabled { 
+    &:disabled {
       color: gtk("@insensitive_fg_color");
     }
 
     &:backdrop {
       color: gtk("@theme_unfocused_fg_color");
 
-      &:selected { 
+      &:selected {
         color: gtk("@theme_unfocused_selected_bg_color_alt");
       }
 
-      &:disabled { 
+      &:disabled {
         color: gtk("@insensitive_unfocused_fg_color");
       }
     }
 
     image.sidebar-icon {
-
-      &:dir(ltr) { padding-right: 8px; }
-      &:dir(rtl) { padding-left: 8px; }
+      &:dir(ltr) {
+        padding-right: 8px;
+      }
+      &:dir(rtl) {
+        padding-left: 8px;
+      }
     }
 
     label.sidebar-label {
-      &:dir(ltr) { padding-right: 2px; }
-      &:dir(rtl) { padding-left: 2px; }
+      &:dir(ltr) {
+        padding-right: 2px;
+      }
+      &:dir(rtl) {
+        padding-left: 2px;
+      }
     }
 
     @at-root button.sidebar-button {
@@ -157,11 +172,12 @@ placessidebar {
       margin-top: 3px;
       margin-bottom: 3px;
       padding: 0;
-
     }
 
     // in the sidebar case it makes no sense to click the selected row
-    &:selected:active { box-shadow: none; }
+    &:selected:active {
+      box-shadow: none;
+    }
 
     &.sidebar-placeholder-row {
       padding: 0 8px;
@@ -170,7 +186,7 @@ placessidebar {
       background-clip: content-box;
     }
 
-    &.sidebar-new-bookmark-row { 
+    &.sidebar-new-bookmark-row {
       color: gtk("@theme_selected_bg_color");
     }
 
@@ -198,7 +214,9 @@ placesview {
     -gtk-icon-transform: rotate(-0.5turn);
   }
 
-  row.activatable:hover { background-color: transparent; }
+  row.activatable:hover {
+    background-color: transparent;
+  }
 
   // this selects the "connect to server" label
   > actionbar > revealer > box > label {

@@ -22,10 +22,13 @@ tooltip {
     background-color: transparent;
     box-shadow: none;
   }
-  decoration { background-color: transparent; }
+  decoration {
+    background-color: transparent;
+  }
 }
 
-tooltip * { //Yeah this is ugly
+tooltip * {
+  //Yeah this is ugly
   padding: 0px;
   background-color: transparent;
   color: gtk("@tooltip_text"); // just to be sure
