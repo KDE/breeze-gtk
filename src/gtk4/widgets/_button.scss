@@ -159,13 +159,13 @@ $_dot_color: gtk("@theme_button_decoration_focus");
 
 %buttons {
 
-    $_button_transition: all 200ms $ease-out-quad;
+
 
     border: 1px solid;
     border-radius: $r;
     padding: 6px 6px;
     background-clip: border-box;
-    transition: $_button_transition;
+
     @include button(normal);
     &.flat {
       @include button(undecorated);
@@ -173,11 +173,11 @@ $_dot_color: gtk("@theme_button_decoration_focus");
       // to none, while it's added back in the hover state, so the button decoration will fade in on hover, but
       // it won't fade out when the pointer leave the button allocation area. To make the transition more evident
       // in this case the duration is increased.
-      transition: none;
+
       &:hover {
-        transition: $_button_transition;
+
         transition-duration: 500ms;
-        &:active, &:focus { transition: $_button_transition; }
+
       }
       &:checked { background-color: gtk("@borders");}
     }

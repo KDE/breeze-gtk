@@ -148,13 +148,13 @@ treeview.view {
         color: gtk("@theme_button_foreground_normal");
         background-color: gtkalpha(gtk("@theme_button_decoration_hover"), 0.5);
         box-shadow: none;
-        transition: none; //I shouldn't need this
+
       }
       &:active {
         @extend %column_header_button;
         color: gtk("@theme_button_foreground_normal");
         background-color: gtkalpha(gtk("@theme_button_decoration_hover"), 0.5);
-        transition: none; //I shouldn't need this
+
       }
     }
     button:last-child {
@@ -179,7 +179,7 @@ treeview.view {
       border-radius: 0;
       box-shadow: none;
       text-shadow: none;
-      transition: none;
+
     }
   }
 }

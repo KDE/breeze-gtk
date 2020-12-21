@@ -6,7 +6,7 @@
 
 %titlebar,
 headerbar {
-  transition: none;
+
   padding: 0px 6px;
   border-width: 0px 0px 1px 0px;
   border-radius: 3px 3px 0px 0px;
@@ -36,7 +36,7 @@ headerbar {
     }
   }
   button {
-    transition: none;
+
     @include button(undecorated);
     color: gtk("@theme_titlebar_foreground");
 
