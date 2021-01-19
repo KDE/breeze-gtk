@@ -92,7 +92,7 @@ window {
         background-repeat: no-repeat;
         background-size: $titlebutton-size;
         background-image: -gtk-recolor(
-          url("../assets/breeze-maximize-symbolic.svg"),
+          url("../assets/breeze-close-symbolic.svg"),
           color gtk("@theme_text_color")
         );
         -gtk-icon-source: none;
