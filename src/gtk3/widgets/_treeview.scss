@@ -79,7 +79,7 @@ treeview.view {
   }
 
   &:disabled {
-    color: gtk("@insensitive_borders");
+    color: gtk("@insensitive_fg_color");
     &:selected {
       color: gtk("@insensitive_selected_fg_color");
       &:backdrop {
@@ -87,7 +87,7 @@ treeview.view {
       }
     }
     &:backdrop {
-      color: gtk("@unfocused_insensitive_borders");
+      color: gtk("@insensitive_unfocused_fg_color");
     }
   }
   &.separator {
