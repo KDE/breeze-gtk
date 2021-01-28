@@ -1,11 +1,9 @@
 file(GLOB_RECURSE SCSS_SOURCES "*.scss")
 file(GLOB CSS_SOURCES "*.css")
-file(GLOB_RECURSE GTK2_SOURCES "gtk2/*")
 
 set(SOURCES
     ${SCSS_SOURCES}
     ${CSS_SOURCES}
-    ${GTK2_SOURCES}
     render_assets.py
     build_theme.sh
 )
@@ -13,7 +11,6 @@ set(SOURCES
 function(gen_targets THEME_NAME)
     set(THEME_DIR "${PROJECT_BINARY_DIR}/${THEME_NAME}")
     set(${THEME_NAME}_TARGETS
-        "${THEME_DIR}/gtk-2.0/gtkrc"
         "${THEME_DIR}/gtk-3.0/gtk.css"
         PARENT_SCOPE
     )
