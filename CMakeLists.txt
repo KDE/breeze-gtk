@@ -8,6 +8,7 @@ find_package(ECM 0.0.9 REQUIRED NO_MODULE)
 include(FeatureSummary)
 
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH}  "${CMAKE_SOURCE_DIR}/cmake")
+find_package(GTKEngine)
 find_package(Sass REQUIRED)
 find_package(PythonCairo)
 set_package_properties(PythonCairo PROPERTIES TYPE REQUIRED PURPOSE "Required to render assets")

@@ -349,6 +349,332 @@ class Assets(object):
     def save(self, filename):
         self.surface.write_to_png(os.path.join(assets_path, filename))
 
+
+def check_items(color1, color2, state, alpha=1.0):
+    for scl in [1, 2]:
+        if scl == 2:
+            ending = '@2.png'
+        else:
+            ending = '.png'
+        # checkboxes
+        box = Assets(20, 20, scl)
+        box.rounded_rectancle('shadow', 18, 18, 2, 2, 3)
+        box.rounded_rectancle(color2, 18, 18, 1, 1, 3)
+        box.rounded_rectancle(color1, 18, 18, 1, 1, 3, alpha=alpha)
+        box.rounded_rectancle(color2, 16, 16, 2, 2, 2)
+        box.save('check-unchecked' + state + ending)
+        if state != '':
+            box.rounded_rectancle(color1, 12, 12, 4, 4, 1, alpha=alpha)
+            box.save('check-checked' + state + ending)
+            box.rounded_triangle(color2, 8, 8, 6, 6, 1, alpha=alpha)
+            box.save('check-mixed' + state + ending)
+
+        # radio
+        radio = Assets(20, 20, scl)
+        radio.circle('shadow', 11, 11, 9)
+        radio.circle(color2, 10, 10, 9)
+        radio.circle(color1, 10, 10, 9, alpha=alpha)
+        radio.circle(color2, 10, 10, 8)
+        radio.save('radio-unchecked' + state + ending)
+        if state != '':
+            radio.circle(color1, 10, 10, 6, alpha=alpha)
+            radio.save('radio-checked' + state + ending)
+            radio.half_circle(color2, 10, 10, 4, alpha=alpha)
+            radio.save('radio-mixed' + state + ending)
+
+        # selectionmode
+        selectionmode = Assets(40, 40, scl)
+        selectionmode.rounded_rectancle('shadow', 18, 18, 12, 12, 3)
+        selectionmode.rounded_rectancle(color2, 18, 18, 11, 11, 3)
+        selectionmode.rounded_rectancle(color1, 18, 18, 11, 11, 3, alpha=alpha)
+        selectionmode.rounded_rectancle(color2, 16, 16, 12, 12, 2)
+        selectionmode.save('check-selectionmode-unchecked' + state + ending)
+        if state != '':
+            selectionmode.rounded_rectancle(
+                color1, 12, 12, 14, 14, 1, alpha=alpha)
+            selectionmode.save('check-selectionmode-checked' + state + ending)
+
+
+def buttons(color1, color2, color3, state, alpha=1.0):
+    button = Assets(20, 20)
+    button.rounded_rectancle('shadow', 18, 18, 2, 2, 3)
+    button.rounded_rectancle(color1, 18, 18, 1, 1, 3)
+    button.rounded_rectancle(color2, 18, 18, 1, 1, 3, alpha=alpha)
+    if state == '-active':
+        button.rounded_rectancle(color3, 18, 18, 1, 1, 3, gradient=True)
+    else:
+        button.rounded_rectancle(color1, 16, 16, 2, 2, 2)
+        button.rounded_rectancle(color3, 16, 16, 2, 2, 2, gradient=True)
+    button.save('button' + state + '.png')
+
+
+def togglebuttons(color1, color2, color3, state, alpha=1.0):
+    button = Assets(20, 20)
+    button.rounded_rectancle(color1, 18, 18, 1, 1, 3)
+    button.rounded_rectancle(color2, 18, 18, 1, 1, 3, alpha=alpha)
+    if state == '-active':
+        button.rounded_rectancle(color3, 18, 18, 1, 1, 3, gradient=True)
+    else:
+        button.rounded_rectancle(color1, 16, 16, 2, 2, 2)
+        button.rounded_rectancle(color3, 16, 16, 2, 2, 2, gradient=True)
+    button.save('togglebutton' + state + '.png')
+
+
+def scale_slider(color1, color2, color3, state, alpha=1.0):
+    scale = Assets(20, 20)
+    scale.circle(color1, 10, 10, 10)
+    scale.circle(color2, 10, 10, 10, alpha=alpha)
+    scale.circle(color1, 10, 10, 9)
+    scale.circle(color3, 10, 10, 9, gradient=True)
+    scale.save('scale-slider' + state + '.png')
+
+
+def scale_trough(color):
+    trough_h = Assets(20, 20)
+    trough_h.rounded_rectancle(color, 20, 6, 0, 7, 3)
+    trough_h.save('scale-trough-horizontal.png')
+
+    trough_h = Assets(20, 20)
+    trough_h.rounded_rectancle(color, 6, 20, 7, 0, 3)
+    trough_h.save('scale-trough-vertical.png')
+
+
+def tabs(color1, color2, state):
+    if state == '-inactive':
+        alpha = 0.2
+    else:
+        alpha = 1.0
+    direction = ['-bottom', '-left', '-top', '-right']
+    for i in range(0, 4):
+        tab = Assets(20, 20, rotation=i)
+        tab.tab(color1, 20, 20, 0, 0, 3, alpha)
+        if state == '-active':
+            tab.tab(color2, 18, 19, 1, 0, 2)
+        tab.save('tab' + direction[i] + state + '.png')
+
+
+def arrows(color, state, alpha=1.0):
+    direction = ['-up', '-right', '-down', '-left']
+    for i in range(0, 4):
+        arw = Assets(12, 12, rotation=i)
+        arw.arrow(color, alpha)
+        arw.save('arrow' + direction[i] + state + '.png')
+
+        arw = Assets(8, 8, rotation=i)
+        arw.arrow_small(color, alpha)
+        arw.save('arrow-small' + direction[i] + state + '.png')
+
+
+def menu_arrow(color, state, alpha=1.0):
+    arrow = Assets(12, 12, rotation=1)
+    arrow.arrow(color, alpha)
+    arrow.save('menu-arrow' + state + '.png')
+
+
+def scrollbar_slider(color1, color2, color3):
+    for scl in [1, 2]:
+        if scl == 2:
+            ending = '@2.png'
+        else:
+            ending = '.png'
+        slider = Assets(30, 20, scl)
+        slider.rounded_rectancle(color1, 30, 10, 0, 5, 5, 1)
+        slider.save('scrollbar-slider-horizontal-active' + ending)
+
+        slider = Assets(30, 20, scl)
+        slider.rounded_rectancle(color2, 30, 6, 0, 7, 3, 1)
+        slider.save('scrollbar-slider-horizontal-hover' + ending)
+
+        slider = Assets(30, 20, scl)
+        slider.rounded_rectancle(color3, 30, 6, 0, 7, 3, 1)
+        slider.save('scrollbar-slider-horizontal' + ending)
+
+        slider = Assets(20, 30, scl)
+        slider.rounded_rectancle(color1, 10, 30, 5, 0, 5, 1)
+        slider.save('scrollbar-slider-vertical-active' + ending)
+
+        slider = Assets(20, 30, scl)
+        slider.rounded_rectancle(color2, 6, 30, 7, 0, 3, 1)
+        slider.save('scrollbar-slider-vertical-hover' + ending)
+
+        slider = Assets(20, 30, scl)
+        slider.rounded_rectancle(color3, 6, 30, 7, 0, 3, 1)
+        slider.save('scrollbar-slider-vertical' + ending)
+
+
+def scrollbar_trough(color):
+    for scl in [1, 2]:
+        if scl == 2:
+            ending = '@2.png'
+        else:
+            ending = '.png'
+        trough = Assets(56, 20, scl)
+        trough.rounded_rectancle(color, 49, 6, 3.5, 7, 3, 0.3)
+        trough.save('scrollbar-trough-horizontal' + ending)
+
+        trough = Assets(20, 56, scl)
+        trough.rounded_rectancle(color, 6, 49, 7, 3.5, 3, 0.3)
+        trough.save('scrollbar-trough-vertical' + ending)
+
+
+def titlebuttons(color1, color2, state):
+    for scl in [1, 2]:
+        if scl == 2:
+            ending = '@2.png'
+        else:
+            ending = '.png'
+        title_minimize = Assets(18, 18, scl)
+        title_maximize = Assets(18, 18, scl)
+        title_maximized = Assets(18, 18, scl)
+        if state == '' or state == '-backdrop':
+            title_minimize.minimize(color1)
+            title_maximize.maximize(color1)
+            title_maximized.maximize_maximized(color1)
+        else:
+            title_minimize.circle(color1, 9, 9, 9)
+            title_maximize.circle(color1, 9, 9, 9)
+            title_maximized.circle(color1, 9, 9, 9)
+            title_minimize.minimize()
+            title_maximize.maximize()
+            title_maximized.maximize_maximized()
+        title_minimize.save('titlebutton-minimize' + state + ending)
+        title_maximize.save('titlebutton-maximize' + state + ending)
+        title_maximized.save('titlebutton-maximize-maximized' + state + ending)
+
+        title_close = Assets(18, 18, scl)
+        title_close.circle(color2, 9, 9, 9)
+        title_close.close()
+        title_close.save('titlebutton-close' + state + ending)
+
+
+def entry(color1, color2, color3, state, alpha=1.0):
+    entry = Assets(20, 20)
+    entry.background(color1)
+    entry.rounded_rectancle(color2, 18, 18, 1, 1, 3, alpha=alpha)
+    entry.rounded_rectancle(color3, 16, 16, 2, 2, 2)
+    entry.rounded_rectancle(color3, 16, 16, 2, 2, 2)
+    entry.save('entry' + state + '.png')
+
+    entry = Assets(20, 20, rotation=1)
+    entry.background(color1)
+    entry.tab(color2, 18, 19, 1, 0, 3, alpha=alpha)
+    entry.tab(color3, 16, 18, 2, 0, 2)
+    entry.save('combo-entry' + state + '.png')
+
+    entry_button = Assets(20, 20, rotation=3)
+    entry_button.background(color1)
+    entry_button.tab(color2, 18, 19, 1, 0, 3, alpha=alpha)
+    entry_button.tab(color3, 16, 18, 2, 0, 2)
+    entry_button.save('combo-entry-button' + state + '.png')
+
+    if state != '-active':
+        direction = ['-down', '-down-rtl', '-up-rtl', '-up']
+        for i in range(0, 4):
+            spin = Assets(20, 20, rotation=i)
+            spin.background(color1)
+            spin.spinbutton(color2, 19, 19, 0, 0, 3, alpha=alpha)
+            spin.spinbutton(color3, 18, 18, 0, 0, 2)
+            spin.save('spinbutton' + direction[i] + state + '.png')
+
+
+def mixed(color1, color2, color3):
+    nll = Assets(20, 20)
+    nll.save('null.png')
+
+    # Frame
+    frame = Assets(20, 20)
+    frame.rounded_rectancle(color1, 20, 20, 0, 0, 3)
+    frame.rounded_rectancle(color2, 18, 18, 1, 1, 2)
+    frame.save('frame.png')
+
+    # Tree header
+    header = Assets(20, 20)
+    header.background(color2)
+    header.line(color1, 0, 19, 20, 1)
+    header.line(color1, 19, 0, 1, 20)
+    header.save('tree-header.png')
+
+    # Notebook gap
+    notebook_gap = Assets(4, 2)
+    notebook_gap.line(color2, 1, 0, 2, 2)
+    notebook_gap.save('notebook-gap-horizontal.png')
+
+    notebook_gap = Assets(2, 4)
+    notebook_gap.line(color2, 0, 1, 2, 2)
+    notebook_gap.save('notebook-gap-vertical.png')
+
+    # Notebook frame
+    direction = ['-top', '-right', '-bottom', '-bottom']
+    for i in range(0, 4):
+        notebook_frame = Assets(20, 20, rotation=i)
+        notebook_frame.notebook(color1, 20, 20, 0, 0, 3)
+        notebook_frame.notebook(color2, 18, 18, 1, 1, 2)
+        notebook_frame.save('notebook-frame' + direction[i] + '.png')
+
+    # Frame gap
+    frame_gap = Assets(2, 1)
+    frame_gap.line(color1, 1, 0, 1, 1)
+    frame_gap.save('frame-gap-start.png')
+
+    frame_gap = Assets(2, 1)
+    frame_gap.line(color1, 0, 0, 1, 1)
+    frame_gap.save('frame-gap-end.png')
+
+    # Lines
+    lines = Assets(20, 1)
+    lines.line(color1, 0, 0, 20, 1)
+    lines.save('line-h.png')
+
+    lines = Assets(1, 20)
+    lines.line(color1, 0, 0, 1, 20)
+    lines.save('line-v.png')
+
+    lines = Assets(20, 1)
+    lines.line(color2, 0, 0, 20, 1)
+    lines.save('handle-h.png')
+
+    lines = Assets(1, 20)
+    lines.line(color2, 0, 0, 1, 20)
+    lines.save('handle-v.png')
+
+    menubar = Assets(20, 20)
+    menubar.line(color3, 1, 1, 18, 18)
+    menubar.save('menubar-button.png')
+
+
+def toolbar(color1, color2, color3):
+    # Toolbar background
+    bar = Assets(20, 20)
+    bar.background(color2)
+    bar.save('toolbar-background.png')
+
+    # Toolbutton toggled
+    toolbutton = Assets(20, 20)
+    toolbutton.rounded_rectancle(color1, 18, 18, 1, 1, 3)
+    toolbutton.save('toolbutton-toggled.png')
+
+    # Toolbutton hover
+    toolbutton = Assets(20, 20)
+    toolbutton.rounded_rectancle(color3, 18, 18, 1, 1, 3)
+    toolbutton.rounded_rectancle(color2, 16, 16, 2, 2, 2)
+    toolbutton.save('toolbutton-hover.png')
+
+    # Toolbutton active
+    toolbutton = Assets(20, 20)
+    toolbutton.rounded_rectancle(color3, 18, 18, 1, 1, 3)
+    toolbutton.save('toolbutton-active.png')
+
+
+def progressbar(color1, color2, state=''):
+    bar = Assets(10, 10)
+    bar.rounded_rectancle(color1, 10, 10, 0, 0, 3)
+    bar.save('progressbar-bar' + state + '.png')
+
+    trough = Assets(10, 10)
+    trough.rounded_rectancle(color2, 10, 10, 0, 0, 3)
+    trough.save('progressbar-trough' + state + '.png')
+
+
 def html(color):
     return '#%02x%02x%02x' % (int(color[0]*255),
                               int(color[1]*255),
@@ -376,6 +702,9 @@ parser.add_argument('--basecolorscheme', '-b', action='store',
 parser.add_argument('--assets-dir', '-a', action='store',
                     default='assets',
                     help='location of the directory to place assets')
+parser.add_argument('--gtk2-dir', '-g', action='store', default='gtk2',
+                    help='location of gtk2 directory to define the color '
+                         'scheme variables')
 parser.add_argument('--gtk3-scss-dir', '-G', action='store', default='.',
                     help='location of global.scss to define the color '
                          'scheme variables')
@@ -412,6 +741,116 @@ titlebutton_inactive = Color(_colors, 'WMinactiveForeground')
 titlebutton_inactive_active = Color(_colors, 'WMinactiveForeground')
 tooltip_fg = Color(_colors, 'TooltipForegroundNormal')
 tooltip_bg = Color(_colors, 'TooltipBackgroundNormal')
+
+check_items(check_color.rgb, window_bg.rgb, '')
+check_items(button_hover.rgb, window_bg.rgb, '-hover')
+check_items(button_active.rgb, window_bg.rgb, '-active')
+check_items(check_color.insensitive, window_bg.rgb,
+            '-insensitive', border_color.insensitive_alpha)
+check_items(check_color.inactive, window_bg.rgb,
+            '-backdrop', border_color.inactive_alpha)
+check_items(check_color.inactive_insensitive, window_bg.rgb,
+            '-backdrop-insensitive', border_color.inactive_insensitive_alpha)
+
+buttons(window_bg.rgb, border_color.rgb, button_bg.gradient(), '')
+buttons(window_bg.rgb, button_hover.rgb, button_bg.gradient(), '-hover')
+buttons(window_bg.rgb, button_hover.rgb,
+        button_hover.gradient('active'), '-active')
+buttons(window_bg.rgb, border_color.rgb,
+        button_bg.gradient(alpha=button_bg.insensitive_alpha), '-insensitive',
+        border_color.insensitive_alpha)
+
+togglebuttons(window_bg.rgb, border_color.rgb, button_bg.gradient(), '')
+togglebuttons(window_bg.rgb, button_hover.rgb, button_bg.gradient(), '-hover')
+togglebuttons(window_bg.rgb, button_hover.rgb,
+              button_hover.gradient('active'), '-active')
+togglebuttons(window_bg.rgb, border_color.rgb,
+              button_bg.gradient(alpha=button_bg.insensitive_alpha),
+              '-insensitive', border_color.insensitive_alpha)
+
+scale_slider(window_bg.rgb, border_color.rgb, button_bg.gradient(), '')
+scale_slider(window_bg.rgb, button_hover.rgb, button_bg.gradient(), '-hover')
+scale_slider(window_bg.rgb, button_active.rgb, button_bg.gradient(), '-active')
+scale_slider(window_bg.rgb, border_color.rgb,
+             button_bg.gradient(alpha=button_bg.insensitive_alpha),
+             '-insensitive', border_color.insensitive_alpha)
+scale_trough(border_color.rgb)
+
+tabs(border_color.rgb, window_bg.rgb, '-active')
+tabs(window_fg.rgb, window_bg.rgb, '-inactive')
+
+arrows(button_fg.rgb, '')
+arrows(button_hover.rgb, '-hover')
+arrows(button_active.rgb, '-active')
+arrows(button_fg.insensitive, '-insensitive', button_fg.insensitive_alpha)
+menu_arrow(window_fg.rgb, '')
+menu_arrow(selection_fg.rgb, '-selected')
+menu_arrow(window_fg.insensitive, '-insensitive', window_fg.insensitive_alpha)
+
+scrollbar_slider(button_active.rgb, button_hover.rgb, button_active.rgb)
+scrollbar_trough(window_fg.rgb)
+
+titlebuttons(titlebutton.rgb, titlebutton.rgb, '')
+titlebuttons(titlebutton.rgb, closebutton_hover.rgb, '-hover')
+titlebuttons(titlebutton_active.rgb, closebutton_active.rgb, '-active')
+titlebuttons(titlebutton_inactive.rgb, titlebutton_inactive.rgb, '-backdrop')
+titlebuttons(titlebutton_inactive.rgb,
+             closebutton_hover.rgb, '-hover-backdrop')
+titlebuttons(titlebutton_inactive_active.rgb,
+             closebutton_active.rgb, '-active-backdrop')
+
+entry(window_bg.rgb, border_color.rgb, view_bg.rgb, '')
+entry(window_bg.rgb, view_active.rgb, view_bg.rgb, '-active')
+entry(window_bg.rgb, border_color.insensitive, None,
+      '-insensitive', border_color.insensitive_alpha)
+
+progressbar(selection_bg.rgb, mix(window_fg.rgb, window_bg.rgb, 0.3))
+
+mixed(border_color.rgb, window_bg.rgb, button_active.rgb)
+
+toolbar(border_color.rgb, window_bg.rgb, button_hover.rgb)
+
+gtk2 = open(os.path.join(args.gtk2_dir, 'gtkrc'), 'w')
+gtk2.write(
+    '# Theme:       Breeze-gtk\n'
+    '# Description: Breeze theme for GTK+2.0\n'
+    '\n'
+    'gtk-color-scheme = "text_color:' + html(window_fg.rgb) + '"\n'
+    'gtk-color-scheme = "base_color:' + html(view_bg.rgb) + '"\n'
+    'gtk-color-scheme = "insensitive_base_color:' +
+    html(view_bg.insensitive) + '"\n'
+    'gtk-color-scheme = "fg_color:' + html(window_fg.rgb) + '"\n'
+    'gtk-color-scheme = "bg_color:' + html(window_bg.rgb) + '"\n'
+    'gtk-color-scheme = "selected_fg_color:' + html(selection_fg.rgb) + '"\n'
+    'gtk-color-scheme = "selected_bg_color:' + html(selection_bg.rgb) + '"\n'
+    'gtk-color-scheme = "button_fg_color:' + html(button_fg.rgb) + '"\n'
+    'gtk-color-scheme = "tooltip_fg_color:' + html(tooltip_fg.rgb) + '"\n'
+    'gtk-color-scheme = "tooltip_bg_color:' + html(tooltip_bg.rgb) + '"\n'
+    'gtk-color-scheme = "insensitive_fg_color:' +
+    html(mix(window_fg.insensitive, window_bg.rgb,
+             window_fg.insensitive_alpha)) + '"\n'
+    'gtk-color-scheme = "insensitive_text_color:' +
+    html(mix(view_fg.insensitive, view_bg.rgb,
+             view_fg.insensitive_alpha)) + '"\n'
+    'gtk-color-scheme = "button_insensitive_fg_color:' +
+    html(mix(button_fg.insensitive, button_bg.rgb,
+             button_fg.insensitive_alpha)) + '"\n'
+    'gtk-color-scheme = "button_active:' + html(button_active.rgb) + '"\n'
+    'gtk-color-scheme = "border_color:' + html(border_color.rgb) + '"\n'
+    '\n'
+    'include "widgets/default"\n'
+    'include "widgets/buttons"\n'
+    'include "widgets/menu"\n'
+    'include "widgets/entry"\n'
+    'include "widgets/notebook"\n'
+    'include "widgets/range"\n'
+    'include "widgets/scrollbar"\n'
+    'include "widgets/toolbar"\n'
+    'include "widgets/progressbar"\n'
+    'include "widgets/misc"\n'
+    'include "widgets/styles"\n'
+)
+gtk2.close()
 
 gtk3 = open(os.path.join(args.gtk3_scss_dir, '_global.scss'), 'w')
 for key in sorted(_colors):
