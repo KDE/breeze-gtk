@@ -5,8 +5,8 @@
  **************/
 
 scrollbar {
-  -gtkscrollbar-has-backward-stepper: false;
-  -gtkscrollbar-has-forward-stepper: false;
+  -GtkScrollbar-has-backward-stepper: false;
+  -GtkScrollbar-has-forward-stepper: false;
 
   background-color: gtk("@theme_bg_color");
   border-width: 0px 0px;
@@ -55,8 +55,8 @@ scrollbar {
   } //
 
   &.overlay-indicator:not(.dragging):not(.hovering) {
-    -gtkscrollbar-has-backward-stepper: false;
-    -gtkscrollbar-has-forward-stepper: false;
+    -GtkScrollbar-has-backward-stepper: false;
+    -GtkScrollbar-has-forward-stepper: false;
   }
 
   &.overlay-indicator {

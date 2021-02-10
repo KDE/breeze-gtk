@@ -49,11 +49,11 @@
  * Tree Views *
  **************/
 treeview.view {
-  -gtktreeview-grid-line-width: 0;
-  -gtktreeview-grid-line-pattern: "";
-  -gtktreeview-tree-line-width: 1;
-  -gtktreeview-tree-line-pattern: "";
-  -gtktreeview-expander-size: 16;
+  -GtkTreeView-grid-line-width: 0;
+  -GtkTreeView-grid-line-pattern: "";
+  -GtkTreeView-tree-line-width: 1;
+  -GtkTreeView-tree-line-pattern: "";
+  -GtkTreeView-expander-size: 16;
 
   border-left-color: gtk("@borders"); // this is actually the tree lines color,
   border-top-color: transparent; // while this is the grid lines color, better then nothing

@@ -4,28 +4,28 @@ $ease-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
 * {
   padding: 0;
-  -gtktoolbutton-icon-spacing: 4;
-  -gtktextview-error-underline-color: gtk("@error_color");
+  -GtkToolButton-icon-spacing: 4;
+  -GtkTextView-error-underline-color: gtk("@error_color");
 
   // The size for scrollbars. The slider is 2px smaller, but we keep it
   // up so that the whole area is sensitive to button presses for the
   // slider. The stepper button is larger in both directions, the slider
   // only in the width
 
-  -gtkscrolledwindow-scrollbar-spacing: 0;
+  -GtkScrolledWindow-scrollbar-spacing: 0;
 
-  -gtkscrolled-window-overlay-scrolling: FALSE;
+  -GtkScrolled-window-overlay-scrolling: FALSE;
 
-  -gtktoolitemgroup-expander-size: 11;
-  -gtktreeview-expander-size: 11;
+  -GtkToolItemGroup-expander-size: 11;
+  -GtkTreeView-expander-size: 11;
 
-  -gtktreeview-horizontal-separator: 4;
+  -GtkTreeView-horizontal-separator: 4;
 
-  -gtkwidget-text-handle-width: 20;
-  -gtkwidget-text-handle-height: 20;
+  -GtkWidget-text-handle-width: 20;
+  -GtkWidget-text-handle-height: 20;
 
-  -gtkdialog-button-spacing: 4;
-  -gtkdialog-action-area-border: 0;
+  -GtkDialog-button-spacing: 4;
+  -GtkDialog-action-area-border: 0;
 
   outline-width: 0px;
 }
