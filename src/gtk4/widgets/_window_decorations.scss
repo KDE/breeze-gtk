@@ -59,6 +59,10 @@ window.solid-csd {
   }
 }
 
+headerbar.titlebar {
+  min-height: 46px;
+}
+
 headerbar,
 .titlebar {
   &.default-decoration button.titlebutton {
