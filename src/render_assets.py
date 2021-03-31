@@ -486,7 +486,7 @@ def scrollbar_slider(color1, color2, color3):
         slider.save('scrollbar-slider-horizontal-hover' + ending)
 
         slider = Assets(30, 20, scl)
-        slider.rounded_rectancle(color3, 30, 6, 0, 7, 3, 1)
+        slider.rounded_rectancle(color3, 30, 6, 0, 7, 3, 0.4)
         slider.save('scrollbar-slider-horizontal' + ending)
 
         slider = Assets(20, 30, scl)
@@ -498,7 +498,7 @@ def scrollbar_slider(color1, color2, color3):
         slider.save('scrollbar-slider-vertical-hover' + ending)
 
         slider = Assets(20, 30, scl)
-        slider.rounded_rectancle(color3, 6, 30, 7, 0, 3, 1)
+        slider.rounded_rectancle(color3, 6, 30, 7, 0, 3, 0.4)
         slider.save('scrollbar-slider-vertical' + ending)
 
 
@@ -787,7 +787,7 @@ menu_arrow(window_fg.rgb, '')
 menu_arrow(selection_fg.rgb, '-selected')
 menu_arrow(window_fg.insensitive, '-insensitive', window_fg.insensitive_alpha)
 
-scrollbar_slider(button_active.rgb, button_hover.rgb, button_active.rgb)
+scrollbar_slider(view_active.rgb, view_hover.rgb, view_fg.rgb)
 scrollbar_trough(window_fg.rgb)
 
 titlebuttons(titlebutton.rgb, titlebutton.rgb, '')
