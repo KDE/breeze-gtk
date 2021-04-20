@@ -444,9 +444,14 @@ button {
  **************/
 combobox {
   arrow {
-    -gtk-icon-source: -gtk-icontheme("pan-down-symbolic");
+    -gtk-icon-source: -gtk-icontheme('go-down-symbolic');
     min-height: 16px;
     min-width: 16px;
+  }
+
+  button {
+    padding-top: 4px;
+    padding-bottom: 4px;
   }
 
   &.linked {
