@@ -111,12 +111,12 @@ menu,
       min-width: 16px;
 
       &:dir(ltr) {
-        -gtk-icon-source: -gtk-icontheme("pan-end-symbolic");
+        -gtk-icon-source: -gtk-icontheme("go-next-symbolic");
         margin-left: 10px;
       }
 
       &:dir(rtl) {
-        -gtk-icon-source: -gtk-icontheme("pan-start-symbolic");
+        -gtk-icon-source: -gtk-icontheme("go-next-rtl-symbolic");
         margin-right: 10px;
       }
     }
@@ -135,13 +135,13 @@ menu,
     &.top {
       margin-top: -6px;
       border: none;
-      -gtk-icon-source: -gtk-icontheme("pan-up-symbolic");
+      -gtk-icon-source: -gtk-icontheme("go-up-symbolic");
     }
 
     &.bottom {
       margin-bottom: -6px;
       border: none;
-      -gtk-icon-source: -gtk-icontheme("pan-down-symbolic");
+      -gtk-icon-source: -gtk-icontheme("go-down-symbolic");
     }
 
     &:hover {
@@ -264,11 +264,11 @@ modelbutton.flat arrow {
   }
 
   &.left {
-    -gtk-icon-source: -gtk-icontheme("pan-start-symbolic");
+    -gtk-icon-source: -gtk-icontheme("go-previous-symbolic");
   }
 
   &.right {
-    -gtk-icon-source: -gtk-icontheme("pan-end-symbolic");
+    -gtk-icon-source: -gtk-icontheme("go-next-symbolic");
   }
 }
 

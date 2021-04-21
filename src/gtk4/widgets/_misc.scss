@@ -74,10 +74,10 @@ expander {
   arrow {
     min-width: 16px;
     min-height: 16px;
-    -gtk-icon-source: -gtk-icontheme('pan-end-symbolic');
-    &:dir(rtl) { -gtk-icon-source: -gtk-icontheme('pan-start-symbolic');}
+    -gtk-icon-source: -gtk-icontheme('go-next-symbolic');
+    &:dir(rtl) { -gtk-icon-source: -gtk-icontheme('go-next-rtl-symbolic');}
     &:hover { color: gtkshade(gtk("@theme_fg_color"),1.3); } //only lightens the arrow
-    &:checked { -gtk-icon-source: -gtk-icontheme('pan-down-symbolic'); }
+    &:checked { -gtk-icon-source: -gtk-icontheme('go-down-symbolic'); }
   }
 }
 
