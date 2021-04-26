@@ -111,7 +111,7 @@ menu,
       min-width: 16px;
 
       &:dir(ltr) {
-        -gtk-icon-source: -gtk-icontheme("go-next-symbolic");
+        -gtk-icon-source: -gtk-icontheme($arrow_right);
         margin-left: 10px;
       }
 
@@ -135,13 +135,13 @@ menu,
     &.top {
       margin-top: -6px;
       border: none;
-      -gtk-icon-source: -gtk-icontheme("go-up-symbolic");
+      -gtk-icon-source: -gtk-icontheme($arrow_up);
     }
 
     &.bottom {
       margin-bottom: -6px;
       border: none;
-      -gtk-icon-source: -gtk-icontheme("go-down-symbolic");
+      -gtk-icon-source: -gtk-icontheme($arrow_down);
     }
 
     &:hover {
@@ -264,11 +264,11 @@ modelbutton.flat arrow {
   }
 
   &.left {
-    -gtk-icon-source: -gtk-icontheme("go-previous-symbolic");
+    -gtk-icon-source: -gtk-icontheme($arrow_left);
   }
 
   &.right {
-    -gtk-icon-source: -gtk-icontheme("go-next-symbolic");
+    -gtk-icon-source: -gtk-icontheme($arrow_right);
   }
 }
 

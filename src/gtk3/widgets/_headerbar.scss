@@ -161,7 +161,7 @@ headerbar {
       }
 
       .arrow {
-        -gtk-icon-source: -gtk-icontheme("go-down-symbolic");
+        -gtk-icon-source: -gtk-icontheme($arrow_down);
         -gtk-icon-shadow: none;
       }
     }

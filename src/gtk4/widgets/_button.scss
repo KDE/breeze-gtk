@@ -406,7 +406,7 @@ button {
  **************/
  combobox {
   arrow {
-    -gtk-icon-source: -gtk-icontheme('go-down-symbolic');
+    -gtk-icon-source: -gtk-icontheme($arrow_down);
     min-height: 16px;
     min-width: 16px;
   }
