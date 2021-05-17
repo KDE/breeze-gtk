@@ -40,9 +40,12 @@
     //
     // pushed button
     //
-    color: gtk("@theme_button_foreground_active");
     border-color: gtk("@theme_button_decoration_focus");
-    background-color: gtk("@theme_button_decoration_focus");
+    background: linear-gradient(
+      0deg,
+      gtk("@theme_button_background_normal"),
+      gtkshade("@theme_button_background_normal", 0.8),
+    );
   } @else if $t==active-hover {
     //
     //
