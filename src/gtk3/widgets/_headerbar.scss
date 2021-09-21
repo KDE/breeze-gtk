@@ -53,10 +53,8 @@ headerbar {
     }
     &:active,
     &:checked {
-      @include button(active);
-      &:hover {
-        @include button(active-hover);
-      }
+      @include button(titlebar-active);
+      color: gtk("@theme_titlebar_foreground");
       &:backdrop {
         background-image: none;
         background-color: gtk("@theme_titlebar_background_backdrop");

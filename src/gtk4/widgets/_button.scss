@@ -42,21 +42,29 @@
   }
 
   @else if $t==active {
-  //
-  // pushed button
-  //
-    color: gtk("@theme_button_foreground_active");
-    border-color: gtk("@theme_button_decoration_focus");
-    background-color: gtk("@theme_button_decoration_focus");
+    //
+    // pushed button
+    //
+    color: gtk("@theme_button_foreground_normal");
+    border-color: gtkmix(gtk("@theme_button_background_normal"), gtk("@theme_button_foreground_normal"), 0.3);
+    background-color: gtkalpha(gtk("@theme_button_foreground_normal"), 0.125);
+  }
+
+  @else if $t == titlebar-active {
+    //
+    // pushed button
+    //
+    color: gtk("@theme_button_foreground_normal");
+    border-color: gtkmix(gtk("@theme_button_decoration_focus"), gtk("@theme_button_decoration_focus"), 0.3);
+    background-color: gtkalpha(gtk("@theme_button_decoration_focus"), 0.125);
   }
 
   @else if $t==active-hover {
-  //
-  //
-  //
+    //
+    // pushed & hovered button
+    //
     color: gtk("@theme_button_foreground_normal");
     border-color: gtk("@theme_button_decoration_hover");
-    background-color: gtk("@theme_button_decoration_hover");
   }
 
   @else if $t==insensitive {

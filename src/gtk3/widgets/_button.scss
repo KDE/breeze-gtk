@@ -40,16 +40,22 @@
     //
     // pushed button
     //
-    color: gtk("@theme_button_foreground_active");
-    border-color: gtk("@theme_button_decoration_focus");
-    background-color: gtk("@theme_button_decoration_focus");
+    color: gtk("@theme_button_foreground_normal");
+    border-color: gtkmix(gtk("@theme_button_background_normal"), gtk("@theme_button_foreground_normal"), 0.3);
+    background-color: gtkalpha(gtk("@theme_button_foreground_normal"), 0.125);
+  } @else if $t == titlebar-active {
+    //
+    // pushed button
+    //
+    color: gtk("@theme_button_foreground_normal");
+    border-color: gtkmix(gtk("@theme_button_decoration_focus"), gtk("@theme_button_decoration_focus"), 0.3);
+    background-color: gtkalpha(gtk("@theme_button_decoration_focus"), 0.125);
   } @else if $t==active-hover {
     //
-    //
+    // pushed & hovered button
     //
     color: gtk("@theme_button_foreground_normal");
     border-color: gtk("@theme_button_decoration_hover");
-    background-color: gtk("@theme_button_decoration_hover");
   } @else if $t==insensitive {
     //
     // insensitive button
@@ -170,7 +176,6 @@ $_dot_color: gtk("@theme_button_decoration_focus");
 
   @include button(normal);
   &.flat {
-    @include button(undecorated);
     // to avoid adiacent buttons borders clashing when transitioning, the transition on the normal state is set
     // to none, while it's added back in the hover state, so the button decoration will fade in on hover, but
     // it won't fade out when the pointer leave the button allocation area. To make the transition more evident
@@ -223,15 +228,12 @@ $_dot_color: gtk("@theme_button_decoration_focus");
   }
   &.flat:backdrop {
     -gtk-icon-effect: none;
-    @include button(undecorated);
     color: gtk("@theme_button_foreground_backdrop");
   }
   &.flat:disabled {
-    @include button(undecorated);
     color: gtk("@theme_button_foreground_insensitive");
   }
   &.flat:backdrop:disabled {
-    @include button(undecorated);
     color: gtk("@theme_button_foreground_backdrop_insensitive");
   }
   &:disabled {
@@ -355,7 +357,6 @@ button {
       &.flat:backdrop,
       &.flat:disabled,
       &.flat:backdrop:disabled {
-        @include button(undecorated);
         color: gtkalpha($button_color, 0.8);
       }
       &:disabled {
