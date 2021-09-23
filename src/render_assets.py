@@ -693,10 +693,10 @@ parser = argparse.ArgumentParser(
     description='Generates Breeze assets according to the specified color '
                 'scheme.')
 parser.add_argument('--colorscheme', '-c', action='store',
-                    default='/usr/share/color-schemes/Breeze.colors',
+                    default='/usr/share/color-schemes/BreezeLight.colors',
                     help='color scheme to use')
 parser.add_argument('--basecolorscheme', '-b', action='store',
-                    default='/usr/share/color-schemes/Breeze.colors',
+                    default='/usr/share/color-schemes/BreezeLight.colors',
                     help='base color scheme')
 
 parser.add_argument('--assets-dir', '-a', action='store',
