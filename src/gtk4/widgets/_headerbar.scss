@@ -138,7 +138,9 @@ headerbar {
       @extend %suggested-action;
     }
 
-    .subtitle:link { @extend *:link:selected;  }
+    .subtitle:link {
+      @extend %link:selected;
+    }
 
     .selection-menu {
       padding: 4px 6px;
