@@ -1,15 +1,15 @@
 @charset "UTF-8";
 
 @mixin item-highlight {
-  @if $new-highlight {
-    background-color: gtk("@theme_selected_bg_color");
-    color: gtk("@theme_button_foreground_active");
-    border: 1px solid gtk("@theme_button_decoration_focus");
-    border-radius: 3px;
-  } @else {
-    background-color: gtk("@theme_button_decoration_focus");
-    color: gtk("@theme_button_foreground_active");
-  }
+	@if $new-highlight {
+		background-color: gtk("@theme_selected_bg_color");
+		color: gtk("@theme_button_foreground_active");
+		border: 1px solid gtk("@theme_button_decoration_focus");
+		border-radius: 3px;
+	} @else {
+		background-color: gtk("@theme_button_decoration_focus");
+		color: gtk("@theme_button_foreground_active");
+	}
 }
 
 /*********
@@ -18,171 +18,180 @@
 
 menubar,
 .menubar {
-  -GtkWidget-window-dragging: true;
-  padding: 0px;
-  box-shadow: none;
-  border-style: none;
-  background-color: gtk("@theme_bg_color");
+	-gtkwidget-window-dragging: true;
+	padding: 0px;
+	box-shadow: none;
+	border-style: none;
+	background-color: gtk("@theme_bg_color");
 
-  &:backdrop {
-    background-color: gtk("@theme_unfocused_bg_color");
-  }
+	&:backdrop {
+		background-color: gtk("@theme_unfocused_bg_color");
+	}
 
-  > menuitem {
-    min-height: 18px;
-    padding: 4px 6px;
-    @if $new-highlight {
-      border-bottom: 3px solid transparent;
-    }
+	> menuitem {
+		min-height: 18px;
+		padding: 4px 6px;
+		@if $new-highlight {
+			border-bottom: 3px solid transparent;
+		}
 
-    &:hover {
-      //Seems like it :hover even with keyboard focus
-      @if $new-highlight {
-        background-color: gtkalpha(gtk("@theme_button_decoration_focus"), 0.3);
-        color: gtk("@theme_button_foreground_active");
-        border-bottom: 3px solid gtk("@theme_button_decoration_focus");
-      } @else {
-        background-color: gtk("@theme_button_decoration_focus");
-        color: gtk("@theme_button_foreground_active");
-      }
-    }
+		&:hover {
+			//Seems like it :hover even with keyboard focus
+			@if $new-highlight {
+				background-color: gtkalpha(
+					gtk("@theme_button_decoration_focus"),
+					0.3
+				);
+				color: gtk("@theme_button_foreground_active");
+				border-bottom: 3px
+					solid
+					gtk("@theme_button_decoration_focus");
+			} @else {
+				background-color: gtk(
+					"@theme_button_decoration_focus"
+				);
+				color: gtk("@theme_button_foreground_active");
+			}
+		}
 
-    &:disabled {
-      color: gtk("@insensitive_fg_color");
-      box-shadow: none;
+		&:disabled {
+			color: gtk("@insensitive_fg_color");
+			box-shadow: none;
 
-      &:backdrop {
-        background-color: gtk("@theme_unfocused_bg_color");
-        color: gtk("@insensitive_unfocused_fg_color");
-      }
-    }
+			&:backdrop {
+				background-color: gtk("@theme_unfocused_bg_color");
+				color: gtk("@insensitive_unfocused_fg_color");
+			}
+		}
 
-    &:backdrop {
-      background-color: gtk("@theme_unfocused_bg_color");
-      color: gtk("@theme_unfocused_fg_color");
-    }
-  }
+		&:backdrop {
+			background-color: gtk("@theme_unfocused_bg_color");
+			color: gtk("@theme_unfocused_fg_color");
+		}
+	}
 }
 
 menu,
 .menu {
-  padding: 0px;
-  background-color: gtk("@theme_bg_color");
+	padding: 0px;
+	background-color: gtk("@theme_bg_color");
 
-  border-radius: $r;
+	border-radius: $r;
 
-  // axes borders in a composited env
-  separator {
-    color: gtk("@borders");
-  }
+	// axes borders in a composited env
+	separator {
+		color: gtk("@borders");
+	}
 
-  menuitem {
-    text-shadow: none;
-    min-height: 18px;
-    min-width: 40px;
-    padding: 6px 8px;
+	menuitem {
+		text-shadow: none;
+		min-height: 18px;
+		min-width: 40px;
+		padding: 6px 8px;
 
-    @if $new-highlight {
-      border: 1px solid transparent;
-      margin: 4px;
-    }
+		@if $new-highlight {
+			border: 1px solid transparent;
+			margin: 4px;
+		}
 
-    &:hover {
-      @include item-highlight();
-    }
+		&:hover {
+			@include item-highlight();
+		}
 
-    &:disabled {
-      color: gtk("@insensitive_fg_color");
+		&:disabled {
+			color: gtk("@insensitive_fg_color");
 
-      &:backdrop {
-        color: gtk("@insensitive_unfocused_fg_color");
-      }
-    }
+			&:backdrop {
+				color: gtk("@insensitive_unfocused_fg_color");
+			}
+		}
 
-    &:backdrop,
-    &:backdrop:hover {
-      color: gtk("@theme_unfocused_fg_color");
-      background-color: gtk("@theme_unfocused_bg_color");
-    }
+		&:backdrop,
+		&:backdrop:hover {
+			color: gtk("@theme_unfocused_fg_color");
+			background-color: gtk("@theme_unfocused_bg_color");
+		}
 
-    // submenu indicators
-    arrow {
-      min-height: 16px;
-      min-width: 16px;
+		// submenu indicators
+		arrow {
+			min-height: 16px;
+			min-width: 16px;
 
-      &:dir(ltr) {
-        -gtk-icon-source: -gtk-icontheme($arrow_right);
-        margin-left: 10px;
-      }
+			&:dir(ltr) {
+				-gtk-icon-source: -gtk-icontheme($arrow_right);
+				margin-left: 10px;
+			}
 
-      &:dir(rtl) {
-        -gtk-icon-source: -gtk-icontheme("go-next-rtl-symbolic");
-        margin-right: 10px;
-      }
-    }
-  }
+			&:dir(rtl) {
+				-gtk-icon-source: -gtk-icontheme(
+					"go-next-rtl-symbolic"
+				);
+				margin-right: 10px;
+			}
+		}
+	}
 
-  // overflow arrows
-  > arrow {
-    @include button(undecorated);
+	// overflow arrows
+	> arrow {
+		@include button(undecorated);
 
-    min-height: 16px;
-    min-width: 16px;
-    padding: 4px;
-    background-color: transparent;
-    border-radius: 0;
+		min-height: 16px;
+		min-width: 16px;
+		padding: 4px;
+		background-color: transparent;
+		border-radius: 0;
 
-    &.top {
-      margin-top: -6px;
-      border: none;
-      -gtk-icon-source: -gtk-icontheme($arrow_up);
-    }
+		&.top {
+			margin-top: -6px;
+			border: none;
+			-gtk-icon-source: -gtk-icontheme($arrow_up);
+		}
 
-    &.bottom {
-      margin-bottom: -6px;
-      border: none;
-      -gtk-icon-source: -gtk-icontheme($arrow_down);
-    }
+		&.bottom {
+			margin-bottom: -6px;
+			border: none;
+			-gtk-icon-source: -gtk-icontheme($arrow_down);
+		}
 
-    &:hover {
-      color: gtk("@theme_button_decoration_hover");
-    }
-    &:active {
-      color: gtk("@theme_button_decoration_focus");
-    }
+		&:hover {
+			color: gtk("@theme_button_decoration_hover");
+		}
+		&:active {
+			color: gtk("@theme_button_decoration_focus");
+		}
 
-    &:backdrop {
-      background-color: gtk("@theme_unfocused_bg_color");
-    }
+		&:backdrop {
+			background-color: gtk("@theme_unfocused_bg_color");
+		}
 
-    &:disabled {
-      color: transparent;
-      background-color: transparent;
-      border-color: transparent;
-    }
-  }
+		&:disabled {
+			color: transparent;
+			background-color: transparent;
+			border-color: transparent;
+		}
+	}
 }
 
 menuitem {
-  accelerator {
-    color: gtkalpha(currentColor, 0.55);
-  }
-  check,
-  radio {
-    min-height: 18px;
-    min-width: 18px;
+	accelerator {
+		color: gtkalpha(currentColor, 0.55);
+	}
+	check,
+	radio {
+		min-height: 18px;
+		min-width: 18px;
 
-    &:dir(ltr) {
-      margin-right: 6px;
-    }
-    &:dir(rtl) {
-      margin-left: 6px;
-    }
-  }
-  &:active check,
-  &:active radio {
-    -gtk-icon-transform: translate(1px, 1px);
-  }
+		&:dir(ltr) {
+			margin-right: 6px;
+		}
+		&:dir(rtl) {
+			margin-left: 6px;
+		}
+	}
+	&:active check,
+	&:active radio {
+		-gtk-icon-transform: translate(1px, 1px);
+	}
 }
 /***************
  * Popovers   *
@@ -190,142 +199,147 @@ menuitem {
 /* menu buttons */
 modelbutton.flat,
 .menuitem.button.flat {
-  min-height: 16px;
-  padding: 7px 8px;
+	min-height: 16px;
+	padding: 7px 8px;
 
-  @extend %undecorated_button;
-  color: gtk("@theme_fg_color");
-  &:hover {
-    background-color: gtk("@theme_button_decoration_focus");
-    color: gtk("@theme_button_foreground_active");
-  }
-  &:selected {
-    background-color: gtk("@theme_button_decoration_focus");
-    color: gtk("@theme_button_foreground_active");
-  }
-  &:backdrop,
-  &:backdrop:hover {
-    @extend %undecorated_button;
-    color: gtk("@theme_unfocused_fg_color");
-  }
-  check,
-  radio {
-    -gtk-icon-palette: error gtk("@theme_button_decoration_focus"),
-      success gtk("@borders"), warning gtk("@theme_button_background_normal");
-    -gtk-icon-shadow: 1px 1px rgba(35, 38, 41, 0.2);
+	@extend %undecorated_button;
+	color: gtk("@theme_fg_color");
+	&:hover {
+		background-color: gtk("@theme_button_decoration_focus");
+		color: gtk("@theme_button_foreground_active");
+	}
+	&:selected {
+		background-color: gtk("@theme_button_decoration_focus");
+		color: gtk("@theme_button_foreground_active");
+	}
+	&:backdrop,
+	&:backdrop:hover {
+		@extend %undecorated_button;
+		color: gtk("@theme_unfocused_fg_color");
+	}
+	check,
+	radio {
+		-gtk-icon-palette: error
+				gtk("@theme_button_decoration_focus"),
+			success gtk("@borders"),
+			warning gtk("@theme_button_background_normal");
+		-gtk-icon-shadow: 1px 1px rgba(35, 38, 41, 0.2);
 
-    &:hover {
-      -gtk-icon-palette: error gtk("@theme_button_decoration_focus"),
-        success gtk("@theme_button_decoration_focus"),
-        warning gtk("@theme_button_background_normal");
-    }
-    &:disabled {
-      -gtk-icon-palette: error gtk("@theme_button_decoration_focus_insensitive"),
-        success gtk("@insensitive_borders"),
-        warning gtk("@theme_button_background_insensitive");
-    }
-  }
-  @each $type in ("check", "radio") {
-    #{$type} {
-      -gtk-icon-source: -gtk-recolor(
-        url("../assets/breeze-#{$type}-unchecked-symbolic.svg")
-      );
-      @each $state in ("checked", "indeterminate") {
-        &:#{$state} {
-          -gtk-icon-source: -gtk-recolor(
-            url("../assets/breeze-#{$type}-#{$state}-symbolic.svg")
-          );
-        }
-      }
-    }
-  }
+		&:hover {
+			-gtk-icon-palette: error
+					gtk("@theme_button_decoration_focus"),
+				success gtk("@theme_button_decoration_focus"),
+				warning gtk("@theme_button_background_normal");
+		}
+		&:disabled {
+			-gtk-icon-palette: error
+					gtk("@theme_button_decoration_focus_insensitive"),
+				success gtk("@insensitive_borders"),
+				warning gtk("@theme_button_background_insensitive");
+		}
+	}
+	@each $type in ("check", "radio") {
+		#{$type} {
+			-gtk-icon-source: -gtk-recolor(
+				url("../assets/breeze-#{$type}-unchecked-symbolic.svg")
+			);
+			@each $state in ("checked", "indeterminate") {
+				&:#{$state} {
+					-gtk-icon-source: -gtk-recolor(
+						url("../assets/breeze-#{$type}-#{$state}-symbolic.svg")
+					);
+				}
+			}
+		}
+	}
 
-  // FIXME: remove the following when the checks/radios rewrite lands
-  check:last-child,
-  radio:last-child {
-    margin-right: 0px;
-  }
+	// FIXME: remove the following when the checks/radios rewrite lands
+	check:last-child,
+	radio:last-child {
+		margin-right: 0px;
+	}
 
-  check:first-child,
-  radio:first-child {
-    margin-left: 0px;
-  }
-  &:active check,
-  &:active radio {
-    -gtk-icon-transform: translate(1px, 1px);
-  }
+	check:first-child,
+	radio:first-child {
+		margin-left: 0px;
+	}
+	&:active check,
+	&:active radio {
+		-gtk-icon-transform: translate(1px, 1px);
+	}
 }
 
 modelbutton.flat arrow {
-  background: none;
+	background: none;
 
-  &:hover {
-    background: none;
-  }
+	&:hover {
+		background: none;
+	}
 
-  &.left {
-    -gtk-icon-source: -gtk-icontheme($arrow_left);
-  }
+	&.left {
+		-gtk-icon-source: -gtk-icontheme($arrow_left);
+	}
 
-  &.right {
-    -gtk-icon-source: -gtk-icontheme($arrow_right);
-  }
+	&.right {
+		-gtk-icon-source: -gtk-icontheme($arrow_right);
+	}
 }
 
-popover, menu {
-  border: 1px solid gtk("@borders");
+popover,
+menu {
+	border: 1px solid gtk("@borders");
 }
 
 popover.background {
-  $shadow: rgba(0, 0, 0, 0.25);
+	$shadow: rgba(0, 0, 0, 0.25);
 
-  padding: 0px;
-  border-radius: 3px;
-  background-color: gtk("@theme_bg_color");
+	padding: 0px;
+	border-radius: 3px;
+	background-color: gtk("@theme_bg_color");
 
-  box-shadow: 0px 0px 8px $shadow,
-    0px 1px 4px scale-color($shadow, $alpha: -40%);
+	box-shadow: 0px 0px 8px $shadow,
+		0px 1px 4px scale-color($shadow, $alpha: -40%);
 
-  &:backdrop {
-    box-shadow: none;
-  }
+	&:backdrop {
+		box-shadow: none;
+	}
 
-  > list,
-  > .view,
-  > toolbar {
-    border-style: none;
-    background-color: transparent;
-  }
-  .csd &,
-  & {
-    &.touch-selection,
-    &.magnifier {
-      @extend %osd;
+	> list,
+	> .view,
+	> toolbar {
+		border-style: none;
+		background-color: transparent;
+	}
+	.csd &,
+	& {
+		&.touch-selection,
+		&.magnifier {
+			@extend %osd;
 
-      border: 1px solid gtk("@borders");
+			border: 1px solid gtk("@borders");
 
-      button {
-        @extend %button;
-      }
-    }
+			button {
+				@extend %button;
+			}
+		}
 
-    &.osd {
-      @extend %osd;
-    }
-  }
+		&.osd {
+			@extend %osd;
+		}
+	}
 
-  separator {
-    margin: 3px;
-  }
+	separator {
+		margin: 3px;
+	}
 
-  list separator {
-    margin: 0px;
-  }
+	list separator {
+		margin: 0px;
+	}
 
-  checkbutton,
-  radiobutton {
-    @extend modelbutton.flat;
-  }
+	checkbutton,
+	radiobutton {
+		@extend modelbutton.flat;
+	}
 }
 
 // .scale-popup .button,
@@ -353,5 +367,5 @@ popover.background {
 // }
 
 GtkVolumeButton.button {
-  padding: 5px;
+	padding: 5px;
 }

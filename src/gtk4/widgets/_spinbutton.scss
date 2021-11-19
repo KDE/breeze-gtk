@@ -4,101 +4,103 @@
  * GtkSpinButton *
  *****************/
 spinbutton {
-  text {
-    @extend %entry;
+	text {
+		@extend %entry;
 
-    border-radius: 0px;
-  }
+		border-radius: 0px;
+	}
 
-  &:not(.vertical) {
-    // in this horizontal configuration, the whole spinbutton
-    // behaves as the entry, so we extend the entry styling
-    // and nuke the style on the internal entry
-    @extend %entry;
+	&:not(.vertical) {
+		// in this horizontal configuration, the whole spinbutton
+		// behaves as the entry, so we extend the entry styling
+		// and nuke the style on the internal entry
+		@extend %entry;
 
-    padding: 0;
+		padding: 0;
 
-    text {
-      min-width: 28px;
-      // reset all the other props since the spinbutton node is styled here
-      margin: 0;
-      background: none;
-      background-color: transparent;
-      border: none;
-      border-radius: 0;
-      box-shadow: none;
+		text {
+			min-width: 28px;
+			// reset all the other props since the spinbutton node is styled here
+			margin: 0;
+			background: none;
+			background-color: transparent;
+			border: none;
+			border-radius: 0;
+			box-shadow: none;
 
-      &:backdrop:disabled {
-        background-color: transparent;
-      }
-    }
+			&:backdrop:disabled {
+				background-color: transparent;
+			}
+		}
 
-    button {
-      @include button(undecorated);
-    }
-  }
+		button {
+			@include button(undecorated);
+		}
+	}
 
-  // Vertical
-  &.vertical {
-    // in the vertical configuration, we treat the spinbutton
-    // as a box, and tweak the style of the entry in the middle
-    // so that it's linked
+	// Vertical
+	&.vertical {
+		// in the vertical configuration, we treat the spinbutton
+		// as a box, and tweak the style of the entry in the middle
+		// so that it's linked
 
-    // FIXME: this should not be set at all, but otherwise it gets the wrong
-    // color
-    &:disabled {
-      color: gtk("@insensitive_base_fg_color");
-    }
+		// FIXME: this should not be set at all, but otherwise it gets the wrong
+		// color
+		&:disabled {
+			color: gtk("@insensitive_base_fg_color");
+		}
 
-    &:backdrop:disabled {
-      color: gtk("@theme_unfocused_view_text_color");
-    }
+		&:backdrop:disabled {
+			color: gtk("@theme_unfocused_view_text_color");
+		}
 
-    &:drop(active) {
-      border-color: transparent;
-      box-shadow: none;
-    }
+		&:drop(active) {
+			border-color: transparent;
+			box-shadow: none;
+		}
 
-    entry {
-      margin: 0px;
-      min-height: 26px;
-      min-width: 26px;
-      border-style: none solid none solid;
-      border-color: gtk("@borders");
-      padding: 0;
-      border-radius: 0;
-      &:disabled {
-        color: gtk("@insensitive_base_fg_color");
-        background-color: gtk("@insensitive_base_color");
-        border-color: gtk("@insensitive_borders");
-      }
-      &:backdrop:disabled {
-        color: gtk("@theme_unfocused_view_text_color");
-        background-color: gtk("@theme_unfocused_view_bg_color");
-        border-color: gtk("@unfocused_insensitive_borders");
-      }
-    }
+		entry {
+			margin: 0px;
+			min-height: 26px;
+			min-width: 26px;
+			border-style: none solid none solid;
+			border-color: gtk("@borders");
+			padding: 0;
+			border-radius: 0;
+			&:disabled {
+				color: gtk("@insensitive_base_fg_color");
+				background-color: gtk("@insensitive_base_color");
+				border-color: gtk("@insensitive_borders");
+			}
+			&:backdrop:disabled {
+				color: gtk("@theme_unfocused_view_text_color");
+				background-color: gtk(
+					"@theme_unfocused_view_bg_color"
+				);
+				border-color: gtk("@unfocused_insensitive_borders");
+			}
+		}
 
-    button.up {
-      border-radius: 3px 3px 0 0;
-      border-style: solid solid none solid;
-    }
+		button.up {
+			border-radius: 3px 3px 0 0;
+			border-style: solid solid none solid;
+		}
 
-    button.down {
-      border-radius: 0 0 3px 3px;
-      border-style: none solid solid solid;
-    }
-  }
+		button.down {
+			border-radius: 0 0 3px 3px;
+			border-style: none solid solid solid;
+		}
+	}
 
-  // Misc
-  treeview &:not(.vertical) {
-    min-height: 0;
-    border-style: none;
-    border-radius: 0;
+	// Misc
+	treeview &:not(.vertical) {
+		min-height: 0;
+		border-style: none;
+		border-radius: 0;
 
-    entry {
-      min-height: 0;
-      padding: 1px 2px;
-    }
-  }
+		entry {
+			min-height: 0;
+			padding: 1px 2px;
+		}
+	}
 }
