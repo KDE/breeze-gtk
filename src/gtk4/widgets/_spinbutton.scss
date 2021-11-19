@@ -34,7 +34,7 @@ spinbutton {
 		}
 
 		button {
-			@include button(undecorated);
+			@include neobutton(toolbutton);
 		}
 	}
 

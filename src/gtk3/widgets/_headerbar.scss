@@ -37,41 +37,11 @@ headerbar {
 		}
 	}
 	button {
-		@include button(undecorated);
+		@include neobutton(toolbutton);
 		color: gtk("@theme_titlebar_foreground");
 
-		&.flat {
-			@include button(undecorated);
-			color: gtk("@theme_titlebar_foreground");
-		}
 		&:hover {
-			@include button(hover);
 			color: gtk("@theme_titlebar_foreground");
-			&:backdrop {
-				@include button(backdrop-hover);
-			}
-		}
-		&:active,
-		&:checked {
-			@include button(titlebar-active);
-			color: gtk("@theme_titlebar_foreground");
-			&:backdrop {
-				background-image: none;
-				background-color: gtk(
-					"@theme_titlebar_background_backdrop"
-				);
-				border-color: gtk(
-					"@theme_titlebar_background_backdrop"
-				);
-				color: gtk("@theme_titlebar_foreground_backdrop");
-				&:hover {
-					@include button(backdrop-hover);
-				}
-			}
-		}
-
-		&.suggested-action {
-			@extend %suggested-action;
 		}
 
 		&:backdrop {
@@ -102,10 +72,6 @@ headerbar {
 			background-image: none;
 			border-color: transparent;
 			color: gtk("@theme_titlebar_foreground_insensitive");
-			&:active,
-			&:checked {
-				@include button(insensitive-active);
-			}
 		}
 	}
 
@@ -158,10 +124,6 @@ headerbar {
 			}
 		}
 
-		&.suggested-action {
-			@extend %suggested-action;
-		}
-
 		.subtitle:link {
 			@extend %link:selected;
 		}
@@ -194,35 +156,5 @@ headerbar {
 	button {
 		margin-top: 3px;
 		margin-bottom: 3px;
-	}
-}
-
-%suggested-action {
-	background-image: none;
-	background-color: gtk("@theme_button_decoration_focus");
-	&:hover {
-		background-color: gtk("@theme_button_decoration_hover");
-		color: gtk("@theme_button_foreground_normal");
-	}
-	&:disabled {
-		background-color: transparent;
-		background-image: none;
-		color: gtk("@theme_titlebar_foreground_insensitive");
-		&:active,
-		&:checked {
-			@include button(insensitive-active);
-		}
-	}
-	&:backdrop {
-		background-color: gtk(
-			"@theme_titlebar_background_backdrop"
-		);
-		border-color: transparent;
-		color: gtk("@theme_titlebar_foreground_backdrop");
-		&:disabled {
-			color: gtk(
-				"@theme_titlebar_foreground_insensitive_backdrop"
-			);
-		}
 	}
 }

@@ -14,40 +14,9 @@
 		background-image: none;
 	}
 	button {
-		@include button(normal);
+		@include neobutton(normal);
 		&.flat {
-			@extend %undecorated_button;
-			-gtk-icon-shadow: none;
-			text-shadow: none;
-			&:hover {
-				@extend %undecorated_button;
-				color: gtk("@theme_button_decoration_hover");
-			}
-			&:active {
-				@extend %undecorated_button;
-				color: gtk("@theme_button_decoration_focus");
-			}
-			&:backdrop,
-			&:disabled,
-			&:backdrop:disabled {
-				@extend %undecorated_button;
-			}
-		}
-		&:hover {
-			@include button(hover);
-		}
-		&:active,
-		&:checked,
-		&:backdrop:active,
-		&:backdrop:checked {
-			@include button(active);
-		}
-		&:disabled,
-		&:backdrop:disabled {
-			@include button(insensitive);
-		}
-		&:backdrop {
-			@include button(backdrop);
+			@include neobutton(toolbutton);
 		}
 	}
 	border {

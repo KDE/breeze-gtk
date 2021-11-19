@@ -137,8 +137,6 @@ menu,
 
 	// overflow arrows
 	> arrow {
-		@include button(undecorated);
-
 		min-height: 16px;
 		min-width: 16px;
 		padding: 4px;
@@ -342,15 +340,6 @@ popover.background {
 	checkbutton,
 	radiobutton {
 		@extend modelbutton.flat;
-	}
-
-	modelbutton > box > check.left,
-	modelbutton > box > radio.left {
-		margin-right: 8px;
-	}
-
-	> contents {
-		margin: 6px;
 	}
 }
 

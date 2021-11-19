@@ -9,7 +9,7 @@
 }
 
 .path-bar button {
-	@include button(undecorated);
+	@include neobutton(normal);
 	padding: 4px 8px;
 	color: gtk("@theme_fg_color");
 	&:hover {

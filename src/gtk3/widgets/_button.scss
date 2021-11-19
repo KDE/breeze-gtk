@@ -2,169 +2,91 @@
 
 // buttons
 
-@mixin button($t) {
-	// $c:gtk("@theme_button_background_normal"), $tc:gtk("@theme_button_foreground_normal")
-	//
-	// Button drawing function
-	//
-	// $t:    button type,
-	// $c:    base button color for colored* types
-	// $tc:   optional text color for colored* types
-	// $edge: set to none to not draw the bottom edge or specify a color to not
-	//        use the default one
-	//
-	// possible $t values:
-	// normal, hover, active, insensitive, insensitive-active,
-	// backdrop, backdrop-active, backdrop-insensitive, backdrop-insensitive-active,
-	// osd, osd-hover, osd-active, osd-insensitive, osd-backdrop, undecorated
-	//
+@mixin btn-highlight($c) {
+	$bg: gtk("@theme_button_background_normal");
+	$fg: gtk("@theme_button_foreground_normal");
 
-	@if $t==normal {
-		//
-		// normal button
-		//
-		box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+	background-color: gtkalpha($c, 0.2);
+	border-color: gtkmix($c, gtkmix($bg, $fg, 0.333), 0.5);
+}
+
+@mixin bg-gradient($bg) {
+	background: linear-gradient(
+		180deg,
+		gtkmix($bg, white, 0.03125) 0%,
+		$bg 50%,
+		gtkmix($bg, black, 0.03125) 100%
+	);
+}
+
+// button styles mixin: $t is normal or toolbutton
+@mixin neobutton($t) {
+	&.suggested-action {
+		@include btn-highlight(
+			gtk("@theme_button_decoration_focus")
+		);
+	}
+	&.destructive-action {
+		@include btn-highlight(gtk("@error_color"));
+	}
+
+	@if $t == normal {
+		box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.125);
 		text-shadow: none;
 		-gtk-icon-shadow: none;
 
 		color: gtk("@theme_button_foreground_normal");
 		border-color: gtk("@borders");
-		background-color: gtk(
-			"@theme_button_background_normal"
-		);
-	} @else if $t==hover {
-		//
-		// hovered button
-		//
-		color: gtk("@theme_button_foreground_normal");
-		border-color: gtk("@theme_button_decoration_hover");
-	} @else if $t==active {
-		//
-		// pushed button
-		//
-		color: gtk("@theme_button_foreground_normal");
-		border-color: gtkmix(
-			gtk("@theme_button_background_normal"),
-			gtk("@theme_button_foreground_normal"),
-			0.3
-		);
-		background-color: gtkalpha(
-			gtk("@theme_button_foreground_normal"),
-			0.125
-		);
-	} @else if $t == titlebar-active {
-		//
-		// pushed button
-		//
-		color: gtk("@theme_button_foreground_normal");
-		border-color: gtkmix(
-			gtk("@theme_button_decoration_focus"),
-			gtk("@theme_button_decoration_focus"),
-			0.3
-		);
-		background-color: gtkalpha(
-			gtk("@theme_button_decoration_focus"),
-			0.125
-		);
-	} @else if $t==active-hover {
-		//
-		// pushed & hovered button
-		//
-		color: gtk("@theme_button_foreground_normal");
-		border-color: gtk("@theme_button_decoration_hover");
-	} @else if $t==insensitive {
-		//
-		// insensitive button
-		//
-		color: gtk("@theme_button_foreground_insensitive");
-		border-color: gtk("@insensitive_borders");
-		background-color: gtk(
-			"@theme_button_background_insensitive"
+		@include bg-gradient(
+			gtk("@theme_button_background_normal")
 		);
 
-		> .label {
-			color: inherit;
+		&:backdrop {
+			color: gtk("@theme_button_foreground_backdrop");
+			border-color: gtk("@unfocused_borders");
+			background: gtk("@theme_button_background_backdrop");
 		}
-	} @else if $t==insensitive-active {
-		//
-		// insensitive pushed button
-		//
-		color: gtk(
-			"@theme_button_foreground_active_insensitive"
-		);
-		border-color: gtk(
-			"@theme_button_decoration_focus_insensitive"
-		);
-		background-color: gtk(
-			"@theme_button_decoration_focus_insensitive"
-		);
-		> .label {
-			color: inherit;
+
+		&:checked {
+			background: gtkalpha(
+				gtk("@theme_button_foreground_normal"),
+				0.125
+			);
 		}
-	} @else if $t==backdrop {
-		//
-		// backdrop button
-		//
-		color: gtk("@theme_button_foreground_backdrop");
-		border-color: gtk("@unfocused_borders");
-		background-color: gtk(
-			"@theme_button_background_backdrop"
-		);
-	} @else if $t==backdrop-hover {
-		//
-		// backdrop hover button
-		//
-		color: gtk("@theme_button_foreground_backdrop");
-		border-color: gtk("@theme_button_decoration_hover");
-		background-color: gtk(
-			"@theme_button_background_backdrop"
-		);
-	} @else if $t==backdrop-active {
-		//
-		// backdrop pushed button
-		//
-		color: gtk("@theme_button_foreground_active_backdrop");
-		border-color: gtk(
-			"@theme_button_decoration_focus_backdrop"
-		);
-		background-color: gtk(
-			"@theme_button_decoration_focus_backdrop"
-		);
-	} @else if $t==backdrop-insensitive {
-		//
-		// backdrop insensitive button
-		//
-		color: gtk(
-			"@theme_button_foreground_backdrop_insensitive"
-		);
-		border-color: gtk("@unfocused_insensitive_borders");
-		background-color: gtk(
-			"@theme_button_background_backdrop_insensitive"
-		);
-		> .label {
-			color: inherit;
+
+		&:active {
+			background: gtkalpha(
+				gtk("@theme_button_decoration_hover"),
+				0.333
+			);
 		}
-	} @else if $t==backdrop-insensitive-active {
-		//
-		// backdrop insensitive pushed button
-		//
-		color: gtk(
-			"@theme_button_foreground_active_backdrop_insensitive"
-		);
-		border-color: gtk(
-			"@theme_button_decoration_focus_backdrop_insensitive"
-		);
-		background-color: gtk(
-			"@theme_button_decoration_focus_backdrop_insensitive"
-		);
-		> .label {
-			color: inherit;
+
+		&:hover {
+			border-color: gtk("@theme_button_decoration_hover");
 		}
-	} @else if $t==undecorated {
-		//
-		// reset
-		//
+
+		&:focus {
+			border-color: gtk("@theme_button_decoration_focus");
+		}
+
+		&:disabled {
+			box-shadow: none;
+			color: gtk("@theme_button_foreground_insensitive");
+			border-color: gtk("@insensitive_borders");
+			background: gtk(
+				"@theme_button_background_insensitive"
+			);
+
+			&:active,
+			&:checked {
+				color: gtk(
+					"@theme_button_foreground_active_insensitive"
+				);
+			}
+		}
+	} @else if $t == toolbutton {
 		border-color: transparent;
+		background: transparent;
 		background-color: transparent;
 		background-image: none;
 		box-shadow: none;
@@ -172,6 +94,34 @@
 
 		text-shadow: none;
 		-gtk-icon-shadow: none;
+
+		&:checked {
+			border-color: gtkmix(
+				gtk("@theme_button_background_normal"),
+				gtk("@theme_button_foreground_normal"),
+				0.3
+			);
+			background-color: gtkalpha(
+				gtk("@theme_button_foreground_normal"),
+				0.125
+			);
+		}
+
+		&:active {
+			border-color: gtk("@theme_button_decoration_hover");
+			background-color: gtkalpha(
+				gtk("@theme_button_decoration_hover"),
+				0.333
+			);
+		}
+
+		&:hover {
+			border-color: gtk("@theme_button_decoration_hover");
+		}
+
+		&:focus {
+			border-color: gtk("@theme_button_decoration_focus");
+		}
 	}
 }
 
@@ -212,80 +162,12 @@ $_dot_color: gtk("@theme_button_decoration_focus");
 	padding: 6px 6px;
 	background-clip: border-box;
 
-	@include button(normal);
-	&.flat {
-		@include button(undecorated);
-		// to avoid adiacent buttons borders clashing when transitioning, the transition on the normal state is set
-		// to none, while it's added back in the hover state, so the button decoration will fade in on hover, but
-		// it won't fade out when the pointer leave the button allocation area. To make the transition more evident
-		// in this case the duration is increased.
+	@include neobutton(normal);
+	&.flat,
+	&.image-button {
+		@include neobutton(toolbutton);
+	}
 
-		&:hover {
-			transition-duration: 500ms;
-			&:active,
-			&:focus {
-			}
-		}
-		&:checked {
-			background-color: gtk("@borders");
-		}
-	}
-	&:hover {
-		@include button(hover);
-		-gtk-icon-effect: none; // Do we want this?
-	}
-	&:active,
-	&:checked,
-	&:focus {
-		@include button(active);
-		transition-duration: 50ms;
-		&:hover {
-			@include button(active-hover);
-		}
-	}
-	&:backdrop {
-		@include button(backdrop);
-		-gtk-icon-effect: none;
-		&:hover {
-			@include button(backdrop-hover);
-		}
-		&:active,
-		&:checked,
-		&:focus {
-			@include button(backdrop-active);
-		}
-		&:disabled {
-			@include button(backdrop-insensitive);
-		}
-		&:disabled:active,
-		&:disabled:checked,
-		&:disabled:focus {
-			@include button(backdrop-insensitive-active);
-		}
-	}
-	&.flat:backdrop {
-		-gtk-icon-effect: none;
-		@include button(undecorated);
-		color: gtk("@theme_button_foreground_backdrop");
-	}
-	&.flat:disabled {
-		@include button(undecorated);
-		color: gtk("@theme_button_foreground_insensitive");
-	}
-	&.flat:backdrop:disabled {
-		@include button(undecorated);
-		color: gtk(
-			"@theme_button_foreground_backdrop_insensitive"
-		);
-	}
-	&:disabled {
-		@include button(insensitive);
-		&:active,
-		&:checked,
-		&:focus {
-			@include button(insensitive-active);
-		}
-	}
 	separator {
 		background-color: transparent;
 		background-image: none;
@@ -342,78 +224,6 @@ button {
 
 				&:backdrop {
 					color: gtk("@theme_unfocused_selected_fg_color");
-				}
-			}
-		}
-	}
-
-	// Suggested and Destructive Action buttons
-	@each $b_type,
-		$button_color
-			in (
-				suggested-action,
-				gtk("@theme_button_decoration_focus")
-			),
-		(destructive-action, gtk("@error_color"))
-	{
-		&.#{$b_type},
-		&.#{$b_type}.osd & {
-			@include button(normal);
-			background-color: $button_color;
-			color: gtk("@theme_button_foreground_active");
-			&.flat {
-				@include button(undecorated);
-				color: $button_color;
-			}
-			&:hover {
-				@include button(hover);
-				color: white; //! FIXME - No hardcoded colors.
-				background-color: $button_color;
-			}
-			&:active,
-			&:checked,
-			&:focus {
-				@include button(active);
-				background-color: $button_color;
-				color: white;
-			}
-			&:backdrop,
-			&.flat:backdrop {
-				@include button(backdrop);
-				background-color: $button_color;
-				color: white;
-				&:active,
-				&:checked,
-				&:focus {
-					@include button(backdrop-active);
-					background-color: $button_color;
-					color: white;
-				}
-				&:disabled {
-					@include button(backdrop-insensitive);
-					&:active,
-					&:checked,
-					&:focus {
-						@include button(backdrop-insensitive-active);
-						background-color: $button_color;
-						color: white;
-					}
-				}
-			}
-			&.flat:backdrop,
-			&.flat:disabled,
-			&.flat:backdrop:disabled {
-				@include button(undecorated);
-				color: gtkalpha($button_color, 0.8);
-			}
-			&:disabled {
-				@include button(insensitive);
-				&:active,
-				&:checked,
-				&:focus {
-					@include button(insensitive-active);
-					background-color: $button_color;
-					color: white;
 				}
 			}
 		}

@@ -133,8 +133,6 @@ menu,
 
 	// overflow arrows
 	> arrow {
-		@include button(undecorated);
-
 		min-height: 16px;
 		min-width: 16px;
 		padding: 4px;

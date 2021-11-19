@@ -99,15 +99,9 @@ colorswatch {
 	&#add-color-button {
 		border-style: solid; // the borders are drawn by the overlay for standard colorswatches to have them semi
 		border-width: 1px; // translucent on the colored background, here it's not necessary so they need to be set
-		@include button(normal);
-		&:hover {
-			@include button(hover);
-		}
-		&:backdrop {
-			@include button(backdrop);
-		}
+		@include neobutton(normal);
 		overlay {
-			@include button(undecorated);
+			@include neobutton(toolbutton);
 		} // reset the overlay to not cover the button style underneat
 	}
 }
