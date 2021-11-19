@@ -238,10 +238,6 @@ notebook {
 				border-color: transparent;
 				box-shadow: none;
 			}
-
-			&:disabled {
-				@include button(undecorated);
-			}
 		}
 
 		// colors the button like the label, overridden otherwise
