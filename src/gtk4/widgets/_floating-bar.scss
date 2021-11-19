@@ -1,8 +1,7 @@
-
 .floating-bar {
-    background-color: gtk("@tooltip_background");
-    color: gtk("@tooltip_text");
-    border: 1px solid gtk("@tooltip_border");
-    border-radius: $r;
-    margin: 3px;
+	background-color: gtk("@tooltip_background");
+	color: gtk("@tooltip_text");
+	border: 1px solid gtk("@tooltip_border");
+	border-radius: $r;
+	margin: 3px;
 }

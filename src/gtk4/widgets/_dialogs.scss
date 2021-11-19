@@ -8,58 +8,67 @@
 //   //padding: 8px;
 // }
 
-messagedialog { // Message Dialog styling
+messagedialog {
+	// Message Dialog styling
 
-    &.background { 
-      background-color: gtk("@theme_bg_color");
-    }
-    &:backdrop { 
-      background-color: gtk("@theme_unfocused_bg_color");
-    }
-  .titlebar {
-    min-height: 32px;
-    background-color: transparent;
-    background-image: linear-gradient(to bottom, gtkshade("@theme_titlebar_background", 1.2117647),gtk("@theme_titlebar_background"));
-    box-shadow: none;
-  }
-  .dialog-action-area {
-    padding: 8px;
-  }
-  button { margin: 2px; }
+	&.background {
+		background-color: gtk("@theme_bg_color");
+	}
+	&:backdrop {
+		background-color: gtk("@theme_unfocused_bg_color");
+	}
+	.titlebar {
+		min-height: 32px;
+		background-color: transparent;
+		background-image: linear-gradient(
+			to bottom,
+			gtkshade("@theme_titlebar_background", 1.2117647),
+			gtk("@theme_titlebar_background")
+		);
+		box-shadow: none;
+	}
+	.dialog-action-area {
+		padding: 8px;
+	}
+	button {
+		margin: 2px;
+	}
 }
 
 filechooser {
-  .search-bar {
-    background-color: gtk("@theme_bg_color");
-    border-color: gtk("@theme_bg_color");
-    box-shadow: none;
-    &:backdrop {
-      background-color: gtk("@theme_unfocused_bg_color");
-      border-color: gtk("@theme_unfocused_bg_color");
-      color: gtk("@theme_unfocused_text_color");
-    }
-  }
-  .dialog-action-box {
-    border-top: 1px solid gtk("@borders");
-    &:backdrop { border-top-color: gtk("@unfocused_borders"); }
-  }
-  #pathbarbox {
-    background-color: gtk("@theme_bg_color");
-    border-bottom: 1px solid gtk("@borders");
-  }
+	.search-bar {
+		background-color: gtk("@theme_bg_color");
+		border-color: gtk("@theme_bg_color");
+		box-shadow: none;
+		&:backdrop {
+			background-color: gtk("@theme_unfocused_bg_color");
+			border-color: gtk("@theme_unfocused_bg_color");
+			color: gtk("@theme_unfocused_text_color");
+		}
+	}
+	.dialog-action-box {
+		border-top: 1px solid gtk("@borders");
+		&:backdrop {
+			border-top-color: gtk("@unfocused_borders");
+		}
+	}
+	#pathbarbox {
+		background-color: gtk("@theme_bg_color");
+		border-bottom: 1px solid gtk("@borders");
+	}
 }
 
 .dialog-action-box {
-  margin-top: 8px;
+	margin-top: 8px;
 
-  button {
-    border-radius: 0px;
+	button {
+		border-radius: 0px;
 
-    &:first-child {
-      border-radius: $r 0 0 $r;
-    }
-    &:last-child {
-      border-radius: 0 $r $r 0;
-    }
-  }
+		&:first-child {
+			border-radius: $r 0 0 $r;
+		}
+		&:last-child {
+			border-radius: 0 $r $r 0;
+		}
+	}
 }

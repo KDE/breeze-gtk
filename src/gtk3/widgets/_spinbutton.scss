@@ -4,170 +4,174 @@
  * GtkSpinButton *
  *****************/
 spinbutton {
-  &:not(.vertical) {
-    // in this horizontal configuration, the whole spinbutton
-    // behaves as the entry, so we extend the entry styling
-    // and nuke the style on the internal entry
-    @extend %entry;
+	&:not(.vertical) {
+		// in this horizontal configuration, the whole spinbutton
+		// behaves as the entry, so we extend the entry styling
+		// and nuke the style on the internal entry
+		@extend %entry;
 
-    padding: 0;
+		padding: 0;
 
-    entry {
-      min-width: 28px;
-      // reset all the other props since the spinbutton node is styled here
-      margin: 0;
-      background: none;
-      background-color: transparent;
-      border: none;
-      border-radius: 0;
-      box-shadow: none;
+		entry {
+			min-width: 28px;
+			// reset all the other props since the spinbutton node is styled here
+			margin: 0;
+			background: none;
+			background-color: transparent;
+			border: none;
+			border-radius: 0;
+			box-shadow: none;
 
-      &:backdrop:disabled {
-        background-color: transparent;
-      }
-    }
+			&:backdrop:disabled {
+				background-color: transparent;
+			}
+		}
 
-    button {
-      min-height: 16px;
-      margin: 0;
-      padding-bottom: 0;
-      padding-top: 0;
-      color: gtk("@theme_text_color");
-      background-image: none;
-      background-color: transparent;
-      border-style: none;
-      box-shadow: none;
+		button {
+			min-height: 16px;
+			margin: 0;
+			padding-bottom: 0;
+			padding-top: 0;
+			color: gtk("@theme_text_color");
+			background-image: none;
+			background-color: transparent;
+			border-style: none;
+			box-shadow: none;
 
-      &:hover {
-        color: gtk("@theme_view_hover_decoration_color");
-      }
+			&:hover {
+				color: gtk("@theme_view_hover_decoration_color");
+			}
 
-      &:disabled {
-        color: gtk("@insensitive_base_fg_color");
-      }
+			&:disabled {
+				color: gtk("@insensitive_base_fg_color");
+			}
 
-      &:active {
-        color: gtk("@theme_view_active_decoration_color");
-        box-shadow: none;
-      }
+			&:active {
+				color: gtk("@theme_view_active_decoration_color");
+				box-shadow: none;
+			}
 
-      &:backdrop {
-        color: gtk("@theme_unfocused_text_color");
-        background-color: transparent;
-      }
+			&:backdrop {
+				color: gtk("@theme_unfocused_text_color");
+				background-color: transparent;
+			}
 
-      &:backdrop:disabled {
-        color: gtk("@theme_unfocused_view_text_color");
-        background-color: transparent;
-        border-style: none; // It is needed or it gets overridden
-      }
+			&:backdrop:disabled {
+				color: gtk("@theme_unfocused_view_text_color");
+				background-color: transparent;
+				border-style: none; // It is needed or it gets overridden
+			}
 
-      &:dir(ltr):last-child {
-        border-radius: 0 3px 3px 0;
-      }
+			&:dir(ltr):last-child {
+				border-radius: 0 3px 3px 0;
+			}
 
-      &:dir(rtl):first-child {
-        border-radius: 3px 0 0 3px;
-      }
-    }
-  }
+			&:dir(rtl):first-child {
+				border-radius: 3px 0 0 3px;
+			}
+		}
+	}
 
-  // Vertical
-  &.vertical {
-    // in the vertical configuration, we treat the spinbutton
-    // as a box, and tweak the style of the entry in the middle
-    // so that it's linked
+	// Vertical
+	&.vertical {
+		// in the vertical configuration, we treat the spinbutton
+		// as a box, and tweak the style of the entry in the middle
+		// so that it's linked
 
-    // FIXME: this should not be set at all, but otherwise it gets the wrong
-    // color
-    &:disabled {
-      color: gtk("@insensitive_base_fg_color");
-    }
+		// FIXME: this should not be set at all, but otherwise it gets the wrong
+		// color
+		&:disabled {
+			color: gtk("@insensitive_base_fg_color");
+		}
 
-    &:backdrop:disabled {
-      color: gtk("@theme_unfocused_view_text_color");
-    }
+		&:backdrop:disabled {
+			color: gtk("@theme_unfocused_view_text_color");
+		}
 
-    &:drop(active) {
-      border-color: transparent;
-      box-shadow: none;
-    }
+		&:drop(active) {
+			border-color: transparent;
+			box-shadow: none;
+		}
 
-    entry {
-      margin: 0px;
-      min-height: 26px;
-      min-width: 26px;
-      border-style: none solid none solid;
-      border-color: gtk("@borders");
-      padding: 0;
-      border-radius: 0;
-      &:disabled {
-        color: gtk("@insensitive_base_fg_color");
-        background-color: gtk("@insensitive_base_color");
-        border-color: gtk("@insensitive_borders");
-      }
-      &:backdrop:disabled {
-        color: gtk("@theme_unfocused_view_text_color");
-        background-color: gtk("@theme_unfocused_view_bg_color");
-        border-color: gtk("@unfocused_insensitive_borders");
-      }
-    }
+		entry {
+			margin: 0px;
+			min-height: 26px;
+			min-width: 26px;
+			border-style: none solid none solid;
+			border-color: gtk("@borders");
+			padding: 0;
+			border-radius: 0;
+			&:disabled {
+				color: gtk("@insensitive_base_fg_color");
+				background-color: gtk("@insensitive_base_color");
+				border-color: gtk("@insensitive_borders");
+			}
+			&:backdrop:disabled {
+				color: gtk("@theme_unfocused_view_text_color");
+				background-color: gtk(
+					"@theme_unfocused_view_bg_color"
+				);
+				border-color: gtk("@unfocused_insensitive_borders");
+			}
+		}
 
-    button {
-      min-height: 26px;
-      min-width: 26px;
-      padding: 0;
-      box-shadow: none;
-      background-image: none;
-      background-color: gtk("@theme_base_color");
-      color: gtk("@theme_base_fg_color");
-      border-color: gtk("@borders");
-      &:hover {
-        color: gtk("@theme_view_hover_decoration_color");
-      }
-      &:active {
-        color: gtk("@theme_view_active_decoration_color");
-      }
-      &:disabled {
-        color: gtk("@insensitive_base_fg_color");
-        background-color: gtk("@insensitive_base_color");
-        border-color: gtk("@insensitive_borders");
-      }
-      &:backdrop:disabled {
-        color: gtk("@theme_unfocused_view_text_color");
-        background-color: gtk("@theme_unfocused_view_bg_color");
-        border-color: gtk("@unfocused_insensitive_borders");
-      }
+		button {
+			min-height: 26px;
+			min-width: 26px;
+			padding: 0;
+			box-shadow: none;
+			background-image: none;
+			background-color: gtk("@theme_base_color");
+			color: gtk("@theme_base_fg_color");
+			border-color: gtk("@borders");
+			&:hover {
+				color: gtk("@theme_view_hover_decoration_color");
+			}
+			&:active {
+				color: gtk("@theme_view_active_decoration_color");
+			}
+			&:disabled {
+				color: gtk("@insensitive_base_fg_color");
+				background-color: gtk("@insensitive_base_color");
+				border-color: gtk("@insensitive_borders");
+			}
+			&:backdrop:disabled {
+				color: gtk("@theme_unfocused_view_text_color");
+				background-color: gtk(
+					"@theme_unfocused_view_bg_color"
+				);
+				border-color: gtk("@unfocused_insensitive_borders");
+			}
 
-      &.up {
-        @extend %top_button;
-      }
+			&.up {
+				@extend %top_button;
+			}
 
-      &.down {
-        @extend %bottom_button;
-      }
-    }
+			&.down {
+				@extend %bottom_button;
+			}
+		}
 
-    %top_button {
-      border-radius: 3px 3px 0 0;
-      border-style: solid solid none solid;
-    }
+		%top_button {
+			border-radius: 3px 3px 0 0;
+			border-style: solid solid none solid;
+		}
 
-    %bottom_button {
-      border-radius: 0 0 3px 3px;
-      border-style: none solid solid solid;
-    }
-  }
+		%bottom_button {
+			border-radius: 0 0 3px 3px;
+			border-style: none solid solid solid;
+		}
+	}
 
-  // Misc
-  treeview &:not(.vertical) {
-    min-height: 0;
-    border-style: none;
-    border-radius: 0;
+	// Misc
+	treeview &:not(.vertical) {
+		min-height: 0;
+		border-style: none;
+		border-radius: 0;
 
-    entry {
-      min-height: 0;
-      padding: 1px 2px;
-    }
-  }
+		entry {
+			min-height: 0;
+			padding: 1px 2px;
+		}
+	}
 }
