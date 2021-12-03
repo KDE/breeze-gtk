@@ -39,6 +39,26 @@
 	}
 }
 
+@mixin linked-vertical() {
+	border-bottom-style: none;
+	border-radius: 0;
+
+	&:first-child {
+		border-top-left-radius: $r;
+		border-top-right-radius: $r;
+	}
+
+	&:last-child {
+		border-bottom-style: solid;
+		border-bottom-left-radius: $r;
+		border-bottom-right-radius: $r;
+	}
+
+	&:only-child {
+		border-style: soid;
+	}
+}
+
 @mixin linked-side() {
 	&:focus {
 		+ entry {
@@ -62,6 +82,25 @@
 			border-left-color: gtk(
 				"@theme_button_decoration_hover"
 			);
+		}
+	}
+}
+
+@mixin linked-side-vertical() {
+	&:focus {
+		+ entry {
+			border-top-color: gtk("@theme_view_active_decoration_color");
+		}
+		+ button {
+			border-top-color: gtk("@theme_view_active_decoration_color");
+		}
+	}
+	&:hover {
+		+ entry {
+			border-top-color: gtk("@theme_view_active_decoration_color");
+		}
+		+ button {
+			border-top-color: gtk("@theme_view_active_decoration_color");
 		}
 	}
 }
@@ -365,12 +404,20 @@ combobox {
 	}
 }
 
-box.linked {
+box.linked:not(.vertical) {
 	entry,
 	button {
 		// if we have a box-shadow, buttons look raised while the
 		// other elements aren't, which looks weird, and we can't really
 		// fix it, so just drop the box shadow in this case.
+		box-shadow: none;
+		@include linked();
+		@include linked-side();
+	}
+}
+box.linked.vertical {
+	entry,
+	button {
 		box-shadow: none;
 		@include linked();
 		@include linked-side();
