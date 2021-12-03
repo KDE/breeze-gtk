@@ -19,6 +19,53 @@
 	);
 }
 
+@mixin linked() {
+	border-right-style: none;
+	border-radius: 0;
+
+	&:first-child {
+		border-top-left-radius: $r;
+		border-bottom-left-radius: $r;
+	}
+	&:last-child {
+		border-right-style: solid;
+		border-top-right-radius: $r;
+		border-bottom-right-radius: $r;
+	}
+
+	&:only-child {
+		border-style: solid;
+		border-radius: $r;
+	}
+}
+
+@mixin linked-side() {
+	&:focus {
+		+ entry {
+			border-left-color: gtk(
+				"@theme_view_active_decoration_color"
+			);
+		}
+		+ button {
+			border-left-color: gtk(
+				"@theme_button_decoration_focus"
+			);
+		}
+	}
+	&:hover {
+		+ entry {
+			border-left-color: gtk(
+				"@theme_view_active_decoration_color"
+			);
+		}
+		+ button {
+			border-left-color: gtk(
+				"@theme_button_decoration_hover"
+			);
+		}
+	}
+}
+
 // button styles mixin: $t is normal or toolbutton
 @mixin neobutton($t) {
 	&.suggested-action {
@@ -270,29 +317,10 @@ button {
 	.inline-toolbar &:backdrop {
 		border-radius: $r;
 		border-width: 1px;
-		@extend %linked;
 	}
 
 	.primary-toolbar & {
 		-gtk-icon-shadow: none;
-	}
-
-	.linked > &,
-	.linked > &:hover,
-	.linked > &:active,
-	.linked > &:focus,
-	.linked > &:checked,
-	.linked > &:backdrop {
-		@extend %linked;
-	}
-
-	.linked.vertical > &,
-	.linked.vertical > &:hover,
-	.linked.vertical > &:active,
-	.linked.vertical > &:focus,
-	.linked.vertical > &:checked,
-	.linked.vertical > &:backdrop {
-		@extend %linked_vertical;
 	}
 }
 
@@ -310,75 +338,6 @@ combobox {
 		padding-top: 4px;
 		padding-bottom: 4px;
 	}
-
-	&.linked {
-		button:nth-child(2) {
-			&:dir(ltr) {
-				@extend %linked:last-child;
-			}
-			&:dir(rtl) {
-				@extend %linked:first-child;
-			}
-		}
-	}
-
-	//  &:drop(active) { // FIXME: untested
-	//    box-shadow: none;
-	//
-	//    button.combo { @extend %button_basic:drop(active); }
-	//}
-}
-
-.linked > combobox > box > button.combo {
-	// the combo is a composite widget so the way we do button linking doesn't
-	// work, special case needed. See
-	// https://bugzilla.gnome.org/show_bug.cgi?id=733979
-
-	&:dir(ltr),
-	&:dir(rtl) {
-		@extend %linked_middle;
-	} // specificity bump
-}
-
-.linked:not(.vertical)
-	> combobox:first-child
-	> box
-	> button.combo {
-	@extend %linked:first-child;
-}
-.linked:not(.vertical)
-	> combobox:last-child
-	> box
-	> button.combo {
-	@extend %linked:last-child;
-}
-.linked:not(.vertical)
-	> combobox:only-child
-	> box
-	> button.combo {
-	@extend %linked:only-child;
-}
-
-.linked.vertical > combobox > box > button.combo {
-	@extend %linked_vertical_middle;
-}
-.linked.vertical
-	> combobox:first-child
-	> box
-	> button.combo {
-	@extend %linked_vertical:first-child;
-}
-.linked.vertical
-	> combobox:last-child
-	> box
-	> button.combo {
-	@extend %linked_vertical:last-child;
-}
-.linked.vertical
-	> combobox:only-child
-	> box
-	> button.combo {
-	@extend %linked_vertical:only-child;
 }
 
 %needs_attention {
@@ -406,49 +365,22 @@ combobox {
 	}
 }
 
-%linked_middle {
-	border-radius: $r;
-	&:dir(rtl) {
-		border-radius: $r; // needed when including %linked_middle:dir(rtl)
+box.linked {
+	entry,
+	button {
+		// if we have a box-shadow, buttons look raised while the
+		// other elements aren't, which looks weird, and we can't really
+		// fix it, so just drop the box shadow in this case.
+		box-shadow: none;
+		@include linked();
+		@include linked-side();
 	}
 }
-
-%linked {
-	margin-left: 2px;
-	margin-right: 2px;
-	@extend %linked_middle;
-	&:first-child {
-		border-radius: $r;
-		border-style: solid;
-	}
-	&:last-child {
-		border-radius: $r;
-		&:dir(rtl) {
-		}
-	}
-	&:only-child {
-		border-radius: $r;
-		border-style: solid;
-	}
-}
-
-%linked_vertical_middle {
-	border-style: solid;
-	border-radius: $r;
-}
-
-%linked_vertical {
-	@extend %linked_vertical_middle;
-	&:first-child {
-		border-radius: $r;
-	}
-	&:last-child {
-		border-radius: $r;
-		border-style: solid;
-	}
-	&:only-child {
-		border-radius: $r;
-		border-style: solid;
+stackswitcher.linked {
+	button:not(.flat) {
+		box-shadow: none;
+		@include linked();
+		@include linked-side();
 	}
 }
 

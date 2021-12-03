@@ -165,9 +165,7 @@ placessidebar {
 		}
 
 		@at-root button.sidebar-button {
-			@extend %button_basic.flat;
-
-			@extend %undecorated_button;
+			@include neobutton(toolbutton);
 
 			min-height: 26px;
 			min-width: 26px;

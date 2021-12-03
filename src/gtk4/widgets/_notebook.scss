@@ -223,9 +223,7 @@ notebook {
 		}
 
 		> tabs > arrow {
-			@extend %button_basic;
-
-			@extend %button_basic.flat;
+			@include neobutton(toolbutton);
 
 			min-height: 16px;
 			min-width: 16px;

@@ -36,6 +36,9 @@ headerbar {
 			color: gtk("@theme_titlebar_foreground_backdrop");
 		}
 	}
+	.linked button {
+		@include neobutton(normal);
+	}
 	button {
 		@include neobutton(toolbutton);
 		color: gtk("@theme_titlebar_foreground");
