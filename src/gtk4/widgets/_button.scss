@@ -155,8 +155,7 @@ $_dot_color: gtk("@theme_button_decoration_focus");
 	background-clip: border-box;
 
 	@include neobutton(normal);
-	&.flat,
-	&.image-button {
+	&.flat {
 		@include neobutton(toolbutton);
 	}
 
