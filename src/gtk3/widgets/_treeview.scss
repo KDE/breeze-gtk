@@ -63,11 +63,11 @@
  * Tree Views *
  **************/
 treeview.view {
-	-gtktreeview-grid-line-width: 0;
-	-gtktreeview-grid-line-pattern: "";
-	-gtktreeview-tree-line-width: 1;
-	-gtktreeview-tree-line-pattern: "";
-	-gtktreeview-expander-size: 16;
+	-GtkTreeview-grid-line-width: 0;
+	-GtkTreeview-grid-line-pattern: "";
+	-GtkTreeview-tree-line-width: 1;
+	-GtkTreeview-tree-line-pattern: "";
+	-GtkTreeview-expander-size: 16;
 
 	border-left-color: gtk(
 		"@borders"
