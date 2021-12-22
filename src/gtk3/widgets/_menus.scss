@@ -30,7 +30,7 @@ menubar,
 
 	> menuitem {
 		min-height: 18px;
-		padding: 4px 6px;
+		padding: 5px 10px;
 		@if $new-highlight {
 			border-bottom: 3px solid transparent;
 		}
@@ -81,13 +81,14 @@ menu,
 	// axes borders in a composited env
 	separator {
 		color: gtk("@borders");
+		margin: 3px 0;
 	}
 
 	menuitem {
 		text-shadow: none;
 		min-height: 18px;
 		min-width: 40px;
-		padding: 6px 8px;
+		padding: 4px 8px;
 
 		@if $new-highlight {
 			border: 1px solid transparent;
@@ -327,7 +328,7 @@ popover.background {
 	}
 
 	separator {
-		margin: 3px;
+		margin: 3px 0;
 	}
 
 	list separator {
