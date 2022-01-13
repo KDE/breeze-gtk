@@ -177,19 +177,12 @@ menuitem {
 	}
 	check,
 	radio {
-		min-height: 18px;
-		min-width: 18px;
-
 		&:dir(ltr) {
 			margin-right: 6px;
 		}
 		&:dir(rtl) {
 			margin-left: 6px;
 		}
-	}
-	&:active check,
-	&:active radio {
-		-gtk-icon-transform: translate(1px, 1px);
 	}
 }
 /***************
@@ -216,41 +209,6 @@ modelbutton.flat,
 		@extend %undecorated_button;
 		color: gtk("@theme_unfocused_fg_color");
 	}
-	check,
-	radio {
-		-gtk-icon-palette: error
-				gtk("@theme_button_decoration_focus"),
-			success gtk("@borders"),
-			warning gtk("@theme_button_background_normal");
-		-gtk-icon-shadow: 1px 1px rgba(35, 38, 41, 0.2);
-
-		&:hover {
-			-gtk-icon-palette: error
-					gtk("@theme_button_decoration_focus"),
-				success gtk("@theme_button_decoration_focus"),
-				warning gtk("@theme_button_background_normal");
-		}
-		&:disabled {
-			-gtk-icon-palette: error
-					gtk("@theme_button_decoration_focus_insensitive"),
-				success gtk("@insensitive_borders"),
-				warning gtk("@theme_button_background_insensitive");
-		}
-	}
-	@each $type in ("check", "radio") {
-		#{$type} {
-			-gtk-icon-source: -gtk-recolor(
-				url("../assets/breeze-#{$type}-unchecked-symbolic.svg")
-			);
-			@each $state in ("checked", "indeterminate") {
-				&:#{$state} {
-					-gtk-icon-source: -gtk-recolor(
-						url("../assets/breeze-#{$type}-#{$state}-symbolic.svg")
-					);
-				}
-			}
-		}
-	}
 
 	// FIXME: remove the following when the checks/radios rewrite lands
 	check:last-child,
@@ -262,10 +220,7 @@ modelbutton.flat,
 	radio:first-child {
 		margin-left: 0px;
 	}
-	&:active check,
-	&:active radio {
-		-gtk-icon-transform: translate(1px, 1px);
-	}
+
 }
 
 modelbutton.flat arrow {

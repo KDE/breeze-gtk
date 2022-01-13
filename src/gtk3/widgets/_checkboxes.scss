@@ -18,65 +18,122 @@ radiobutton.text-button {
 			margin-right: 4px;
 		}
 	}
-	&:active check,
-	&:active radio {
-		-gtk-icon-transform: translate(1px, 1px);
-	}
 }
 
 check,
 radio {
+	transition: 0.1s;
 	margin: 0 4px;
 
 	&:only-child {
 		margin: 0;
 	}
 
-	min-height: 18px;
-	min-width: 18px;
+	min-height: 14px;
+	min-width: 14px;
 	//border: none;
-	animation: none;
-	background-color: transparent;
-	-gtk-icon-palette: error
-			gtk("@theme_button_decoration_focus"),
-		success gtk("@borders"),
-		warning gtk("@theme_button_background_normal");
-	-gtk-icon-shadow: 1px 1px rgba(35, 38, 41, 0.2);
+	animation-timing-function: $ease-out-quad;
+	background-color: gtk("@theme_base_color");
+	border: 1px solid gtkalpha(
+		gtk("@theme_button_foreground_normal"),
+		0.333
+	);
+
+	-gtk-icon-shadow: none;
+	-gtk-icon-palette: fg gtk("@theme_fg_color");
 
 	&:hover {
-		-gtk-icon-palette: error
-				gtk("@theme_button_decoration_focus"),
-			success gtk("@theme_button_decoration_focus"),
-			warning gtk("@theme_button_background_normal");
+		border: 1px solid gtk("@theme_button_decoration_hover");
 	}
 	&:disabled {
-		-gtk-icon-palette: error
-				gtk("@theme_button_decoration_focus_insensitive"),
-			success gtk("@insensitive_borders"),
-			warning gtk("@theme_button_background_insensitive");
+		background-color: gtkalpha(
+			gtk("@theme_base_color"),
+			0.03
+		);
+
+		border-color: gtkalpha(
+			gtk("@theme_button_foreground_normal"),
+			0.222
+		);
+	}
+
+
+
+	&:focus {
+		border-color: gtk("@theme_button_decoration_focus");
+	}
+
+	&:indeterminate,
+	&:checked {
+		border-color: gtk("@theme_button_decoration_hover");
+		background-color: gtkalpha(
+			gtk("@theme_button_decoration_hover"),
+			0.333
+		);
+
+		&:backdrop {
+			background-color: gtkalpha(
+				gtk("@theme_button_decoration_hover"),
+				0.03
+			);
+
+			border-color: gtkalpha(
+				gtk("@theme_button_decoration_hover"),
+				0.3
+			);
+		}
+
+		&:disabled {
+			background-color: gtkalpha(
+				gtk("@theme_button_foreground_normal"),
+				0.03
+			);
+			border-color: gtkalpha(
+				gtk("@theme_button_decoration_hover"),
+				0.3
+			);
+			-gtk-icon-palette: fg gtk("@insensitive_fg_color");
+			-gtk-icon-effect: none;
+		}
+	}
+
+	&:indeterminate {
+		-gtk-icon-source: -gtk-recolor(url("../assets/dash-symbolic.svg"));
 	}
 
 	menu menuitem & {
 		margin: 0; // this is a workaround for a menu check/radio size allocation issue
-		min-height: 18px;
-		min-width: 18px;
+		min-height: 14px;
+		min-width: 14px;
 		background-color: transparent;
 		box-shadow: none;
 		-gtk-icon-shadow: none;
 		animation: none;
 	}
 }
-@each $type in ("check", "radio") {
-	#{$type} {
-		-gtk-icon-source: -gtk-recolor(
-			url("../assets/breeze-#{$type}-unchecked-symbolic.svg")
-		);
-		@each $state in ("checked", "indeterminate") {
-			&:#{$state} {
-				-gtk-icon-source: -gtk-recolor(
-					url("../assets/breeze-#{$type}-#{$state}-symbolic.svg")
-				);
-			}
-		}
+
+check{
+	border-radius: $r;
+	&:checked {
+		-gtk-icon-source: -gtk-recolor(url("../assets/checkmark-symbolic.svg"));
 	}
+}
+radio {
+   border-radius: 50%;
+   &:checked {
+        -gtk-icon-source: -gtk-recolor(url("../assets/bullet-symbolic.svg"));
+   }
+}
+
+radio:not(:indeterminate):not(:checked):active:not(:backdrop) { -gtk-icon-transform: scale(0); }
+
+check:not(:indeterminate):not(:checked):active:not(:backdrop) { -gtk-icon-transform: translate(-4px, 3px) scale(0) }
+
+radio,
+check {
+  &:active { -gtk-icon-transform: scale(0, 1); }
+
+  &:checked:not(:backdrop), &:indeterminate:not(:backdrop) {
+    -gtk-icon-transform: unset;
+  }
 }
