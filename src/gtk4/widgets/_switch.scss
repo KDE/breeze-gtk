@@ -4,64 +4,92 @@
  * Switch *
  **********/
 
+$switch-height: 24px;
+
 switch {
 	margin: 2px;
 	font-weight: bold;
 	font-size: smaller;
-	min-width: 48px;
-	min-height: 24px;
-	border: 0px solid;
+	border: 1px solid;
 	border-radius: 12px;
 	color: transparent;
 	background-color: gtkalpha(
 		gtk("@theme_button_foreground_normal"),
-		0.3
+		0.05
+	);
+	border-color: gtkalpha(
+		gtk("@theme_button_foreground_normal"),
+		0.222
 	);
 	text-shadow: none;
 
-	&:checked {
-		background-color: gtk("@theme_selected_bg_color");
+	&:disabled {
+		background-color: gtkalpha(
+			gtk("@theme_button_foreground_normal"),
+			0.03
+		);
 	}
 
-	&:backdrop {
-		background-color: gtkalpha(
-			gtk("@theme_button_foreground_backdrop"),
-			0.3
+	&:checked {
+		background: gtkalpha(
+			gtk("@theme_button_decoration_hover"),
+			0.333
 		);
-		text-shadow: none;
+		border-color: gtk("@theme_button_decoration_hover");
 
-		&:checked {
-			background-color: gtk(
-				"@theme_unfocused_selected_bg_color_alt"
+		&:disabled {
+			background: gtkalpha(
+				gtk("@theme_button_decoration_hover"),
+				0.222
+			);
+			border-color: gtkalpha(
+				gtk("@theme_button_decoration_hover"),
+				0.777
 			);
 		}
 	}
 
+	&:dir(ltr) {
+		&:checked slider {
+			margin-left: 1px;
+		}
+		&:not(:checked) slider {
+			margin-right: 1px;
+		}
+	}
+
 	slider {
-		min-width: 22px;
-		min-height: 22px;
+		min-width: $switch-height;
+		min-height: $switch-height;
+		margin: -($switch-height / 6);
 		border: 1px solid;
-		border-radius: 11px;
-		background-color: gtk("@theme_bg_color");
+		border-radius: $switch-height / 2;
+
+		box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.125);
 		border-color: gtk("@borders");
+		@include bg-gradient(
+			gtk("@theme_button_background_normal")
+		);
 	}
 
 	&:hover slider {
 		border-color: gtk("@theme_button_decoration_hover");
 	}
 
-	&:disabled slider {
-		background-color: gtk("@insensitive_bg_color");
+	&:focus slider {
+		border-color: gtk("@theme_button_decoration_focus");
 	}
 
-	&:backdrop {
-		slider {
-			background-color: gtk("@theme_unfocused_bg_color");
-		}
+	&:disabled slider {
+		box-shadow: none;
+		color: gtk("@theme_button_foreground_insensitive");
+		border-color: gtk("@insensitive_borders");
+		background: gtk("@theme_button_background_insensitive");
 
-		&:disabled slider {
-			background-color: gtk(
-				"@insensitive_unfocused_bg_color"
+		&:active,
+		&:checked {
+			color: gtk(
+				"@theme_button_foreground_active_insensitive"
 			);
 		}
 	}
