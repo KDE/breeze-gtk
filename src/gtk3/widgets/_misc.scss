@@ -70,7 +70,7 @@ scrolledwindow {
 }
 
 //vbox and hbox separators
-separator {
+separator, separator.sidebar {
 	background: gtk("@borders");
 	min-width: 1px;
 	min-height: 1px;
