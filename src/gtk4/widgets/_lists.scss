@@ -21,14 +21,18 @@
 }
 
 list {
-	background-color: gtk("@theme_bg_color");
 	color: gtk("@theme_fg_color");
-	border-width: 0px;
+	border-radius: 3px;
+	&.content {
+		border: 1px solid gtk("@borders");
+	}
+
 	&:backdrop {
-		background-color: gtk("@theme_unfocused_bg_color");
+		background: gtk("@theme_unfocused_bg_color");
 		color: gtk("@theme_unfocused_fg_color");
 	}
 	row {
+		background: gtk("@theme_base_color");
 		padding: 2px;
 	}
 }
