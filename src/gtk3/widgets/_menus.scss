@@ -1,17 +1,5 @@
 @charset "UTF-8";
 
-@mixin item-highlight {
-	@if $new-highlight {
-		background-color: gtk("@theme_selected_bg_color");
-		color: gtk("@theme_button_foreground_active");
-		border: 1px solid gtk("@theme_button_decoration_focus");
-		border-radius: 3px;
-	} @else {
-		background-color: gtk("@theme_button_decoration_focus");
-		color: gtk("@theme_button_foreground_active");
-	}
-}
-
 /*********
  * Menus *
  *********/
@@ -73,8 +61,8 @@ menubar,
 
 menu,
 .menu {
-	padding: 0px;
-	background-color: gtk("@theme_bg_color");
+	padding: 4px;
+	background-color: gtkmix(gtk("@theme_bg_color"), gtk("@theme_base_color"), 0.3);
 
 	border-radius: $r;
 
@@ -89,14 +77,12 @@ menu,
 		min-height: 18px;
 		min-width: 40px;
 		padding: 4px 8px;
-
-		@if $new-highlight {
-			border: 1px solid transparent;
-			margin: 4px;
-		}
+		border: 1px solid transparent;
 
 		&:hover {
-			@include item-highlight();
+			background-color: gtkalpha(gtk("@theme_selected_bg_color"), 0.3);
+			border: 1px solid gtk("@theme_button_decoration_focus");
+			border-radius: 3px;
 		}
 
 		&:disabled {
@@ -186,19 +172,24 @@ menuitem {
 	}
 }
 /***************
- * Popovers   *
- ***************/
+* Popovers   *
+***************/
+popover {
+	padding: 4px;
+}
 /* menu buttons */
 modelbutton.flat,
 .menuitem.button.flat {
 	min-height: 16px;
 	padding: 7px 8px;
+	border: 1px solid transparent;
 
 	@extend %undecorated_button;
 	color: gtk("@theme_fg_color");
 	&:hover {
-		background-color: gtk("@theme_button_decoration_focus");
-		color: gtk("@theme_button_foreground_active");
+		background-color: gtkalpha(gtk("@theme_selected_bg_color"), 0.3);
+		border: 1px solid gtk("@theme_button_decoration_focus");
+		border-radius: 3px;
 	}
 	&:selected {
 		background-color: gtk("@theme_button_decoration_focus");

@@ -1,17 +1,5 @@
 @charset "UTF-8";
 
-@mixin item-highlight {
-	@if $new-highlight {
-		background-color: gtk("@theme_selected_bg_color");
-		color: gtk("@theme_button_foreground_active");
-		border: 1px solid gtk("@theme_button_decoration_focus");
-		border-radius: 3px;
-	} @else {
-		background-color: gtk("@theme_button_decoration_focus");
-		color: gtk("@theme_button_foreground_active");
-	}
-}
-
 /*********
  * Menus *
  *********/
@@ -75,12 +63,15 @@ menubar,
 	}
 }
 
-menu,
-.menu {
-	padding: 0px;
-	background-color: gtk("@theme_bg_color");
+popover, popover.background {
+	background-color: transparent;
 
-	border-radius: $r * 2;
+	contents, > arrow {
+		padding: 4px;
+		background-color: gtkmix(gtk("@theme_bg_color"), gtk("@theme_base_color"), 0.3);
+		border: 1px solid gtk("@borders");
+		border-radius: $r * 2;
+	}
 
 	// axes borders in a composited env
 	separator {
@@ -88,19 +79,43 @@ menu,
 		margin: 3px 0;
 	}
 
-	menuitem {
+	modelbutton {
 		text-shadow: none;
 		min-height: 18px;
 		min-width: 40px;
 		padding: 4px 8px;
+		border: 1px solid transparent;
 
 		@if $new-highlight {
 			border: 1px solid transparent;
 			margin: 4px;
 		}
 
+		accelerator {
+			color: gtkalpha(currentColor, 0.55);
+		}
+		check,
+		radio {
+			&:dir(ltr) {
+				margin-right: 6px;
+			}
+			&:dir(rtl) {
+				margin-left: 6px;
+			}
+		}
+		
+		arrow.left {
+			-gtk-icon-source: -gtk-icontheme($arrow_left);
+		}
+
+		arrow.right {
+			-gtk-icon-source: -gtk-icontheme($arrow_right);
+		}
+
 		&:hover {
-			@include item-highlight();
+			background-color: gtkalpha(gtk("@theme_selected_bg_color"), 0.3);
+			border: 1px solid gtk("@theme_button_decoration_focus");
+			border-radius: 3px;
 		}
 
 		&:disabled {
@@ -116,185 +131,6 @@ menu,
 			color: gtk("@theme_unfocused_fg_color");
 			background-color: gtk("@theme_unfocused_bg_color");
 		}
-
-		// submenu indicators
-		arrow {
-			min-height: 16px;
-			min-width: 16px;
-
-			&:dir(ltr) {
-				-gtk-icon-source: -gtk-icontheme($arrow_right);
-				margin-left: 10px;
-			}
-
-			&:dir(rtl) {
-				-gtk-icon-source: -gtk-icontheme(
-					"go-next-rtl-symbolic"
-				);
-				margin-right: 10px;
-			}
-		}
-	}
-
-	// overflow arrows
-	> arrow {
-		min-height: 16px;
-		min-width: 16px;
-		padding: 4px;
-		background-color: transparent;
-		border-radius: 0;
-
-		&.top {
-			margin-top: -6px;
-			border: none;
-			-gtk-icon-source: -gtk-icontheme($arrow_up);
-		}
-
-		&.bottom {
-			margin-bottom: -6px;
-			border: none;
-			-gtk-icon-source: -gtk-icontheme($arrow_down);
-		}
-
-		&:hover {
-			color: gtk("@theme_button_decoration_hover");
-		}
-		&:active {
-			color: gtk("@theme_button_decoration_focus");
-		}
-
-		&:backdrop {
-			background-color: gtk("@theme_unfocused_bg_color");
-		}
-
-		&:disabled {
-			color: transparent;
-			background-color: transparent;
-			border-color: transparent;
-		}
-	}
-}
-
-menuitem {
-	accelerator {
-		color: gtkalpha(currentColor, 0.55);
-	}
-	check,
-	radio {
-		&:dir(ltr) {
-			margin-right: 6px;
-		}
-		&:dir(rtl) {
-			margin-left: 6px;
-		}
-	}
-}
-/***************
- * Popovers   *
- ***************/
-/* menu buttons */
-modelbutton.flat,
-.menuitem.button.flat {
-	min-height: 16px;
-	padding: 7px 8px;
-
-	border-radius: $r * 2;
-
-	@extend %undecorated_button;
-	color: gtk("@theme_fg_color");
-	&:hover {
-		background-color: gtk("@theme_button_decoration_focus");
-		color: gtk("@theme_button_foreground_active");
-	}
-	&:selected {
-		background-color: gtk("@theme_button_decoration_focus");
-		color: gtk("@theme_button_foreground_active");
-	}
-	&:backdrop,
-	&:backdrop:hover {
-		@extend %undecorated_button;
-		color: gtk("@theme_unfocused_fg_color");
-	}
-
-	// FIXME: remove the following when the checks/radios rewrite lands
-	check:last-child,
-	radio:last-child {
-		margin-right: 0px;
-	}
-
-	check:first-child,
-	radio:first-child {
-		margin-left: 0px;
-	}
-}
-
-modelbutton.flat arrow {
-	background: none;
-
-	&:hover {
-		background: none;
-	}
-
-	&.left {
-		-gtk-icon-source: -gtk-icontheme($arrow_left);
-	}
-
-	&.right {
-		-gtk-icon-source: -gtk-icontheme($arrow_right);
-	}
-}
-
-popover,
-menu {
-	border: 1px solid gtk("@borders");
-}
-
-popover.background {
-	$shadow: rgba(0, 0, 0, 0.25);
-
-	padding: 0px;
-	border-radius: $r * 2;
-	background-color: gtk("@theme_bg_color");
-
-	&:backdrop {
-		box-shadow: none;
-	}
-
-	> list,
-	> .view,
-	> toolbar {
-		border-style: none;
-		background-color: transparent;
-	}
-	.csd &,
-	& {
-		&.touch-selection,
-		&.magnifier {
-			@extend %osd;
-
-			border: 1px solid gtk("@borders");
-
-			button {
-				@extend %button;
-			}
-		}
-
-		&.osd {
-			@extend %osd;
-		}
-	}
-
-	separator {
-		margin: 3px 0;
-	}
-
-	list separator {
-		margin: 0px;
-	}
-
-	checkbutton,
-	radiobutton {
-		@extend modelbutton, .flat;
 	}
 }
 
