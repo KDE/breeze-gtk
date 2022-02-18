@@ -22,6 +22,7 @@
 
 list {
 	color: gtk("@theme_fg_color");
+	background: gtk("@theme_base_color");
 	border-radius: 3px;
 	&.content {
 		border: 1px solid gtk("@borders");
