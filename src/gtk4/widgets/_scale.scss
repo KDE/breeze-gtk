@@ -4,6 +4,8 @@
  * GtkScale *
  ************/
 scale {
+	padding: 12px;
+
 	&.fine-tune {
 		&.trough {
 			margin: 8px;
@@ -12,36 +14,30 @@ scale {
 	}
 
 	slider {
-		min-width: 18px;
-		min-height: 18px;
-		background-color: gtk(
-			"@theme_button_background_normal"
-		);
-		border: 1px solid gtk("@borders");
+		min-width: 16px;
+		min-height: 16px;
+		border: 1px solid gtkmix(gtk("@theme_bg_color"),gtk("@theme_button_foreground_normal"), 0.4);
 		border-radius: 50%;
-		box-shadow: none;
+		box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.125);
+
+		background: gtk("@theme_button_background_normal");
 		margin: -9px;
+
 		&:hover {
-			border-style: solid;
-			border-width: 2px;
 			border-color: gtk("@theme_button_decoration_hover");
 			border-radius: 50%; // needed for double marks scales
+
 			&:backdrop {
-				background-color: gtk(
-					"@theme_button_background_backdrop"
-				);
 				border-color: gtk(
 					"@theme_button_decoration_hover_insensitive"
 				);
 			}
 		}
+
 		&:disabled {
 			border-style: solid; // needed for double marks scales or they'll get
 			border-radius: 50%; // overridden
-			background-color: gtkalpha(
-				gtk("@theme_button_background_insensitive"),
-				100
-			);
+			background-color: gtk("@theme_button_background_insensitive");
 			opacity: 1;
 			border-color: gtk("@insensitive_borders");
 			&:backdrop {
@@ -55,8 +51,8 @@ scale {
 			}
 		}
 		&:active {
-			border: 2px solid
-				gtk("@theme_button_decoration_focus");
+			box-shadow: none;
+			background-color: gtk("@theme_button_background_normal");
 			&:backdrop {
 				background-color: gtk(
 					"@theme_button_background_normal"
@@ -73,56 +69,145 @@ scale {
 			border-color: gtk("@unfocused_borders");
 		}
 	}
-	trough {
-		min-width: 6px;
-		min-height: 6px;
-		margin: 9px;
-		border: 0px solid;
-		border-radius: $r;
-		background-color: $trough_color;
-		box-shadow: none;
 
-		&:disabled,
-		&.vertical:disabled {
-			border-color: $trough_color_insensitive;
-			background-color: $trough_color_insensitive;
-			box-shadow: none;
-			&:backdrop {
-				background-color: $trough_color_backdrop_insensitive;
-				border-color: $trough_color_backdrop_insensitive;
-			}
-		}
+	&:focus-within slider {
+		border-color: gtk("@theme_button_decoration_focus");
+		border-radius: 50%; // needed for double marks scales
+
 		&:backdrop {
-			background-color: $trough_color_backdrop;
-			border-color: $trough_color_backdrop;
+			border-color: gtk(
+				"@theme_button_decoration_focus_insensitive"
+			);
 		}
 	}
+
+	trough {
+		min-width: 4px;
+		min-height: 4px;
+		border: 1px solid;
+		border-radius: $r;
+
+		background: gtkoverlay(
+			gtk("@theme_bg_color"),
+			gtkalpha(gtk("@theme_button_foreground_normal"), 0.5*0.2)
+		);
+
+		border-color: gtkalpha(
+			gtk("@theme_button_foreground_normal"),
+			0.2
+		);
+
+		&:disabled, &.vertical:disabled {
+			background: gtkoverlayalpha(
+				gtk("@theme_bg_color"),
+				gtkalpha(gtk("@theme_button_foreground_normal"), 0.5*0.2),
+				0.5
+			);
+			border-color: gtkalpha(
+				gtk("@theme_button_foreground_normal"),
+				0.2 * 0.5
+			);
+		}
+	}
+
 	highlight {
-		border: 0px solid;
-		border-radius: 3px;
-		background-color: gtk("@theme_selected_bg_color");
-		border-color: gtk("@theme_selected_bg_color");
-		&.vertical {
-			background-color: gtk("@theme_selected_bg_color");
-			border-color: gtk("@theme_selected_bg_color");
-		}
+		margin: -1px;
+		border-radius: $r;
+		background: gtkoverlay(
+			gtk("@theme_bg_color"),
+			gtkalpha(gtk("@theme_button_decoration_hover"), 0.5)
+		);
+
+		border: 1px solid gtk("@theme_button_decoration_hover");
+
 		&:disabled {
-			background-color: gtk(
-				"@insensitive_selected_bg_color"
-			);
+			background: none;
+			border-color: transparent;
 		}
+
 		&:backdrop {
-			background-color: gtk(
-				"@theme_unfocused_selected_bg_color"
+			background: gtkoverlay(
+				gtk("@theme_bg_color"),
+				gtkalpha(gtk("@theme_unfocused_selected_bg_color"), 0.5)
 			);
+
 			border-color: gtk(
 				"@theme_unfocused_selected_bg_color"
 			);
+
 			&:disabled {
-				background-color: gtk(
-					"@insensitive_unfocused_selected_bg_color"
-				);
+				background: none;
+				border-color: transparent;
 			}
 		}
 	}
+
+	$_marks_length: 8px;
+	$_marks_distance: 1px;
+
+
+	> label {
+		color: gtk("@theme_button_foreground_normal")
+	}
+
+	&.horizontal {
+		> marks {
+		color: gtkalpha(
+			gtk("@theme_button_foreground_normal"),
+			0.2
+		);
+		&.top    { margin-bottom: $_marks_distance; }
+		&.bottom { margin-top: $_marks_distance; }
+
+		indicator {
+			background-color: gtkalpha(
+				gtk("@theme_button_foreground_normal"),
+				0.2
+			);
+			min-height: $_marks_length;
+			min-width: 1px;
+		}
+		}
+
+		> value.left  { margin-right: 9px; }
+		> value.right { margin-left: 9px; }
+
+		&.fine-tune >marks {
+		&.top { margin-top: 3px; }
+		&.bottom { margin-bottom: 3px; }
+
+		indicator { min-height: ($_marks_length - 3px); }
+		}
+	}
+
+	&.vertical {
+		> marks {
+		color: gtkalpha(
+			gtk("@theme_button_foreground_normal"),
+			0.2
+		);
+		&.top    { margin-right: $_marks_distance; }
+		&.bottom { margin-left: $_marks_distance; }
+
+		indicator {
+			background-color: gtkalpha(
+				gtk("@theme_button_foreground_normal"),
+				0.2
+			);
+			min-height: 1px;
+			min-width: $_marks_length;
+		}
+		}
+
+		> value.top    { margin-bottom: 9px; }
+		> value.bottom { margin-top: 9px; }
+
+		&.fine-tune >marks {
+		&.top { margin-left: 3px; }
+		&.bottom { margin-right: 3px; }
+
+		indicator { min-height: ($_marks_length - 3px); }
+		}
+	}
+
 }

@@ -8,14 +8,14 @@ progressbar {
 	&.horizontal {
 		trough,
 		progress {
-			min-height: 6px;
+			min-height: 4px;
 		}
 	}
 
 	&.vertical {
 		trough,
 		progress {
-			min-width: 6px;
+			min-width: 4px;
 		}
 	}
 
@@ -27,31 +27,40 @@ progressbar {
 	);
 
 	trough {
-		border: 0px solid transparent;
+		border: 1px solid;
 		border-radius: $r;
-		background-color: gtkalpha(
+		background: gtkoverlay(
+			gtk("@theme_bg_color"),
+			gtkalpha(gtk("@theme_button_foreground_normal"), 0.5*0.2)
+		);
+
+		border-color: gtkalpha(
 			gtk("@theme_button_foreground_normal"),
-			0.3
+			0.2
 		);
 	}
 
-	&:backdrop trough {
-		background-color: gtkalpha(
-			gtk("@theme_button_foreground_backdrop"),
-			0.3
-		);
-	} // looks like states are not passed to the trough component here
-
 	progress {
-		background-color: gtk("@theme_selected_bg_color");
-		border: 0px solid transparent;
-		border-radius: 3px;
+		border: 1px solid;
+		margin: -1px;
+		border-radius: $r;
 		box-shadow: none; //needed for clipping
+		background: gtkoverlay(
+			gtk("@theme_bg_color"),
+			gtkalpha(gtk("@theme_button_decoration_hover"), 0.5)
+		);
+
+		border: 1px solid gtk("@theme_button_decoration_hover");
 	}
 
 	&:backdrop progress {
-		background-color: gtk(
-			"@theme_unfocused_selected_bg_color_alt"
+		background: gtkoverlay(
+			gtk("@theme_bg_color"),
+			gtkalpha(gtk("@theme_unfocused_selected_bg_color"), 0.5)
+		);
+
+		border-color: gtk(
+			"@theme_unfocused_selected_bg_color"
 		);
 	} // states not passed here as well
 

@@ -22,6 +22,18 @@
 	@return unquote("mix(#{$c1},#{$c2},#{$m})");
 }
 
+@function gtkoverlay($c1, $c2) {
+	@return unquote("linear-gradient(#{$c2},#{$c2}),
+					linear-gradient(#{$c1},#{$c1})");
+}
+
+@function gtkoverlayalpha($c1, $c2, $a) {
+	$ca1: gtkalpha(#{$c1}, #{$a});
+	$ca2: gtkalpha(#{$c2}, #{$a});
+	@return unquote("linear-gradient(#{$ca2},#{$ca2}),
+					linear-gradient(#{$ca1},#{$ca1})");
+}
+
 //
 // Theme color functions
 //
