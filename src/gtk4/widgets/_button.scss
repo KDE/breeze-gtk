@@ -342,6 +342,24 @@ combobox {
 		padding-top: 4px;
 		padding-bottom: 4px;
 	}
+
+	> box > button.combo:only-child {
+
+		//Force shadow for single combobox buttons
+		@include neobutton(normal)
+
+		arrow {
+			min-width: 14px;
+
+			&:dir(rtl) {
+				margin-left: -3px;
+			}
+
+			&:dir(ltr) {
+				margin-right: -3px;
+			}
+		}
+	}
 }
 
 %needs_attention {

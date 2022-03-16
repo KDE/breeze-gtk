@@ -41,6 +41,9 @@ headerbar {
 	}
 	button {
 		@include neobutton(toolbutton);
+
+		//ensure we don't have a shadow on headerbar buttons at all
+		box-shadow: none;
 		color: gtk("@theme_titlebar_foreground");
 
 		&:hover {

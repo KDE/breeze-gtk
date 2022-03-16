@@ -207,3 +207,22 @@ treeview entry {
 		}
 	}
 }
+
+combobox > box > button.combo {
+	background: none;
+	@include entry(normal)
+
+	&:focus {
+		@include entry(focus);
+	}
+	&:disabled {
+		@include entry(insensitive);
+	}
+	&:backdrop {
+		@include entry(backdrop);
+	}
+	&:backdrop:disabled {
+		@include entry(backdrop-insensitive);
+	}
+}
+
