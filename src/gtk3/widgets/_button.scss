@@ -117,7 +117,7 @@
 	}
 
 	@if $t == normal {
-		box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.125);
+		box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.125);
 		text-shadow: none;
 		-gtk-icon-shadow: none;
 
@@ -127,28 +127,28 @@
 			gtk("@theme_button_background_normal")
 		);
 
-		&:backdrop {
-			color: gtk("@theme_button_foreground_backdrop");
-			border-color: gtk("@unfocused_borders");
-			background: gtk("@theme_button_background_backdrop");
-		}
-
 		&:checked {
 			background: gtkalpha(
 				gtk("@theme_button_foreground_normal"),
 				0.125
 			);
-		}
-
-		&:active {
-			background: gtkalpha(
-				gtk("@theme_button_decoration_hover"),
-				0.333
-			);
+			box-shadow: none;
 		}
 
 		&:hover {
 			border-color: gtk("@theme_button_decoration_hover");
+
+			&:not(:checked):not(:active) {
+				background: gtk("@theme_button_background_normal");
+			}
+		}
+
+		&:active {
+			box-shadow: none;
+			background: gtkalpha(
+				gtk("@theme_button_decoration_hover"),
+				0.333
+			);
 		}
 
 		&:focus {
@@ -193,7 +193,16 @@
 			);
 		}
 
+		&:hover {
+			border-color: gtk("@theme_button_decoration_hover");
+
+			&:not(:checked):not(:active) {
+				background: unset;
+			}
+		}
+
 		&:active {
+
 			border-color: gtk("@theme_button_decoration_hover");
 			background-color: gtkalpha(
 				gtk("@theme_button_decoration_hover"),
@@ -201,9 +210,6 @@
 			);
 		}
 
-		&:hover {
-			border-color: gtk("@theme_button_decoration_hover");
-		}
 
 		&:focus {
 			border-color: gtk("@theme_button_decoration_focus");
