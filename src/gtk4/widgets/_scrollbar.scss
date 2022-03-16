@@ -5,10 +5,49 @@
  **************/
 
 scrollbar {
+
 	background-color: gtk("@theme_bg_color");
-	border-width: 0px 0px;
+	border-width: 0px;
 	border-color: gtk("@theme_bg_color");
-	margin: 5px;
+	padding: 5px;
+
+	&.vertical {
+
+		&:dir(rtl) {
+			border-right: 1px solid gtk("@borders");
+		}
+
+		&:dir(ltr) {
+			border-left: 1px solid gtk("@borders");
+		}
+
+		&.right {
+			&:dir(rtl) {
+				border-right: none;
+			}
+			border-left: 1px solid gtk("@borders");
+		}
+
+		&.left {
+			&:dir(ltr) {
+				border-left: none;
+			}
+			border-right: 1px solid gtk("@borders");
+		}
+	}
+
+	&.horizontal {
+		border-top: 1px solid gtk("@borders");
+
+		&.bottom {
+			border-top: 1px solid gtk("@borders");
+		}
+
+		&.top {
+			border-top: none;
+			border-bottom: 1px solid gtk("@borders");
+		}
+	}
 
 	button {
 		min-width: 14px;
@@ -52,80 +91,102 @@ scrollbar {
 	} //
 
 	&.overlay-indicator {
+		border: none;
+
+		&.vertical {
+			border:none;
+		}
+
+		&.horizontal {
+			border:none;
+		}
+
 		background: none;
+
+		slider {
+			background-image: gtkoverlayalpha(gtk("@theme_bg_color"), gtkalpha(gtk("@theme_button_foreground_normal"), 0.5*0.5*0.7), 0.75);
+		}
 	}
 
 	trough {
-		//margin: 0px;
+		margin: -1px;
 		transition-duration: 0.1s;
-		min-width: 3px;
+		min-width: 6px;
 		min-height: 14px;
 		border-radius: 8px;
 		background-color: transparent;
+		border: 1px solid transparent;
 	}
 
 	&:hover {
 		trough {
-			background-color: $trough_color_backdrop;
-			min-width: 6px;
-		}
-		slider {
-			min-width: 6px;
-			background-color: gtk(
-				"@theme_button_decoration_hover"
-			);
+			background-color: gtkalpha(gtk("@theme_button_foreground_normal"), 0.2*0.5);
+			border: 1px solid gtkalpha(gtk("@theme_button_foreground_normal"), 0.2);
+
+			slider {
+				background-image: gtkoverlay(gtk("@theme_bg_color"), gtkalpha(gtk("@theme_button_foreground_normal"), 0.5*0.5));
+				box-shadow: 0 0 0 1px gtkalpha(gtk("@theme_button_foreground_normal"), 0.5*0.9) inset;
+
+				&:hover {
+					background-image: gtkoverlay(gtk("@theme_bg_color"), gtkalpha(gtk("@theme_button_decoration_hover"), 0.5));
+					box-shadow: 0 0 0 1px gtkalpha(gtk("@theme_button_decoration_hover"), 0.9) inset;
+				}
+			}
 		}
 	}
 
 	&.horizontal trough {
-		//margin: 0px;
-		transition-duration: 0.1s;
 		min-width: 14px;
-		min-height: 3px;
-		border-radius: 8px;
-		background-color: transparent;
+		min-height: 6px;
 	}
 
-	&.horizontal:hover {
-		&.horizontal trough {
-			background-color: $trough_color_backdrop;
-			min-height: 6px;
+	*:focus ~ &,
+	& ~ *:focus {
+
+		&:hover {
+			slider {
+				background-image: gtkoverlay(gtk("@theme_bg_color"), gtkalpha(gtk("@theme_button_decoration_hover"), 0.5));
+				box-shadow: 0 0 0 1px gtkalpha(gtk("@theme_button_decoration_hover"), 0.9) inset;
+			}
 		}
-		&.horizontal slider {
-			min-height: 6px;
-			background-color: gtk(
-				"@theme_button_decoration_hover"
-			);
+
+		&.overlay-indicator {
+			slider {
+				background-image: gtkoverlayalpha(gtk("@theme_bg_color"), gtkalpha(gtk("@theme_button_decoration_focus"), 0.5*0.7), 0.75);
+			}
+
+			&:hover {
+				slider {
+					background-image: gtkoverlay(gtk("@theme_bg_color"), gtkalpha(gtk("@theme_button_decoration_hover"), 0.5));
+					box-shadow: 0 0 0 1px gtkalpha(gtk("@theme_button_decoration_hover"), 0.9) inset;
+				}
+			}
 		}
 	}
 
 	slider {
-		//margin: 0px;
+		margin: -9px;
+		margin-bottom: -6px;
+		margin-top: -6px;
 		transition-duration: 0.1s;
-		min-width: 3px;
+		min-width: 6px;
 		min-height: 30px;
-		border-radius: 8px;
+		border-radius: 15px;
 		background-clip: padding-box;
-		background-color: gtkalpha(gtk("@theme_fg_color"), 0.5);
-		&:hover {
-			min-width: 6px;
-			background-color: gtk(
-				"@theme_button_decoration_hover"
-			);
-		}
+		background-image: gtkoverlay(gtk("@theme_bg_color"), gtkalpha(gtk("@theme_button_foreground_normal"), 0.5*0.5*0.7));
+
+		// To keep the ability to drag the slider from the edge of the screen
+		border: 5px solid transparent;
+		box-shadow: 0 0 0 1px gtkalpha(gtk("@theme_button_foreground_normal"), 0.5*0.7*0.9) inset;
+
 	}
+
 	&.horizontal slider {
+		margin: -9px;
+		margin-left: -6px;
+		margin-right: -6px;
 		transition-duration: 0.1s;
 		min-width: 30px;
-		min-height: 3px;
-		border-radius: 8px;
-		background-clip: padding-box;
-		background-color: gtkalpha(gtk("@theme_fg_color"), 0.5);
-		&:hover {
-			min-height: 6px;
-			background-color: gtk(
-				"@theme_button_decoration_hover"
-			);
-		}
+		min-height: 6px;
 	}
 }
