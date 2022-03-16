@@ -235,6 +235,12 @@ button {
 			padding-right: 6px;
 		}
 
+		&.circular {
+			min-width: 18px;
+			min-height: 18px;
+			border-radius: 9999px;
+		}
+
 		&.text-button.image-button {
 			padding-left: 6px;
 			padding-right: 6px;
