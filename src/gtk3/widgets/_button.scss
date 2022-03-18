@@ -55,7 +55,7 @@
 	}
 
 	&:only-child {
-		border-style: soid;
+		border-style: solid;
 	}
 }
 
@@ -454,8 +454,8 @@ box.linked.vertical {
 	entry,
 	button {
 		box-shadow: none;
-		@include linked();
-		@include linked-side();
+		@include linked-vertical();
+		@include linked-side-vertical();
 	}
 }
 stackswitcher.linked {
