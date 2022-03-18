@@ -395,6 +395,11 @@ combobox {
 		//Force shadow for single combobox buttons
 		@include neobutton(normal)
 
+		// remove a shadow for headerbar comboboxes
+		headerbar & {
+			box-shadow: none;
+		}
+
 		arrow {
 			min-width: 14px;
 
