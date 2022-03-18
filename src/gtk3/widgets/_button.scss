@@ -439,7 +439,9 @@ combobox {
 	}
 }
 
-box.linked:not(.vertical) {
+box.linked:not(.vertical),
+box.inline-toolbar:not(.vertical),
+buttonbox.linked:not(.vertical) {
 	entry,
 	button {
 		// if we have a box-shadow, buttons look raised while the
@@ -450,7 +452,10 @@ box.linked:not(.vertical) {
 		@include linked-side();
 	}
 }
-box.linked.vertical {
+
+box.linked.vertical,
+box.inline-toolbar.vertical,
+buttonbox.linked.vertical {
 	entry,
 	button {
 		box-shadow: none;
@@ -458,6 +463,7 @@ box.linked.vertical {
 		@include linked-side-vertical();
 	}
 }
+
 stackswitcher.linked {
 	button:not(.flat) {
 		box-shadow: none;

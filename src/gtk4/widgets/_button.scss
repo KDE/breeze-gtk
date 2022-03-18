@@ -427,7 +427,9 @@ combobox {
 	}
 }
 
-box.linked:not(.vertical) {
+box.linked:not(.vertical),
+box.inline-toolbar:not(.vertical),
+buttonbox.linked:not(.vertical) {
 	entry,
 	button {
 		// if we have a box-shadow, buttons look raised while the
@@ -439,7 +441,9 @@ box.linked:not(.vertical) {
 	}
 }
 
-box.linked.vertical {
+box.linked.vertical,
+box.inline-toolbar.vertical,
+buttonbox.linked.vertical {
 	entry,
 	button {
 		box-shadow: none;
