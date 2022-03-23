@@ -208,7 +208,7 @@ treeview entry {
 	}
 }
 
-combobox > box > button.combo {
+combobox > box > button.combo:not(:only-child) {
 	background: none;
 	@include entry(normal)
 

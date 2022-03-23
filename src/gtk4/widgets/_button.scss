@@ -384,12 +384,12 @@ combobox {
 	}
 
 	> box > button.combo:only-child {
-
 		//Force shadow for single combobox buttons
-		@include neobutton(normal)
+		@include neobutton(normal);
 
 		// remove a shadow for headerbar comboboxes
-		headerbar & {
+		headerbar &,
+		.linked & {
 			box-shadow: none;
 		}
 
