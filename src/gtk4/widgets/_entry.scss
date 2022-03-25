@@ -210,7 +210,7 @@ treeview entry {
 
 combobox > box > button.combo:not(:only-child) {
 	background: none;
-	@include entry(normal)
+	@include entry(normal);
 
 	&:focus {
 		@include entry(focus);
