@@ -106,7 +106,6 @@ treeview.view {
  *************/
 levelbar {
 	block {
-		min-width: 32px;
 		min-height: 6px;
 	}
 
@@ -128,6 +127,7 @@ levelbar {
 
 	&.horizontal.discrete block {
 		margin: 0 1px;
+		min-width: 32px;
 	}
 
 	&.vertical.discrete block {
