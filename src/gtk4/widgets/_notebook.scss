@@ -53,50 +53,129 @@ notebook {
 		}
 
 		@each $_tab, $_border,
-			$_radius in (top, bottom, 3px 3px 0px 0px),
-			(bottom, top, 0px 0px 3px 3px),
-			(left, right, 3px 0px 0px 3px),
-			(right, left, 0px 3px 3px 0px)
+			$_radius_first, $_radius_last in (top, bottom, 3px 0px 0px 0px, 0px 3px 0px 0px),
+			(bottom, top, 0px 0px 0px 3px, 0px 0px 3px 0px),
+			(left, right, 3px 0px 0px 0px, 0px 0px 0px 3px),
+			(right, left, 0px 3px 0px 0px, 0px 0px 3px 0px)
 		{
 			&.#{$_tab} {
 				> tabs {
 					> tab {
 						padding: 4px 6px;
+						padding-bottom: 7px;
 						border: 1px
 							solid
-							gtkalpha(gtk("@theme_fg_color"), 0.2);
+							transparent;
+						border-#{$_border}: none;
+						border-#{$_tab}: 3px solid transparent;
 						background-color: gtkalpha(
 							gtk("@theme_fg_color"),
 							0.2
 						);
-						border-radius: #{$_radius};
-						border-#{$_border}-color: transparent;
+						border-radius: 0;
+
+
+						&:first-child {
+							border-radius: $_radius_first;
+						}
+
+						&:last-child {
+							border-radius: $_radius_last;
+						}
+
 						&:hover,
 						&.prelight-page {
+							transition: 0.15s;
 							background-color: gtkalpha(
 								gtk("@theme_selected_bg_color"),
 								0.2
 							);
-							border-color: gtkalpha(
-								gtk("@theme_selected_bg_color"),
-								0.2
-							);
+
 						}
-						&:checked {
-							border-color: gtk("@borders");
-							border-#{$_border}-color: gtk(
-								"@theme_bg_color"
-							);
-							background-color: gtk("@theme_bg_color");
-							&:backdrop {
-								border-color: gtk("@unfocused_borders");
-								border-#{$_border}-color: gtk(
-									"@theme_unfocused_bg_color"
-								);
-								background-color: gtk(
-									"@theme_unfocused_bg_color"
-								);
+
+						// Padding trickery to get selected tab overlap
+						@if $_tab == top or $_tab == bottom {
+
+							> label {
+								margin-left: -3px;
 							}
+
+							&:checked {
+								padding-left: 9px;
+
+								&:not(:first-child) {
+									margin-left: -3px;
+								}
+
+								&:first-child {
+									padding-left: 6px;
+								}
+								&:not(:last-child) {
+									margin-right: -3px;
+								}
+
+								& + tab {
+									padding-left: 9px;
+								}
+							}
+						} @else {
+
+							> label {
+								margin-top: -3px;
+							}
+
+							&:checked {
+								padding-top: 7px;
+
+								&:not(:first-child) {
+									margin-top: -3px;
+								}
+								&:first-child {
+									padding-top: 4px;
+								}
+								&:not(:last-child) {
+									margin-bottom: -3px;
+								}
+
+								& + tab {
+									padding-top: 7px;
+								}
+							}
+						}
+
+						&:checked {
+							transition: none;
+							border-color: gtk("@borders");
+							border-#{$_tab}-color: gtk("@theme_selected_bg_color");
+
+							$_radius: ();
+
+							// Combine both first and second radiuses
+							@for $i from 1 through length($_radius_first) {
+								$_radius: append($_radius, nth($_radius_first, $i) + nth($_radius_last, $i));
+							}
+
+							border-radius: $_radius;
+
+							background-color: gtk("@theme_bg_color");
+						}
+					}
+
+					arrow.down ~ tab:checked:nth-child(2) {
+						@if $_tab == top or $_tab == bottom {
+							margin-left: 0px;
+							padding-left: 6px;
+						} @else {
+							margin-top: 0px;
+							padding-top: 4px;
+						}
+					}
+
+					arrow.down ~ tab:checked:nth-last-child(2) {
+						@if $_tab == top or $_tab == bottom {
+							margin-right: 0px;
+						} @else {
+							margin-bottom: 0px;
 						}
 					}
 				}
@@ -241,25 +320,18 @@ notebook {
 		// colors the button like the label, overridden otherwise
 		button.flat {
 			padding: 0;
-			margin: 4px;
+			margin: 2px;
 			// FIXME: generalize .small-button?
 			min-width: 12px;
 			min-height: 12px;
 			border: 0px solid;
 			border-radius: 50%;
-			color: gtk("@theme_bg_color");
-			background-color: gtk("@borders");
+			color: gtk("@borders");
 			background-image: none;
-			&:hover {
-				background-color: $error_color;
-			}
-			&:active {
-				background-color: $error_color;
-			}
 
-			&:backdrop {
-				background-color: gtk("@unfocused_borders");
-				color: gtk("@theme_unfocused_bg_color");
+			&:active,
+			&:hover{
+				color: $error_color;
 			}
 		}
 	}
