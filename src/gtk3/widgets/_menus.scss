@@ -10,10 +10,10 @@ menubar,
 	padding: 0px;
 	box-shadow: none;
 	border-style: none;
-	background-color: gtk("@theme_bg_color");
+	background-color: gtk("@theme_header_background");
 
 	&:backdrop {
-		background-color: gtk("@theme_unfocused_bg_color");
+		background-color: gtk("@theme_header_background_backdrop");
 	}
 
 	> menuitem {
