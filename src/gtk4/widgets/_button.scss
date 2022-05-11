@@ -128,6 +128,11 @@
 			gtk("@theme_button_background_normal")
 		);
 
+		&:backdrop {
+			box-shadow: none;
+			background: gtk("@theme_button_background_normal");
+		}
+
 		&:checked {
 			background: gtkalpha(
 				gtk("@theme_button_foreground_normal"),
