@@ -32,15 +32,37 @@
 }
 
 .sidebar {
-	border: none;
-	background-color: gtk("@theme_bg_color");
+	border-radius: 0px;
+	border-style: none;
+	background-color: gtk("@theme_base_color");
+
 	&:selected {
 		@extend %selected_items;
 	}
-	&:backdrop {
-		background-color: gtk("@theme_unfocused_bg_color");
+
+	&:not(separator) {
+		&:dir(ltr),
+		&.left,
+		&.left:dir(rtl) {
+			border-right: 1px solid $ligh_border_color;
+			border-left: none;
+		}
+
+		&:dir(rtl),
+		&.right {
+			border-left: 1px solid $ligh_border_color;
+			border-right: none;
+		}
 	}
+
+	.sidebar-header > separator {
+		background-color: $ligh_border_color;
+	}
+
 	row {
+		&:hover {
+		}
+
 		&.activatable {
 			border: 0;
 			&:dir(ltr) {
@@ -51,7 +73,7 @@
 			}
 
 			&.has-open-popup, // this is for indicathing which row generated a popover see https://bugzilla.gnome.org/show_bug.cgi?id=754411
-  
+
       &:hover:dir(ltr) {
 				@include selected-item-highlight();
 			}
@@ -105,6 +127,10 @@
 			@extend %selected_items;
 		}
 	}
+	paned & { &.left, &.right, &.left:dir(rtl), &:dir(rtl), &:dir(ltr), & { border-style: none; }}
+}
+separator.sidebar {
+	background-color: gtk("@borders");
 }
 
 // Places sidebar is a special case, since the view here have to look like chrome not content, so we override text color
