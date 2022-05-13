@@ -15,7 +15,6 @@ headerbar {
 	background-image: none;
 	background-color: gtk("@theme_titlebar_background");
 	&:backdrop {
-		border-color: transparent;
 		background-image: none;
 		background-color: gtk(
 			"@theme_titlebar_background_backdrop"
@@ -51,7 +50,6 @@ headerbar {
 		}
 
 		&:backdrop {
-			border-color: transparent;
 			background-image: none;
 			background-color: gtk(
 				"@theme_titlebar_background_backdrop"
