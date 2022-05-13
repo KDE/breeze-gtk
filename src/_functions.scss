@@ -167,6 +167,12 @@ $border_color: mix(
 	$WindowForegroundNormal,
 	75%
 );
+$ligh_border_color: gtkmix(
+	$WindowBackgroundNormal,
+	$WindowForegroundNormal,
+	0.07
+);
+
 $menu_color: internal_w_color(normal);
 $link_color: $ViewForegroundLink;
 $link_visited_color: $ViewForegroundVisited;
