@@ -28,10 +28,6 @@ list {
 		border: 1px solid gtk("@borders");
 	}
 
-	&:backdrop {
-		background: gtk("@theme_unfocused_bg_color");
-		color: gtk("@theme_unfocused_fg_color");
-	}
 	row {
 	    background: gtk("@theme_base_color");
 		padding: 2px;
