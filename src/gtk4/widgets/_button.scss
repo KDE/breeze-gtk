@@ -389,9 +389,6 @@ combobox {
 	}
 
 	> box > button.combo:only-child {
-		//Force shadow for single combobox buttons
-		@include neobutton(normal);
-
 		// remove a shadow for headerbar comboboxes
 		headerbar &,
 		.linked & {
@@ -441,7 +438,9 @@ buttonbox.linked:not(.vertical) {
 			// if we have a box-shadow, buttons look raised while the
 			// other elements aren't, which looks weird, and we can't really
 			// fix it, so just drop the box shadow in this case.
-			box-shadow: none;
+			&:not(.combo) {
+				box-shadow: none;
+			}
 			@include linked();
 			@include linked-side();
 		}
@@ -454,7 +453,9 @@ buttonbox.linked.vertical {
 	&:not(.dialog-action-area) {
 		entry,
 		button {
-			box-shadow: none;
+			&:not(.combo) {
+				box-shadow: none;
+			}
 			@include linked-vertical();
 			@include linked-side-vertical();
 		}
