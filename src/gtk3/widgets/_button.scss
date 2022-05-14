@@ -447,25 +447,29 @@ combobox {
 box.linked:not(.vertical),
 box.inline-toolbar:not(.vertical),
 buttonbox.linked:not(.vertical) {
-	entry,
-	button {
-		// if we have a box-shadow, buttons look raised while the
-		// other elements aren't, which looks weird, and we can't really
-		// fix it, so just drop the box shadow in this case.
-		box-shadow: none;
-		@include linked();
-		@include linked-side();
+	&:not(.dialog-action-area) { // make an exception for dialog buttons to look more consistent in Qt environment
+		entry,
+		button {
+			// if we have a box-shadow, buttons look raised while the
+			// other elements aren't, which looks weird, and we can't really
+			// fix it, so just drop the box shadow in this case.
+			box-shadow: none;
+			@include linked();
+			@include linked-side();
+		}
 	}
 }
 
 box.linked.vertical,
 box.inline-toolbar.vertical,
 buttonbox.linked.vertical {
-	entry,
-	button {
-		box-shadow: none;
-		@include linked-vertical();
-		@include linked-side-vertical();
+	&:not(.dialog-action-area) {
+		entry,
+		button {
+			box-shadow: none;
+			@include linked-vertical();
+			@include linked-side-vertical();
+		}
 	}
 }
 
