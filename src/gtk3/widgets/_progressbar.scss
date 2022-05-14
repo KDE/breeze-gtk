@@ -104,6 +104,16 @@ treeview.view {
 /*************
  * Level Bar *
  *************/
+@mixin levelbar($color) {
+		border: 1px solid $color;
+		background: gtkoverlay(
+			gtk("@theme_bg_color"),
+			gtkalpha($color, 0.5)
+		);
+		box-shadow: none;
+		border-radius: $r;
+}
+
 levelbar {
 	block {
 		min-height: 6px;
@@ -134,63 +144,32 @@ levelbar {
 		margin: 1px 0;
 	}
 
-	block:not(.empty) {
-		border: 1px solid gtk("@theme_selected_bg_color");
-		background-color: gtk("@theme_selected_bg_color");
-		box-shadow: none;
-		border-radius: 1px;
-
-		&:backdrop {
-			border-color: gtk(
-				"@theme_unfocused_selected_bg_color_alt"
-			);
-			background-color: gtk(
-				"@theme_unfocused_selected_bg_color_alt"
-			);
-		}
-	}
-
 	block {
+		&:not(.empty) {
+			@include levelbar(gtk("@theme_button_decoration_hover"));
+
+			&:backdrop {
+				@include levelbar(gtk("@theme_unfocused_selected_bg_color"));
+			}
+		}
+
 		&.low {
-			border-color: gtk("@warning_color");
-			background-color: gtk("@warning_color");
+			@include levelbar(gtk("@warning_color"));
 			&:backdrop {
-				background-color: gtk("@warning_color_backdrop");
-				border-color: gtk("@warning_color_backdrop");
+				@include levelbar(gtk("@warning_color_backdrop"));
 			}
 		}
 
-		&.high {
-			border-color: gtk("@success_color");
-			background-color: gtk("@success_color");
-			&:backdrop {
-				background-color: gtk("@success_color_backdrop");
-				border-color: gtk("@success_color_backdrop");
-			}
-		}
+		&.full, &.high {
+			@include levelbar(gtk("@success_color"));
 
-		&.full {
-			border-color: gtk("@success_color");
-			background-color: gtk("@success_color");
 			&:backdrop {
-				background-color: gtk("@success_color_backdrop");
-				border-color: gtk("@success_color_backdrop");
+				@include levelbar(gtk("@success_color_backdrop"));
 			}
 		}
 
 		&.empty {
-			background-color: gtkalpha(
-				gtk("@theme_button_foreground_normal"),
-				0.3
-			);
-			border-color: transparent;
-			box-shadow: none;
-			&:backdrop {
-				background-color: gtkalpha(
-					gtk("@theme_button_foreground_insensitive"),
-					0.3
-				);
-			}
+			@include levelbar(gtkalpha(gtk("@theme_button_foreground_normal"), 0.2));
 		}
 	}
 }
