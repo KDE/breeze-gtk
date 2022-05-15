@@ -4,6 +4,7 @@
  * Window Decorations *
  *********************/
 
+dialog,
 window {
 	$shadow: rgba(0, 0, 0, 0.5);
 
@@ -56,6 +57,7 @@ window {
 	}
 }
 
+dialog.solid-csd,
 window.solid-csd {
 	headerbar.titlebar,
 	paned.titlebar,
