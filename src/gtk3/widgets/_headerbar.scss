@@ -14,12 +14,15 @@ headerbar {
 	color: gtk("@theme_titlebar_foreground");
 	background-image: none;
 	background-color: gtk("@theme_titlebar_background");
+	border-top: 1px solid lighter(gtk("@theme_titlebar_background"));
+
 	&:backdrop {
 		background-image: none;
 		background-color: gtk(
 			"@theme_titlebar_background_backdrop"
 		);
 		color: gtk("@theme_titlebar_foreground_backdrop");
+		border-top: 1px solid lighter(gtk("@theme_titlebar_background_backdrop"));
 		box-shadow: none;
 	}
 	label {
