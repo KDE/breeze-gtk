@@ -176,3 +176,12 @@ viewswitcherbar {
 		padding: 0;
 	}
 }
+
+window.unified {
+	border-radius: 6px;
+	&.maximized,
+	&.fullscreen,
+	&.tiled {
+		border-radius: 0;
+	}
+}

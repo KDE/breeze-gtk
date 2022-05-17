@@ -63,3 +63,12 @@ headerbar hdyviewswitcher > button:checked > stack {
 	border-bottom: 3px solid
 		gtk("@theme_button_decoration_focus");
 }
+
+window.unified {
+	border-radius: 6px;
+	&.maximized,
+	&.fullscreen,
+	&.tiled {
+		border-radius: 0;
+	}
+}
