@@ -35,6 +35,15 @@ spinbutton {
 
 		button {
 			@include neobutton(toolbutton);
+
+			&:hover {
+				color: gtk("@theme_view_hover_decoration_color");
+
+				// disable button's hover background override
+				&:not(:checked):not(:active) {
+					background: none;
+				}
+			}
 		}
 	}
 
@@ -78,6 +87,17 @@ spinbutton {
 					"@theme_unfocused_view_bg_color"
 				);
 				border-color: gtk("@unfocused_insensitive_borders");
+			}
+		}
+
+		button {
+			&:hover {
+				color: gtk("@theme_view_hover_decoration_color");
+
+				// disable button's hover background override
+				&:not(:checked):not(:active) {
+					background: none;
+				}
 			}
 		}
 

@@ -40,6 +40,11 @@ spinbutton {
 
 			&:hover {
 				color: gtk("@theme_view_hover_decoration_color");
+
+				// disable button's hover background override
+				&:not(:checked):not(:active) {
+					background: none;
+				}
 			}
 
 			&:disabled {
@@ -126,6 +131,11 @@ spinbutton {
 			border-color: gtk("@borders");
 			&:hover {
 				color: gtk("@theme_view_hover_decoration_color");
+
+				// disable button's hover background override
+				&:not(:checked):not(:active) {
+					background-color: gtk("@theme_base_color");
+				}
 			}
 			&:active {
 				color: gtk("@theme_view_active_decoration_color");
