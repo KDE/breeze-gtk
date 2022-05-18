@@ -91,7 +91,7 @@ expander {
 			);
 		}
 		&:hover {
-			color: gtkshade(gtk("@theme_fg_color"), 1.3);
+			color: gtkshade("@theme_button_decoration_focus", 1.3);
 		} //only lightens the arrow
 		&:checked {
 			-gtk-icon-source: -gtk-icontheme($arrow_down);
