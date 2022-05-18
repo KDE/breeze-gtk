@@ -122,7 +122,7 @@ spinbutton {
 			box-shadow: none;
 			background-image: none;
 			background-color: gtk("@theme_base_color");
-			color: gtk("@theme_base_fg_color");
+			color: gtk("@theme_text_color");
 			border-color: gtk("@borders");
 			&:hover {
 				color: gtk("@theme_view_hover_decoration_color");
