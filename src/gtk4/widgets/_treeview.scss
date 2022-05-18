@@ -142,12 +142,6 @@ treeview.view {
 			&:selected {
 				color: gtk("@theme_selected_fg_color");
 			}
-			&:backdrop {
-				color: gtk("@theme_unfocused_base_color");
-			}
-		}
-		&:backdrop {
-			color: gtk("@theme_unfocused_base_color");
 		}
 	}
 	header {
