@@ -57,7 +57,9 @@ radio {
 		);
 	}
 
-
+	&:active {
+		background: shade(gtk("@theme_base_color"), 0.9)
+	}
 
 	&:focus {
 		border-color: gtk("@theme_button_decoration_focus");
@@ -92,7 +94,7 @@ radio {
 				gtk("@theme_button_decoration_hover"),
 				0.3
 			);
-			-gtk-icon-palette: fg gtk("@insensitive_fg_color");
+			color: gtk("@insensitive_fg_color");
 		}
 	}
 
