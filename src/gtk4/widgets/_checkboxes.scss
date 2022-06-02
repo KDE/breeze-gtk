@@ -36,7 +36,7 @@ radio {
 	background-color: gtk("@theme_base_color");
 	border: 1px solid gtkalpha(
 		gtk("@theme_button_foreground_normal"),
-		0.333
+		0.33
 	);
 
 	-gtk-icon-shadow: none;
@@ -46,14 +46,11 @@ radio {
 		border: 1px solid gtk("@theme_button_decoration_hover");
 	}
 	&:disabled {
-		background-color: gtkalpha(
-			gtk("@theme_base_color"),
-			0.03
-		);
+		background-color: gtk("@insensitive_base_color");
 
 		border-color: gtkalpha(
-			gtk("@theme_button_foreground_normal"),
-			0.222
+			gtk("@insensitive_base_fg_color"),
+			0.33
 		);
 	}
 
@@ -70,33 +67,29 @@ radio {
 		border-color: gtk("@theme_button_decoration_hover");
 		background-color: gtkalpha(
 			gtk("@theme_button_decoration_hover"),
-			0.333
+			0.33
 		);
 
 		&:backdrop {
 			background-color: gtkalpha(
-				gtk("@theme_button_decoration_hover"),
-				0.03
+				gtk("@theme_unfocused_selected_bg_color"),
+				0.33
 			);
 
-			border-color: gtkalpha(
-				gtk("@theme_button_decoration_hover"),
-				0.3
-			);
+			border-color: gtk("@theme_unfocused_selected_bg_color");
 		}
 
 		&:disabled {
 			background-color: gtkalpha(
-				gtk("@theme_button_foreground_normal"),
-				0.03
+				gtk("@insensitive_bg_color"),
+				0.33
 			);
-			border-color: gtkalpha(
-				gtk("@theme_button_decoration_hover"),
-				0.3
-			);
+
+			border-color: gtk("@insensitive_bg_color");
 			color: gtk("@insensitive_fg_color");
 		}
 	}
+
 
 	&:indeterminate {
 		-gtk-icon-source: -gtk-recolor(url("../assets/dash-symbolic.svg"));
