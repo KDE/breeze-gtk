@@ -206,7 +206,7 @@ label {
 	&:backdrop {
 		color: gtk("@theme_unfocused_text_color");
 
-		selction {
+		selection {
 			@extend %selected_items, :backdrop;
 		}
 	}
