@@ -25,6 +25,7 @@ gen_targets(Breeze-Dark)
 
 list(APPEND Breeze_TARGETS
     "${PROJECT_BINARY_DIR}/Breeze/gtk-3.0/gtk-dark.css"
+    "${PROJECT_BINARY_DIR}/Breeze/gtk-4.0/gtk-dark.css"
 )
 
 add_custom_command(
@@ -40,6 +41,7 @@ add_custom_command(
     DEPENDS ${SOURCES} ${CMAKE_CURRENT_BINARY_DIR}/build_theme.sh
     COMMAND ${CMAKE_CURRENT_BINARY_DIR}/build_theme.sh -c BreezeLight -t "${PROJECT_BINARY_DIR}/Breeze" -r "${BREEZE_COLOR_INSTALL_ROOT}"
     COMMAND cp gtk-dark-3.0.css "${PROJECT_BINARY_DIR}/Breeze/gtk-3.0/gtk-dark.css"
+    COMMAND cp gtk-dark-4.0.css "${PROJECT_BINARY_DIR}/Breeze/gtk-4.0/gtk-dark.css"
     WORKING_DIRECTORY "${PROJECT_SOURCE_DIR}/src"
 )
 add_custom_target(Breeze ALL DEPENDS ${Breeze_TARGETS})
