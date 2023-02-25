@@ -17,8 +17,8 @@ menubar,
 	}
 
 	> menuitem {
-		min-height: 18px;
-		padding: 5px 10px;
+		min-height: 4.5mm;
+		padding: 1.25mm 2.5mm;
 		@if $new-highlight {
 			border-bottom: 3px solid transparent;
 		}
@@ -61,7 +61,7 @@ menubar,
 
 menu,
 .menu {
-	padding: 4px;
+	padding: 1mm;
 	background-color: gtkmix(gtk("@theme_bg_color"), gtk("@theme_base_color"), 0.3);
 
 	border-radius: $r;
@@ -69,20 +69,20 @@ menu,
 	// axes borders in a composited env
 	separator {
 		color: gtk("@borders");
-		margin: 3px 0;
+		margin: 0.75mm 0;
 	}
 
 	menuitem {
 		text-shadow: none;
-		min-height: 18px;
-		min-width: 40px;
-		padding: 3px 8px;
+		min-height: 4.5mm;
+		min-width: 10mm;
+		padding: 0.75mm 2mm;
 		border: 1px solid transparent;
 
 		&:hover {
 			background-color: gtkalpha(gtk("@theme_selected_bg_color"), 0.3);
 			border: 1px solid gtk("@theme_button_decoration_focus");
-			border-radius: 3px;
+			border-radius: $r;
 		}
 
 		&:disabled {
@@ -101,39 +101,39 @@ menu,
 
 		// submenu indicators
 		arrow {
-			min-height: 16px;
-			min-width: 16px;
+			min-height: 4mm;
+			min-width: 4mm;
 
 			&:dir(ltr) {
 				-gtk-icon-source: -gtk-icontheme($arrow_right);
-				margin-left: 10px;
+				margin-left: 2.5mm;
 			}
 
 			&:dir(rtl) {
 				-gtk-icon-source: -gtk-icontheme(
 					"go-next-rtl-symbolic"
 				);
-				margin-right: 10px;
+				margin-right: 2.5mm;
 			}
 		}
 	}
 
 	// overflow arrows
 	> arrow {
-		min-height: 16px;
-		min-width: 16px;
-		padding: 4px;
+		min-height: 4mm;
+		min-width: 4mm;
+		padding: 1mm;
 		background-color: transparent;
 		border-radius: 0;
 
 		&.top {
-			margin-top: -6px;
+			margin-top: -1.5mm;
 			border: none;
 			-gtk-icon-source: -gtk-icontheme($arrow_up);
 		}
 
 		&.bottom {
-			margin-bottom: -6px;
+			margin-bottom: -1.5mm;
 			border: none;
 			-gtk-icon-source: -gtk-icontheme($arrow_down);
 		}
@@ -164,10 +164,10 @@ menuitem {
 	check,
 	radio {
 		&:dir(ltr) {
-			margin-right: 6px;
+			margin-right: 1.5mm;
 		}
 		&:dir(rtl) {
-			margin-left: 6px;
+			margin-left: 1.5mm;
 		}
 	}
 }
@@ -175,13 +175,13 @@ menuitem {
 * Popovers   *
 ***************/
 popover {
-	padding: 4px;
+	padding: 1mm;
 }
 /* menu buttons */
 modelbutton.flat,
 .menuitem.button.flat {
-	min-height: 16px;
-	padding: 7px 8px;
+	min-height: 4mm;
+	padding: 1.75mm 2mm;
 	border: 1px solid transparent;
 
 	@extend %undecorated_button;
@@ -189,7 +189,7 @@ modelbutton.flat,
 	&:hover {
 		background-color: gtkalpha(gtk("@theme_selected_bg_color"), 0.3);
 		border: 1px solid gtk("@theme_button_decoration_focus");
-		border-radius: 3px;
+		border-radius: 4px;
 	}
 	&:selected {
 		background-color: gtk("@theme_button_decoration_focus");
@@ -239,11 +239,11 @@ popover.background {
 	$shadow: rgba(0, 0, 0, 0.25);
 
 	padding: 0px;
-	border-radius: 3px;
+	border-radius: $r;
 	background-color: gtk("@theme_bg_color");
 
-	box-shadow: 0px 0px 8px $shadow,
-		0px 1px 4px scale-color($shadow, $alpha: -40%);
+	box-shadow: 0px 0px 2mm $shadow,
+		0px 0.25mm 1mm scale-color($shadow, $alpha: -40%);
 
 	&:backdrop {
 		box-shadow: none;
@@ -274,7 +274,7 @@ popover.background {
 	}
 
 	separator {
-		margin: 3px 0;
+		margin: 0.75mm 0;
 	}
 
 	list separator {
@@ -312,5 +312,5 @@ popover.background {
 // }
 
 GtkVolumeButton.button {
-	padding: 5px;
+	padding: 1.25mm;
 }
