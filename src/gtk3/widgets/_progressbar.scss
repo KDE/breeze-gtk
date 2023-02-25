@@ -8,14 +8,14 @@ progressbar {
 	&.horizontal {
 		trough,
 		progress {
-			min-height: 4px;
+			min-height: 1mm;
 		}
 	}
 
 	&.vertical {
 		trough,
 		progress {
-			min-width: 4px;
+			min-width: 1mm;
 		}
 	}
 
@@ -116,18 +116,18 @@ treeview.view {
 
 levelbar {
 	block {
-		min-height: 6px;
+		min-height: 1.5mm;
 	}
 
 	&.vertical block {
-		min-width: 6px;
-		min-height: 32px;
+		min-width: 1.5mm;
+		min-height: 8mm;
 	}
 
 	trough {
 		border: 1px solid;
-		padding: 2px;
-		border-radius: 3px;
+		padding: 0.5mm;
+		border-radius: $r;
 		@include entry(normal);
 
 		&:backdrop {
@@ -137,7 +137,7 @@ levelbar {
 
 	&.horizontal.discrete block {
 		margin: 0 1px;
-		min-width: 32px;
+		min-width: 8mm;
 	}
 
 	&.vertical.discrete block {

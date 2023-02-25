@@ -53,9 +53,9 @@
 entry {
 	%entry_basic,
 	& {
-		min-height: 30px;
-		padding-left: 8px;
-		padding-right: 8px;
+		min-height: 7.5mm;
+		padding-left: 2mm;
+		padding-right: 2mm;
 		border: 1px solid;
 		border-radius: $r;
 
@@ -65,10 +65,10 @@ entry {
 			// icons inside the entry
 			&.left {
 				padding-left: 0;
-				padding-right: 6px;
+				padding-right: 1.5mm;
 			}
 			&.right {
-				padding-left: 6px;
+				padding-left: 1.5mm;
 				padding-right: 0;
 			}
 		}
@@ -82,7 +82,7 @@ entry {
 			&:focus,
 			& {
 				min-height: 0;
-				padding: 2px;
+				padding: 0.5mm;
 				@include entry(normal);
 			}
 		}
@@ -172,9 +172,9 @@ entry {
 	}
 
 	progress {
-		margin: 1px;
+		margin: 0.25mm;
 		border-radius: 0;
-		border-width: 0 0 2px;
+		border-width: 0 0 2mm;
 		border-color: gtk("@theme_selected_bg_color");
 		border-style: solid;
 		background-image: none;

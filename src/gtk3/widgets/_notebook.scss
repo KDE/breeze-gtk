@@ -61,8 +61,8 @@ notebook {
 			&.#{$_tab} {
 				> tabs {
 					> tab {
-						padding: 4px 6px;
-						padding-bottom: 7px;
+						padding: 1mm 1.5mm;
+						padding-bottom: 1.75mm;
 						border: 1px
 							solid
 							transparent;
@@ -101,21 +101,21 @@ notebook {
 							}
 
 							&:checked {
-								padding-left: 9px;
+								padding-left: 2.25mm;
 
 								&:not(:first-child) {
 									margin-left: -3px;
 								}
 
 								&:first-child {
-									padding-left: 6px;
+									padding-left: 1.5mm;
 								}
 								&:not(:last-child) {
 									margin-right: -3px;
 								}
 
 								& + tab {
-									padding-left: 9px;
+									padding-left: 2.25mm;
 								}
 							}
 						} @else {
@@ -125,20 +125,20 @@ notebook {
 							}
 
 							&:checked {
-								padding-top: 7px;
+								padding-top: 1.75mm;
 
 								&:not(:first-child) {
 									margin-top: -3px;
 								}
 								&:first-child {
-									padding-top: 4px;
+									padding-top: 1mm;
 								}
 								&:not(:last-child) {
 									margin-bottom: -3px;
 								}
 
 								& + tab {
-									padding-top: 7px;
+									padding-top: 1.75mm;
 								}
 							}
 						}
@@ -164,10 +164,10 @@ notebook {
 					arrow.down ~ tab:checked:nth-child(2) {
 						@if $_tab == top or $_tab == bottom {
 							margin-left: 0px;
-							padding-left: 6px;
+							padding-left: 1.5mm;
 						} @else {
 							margin-top: 0px;
-							padding-top: 4px;
+							padding-top: 1mm;
 						}
 					}
 
@@ -262,8 +262,8 @@ notebook {
 		@at-root %notebook_vert_arrows {
 			margin-left: -5px;
 			margin-right: -5px;
-			padding-left: 4px;
-			padding-right: 4px;
+			padding-left: 1mm;
+			padding-right: 1mm;
 
 			&.down {
 				-gtk-icon-source: -gtk-icontheme($arrow_left);
@@ -289,8 +289,8 @@ notebook {
 		@at-root %notebook_horz_arrows {
 			margin-top: -5px;
 			margin-bottom: -5px;
-			padding-top: 4px;
-			padding-bottom: 4px;
+			padding-top: 1mm;
+			padding-bottom: 1mm;
 
 			&.down {
 				-gtk-icon-source: -gtk-icontheme($arrow_up);
@@ -304,8 +304,8 @@ notebook {
 		> tabs > arrow {
 			@include neobutton(toolbutton);
 
-			min-height: 16px;
-			min-width: 16px;
+			min-height: 4mm;
+			min-width: 4mm;
 			border-radius: 0;
 
 			&:hover:not(:active):not(:backdrop) {
@@ -320,10 +320,10 @@ notebook {
 		// colors the button like the label, overridden otherwise
 		button.flat {
 			padding: 0;
-			margin: 2px;
+			margin: 0.5mm;
 			// FIXME: generalize .small-button?
-			min-width: 12px;
-			min-height: 12px;
+			min-width: 3mm;
+			min-height: 3mm;
 			border: 0px solid;
 			border-radius: 50%;
 			color: gtk("@borders");

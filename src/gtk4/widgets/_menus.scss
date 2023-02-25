@@ -103,7 +103,7 @@ popover, popover.background {
 				margin-left: 6px;
 			}
 		}
-		
+
 		arrow.left {
 			-gtk-icon-source: -gtk-icontheme($arrow_left);
 		}
@@ -115,7 +115,7 @@ popover, popover.background {
 		&:hover {
 			background-color: gtkalpha(gtk("@theme_selected_bg_color"), 0.3);
 			border: 1px solid gtk("@theme_button_decoration_focus");
-			border-radius: 3px;
+			border-radius: $r;
 		}
 
 		&:disabled {

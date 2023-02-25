@@ -5,7 +5,7 @@
  ***********/
 
 // .message-dialog .dialog-action-area .button {
-//   //padding: 8px;
+//   //padding: 2mm;
 // }
 
 messagedialog {
@@ -18,7 +18,7 @@ messagedialog {
 		background-color: gtk("@theme_unfocused_bg_color");
 	}
 	.titlebar {
-		min-height: 32px;
+		min-height: 8mm;
 		background-color: transparent;
 		background-image: linear-gradient(
 			to bottom,
@@ -28,10 +28,10 @@ messagedialog {
 		box-shadow: none;
 	}
 	.dialog-action-area {
-		padding: 8px;
+		padding: 2mm;
 	}
 	button {
-		margin: 2px;
+		margin: 0.5mm;
 	}
 }
 

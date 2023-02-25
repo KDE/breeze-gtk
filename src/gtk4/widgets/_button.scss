@@ -118,7 +118,7 @@
 	}
 
 	@if $t == normal {
-		box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.125);
+		box-shadow: 0 1px 1px rgba(0, 0, 0, 0.125);
 		text-shadow: none;
 		-gtk-icon-shadow: none;
 
@@ -249,7 +249,7 @@ $_dot_color: gtk("@theme_button_decoration_focus");
 %buttons {
 	border: 1px solid;
 	border-radius: $r;
-	padding: 6px 6px;
+	padding: 1.5mm 1.5mm;
 	background-clip: border-box;
 
 	@include neobutton(normal);
@@ -277,27 +277,27 @@ button {
 		}
 
 		&.image-button {
-			min-width: 16px;
-			padding: 6px;
+			min-width: 4mm;
+			padding: 1.5mm;
 		}
 
 		&.text-button {
-			padding-left: 6px;
-			padding-right: 6px;
+			padding-left: 1.5mm;
+			padding-right: 1.5mm;
 		}
 
 		&.circular {
-			min-width: 18px;
-			min-height: 18px;
+			min-width: 4.5mm;
+			min-height: 4.5mm;
 			border-radius: 9999px;
 		}
 
 		&.text-button.image-button {
-			padding-left: 6px;
-			padding-right: 6px;
+			padding-left: 1.5mm;
+			padding-right: 1.5mm;
 			label {
-				padding-left: 6px;
-				padding-right: 6px;
+				padding-left: 1.5mm;
+				padding-right: 1.5mm;
 			}
 		}
 		// FIXME
@@ -329,22 +329,22 @@ button {
 		// child, a label needs just lateral padding while an icon needs vertical
 		// padding added too.
 		> label {
-			padding-left: 6px; // label padding
-			padding-right: 6px; //
+			padding-left: 1.5mm; // label padding
+			padding-right: 1.5mm; //
 		}
 		> image {
-			padding-left: 6px; // image padding
-			padding-right: 6px; //
-			padding-top: 3px; //
-			padding-bottom: 3px; //
+			padding-left: 1.5mm; // image padding
+			padding-right: 1.5mm; //
+			padding-top: 0.75mm; //
+			padding-bottom: 0.75mm; //
 		}
 		&.text-button {
-			padding: 6px; // needed or it will get overridden
+			padding: 1.5mm; // needed or it will get overridden
 		}
 		&.image-button {
 			// we want image buttons to have a 1:1 aspect ratio, so compensation
 			// of the padding added to the GtkImage is needed
-			padding: 3px 0px;
+			padding: 0.75mm 0;
 		}
 		&.needs-attention > label,
 		&.needs-attention > image {
@@ -379,13 +379,13 @@ button {
 combobox {
 	arrow {
 		-gtk-icon-source: -gtk-icontheme($arrow_down);
-		min-height: 16px;
-		min-width: 16px;
+		min-height: 4mm;
+		min-width: 4mm;
 	}
 
 	button {
-		padding-top: 4px;
-		padding-bottom: 4px;
+		padding-top: 1mm;
+		padding-bottom: 1mm;
 	}
 
 	> box > button.combo:only-child {
@@ -396,14 +396,14 @@ combobox {
 		}
 
 		arrow {
-			min-width: 14px;
+			min-width: 3.5mm;
 
 			&:dir(rtl) {
-				margin-left: -3px;
+				margin-left: -0.75mm;
 			}
 
 			&:dir(ltr) {
-				margin-right: -3px;
+				margin-right: -0.75mm;
 			}
 		}
 	}

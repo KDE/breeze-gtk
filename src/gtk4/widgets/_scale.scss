@@ -4,24 +4,24 @@
  * GtkScale *
  ************/
 scale {
-	padding: 12px;
+	padding: 3mm;
 
 	&.fine-tune {
 		&.trough {
-			margin: 8px;
+			margin: 2mm;
 			border-radius: $r;
 		}
 	}
 
 	slider {
-		min-width: 16px;
-		min-height: 16px;
+		min-width: 4mm;
+		min-height: 4mm;
 		border: 1px solid gtkmix(gtk("@theme_bg_color"),gtk("@theme_button_foreground_normal"), 0.4);
 		border-radius: 50%;
 		box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.125);
 
 		background: gtk("@theme_button_background_normal");
-		margin: -9px;
+		margin: -2.25mm;
 
 		&:hover {
 			border-color: gtk("@theme_button_decoration_hover");
@@ -82,8 +82,8 @@ scale {
 	}
 
 	trough {
-		min-width: 4px;
-		min-height: 4px;
+		min-width: 1mm;
+		min-height: 1mm;
 		border: 1px solid;
 		border-radius: $r;
 
@@ -142,7 +142,7 @@ scale {
 		}
 	}
 
-	$_marks_length: 8px;
+	$_marks_length: 2mm;
 	$_marks_distance: 1px;
 
 
@@ -169,14 +169,14 @@ scale {
 		}
 		}
 
-		> value.left  { margin-right: 9px; }
-		> value.right { margin-left: 9px; }
+		> value.left  { margin-right: 2.25mm; }
+		> value.right { margin-left: 2.25mm; }
 
 		&.fine-tune >marks {
-		&.top { margin-top: 3px; }
-		&.bottom { margin-bottom: 3px; }
+		&.top { margin-top: 0.75mm; }
+		&.bottom { margin-bottom: 0.75mm; }
 
-		indicator { min-height: ($_marks_length - 3px); }
+		indicator { min-height: ($_marks_length - 0.75mm); }
 		}
 	}
 
@@ -199,14 +199,14 @@ scale {
 		}
 		}
 
-		> value.top    { margin-bottom: 9px; }
-		> value.bottom { margin-top: 9px; }
+		> value.top    { margin-bottom: 2.25mm; }
+		> value.bottom { margin-top: 2.25mm; }
 
 		&.fine-tune >marks {
-		&.top { margin-left: 3px; }
-		&.bottom { margin-right: 3px; }
+		&.top { margin-left: 0.75mm; }
+		&.bottom { margin-right: 0.75mm; }
 
-		indicator { min-height: ($_marks_length - 3px); }
+		indicator { min-height: ($_marks_length - 0.75mm); }
 		}
 	}
 

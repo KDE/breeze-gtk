@@ -13,7 +13,7 @@ tooltip {
 	}
 
 	color: gtk("@tooltip_text");
-	padding: 4px; /* not working */
+	padding: 1mm; /* not working */
 	border-radius: $r;
 	box-shadow: none; // otherwise it gets inherited by windowframe.csd
 	text-shadow: none;

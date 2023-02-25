@@ -4,23 +4,23 @@
  * GtkScale *
  ************/
 scale {
-	padding: 12px;
+	padding: 3mm;
 	&.fine-tune {
 		&.trough {
-			margin: 8px;
+			margin: 2mm;
 			border-radius: $r;
 		}
 	}
 
 	slider {
-		min-width: 16px;
-		min-height: 16px;
+		min-width: 4mm;
+		min-height: 4mm;
 		border: 1px solid gtkmix(gtk("@theme_bg_color"),gtk("@theme_button_foreground_normal"), 0.4);
 		border-radius: 50%;
 		box-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.125);
 
 		background: gtk("@theme_button_background_normal");
-		margin: -9px;
+		margin: -2.25mm;
 
 		&:hover {
 			border-color: gtk("@theme_button_decoration_hover");
@@ -81,8 +81,8 @@ scale {
 	}
 
 	trough {
-		min-width: 4px;
-		min-height: 4px;
+		min-width: 1mm;
+		min-height: 1mm;
 		border: 1px solid;
 		border-radius: $r;
 
@@ -141,7 +141,7 @@ scale {
 		}
 	}
 
-	$_marks_length: 8px;
+	$_marks_length: 2mm;
 	$_marks_distance: 1px;
 
 	marks {

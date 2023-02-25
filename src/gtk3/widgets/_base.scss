@@ -7,7 +7,7 @@ $ease-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 	-GtkToolbutton-icon-spacing: 4;
 	-GtkTextview-error-underline-color: gtk("@error_color");
 
-	// The size for scrollbars. The slider is 2px smaller, but we keep it
+	// The size for scrollbars. The slider is 0.5mm smaller, but we keep it
 	// up so that the whole area is sensitive to button presses for the
 	// slider. The stepper button is larger in both directions, the slider
 	// only in the width
@@ -169,7 +169,7 @@ flowbox {
 	}
 
 	flowboxchild {
-		padding: 3px;
+		padding: 0.75mm;
 		border-radius: $r;
 
 		&:selected {

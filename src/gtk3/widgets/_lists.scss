@@ -23,14 +23,14 @@
 list {
 	color: gtk("@theme_fg_color");
 	background: gtk("@theme_base_color");
-	border-radius: 3px;
+	border-radius: $r;
 	&.content {
 		border: 1px solid gtk("@borders");
 	}
 
 	row {
 	    background: gtk("@theme_base_color");
-		padding: 2px;
+		padding: 0.5mm;
 	}
 }
 

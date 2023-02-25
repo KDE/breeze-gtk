@@ -5,7 +5,7 @@ $ease-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 * {
 	padding: 0;
 
-	outline-width: 0px;
+	outline-width: 0;
 }
 
 /***************
@@ -143,13 +143,13 @@ flowbox {
 	}
 
 	flowboxchild {
-		padding: 3px;
+		padding: 0.75mm;
 		border-radius: $r;
 
 		&:selected {
 			@extend %selected_items;
 
-			outline-offset: 0px;
+			outline-offset: 0;
 		}
 	}
 }
@@ -229,7 +229,7 @@ label {
 
 %selected_items {
 	background-color: gtk("@theme_selected_bg_color");
-	border-radius: 0px;
+	border-radius: 0;
 
 	@at-root %nobg_selected_items,
 		& {

@@ -73,7 +73,7 @@
 			}
 
 			&.has-open-popup, // this is for indicathing which row generated a popover see https://bugzilla.gnome.org/show_bug.cgi?id=754411
-  
+
       &:hover:dir(ltr) {
 				@include selected-item-highlight();
 			}
@@ -141,13 +141,13 @@ placessidebar {
 
 	row {
 		// Needs overriding of the GtkListBoxRow padding
-		min-height: 36px;
-		padding: 0px;
+		min-height: 9mm;
+		padding: 0;
 
 		// Using margins/padding directly in the SidebarRow
 		// will make the animation of the new bookmark row jump
 		> revealer {
-			padding: 0 14px;
+			padding: 0 3.5mm;
 		}
 
 		&:selected {
@@ -174,29 +174,29 @@ placessidebar {
 
 		image.sidebar-icon {
 			&:dir(ltr) {
-				padding-right: 8px;
+				padding-right: 2mm;
 			}
 			&:dir(rtl) {
-				padding-left: 8px;
+				padding-left: 2mm;
 			}
 		}
 
 		label.sidebar-label {
 			&:dir(ltr) {
-				padding-right: 2px;
+				padding-right: 0.5mm;
 			}
 			&:dir(rtl) {
-				padding-left: 2px;
+				padding-left: 0.5mm;
 			}
 		}
 
 		@at-root button.sidebar-button {
 			@include neobutton(toolbutton);
 
-			min-height: 26px;
-			min-width: 26px;
-			margin-top: 3px;
-			margin-bottom: 3px;
+			min-height: 6.5mm;
+			min-width: 6.5mm;
+			margin-top: 0.75mm;
+			margin-bottom: 0.75mm;
 			padding: 0;
 		}
 
@@ -206,8 +206,8 @@ placessidebar {
 		}
 
 		&.sidebar-placeholder-row {
-			padding: 0 8px;
-			min-height: 2px;
+			padding: 0 2mm;
+			min-height: 0.5mm;
 			background-image: none;
 			background-clip: content-box;
 		}
@@ -244,22 +244,22 @@ placesview {
 
 	// this selects the "connect to server" label
 	> actionbar > revealer > box > label {
-		padding-left: 8px;
-		padding-right: 8px;
+		padding-left: 2mm;
+		padding-right: 2mm;
 	}
 }
 
 stacksidebar {
 	&.sidebar {
 		row {
-			padding: 10px 4px;
+			padding: 2.5mm 1mm;
 			> label {
-				padding-left: 6px;
-				padding-right: 6px;
+				padding-left: 1.5mm;
+				padding-right: 1.5mm;
 			}
 			&.needs-attention > .label {
 				@extend %needs_attention;
-				background-size: 6px 6px, 0 0;
+				background-size: 1.5mm 1.5mm, 0 0;
 			}
 		}
 	}

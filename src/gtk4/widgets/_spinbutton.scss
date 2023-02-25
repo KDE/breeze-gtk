@@ -7,7 +7,7 @@ spinbutton {
 	text {
 		@extend %entry;
 
-		border-radius: 0px;
+		border-radius: 0;
 	}
 
 	&:not(.vertical) {
@@ -19,7 +19,7 @@ spinbutton {
 		padding: 0;
 
 		text {
-			min-width: 28px;
+			min-width: 7mm;
 			// reset all the other props since the spinbutton node is styled here
 			margin: 0;
 			background: none;
@@ -69,9 +69,9 @@ spinbutton {
 		}
 
 		entry {
-			margin: 0px;
-			min-height: 26px;
-			min-width: 26px;
+			margin: 0;
+			min-height: 6.5mm;
+			min-width: 6.5mm;
 			border-style: none solid none solid;
 			border-color: gtk("@borders");
 			padding: 0;
@@ -102,12 +102,12 @@ spinbutton {
 		}
 
 		button.up {
-			border-radius: 3px 3px 0 0;
+			border-radius: $r $r 0 0;
 			border-style: solid solid none solid;
 		}
 
 		button.down {
-			border-radius: 0 0 3px 3px;
+			border-radius: 0 0 $r $r;
 			border-style: none solid solid solid;
 		}
 	}
@@ -120,7 +120,7 @@ spinbutton {
 
 		entry {
 			min-height: 0;
-			padding: 1px 2px;
+			padding: 0.25mm 0.5mm;
 		}
 	}
 }

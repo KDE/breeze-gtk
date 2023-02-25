@@ -7,9 +7,9 @@
 .app-notification,
 .app-notification.frame {
 	@extend %osd;
-	padding: 10px;
+	padding: 2.5mm;
 	border-top-width: 0px;
-	border-radius: 0px 0px 3px 3px;
+	border-radius: 0px 0px $r $r;
 	&:backdrop {
 		background-image: none;
 	}

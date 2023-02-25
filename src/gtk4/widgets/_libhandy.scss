@@ -47,9 +47,9 @@ hdyviewswitcher {
 				gtk("@theme_button_decoration_focus") 0%,
 				transparent 5px
 			);
-			background-size: 6px 6px, 6px 6px;
+			background-size: 1.5mm 1.5mm, 1.5mm 1.5mm;
 			background-repeat: no-repeat;
-			background-position: right 0px, right 1px;
+			background-position: right 0, right 1px;
 		}
 	}
 }
@@ -65,7 +65,7 @@ headerbar hdyviewswitcher > button:checked > stack {
 }
 
 window.unified {
-	border-radius: 6px;
+	border-radius: 2*$r;
 	&.maximized,
 	&.fullscreen,
 	&.tiled {

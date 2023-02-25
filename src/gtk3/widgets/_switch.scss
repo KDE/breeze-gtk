@@ -4,14 +4,14 @@
  * Switch *
  **********/
 
-$switch-height: 24px;
+$switch-height: 6mm;
 
 switch {
-	margin: 2px;
+	margin: 0.5mm;
 	font-weight: bold;
 	font-size: smaller;
 	border: 1px solid;
-	border-radius: 12px;
+	border-radius: 4*$r;
 	color: transparent;
 	background-color: gtkalpha(
 		gtk("@theme_button_foreground_normal"),

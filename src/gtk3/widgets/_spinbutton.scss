@@ -13,7 +13,7 @@ spinbutton {
 		padding: 0;
 
 		entry {
-			min-width: 28px;
+			min-width: 7mm;
 			// reset all the other props since the spinbutton node is styled here
 			margin: 0;
 			background: none;
@@ -28,7 +28,7 @@ spinbutton {
 		}
 
 		button {
-			min-height: 16px;
+			min-height: 4mm;
 			margin: 0;
 			padding-bottom: 0;
 			padding-top: 0;
@@ -68,11 +68,11 @@ spinbutton {
 			}
 
 			&:dir(ltr):last-child {
-				border-radius: 0 3px 3px 0;
+				border-radius: 0 $r $r 0;
 			}
 
 			&:dir(rtl):first-child {
-				border-radius: 3px 0 0 3px;
+				border-radius: $r 0 0 $r;
 			}
 		}
 	}
@@ -100,8 +100,8 @@ spinbutton {
 
 		entry {
 			margin: 0px;
-			min-height: 26px;
-			min-width: 26px;
+			min-height: 6.5mm;
+			min-width: 6.5mm;
 			border-style: none solid none solid;
 			border-color: gtk("@borders");
 			padding: 0;
@@ -121,8 +121,8 @@ spinbutton {
 		}
 
 		button {
-			min-height: 26px;
-			min-width: 26px;
+			min-height: 6.5mm;
+			min-width: 6.5mm;
 			padding: 0;
 			box-shadow: none;
 			background-image: none;
@@ -163,12 +163,12 @@ spinbutton {
 		}
 
 		%top_button {
-			border-radius: 3px 3px 0 0;
+			border-radius: $r $r 0 0;
 			border-style: solid solid none solid;
 		}
 
 		%bottom_button {
-			border-radius: 0 0 3px 3px;
+			border-radius: 0 0 $r $r;
 			border-style: none solid solid solid;
 		}
 	}
@@ -181,7 +181,7 @@ spinbutton {
 
 		entry {
 			min-height: 0;
-			padding: 1px 2px;
+			padding: 0.25mm 0.5mm;
 		}
 	}
 }

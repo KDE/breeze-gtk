@@ -10,12 +10,12 @@
 notebook {
 	&.frame {
 		border: none;
-		padding: 0px;
-		box-shadow: inset 0px 0px 0px 1px gtk("@borders");
+		padding: 0;
+		box-shadow: inset 0 0 0 1px gtk("@borders");
 	}
 
 	> header {
-		padding: 0px;
+		padding: 0;
 		border: none;
 		background-color: gtk("@theme_bg_color");
 		//box-shadow: inset 0 -1px gtk("@borders");
@@ -49,20 +49,20 @@ notebook {
 		}
 
 		tabs {
-			margin: 0px;
+			margin: 0;
 		}
 
 		@each $_tab, $_border,
-			$_radius_first, $_radius_last in (top, bottom, 3px 0px 0px 0px, 0px 3px 0px 0px),
-			(bottom, top, 0px 0px 0px 3px, 0px 0px 3px 0px),
-			(left, right, 3px 0px 0px 0px, 0px 0px 0px 3px),
-			(right, left, 0px 3px 0px 0px, 0px 0px 3px 0px)
+			$_radius_first, $_radius_last in (top, bottom, 3px 0 0 0, 0 3px 0 0),
+			(bottom, top, 0 0 0 3px, 0 0 3px 0),
+			(left, right, 3px 0 0 0, 0 0 0 3px),
+			(right, left, 0 3px 0 0, 0 0 3px 0)
 		{
 			&.#{$_tab} {
 				> tabs {
 					> tab {
-						padding: 4px 6px;
-						padding-bottom: 7px;
+						padding: 1mm 1.5mm;
+						padding-bottom: 1.75mm;
 						border: 1px
 							solid
 							transparent;
@@ -97,48 +97,48 @@ notebook {
 						@if $_tab == top or $_tab == bottom {
 
 							> label {
-								margin-left: -3px;
+								margin-left: -0.75mm;
 							}
 
 							&:checked {
-								padding-left: 9px;
+								padding-left: 2.25mm;
 
 								&:not(:first-child) {
-									margin-left: -3px;
+									margin-left: -0.75mm;
 								}
 
 								&:first-child {
-									padding-left: 6px;
+									padding-left: 1.5mm;
 								}
 								&:not(:last-child) {
-									margin-right: -3px;
+									margin-right: -0.75mm;
 								}
 
 								& + tab {
-									padding-left: 9px;
+									padding-left: 2.25mm;
 								}
 							}
 						} @else {
 
 							> label {
-								margin-top: -3px;
+								margin-top: -0.75mm;
 							}
 
 							&:checked {
-								padding-top: 7px;
+								padding-top: 1.75mm;
 
 								&:not(:first-child) {
-									margin-top: -3px;
+									margin-top: -0.75mm;
 								}
 								&:first-child {
-									padding-top: 4px;
+									padding-top: 1mm;
 								}
 								&:not(:last-child) {
-									margin-bottom: -3px;
+									margin-bottom: -0.75mm;
 								}
 
 								& + tab {
-									padding-top: 7px;
+									padding-top: 1.75mm;
 								}
 							}
 						}
@@ -163,19 +163,19 @@ notebook {
 
 					arrow.down ~ tab:checked:nth-child(2) {
 						@if $_tab == top or $_tab == bottom {
-							margin-left: 0px;
-							padding-left: 6px;
+							margin-left: 0;
+							padding-left: 1.5mm;
 						} @else {
-							margin-top: 0px;
-							padding-top: 4px;
+							margin-top: 0;
+							padding-top: 1mm;
 						}
 					}
 
 					arrow.down ~ tab:checked:nth-last-child(2) {
 						@if $_tab == top or $_tab == bottom {
-							margin-right: 0px;
+							margin-right: 0;
 						} @else {
-							margin-bottom: 0px;
+							margin-bottom: 0;
 						}
 					}
 				}
@@ -183,10 +183,10 @@ notebook {
 		}
 
 		@each $_tab, $_border,
-			$_shadow1 in (top, right, -3px 0px 0px 0px),
-			(bottom, right, -3px 0px 0px 0px),
-			(left, bottom, 0px -3px 0px 0px),
-			(right, bottom, 0px -3px 0px 0px)
+			$_shadow1 in (top, right, -3px 0 0 0),
+			(bottom, right, -3px 0 0 0),
+			(left, bottom, 0 -3px 0 0),
+			(right, bottom, 0 -3px 0 0)
 		{
 			&.#{$_tab} {
 				> tabs {
@@ -205,9 +205,9 @@ notebook {
 							&:hover,
 							&.prelight-page {
 								box-shadow: inset
-										0px -3px
-										0px
-										0px
+										0 -3px
+										0
+										0
 										gtkalpha(
 											gtk("@theme_selected_bg_color"),
 											0.2
@@ -216,9 +216,9 @@ notebook {
 							}
 							&:checked {
 								box-shadow: inset
-										0px -3px
-										0px
-										0px
+										0 -3px
+										0
+										0
 										gtk("@theme_selected_bg_color"),
 									inset $_shadow1 gtk("@theme_bg_color");
 								&:backdrop {
@@ -260,10 +260,10 @@ notebook {
 		}
 
 		@at-root %notebook_vert_arrows {
-			margin-left: -5px;
-			margin-right: -5px;
-			padding-left: 4px;
-			padding-right: 4px;
+			margin-left:-1.25mm;
+			margin-right:-1.25mm;
+			padding-left: 1mm;
+			padding-right: 1mm;
 
 			&.down {
 				-gtk-icon-source: -gtk-icontheme($arrow_left);
@@ -287,10 +287,10 @@ notebook {
 		}
 
 		@at-root %notebook_horz_arrows {
-			margin-top: -5px;
-			margin-bottom: -5px;
-			padding-top: 4px;
-			padding-bottom: 4px;
+			margin-top:-1.25mm;
+			margin-bottom:-1.25mm;
+			padding-top: 1mm;
+			padding-bottom: 1mm;
 
 			&.down {
 				-gtk-icon-source: -gtk-icontheme($arrow_up);
@@ -304,8 +304,8 @@ notebook {
 		> tabs > arrow {
 			@include neobutton(toolbutton);
 
-			min-height: 16px;
-			min-width: 16px;
+			min-height: 4mm;
+			min-width: 4mm;
 			border-radius: 0;
 
 			&:hover:not(:active):not(:backdrop) {
@@ -320,11 +320,11 @@ notebook {
 		// colors the button like the label, overridden otherwise
 		button.flat {
 			padding: 0;
-			margin: 2px;
+			margin: 0.5mm;
 			// FIXME: generalize .small-button?
-			min-width: 12px;
-			min-height: 12px;
-			border: 0px solid;
+			min-width: 3mm;
+			min-height: 3mm;
+			border: 0 solid;
 			border-radius: 50%;
 			color: gtk("@borders");
 			background-image: none;
@@ -341,6 +341,6 @@ notebook {
 		background-color: transparent;
 		border-style: solid;
 		border-color: gtk("@borders");
-		border-width: 0px;
+		border-width: 0;
 	}
 }

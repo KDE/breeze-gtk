@@ -13,7 +13,7 @@ tooltip {
 	}
 
 	color: gtk("@tooltip_text");
-	padding: 4px; /* not working */
+	padding: 1mm; /* not working */
 	border-radius: $r;
 	box-shadow: none; // otherwise it gets inherited by windowframe.csd
 	text-shadow: none;
@@ -29,7 +29,7 @@ tooltip {
 
 tooltip * {
 	//Yeah this is ugly
-	padding: 0px;
+	padding: 0;
 	background-color: transparent;
 	color: gtk("@tooltip_text"); // just to be sure
 }

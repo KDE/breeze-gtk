@@ -8,13 +8,13 @@ decoration {
 	$shadow: rgba(0, 0, 0, 0.5);
 
 	//border: 1px solid transparent;
-	border-radius: 6px 6px 0 0;
+	border-radius: $r/2 $r/2 0 0;
 	border-width: 0px;
 	box-shadow: 0px 0px 16px $shadow,
 		0px 2px 8px scale-color($shadow, $alpha: -40%);
 
 	/* this is used for the resize cursor area */
-	margin: 10px;
+	margin: 2.5mm;
 
 	.maximized &,
 	.fullscreen &,
@@ -31,7 +31,7 @@ decoration {
 		box-shadow: 0 2px 6px 1px rgba(0, 0, 0, 0.1);
 	}
 	.csd & {
-		border-radius: 6px;
+		border-radius: $r/2;
 		&.popup {
 			box-shadow: 0px 3px 10px -4px rgba(0, 0, 0, 0.27),
 						0px 5px 8px -4px rgba(0, 0, 0, 0.17);
@@ -47,7 +47,7 @@ decoration {
 		border-radius: 0;
 		margin: 0;
 		padding: 0px;
-		border: 5px solid gtk("@theme_titlebar_background");
+		border: 1.25mm solid gtk("@theme_titlebar_background");
 		background-color: gtk(
 			"@theme_titlebar_background_light"
 		);
@@ -68,19 +68,19 @@ window.solid-csd {
 dialog,
 window {
 	headerbar.titlebar {
-		min-height: 46px;
+		min-height: 11.5mm;
 	}
 	headerbar,
 	.titlebar {
 		&.default-decoration button.titlebutton {
-			padding: 1px;
-			min-height: 18px;
-			min-width: 18px;
+			padding: 0.25mm;
+			min-height: 4.5mm;
+			min-width: 4.5mm;
 			margin: 0;
 		}
-		$titlebutton-size: 18px 18px;
+		$titlebutton-size: 4.5mm 4.5mm;
 		button.titlebutton {
-			padding: 1px;
+			padding: 0.25mm;
 			&:hover,
 			&:active,
 			&:checked,
@@ -93,7 +93,7 @@ window {
 			}
 
 			&.close {
-				padding: 1px;
+				padding: 0.25mm;
 				border-image: none;
 				box-shadow: none;
 				background-position: center;
@@ -128,7 +128,7 @@ window {
 			}
 
 			&.maximize {
-				padding: 1px;
+				padding: 0.25mm;
 				border-image: none;
 				box-shadow: none;
 				background-position: center;
@@ -162,7 +162,7 @@ window {
 			}
 
 			&.minimize {
-				padding: 1px;
+				padding: 0.25mm;
 				border-image: none;
 				box-shadow: none;
 				background-position: center;
@@ -198,7 +198,7 @@ window {
 		.maximized & {
 			button.titlebutton {
 				&.maximize {
-					padding: 1px;
+					padding: 0.25mm;
 					border-image: none;
 					box-shadow: none;
 					background-position: center;

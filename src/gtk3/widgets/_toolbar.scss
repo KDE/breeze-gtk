@@ -5,37 +5,37 @@
  ************/
 %toolbar {
 	-GtkWidget-window-dragging: true;
-	padding: 4px;
+	padding: 1mm;
 	background-color: gtk("@theme_bg_color");
 }
 toolbar {
 	@extend %toolbar;
-	padding: 4px 3px 3px 4px;
+	padding: 1mm 0.75mm 0.75mm 1mm;
 	&:backdrop {
 		background-color: gtk("@theme_unfocused_bg_color");
 		box-shadow: none;
 	}
 	button {
-		margin: 2px;
-		padding: 3px;
+		margin: 0.5mm;
+		padding: 0.75mm;
 		&.image-button,
 		&.text-button.image-button {
-			padding: 3px;
+			padding: 0.75mm;
 		}
 	}
 	separator {
-		margin-left: 3px;
-		margin-right: 3px;
+		margin-left: 0.75mm;
+		margin-right: 0.75mm;
 	}
 	entry {
-		margin: 3px;
+		margin: 0.75mm;
 	}
 	// on OSD
 	.osd & {
 		background-color: transparent;
 	}
 	&.osd {
-		padding: 13px;
+		padding: 3.25mm;
 		border: none;
 		border-radius: $r;
 		background-color: gtk("@theme_bg_color");
@@ -58,7 +58,7 @@ toolbar {
 	@extend %toolbar;
 	@extend %inset-bar;
 	border-width: 0px 0px 1px 0px;
-	padding: 3px;
+	padding: 0.75mm;
 	border-radius: 0;
 }
 searchbar,
@@ -66,7 +66,7 @@ searchbar,
 	@extend %toolbar;
 	@extend %inset-bar;
 	border-width: 0px 0px 1px 0px;
-	padding: 3px;
+	padding: 0.75mm;
 }
 
 %inset-bar {

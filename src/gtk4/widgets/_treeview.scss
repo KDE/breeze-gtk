@@ -25,7 +25,7 @@
 		border: 1px solid gtk("@theme_button_decoration_focus");
 		border-left: 0;
 		border-right: 0;
-		border-radius: 0px;
+		border-radius: 0;
 	} @else {
 		background-color: gtk("@theme_selected_bg_color");
 		border-left-color: gtk("@theme_selected_fg_color");
@@ -45,7 +45,7 @@
 			gtk("@theme_button_decoration_focus_backdrop");
 		border-left: 0;
 		border-right: 0;
-		border-radius: 0px;
+		border-radius: 0;
 	} @else {
 		background-color: gtk(
 			"@theme_unfocused_selected_bg_color"
@@ -103,7 +103,7 @@ treeview.view {
 		}
 	}
 	&.separator {
-		min-height: 2px;
+		min-height: 0.5mm;
 		color: gtk("@borders");
 	}
 	&.separator:backdrop {
@@ -122,8 +122,8 @@ treeview.view {
 
 	&.expander {
 		// GtkTreeView uses the larger of the expander’s min-width and min-height
-		min-width: 16px;
-		min-height: 16px;
+		min-width: 4mm;
+		min-height: 4mm;
 		-gtk-icon-source: -gtk-icontheme($arrow_right);
 		color: gtk("@theme_fg_color");
 		&:dir(rtl) {
@@ -185,7 +185,7 @@ treeview.view {
 		&:selected,
 		&:hover,
 		& {
-			padding: 0 6px;
+			padding: 0 1.5mm;
 			color: gtk("@theme_selected_fg_color");
 			background-image: none;
 			background-color: gtk("@theme_selected_bg_color");
@@ -198,7 +198,7 @@ treeview.view {
 }
 
 %column_header_button {
-	padding: 6px;
+	padding: 1.5mm;
 	border-style: none solid solid none;
 	border-radius: 0;
 	background-image: none;

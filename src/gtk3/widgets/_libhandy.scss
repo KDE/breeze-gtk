@@ -51,7 +51,7 @@ hdyviewswitcher {
 				to(gtk("@theme_button_decoration_focus")),
 				to(transparent)
 			);
-			background-size: 6px 6px, 6px 6px;
+			background-size: 1.5mm 1.5mm, 1.5mm 1.5mm;
 			background-repeat: no-repeat;
 			background-position: right 0px, right 1px;
 		}
@@ -86,21 +86,21 @@ viewswitcher {
 			}
 			> box.narrow {
 				font-size: 0.75rem;
-				padding-top: 7px;
-				padding-bottom: 5px;
+				padding-top: 1.75mm;
+				padding-bottom: 1.25mm;
 				image,
 				label {
-					padding-left: 8px;
-					padding-right: 8px;
+					padding-left: 2mm;
+					padding-right: 2mm;
 				}
 			}
 			> box.wide {
-				padding: 8px 12px;
+				padding: 2mm 3mm;
 				label:dir(ltr) {
-					padding-right: 7px;
+					padding-right: 1.75mm;
 				}
 				label:dir(rtl) {
-					padding-left: 7px;
+					padding-left: 1.75mm;
 				}
 			}
 		}
@@ -144,7 +144,7 @@ viewswitcher {
 					to(gtk("@theme_button_decoration_focus")),
 					to(transparent)
 				);
-				background-size: 6px 6px, 6px 6px;
+				background-size: 1.5mm 1.5mm, 1.5mm 1.5mm;
 				background-repeat: no-repeat;
 				background-position: right 0px, right 1px;
 			}
@@ -178,7 +178,7 @@ viewswitcherbar {
 }
 
 window.unified {
-	border-radius: 6px;
+	border-radius: $r/2;
 	&.maximized,
 	&.fullscreen,
 	&.tiled {

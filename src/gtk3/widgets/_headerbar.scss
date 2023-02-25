@@ -6,9 +6,9 @@
 
 %titlebar,
 headerbar {
-	padding: 0px 6px;
+	padding: 0 1.5mm;
 	border-width: 0px 0px 1px 0px;
-	border-radius: 6px 6px 0px 0px;
+	border-radius: 2*$r 2*$r 0px 0px;
 	border-style: solid;
 	border-color: gtk("@borders");
 	color: gtk("@theme_titlebar_foreground");
@@ -84,7 +84,7 @@ headerbar {
 
 	.title {
 		font-weight: normal;
-		padding: 0px 12px;
+		padding: 0px 3mm;
 		&:backdrop {
 			color: gtk("@theme_titlebar_foreground_backdrop");
 		}
@@ -92,7 +92,7 @@ headerbar {
 
 	.subtitle {
 		font-size: smaller;
-		padding: 0 12px;
+		padding: 0 3mm;
 		@extend .dim-label;
 		&:backdrop {
 			color: gtk("@theme_titlebar_foreground_backdrop");
@@ -136,7 +136,7 @@ headerbar {
 		}
 
 		.selection-menu {
-			padding: 4px 6px;
+			padding: 1mm 1.5mm;
 
 			GtkArrow {
 				-GtkArrow-arrow-scaling: 1;
@@ -161,7 +161,7 @@ headerbar {
 	spinbutton,
 	separator,
 	button {
-		margin-top: 8px;
-		margin-bottom: 8px;
+		margin-top: 2mm;
+		margin-bottom: 2mm;
 	}
 }

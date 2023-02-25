@@ -10,7 +10,7 @@
 
 .path-bar button {
 	@include neobutton(normal);
-	padding: 4px 8px;
+	padding: 1mm 2mm;
 	color: gtk("@theme_fg_color");
 	&:hover {
 		border-color: gtk("@theme_button_decoration_hover");
@@ -23,8 +23,8 @@
 	&.text-button,
 	&.image-button,
 	& {
-		padding-left: 4px;
-		padding-right: 4px;
+		padding-left: 1mm;
+		padding-right: 1mm;
 	}
 
 	&.text-button.image-button label {
@@ -35,16 +35,16 @@
 	&.text-button.image-button,
 	& {
 		label:last-child {
-			padding-right: 8px;
+			padding-right: 2mm;
 		}
 		label:first-child {
-			padding-left: 8px;
+			padding-left: 2mm;
 		}
 	}
 
 	image {
-		padding-left: 4px;
-		padding-right: 4px;
+		padding-left: 1mm;
+		padding-right: 1mm;
 	}
 
 	&.slider-button {

@@ -254,7 +254,7 @@ $IntensityEffect: (
 	Inactive: $InactiveIntensityEffect,
 );
 
-$r: 3px; // standard radius
+$r: 0.75mm; // standard radius
 
 @function internal_insensitive($c) {
 	@return internal_Color(
