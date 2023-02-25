@@ -4,12 +4,14 @@
  * Scrollbars *
  **************/
 
+$outline-padding: 1.25mm;
+
 scrollbar {
 
 	background-color: gtk("@theme_bg_color");
 	border-width: 0px;
 	border-color: gtk("@theme_bg_color");
-	padding: 5px;
+	padding: $outline-padding;
 
 	&.vertical {
 
@@ -108,12 +110,14 @@ scrollbar {
 		}
 	}
 
+	$slider-min-thickness: 1.75mm;
+
 	trough {
 		margin: -1px;
 		transition-duration: 0.1s;
-		min-width: 6px;
+		min-width: $slider-min-thickness;
 		min-height: 14px;
-		border-radius: 8px;
+		border-radius: 15px;
 		background-color: transparent;
 		border: 1px solid transparent;
 	}
@@ -165,28 +169,24 @@ scrollbar {
 	}
 
 	slider {
-		margin: -9px;
-		margin-bottom: -6px;
-		margin-top: -6px;
+		margin: -$outline-padding; // same as border-width and scrollbar padding
 		transition-duration: 0.1s;
-		min-width: 6px;
+		min-width: $slider-min-thickness;
 		min-height: 30px;
 		border-radius: 15px;
 		background-clip: padding-box;
 		background-image: gtkoverlay(gtk("@theme_bg_color"), gtkalpha(gtk("@theme_button_foreground_normal"), 0.5*0.5*0.7));
 
 		// To keep the ability to drag the slider from the edge of the screen
-		border: 5px solid transparent;
+		border: $outline-padding solid transparent;
 		box-shadow: 0 0 0 1px gtkalpha(gtk("@theme_button_foreground_normal"), 0.5*0.7*0.9) inset;
 
 	}
 
 	&.horizontal slider {
-		margin: -9px;
-		margin-left: -6px;
-		margin-right: -6px;
+		margin: -$outline-padding;
 		transition-duration: 0.1s;
 		min-width: 30px;
-		min-height: 6px;
+		min-height: $slider-min-thickness;
 	}
 }
