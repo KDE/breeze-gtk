@@ -37,6 +37,13 @@
 		border-style: solid;
 		border-radius: $r;
 	}
+
+	&:not(:only-child):not(:first-child) {
+		margin-left: 0;
+	}
+	&:not(:only-child):not(:last-child) {
+		margin-right: 0;
+	}
 }
 
 @mixin linked-vertical() {
@@ -56,6 +63,13 @@
 
 	&:only-child {
 		border-style: solid;
+	}
+
+	&:not(:only-child):not(:first-child) {
+		margin-top: 0;
+	}
+	&:not(:only-child):not(:last-child) {
+		margin-bottom: 0;
 	}
 }
 
