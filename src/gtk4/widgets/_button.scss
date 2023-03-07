@@ -373,6 +373,84 @@ button {
 	}
 }
 
+
+// used in gnome-calculator
+menubutton {
+  &.osd {
+    background: none;
+    color: inherit;
+
+    > button { @extend %buttons; }
+  }
+
+  /*
+  TODO more button styles
+  &.circular > button { @extend %circular_button; }
+  &.flat > button { @extend %button_basic_flat; }
+  &.pill > button { @extend %pill_button; }
+  */
+
+  &.suggested-action {
+    background-color: gtk("@theme_button_background_normal");
+    color: gtk("@theme_button_foreground_normal");
+  }
+
+  &.destructive-action {
+    background-color: gtk("@warning_color_backdrop");
+    color: gtk("@warning_color");
+  }
+
+  &.opaque {
+    background-color: gtk("@theme_button_background_normal");
+    color: gtk("@theme_button_foreground_normal");
+  }
+
+  &.suggested-action,
+  &.destructive-action,
+  &.opaque {
+    border-radius: $r;
+
+    &.circular, &.pill {
+      border-radius: 9999px;
+    }
+
+    > button {
+      // @extend %opaque_button; TODO more button styles
+
+      &, &:checked {
+        background-color: transparent;
+        color: inherit;
+      }
+    }
+  }
+
+  &.image-button > button {
+    min-width: 24px;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  arrow {
+    min-height: 16px; // same as combobox > arrow
+    min-width: 16px;
+    &.none {
+      -gtk-icon-source: -gtk-icontheme('open-menu-symbolic');
+    }
+    &.down {
+      -gtk-icon-source: -gtk-icontheme($arrow_down);
+    }
+    &.up {
+      -gtk-icon-source: -gtk-icontheme($arrow_up);
+    }
+    &.left {
+      -gtk-icon-source: -gtk-icontheme($arrow_left);
+    }
+    &.right {
+      -gtk-icon-source: -gtk-icontheme($arrow_right);
+    }
+  }
+}
+
 /**************
  * ComboBoxes *
  **************/
