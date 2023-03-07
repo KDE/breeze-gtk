@@ -1,0 +1,167 @@
+/*
+    SPDX-FileCopyrightText: 2021-2022 Purism SPC
+    SPDX-FileCopyrightText: 2023 Fushan Wen <qydwhotmail@gmail.com>
+
+    SPDX-License-Identifier: LGPL-2.1-or-later
+*/
+
+columnview {
+    // @include focus-ring(); TODO implement focus-ring
+
+    &:drop(active) {
+        box-shadow: none;
+    }
+
+    > header > button {
+        @extend %column_header_button;
+        color: gtk("@theme_button_foreground_normal");
+        background-color: gtk(
+            "@theme_button_background_normal"
+        );
+        box-shadow: none;
+        text-shadow: none;
+
+        &:first-child {
+            border-left-width: 0;
+        }
+
+        > box {
+            color: gtkalpha(currentColor, .4);
+            font-weight: 700;
+            font-size: 9pt;
+            border-spacing: 6px;
+        }
+
+        &:hover > box {
+            @extend %column_header_button;
+            color: gtk("@theme_button_foreground_normal");
+            background-color: gtkalpha(
+                gtk("@theme_button_decoration_hover"),
+                0.5
+            );
+            box-shadow: none;
+        }
+
+        &:active > box {
+            @extend %column_header_button;
+            color: gtk("@theme_button_foreground_normal");
+            background-color: gtkalpha(
+                gtk("@theme_button_decoration_hover"),
+                0.5
+            );
+        }
+
+        sort-indicator {
+            &.ascending {
+                -gtk-icon-source: -gtk-icontheme($arrow_up);
+            }
+            &.descending {
+                -gtk-icon-source: -gtk-icontheme($arrow_down);
+            }
+
+            color: gtk("@theme_fg_color");
+            min-height: 16px;
+            min-width: 16px;
+        }
+    }
+
+    button.dnd,
+    header.button.dnd { // for treeview-like derive widgets
+        &:active,
+        &:selected,
+        &:hover,
+        & {
+            padding: 0 6px;
+			color: gtk("@theme_selected_fg_color");
+			background-image: none;
+			background-color: gtk("@theme_selected_bg_color");
+			border-style: none;
+			border-radius: 0;
+			box-shadow: none;
+			text-shadow: none;
+        }
+    }
+
+    // move padding to child cells
+    > listview > row {
+        padding: 0;
+
+        // align horizontal sizing with header buttons
+        > cell {
+            padding: 8px 6px;
+
+            &:not(:first-child) {
+                border-left: 1px solid transparent;
+            }
+        }
+    }
+
+    // make column separators visible when :show-column-separators is true
+    &.column-separators {
+        > listview > row > cell,
+        > header > button {
+            border-left-color: gtk("@unfocused_borders");
+        }
+    }
+
+    > listview:not(.horizontal).separators > row:not(.separator) {
+        border-top: 1px solid gtk("@unfocused_borders");
+        border-bottom: none;
+    }
+
+    // shrink vertically for .data-table
+    &.data-table > listview > row > cell {
+        padding-top: 2px;
+        padding-bottom: 2px;
+    }
+
+  // @include undershoot(top, $shade_color, true);
+}
+
+columnview row:not(:selected) cell editablelabel:not(.editing):focus-within {
+    outline: 2px solid gtk("@borders");
+}
+
+columnview row:not(:selected) cell editablelabel.editing:focus-within {
+    outline: 2px solid gtk("@theme_selected_bg_color");
+}
+
+treeexpander {
+    border-spacing: 4px;
+}
+
+%column_header_button {
+	padding: 6px;
+	border-style: none solid solid none;
+	border-radius: 0;
+	background-image: none;
+	border-color: gtk("@borders");
+	text-shadow: none;
+	&:disabled {
+		border-color: gtk("@insensitive_borders");
+		color: gtk("@theme_button_foreground_insensitive");
+		background-color: gtk(
+			"@theme_button_background_insensitive"
+		);
+		background-image: none;
+	}
+	&:backdrop {
+		border-color: gtk("@unfocused_borders");
+		border-style: none solid solid none;
+		color: gtk("@theme_button_foreground_backdrop");
+		background-image: none;
+		background-color: gtk(
+			"@theme_button_background_backdrop"
+		);
+		&:disabled {
+			border-color: gtk("@unfocused_insensitive_borders");
+			background-image: none;
+			background-color: gtk(
+				"@theme_button_background_backdrop_insensitive"
+			);
+			color: gtk(
+				"@theme_button_foreground_backdrop_insensitive"
+			);
+		}
+	}
+}
