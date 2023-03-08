@@ -75,171 +75,61 @@ headerbar.titlebar {
 
 headerbar,
 .titlebar {
-	&.default-decoration button.titlebutton {
-		padding: 1px;
-		min-height: 18px;
-		min-width: 18px;
-		margin: 0;
-	}
-	$titlebutton-size: 18px 18px;
-	button.titlebutton {
-		padding: 1px;
-		&:hover,
-		&:active,
-		&:checked,
-		&:backdrop,
-		&:active:hover {
+	windowcontrols button {
+		min-height: 24px;
+		min-width: 24px;
+		-gtk-icon-size: 24px;
+		padding: 0;
+
+		$extra_margin: 14px;
+		$extra_padding: $extra_margin*2; // extend to screen border
+
+		margin-top: -$extra_margin;
+		padding-top: $extra_padding;
+		margin-bottom: -$extra_margin;
+		padding-bottom: $extra_padding;
+
+		&:dir(ltr) {
+			margin-right: -$extra_margin/2;
+			padding-right: $extra_margin;
 		}
 
-		&.close {
-			padding: 1px;
-			border-image: none;
-			box-shadow: none;
-			background-position: center;
-			background-repeat: no-repeat;
-			background-size: $titlebutton-size;
-			background-image: -gtk-recolor(
-				url("../assets/breeze-close-symbolic.svg"),
-				color gtk("@theme_text_color")
-			);
-			-gtk-icon-source: none;
-			image {
-				color: transparent;
-			}
-		}
-		&.close:hover {
-			border-color: transparent;
-			background-color: transparent;
-			background-image: -gtk-recolor(
-				url("../assets/breeze-close-hover-symbolic.svg")
-			);
-		}
-		&.close:active {
-			border-color: transparent;
-			background-color: transparent;
-			background-image: -gtk-recolor(
-				url("../assets/breeze-close-active-symbolic.svg")
-			);
-		}
-		&.close:backdrop {
-			border-color: transparent;
-			background-color: transparent;
-			background-image: -gtk-recolor(
-				url("../assets/breeze-close-symbolic.svg")
-			);
+		&:dir(rtl) {
+			margin-right: -$extra_margin/2;
+			padding-left: $extra_margin;
 		}
 
-		&.maximize {
-			padding: 1px;
-			border-image: none;
-			box-shadow: none;
-			background-position: center;
-			background-repeat: no-repeat;
-			background-size: $titlebutton-size;
-			background-image: -gtk-recolor(
-				url("../assets/breeze-maximize-symbolic.svg")
-			);
-			image {
-				color: transparent;
-			}
-		}
-		&.maximize:hover {
-			border-color: transparent;
-			background-color: transparent;
-			background-size: contain;
-			background-image: -gtk-recolor(
-				url("../assets/breeze-maximize-hover-symbolic.svg")
-			);
-		}
-		&.maximize:active {
-			border-color: transparent;
-			background-color: transparent;
-			background-image: -gtk-recolor(
-				url("../assets/breeze-maximize-active-symbolic.svg")
-			);
-		}
-		&.maximize:backdrop {
-			border-color: transparent;
-			background-color: transparent;
-			background-image: -gtk-recolor(
-				url("../assets/breeze-maximize-symbolic.svg")
-			);
-		}
-
-		&.minimize {
-			padding: 1px;
-			border-image: none;
-			box-shadow: none;
-			background-position: center;
-			background-repeat: no-repeat;
-			background-size: $titlebutton-size;
-			background-image: -gtk-recolor(
-				url("../assets/breeze-minimize-symbolic.svg")
-			);
-			image {
-				color: transparent;
-			}
-		}
-		&.minimize:hover {
-			border-color: transparent;
-			background-color: transparent;
-			background-image: -gtk-recolor(
-				url("../assets/breeze-minimize-hover-symbolic.svg")
-			);
-		}
-		&.minimize:active {
-			border-color: transparent;
-			background-color: transparent;
-			background-image: -gtk-recolor(
-				url("../assets/breeze-minimize-active-symbolic.svg")
-			);
-		}
+		&.close,
+		&.close:hover,
+		&.close:active,
+		&.close:backdrop,
+		&.maximize,
+		&.maximize:hover,
+		&.maximize:active,
+		&.maximize:backdrop,
+		&.minimize,
+		&.minimize:hover,
+		&.minimize:active,
 		&.minimize:backdrop {
 			border-color: transparent;
+			box-shadow: none;
 			background-color: transparent;
-			background-image: -gtk-recolor(
-				url("../assets/breeze-minimize-symbolic.svg")
-			);
 		}
-	}
 
-	.maximized & {
-		button.titlebutton {
-			&.maximize {
-				padding: 1px;
-				border-image: none;
-				box-shadow: none;
-				background-position: center;
-				background-size: $titlebutton-size;
-				background-repeat: no-repeat;
-				background-image: -gtk-recolor(
-					url("../assets/breeze-maximized-symbolic.svg")
-				);
-				image {
-					color: transparent;
-				}
-			}
-			&.maximize:hover {
-				border-color: transparent;
-				background-color: transparent;
-				background-image: -gtk-recolor(
-					url("../assets/breeze-maximized-hover-symbolic.svg")
-				);
-			}
-			&.maximize:active {
-				border-color: transparent;
-				background-color: transparent;
-				background-image: -gtk-recolor(
-					url("../assets/breeze-maximized-active-symbolic.svg")
-				);
-			}
-			&.maximize:backdrop {
-				border-color: transparent;
-				background-color: transparent;
-				background-image: -gtk-recolor(
-					url("../assets/breeze-maximized-symbolic.svg")
-				);
-			}
+		&.close:hover {
+			color: gtkmix(gtk("@error_color_backdrop"), white, 0.75);
+		}
+		&.close:active {
+			color: gtk("@error_color_backdrop");
+		}
+
+		&.maximize:hover,
+		&.minimize:hover {
+			opacity: 0.7;
+		}
+		&.maximize:active,
+		&.minimize:active {
+			opacity: 0.5;
 		}
 	}
 }
