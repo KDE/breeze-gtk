@@ -60,7 +60,7 @@ toolbar {
 	padding: 3px;
 	border-radius: 0;
 }
-searchbar,
+searchbar > revealer > box,
 .location-bar {
 	@extend %toolbar;
 	@extend %inset-bar;
