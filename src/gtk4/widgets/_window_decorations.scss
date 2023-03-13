@@ -95,7 +95,7 @@ headerbar,
 		}
 
 		&:dir(rtl) {
-			margin-right: -$extra_margin/2;
+			margin-left: -$extra_margin/2;
 			padding-left: $extra_margin;
 		}
 
@@ -117,10 +117,14 @@ headerbar,
 		}
 
 		&.close:hover {
-			color: gtkmix(gtk("@error_color_backdrop"), white, 0.75);
+			color: gtkmix(gtk("@error_color"), white, 0.75);
+
+			&:backdrop {
+				color: gtk("@error_color");
+			}
 		}
 		&.close:active {
-			color: gtk("@error_color_backdrop");
+			color: gtk("@error_color");
 		}
 
 		&.maximize:hover,
