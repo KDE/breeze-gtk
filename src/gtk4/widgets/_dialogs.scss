@@ -75,6 +75,14 @@ filechooser {
 
 // Icon sizes
 
+.normal-icons {
+  -gtk-icon-size: 16px;
+}
+
+.large-icons {
+  -gtk-icon-size: 32px;
+}
+
 window.aboutdialog image.large-icons {
 	-gtk-icon-size: 128px;
 }
