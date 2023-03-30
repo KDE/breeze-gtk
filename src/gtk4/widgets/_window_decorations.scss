@@ -99,6 +99,16 @@ headerbar,
 			padding-left: $extra_margin;
 		}
 
+		&.close {
+			&:dir(ltr) {
+				margin-right: -$extra_margin;
+			}
+
+			&:dir(rtl) {
+				margin-left: -$extra_margin;
+			}
+		}
+
 		&.close,
 		&.close:hover,
 		&.close:active,
