@@ -75,10 +75,11 @@ headerbar.titlebar {
 
 headerbar,
 .titlebar {
+	$titlebutton-size: 18px 18px;
+
 	windowcontrols button {
-		min-height: 24px;
-		min-width: 24px;
-		-gtk-icon-size: 24px;
+		min-height: 18px;
+		min-width: 18px;
 		padding: 0;
 
 		$extra_margin: 14px;
@@ -99,14 +100,8 @@ headerbar,
 			padding-left: $extra_margin;
 		}
 
-		&.close {
-			&:dir(ltr) {
-				margin-right: -$extra_margin;
-			}
-
-			&:dir(rtl) {
-				margin-left: -$extra_margin;
-			}
+		image {
+			color: transparent;
 		}
 
 		&.close,
@@ -122,28 +117,100 @@ headerbar,
 		&.minimize:active,
 		&.minimize:backdrop {
 			border-color: transparent;
+			border-image: none;
 			box-shadow: none;
 			background-color: transparent;
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: $titlebutton-size;
 		}
 
+		&.close {
+			background-image: -gtk-recolor(
+				url("../assets/breeze-close-symbolic.svg"),
+				color gtk("@theme_text_color")
+			);
+			-gtk-icon-source: none;
+		}
 		&.close:hover {
-			color: gtkmix(gtk("@error_color"), white, 0.75);
-
-			&:backdrop {
-				color: gtk("@error_color");
-			}
+			background-image: -gtk-recolor(
+				url("../assets/breeze-close-hover-symbolic.svg")
+			);
 		}
 		&.close:active {
-			color: gtk("@error_color");
+			background-image: -gtk-recolor(
+				url("../assets/breeze-close-active-symbolic.svg")
+			);
+		}
+		&.close:backdrop {
+			background-image: -gtk-recolor(
+				url("../assets/breeze-close-symbolic.svg")
+			);
 		}
 
-		&.maximize:hover,
-		&.minimize:hover {
-			opacity: 0.7;
+		&.maximize {
+			background-image: -gtk-recolor(
+				url("../assets/breeze-maximize-symbolic.svg")
+			);
 		}
-		&.maximize:active,
+		&.maximize:hover {
+			background-image: -gtk-recolor(
+				url("../assets/breeze-maximize-hover-symbolic.svg")
+			);
+		}
+		&.maximize:active {
+			background-image: -gtk-recolor(
+				url("../assets/breeze-maximize-active-symbolic.svg")
+			);
+		}
+		&.maximize:backdrop {
+			background-image: -gtk-recolor(
+				url("../assets/breeze-maximize-symbolic.svg")
+			);
+		}
+
+		&.minimize {
+			background-image: -gtk-recolor(
+				url("../assets/breeze-minimize-symbolic.svg")
+			);
+		}
+		&.minimize:hover {
+			background-image: -gtk-recolor(
+				url("../assets/breeze-minimize-hover-symbolic.svg")
+			);
+		}
 		&.minimize:active {
-			opacity: 0.5;
+			background-image: -gtk-recolor(
+				url("../assets/breeze-minimize-active-symbolic.svg")
+			);
+		}
+		&.minimize:backdrop {
+			background-image: -gtk-recolor(
+				url("../assets/breeze-minimize-symbolic.svg")
+			);
+		}
+
+		.maximized & {
+			&.maximize {
+				background-image: -gtk-recolor(
+					url("../assets/breeze-maximized-symbolic.svg")
+				);
+			}
+			&.maximize:hover {
+				background-image: -gtk-recolor(
+					url("../assets/breeze-maximized-hover-symbolic.svg")
+				);
+			}
+			&.maximize:active {
+				background-image: -gtk-recolor(
+					url("../assets/breeze-maximized-active-symbolic.svg")
+				);
+			}
+			&.maximize:backdrop {
+				background-image: -gtk-recolor(
+					url("../assets/breeze-maximized-symbolic.svg")
+				);
+			}
 		}
 	}
 }
