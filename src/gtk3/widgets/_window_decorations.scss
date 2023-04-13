@@ -98,11 +98,21 @@ window {
 			&:dir(ltr) {
 				margin-right: -$extra_margin/2;
 				padding-right: $extra_margin;
+
+				&.maximize,
+				&.minimize {
+					margin-right: -$extra_margin;
+				}
 			}
 
 			&:dir(rtl) {
 				margin-left: -$extra_margin/2;
 				padding-left: $extra_margin;
+
+				&.maximize,
+				&.minimize {
+					margin-left: -$extra_margin;
+				}
 			}
 
 			image {
