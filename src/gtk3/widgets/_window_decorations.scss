@@ -80,41 +80,6 @@ window {
 		}
 		$titlebutton-size: 18px 18px;
 		button.titlebutton {
-			&:hover,
-			&:active,
-			&:checked,
-			&:backdrop,
-			&:active:hover {
-			}
-
-			$extra_margin: 12px;
-			$extra_padding: $extra_margin*2; // extend to screen border
-
-			margin-top: -$extra_margin;
-			padding-top: $extra_padding;
-			margin-bottom: -$extra_margin;
-			padding-bottom: $extra_padding;
-
-			&:dir(ltr) {
-				margin-right: -$extra_margin/2;
-				padding-right: $extra_margin;
-
-				&.maximize,
-				&.minimize {
-					margin-right: -$extra_margin;
-				}
-			}
-
-			&:dir(rtl) {
-				margin-left: -$extra_margin/2;
-				padding-left: $extra_margin;
-
-				&.maximize,
-				&.minimize {
-					margin-left: -$extra_margin;
-				}
-			}
-
 			image {
 				color: transparent;
 			}
