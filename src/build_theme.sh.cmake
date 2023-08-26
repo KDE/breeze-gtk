@@ -42,7 +42,7 @@ render_theme () {
   THEME_BUILD_DIR="$(mktemp -d)"
   create_folders "${THEME_BUILD_DIR}"
   cp -R gtk2/* "${THEME_BUILD_DIR}/gtk-2.0/"
-  @PYTHON_EXECUTABLE@ render_assets.py -c "$1" -a "${THEME_BUILD_DIR}/assets" \
+  @Python3_EXECUTABLE@ render_assets.py -c "$1" -a "${THEME_BUILD_DIR}/assets" \
     -g "${THEME_BUILD_DIR}/gtk-2.0" -G "${THEME_BUILD_DIR}" -b "$4"
   build_sass gtk3/gtk.scss "${THEME_BUILD_DIR}/gtk-3.0/gtk.css" "${THEME_BUILD_DIR}"
   build_sass gtk4/gtk.scss "${THEME_BUILD_DIR}/gtk-4.0/gtk.css" "${THEME_BUILD_DIR}"
