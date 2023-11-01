@@ -12,7 +12,7 @@ find_package(GTKEngine)
 find_package(Sass REQUIRED)
 find_package(PythonCairo)
 set_package_properties(PythonCairo PROPERTIES TYPE REQUIRED PURPOSE "Required to render assets")
-find_package(Breeze 5.14.90 REQUIRED)
+find_package(Breeze 5.27.80 REQUIRED)
 set_package_properties(Breeze PROPERTIES TYPE REQUIRED PURPOSE "Required to build the Breeze GTK+ styles")
 
 
