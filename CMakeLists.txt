@@ -1,10 +1,10 @@
 cmake_minimum_required(VERSION 3.16)
 
 project(breeze-gtk)
-set(PROJECT_VERSION "5.93.0")
+set(PROJECT_VERSION "6.0.0")
 set(PROJECT_VERSION_MAJOR 6)
 
-find_package(ECM 0.0.9 REQUIRED NO_MODULE)
+find_package(ECM 6.0.0 REQUIRED NO_MODULE)
 include(FeatureSummary)
 
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH}  "${CMAKE_SOURCE_DIR}/cmake")
