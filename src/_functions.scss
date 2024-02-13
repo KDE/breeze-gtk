@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
+// Shared contrast values
+$BorderContrastPercentage: 20%;
+$BorderContrastDecimal: 0.2;
+
 // GTK functions
 
 // escape string entirely
@@ -129,7 +133,7 @@
 		@return mix(
 			$TooltipForegroundNormal,
 			$TooltipBackgroundNormal,
-			25%
+			$BorderContrastPercentage
 		);
 	}
 }
@@ -163,14 +167,14 @@
 }
 
 $border_color: mix(
-	$WindowBackgroundNormal,
 	$WindowForegroundNormal,
-	75%
+	$WindowBackgroundNormal,
+	$BorderContrastPercentage
 );
 $ligh_border_color: gtkmix(
-	$WindowBackgroundNormal,
 	$WindowForegroundNormal,
-	0.07
+	$WindowBackgroundNormal,
+	$BorderContrastDecimal/2
 );
 
 $menu_color: internal_w_color(normal);
@@ -188,24 +192,24 @@ $arrow_right: "go-next-symbolic";
 $arrow_up: "go-up-symbolic";
 
 $trough_color: gtkmix(
-	gtk("@theme_bg_color"),
 	gtk("@theme_fg_color"),
-	0.7
+	gtk("@theme_bg_color"),
+	$BorderContrastDecimal
 );
 $trough_color_backdrop: gtkmix(
-	gtk("@theme_unfocused_bg_color"),
 	gtk("@theme_unfocused_fg_color"),
-	0.7
+	gtk("@theme_unfocused_bg_color"),
+	$BorderContrastDecimal
 );
 $trough_color_insensitive: gtkmix(
-	gtk("@insensitive_bg_color"),
 	gtk("@insensitive_fg_color"),
-	0.7
+	gtk("@insensitive_bg_color"),
+	$BorderContrastDecimal
 );
 $trough_color_backdrop_insensitive: gtkmix(
-	gtk("@insensitive_unfocused_bg_color"),
 	gtk("@insensitive_unfocused_fg_color"),
-	0.7
+	gtk("@insensitive_unfocused_bg_color"),
+	$BorderContrastDecimal
 );
 
 $scrollbar_color: gtkmix(
