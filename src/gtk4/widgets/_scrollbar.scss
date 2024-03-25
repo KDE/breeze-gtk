@@ -109,20 +109,13 @@ scrollbar {
 	}
 
 	trough {
-		margin: -1px;
-		transition-duration: 0.1s;
 		min-width: 6px;
 		min-height: 14px;
-		border-radius: 8px;
 		background-color: transparent;
-		border: 1px solid transparent;
 	}
 
 	&:hover {
 		trough {
-			background-color: gtkalpha(gtk("@theme_button_foreground_normal"), 0.2*0.5);
-			border: 1px solid gtkalpha(gtk("@theme_button_foreground_normal"), 0.2);
-
 			slider {
 				background-image: gtkoverlay(gtk("@theme_bg_color"), gtkalpha(gtk("@theme_button_foreground_normal"), 0.5*0.5));
 				box-shadow: 0 0 0 1px gtkalpha(gtk("@theme_button_foreground_normal"), 0.5*0.9) inset;
