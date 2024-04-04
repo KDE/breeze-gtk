@@ -742,14 +742,14 @@ titlebutton_inactive_active = Color(_colors, 'WMinactiveForeground')
 tooltip_fg = Color(_colors, 'TooltipForegroundNormal')
 tooltip_bg = Color(_colors, 'TooltipBackgroundNormal')
 
-check_items(check_color.rgb, window_bg.rgb, '')
-check_items(button_hover.rgb, window_bg.rgb, '-hover')
-check_items(button_active.rgb, window_bg.rgb, '-active')
-check_items(check_color.insensitive, window_bg.rgb,
+check_items(check_color.rgb, button_bg.rgb, '')
+check_items(button_hover.rgb, button_bg.rgb, '-hover')
+check_items(button_active.rgb, button_bg.rgb, '-active')
+check_items(check_color.insensitive, button_bg.rgb,
             '-insensitive', border_color.insensitive_alpha)
-check_items(check_color.inactive, window_bg.rgb,
+check_items(check_color.inactive, button_bg.rgb,
             '-backdrop', border_color.inactive_alpha)
-check_items(check_color.inactive_insensitive, window_bg.rgb,
+check_items(check_color.inactive_insensitive, button_bg.rgb,
             '-backdrop-insensitive', border_color.inactive_insensitive_alpha)
 
 buttons(window_bg.rgb, border_color.rgb, button_bg.gradient(), '')

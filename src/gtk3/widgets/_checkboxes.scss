@@ -33,7 +33,7 @@ radio {
 	min-width: 14px;
 	//border: none;
 	animation-timing-function: $ease-out-quad;
-	background-color: gtk("@theme_base_color");
+	background-color: gtk("@theme_button_background_normal");
 	border: 1px solid gtkalpha(
 		gtk("@theme_button_foreground_normal"),
 		0.33
