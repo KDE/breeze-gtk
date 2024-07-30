@@ -11,7 +11,10 @@ scrollbar {
 	background-color: gtk("@theme_bg_color");
 	border-width: 0px;
 	border-color: gtk("@theme_bg_color");
-	padding: 5px;
+
+	// Vertical padding (for vertical scroll bar, obviously) is done here for proper distance to the window border,
+	// horizontal padding is done on the trough below to ensure its hit area touches the window side.
+	padding: 5px 0px;
 
 	&.vertical {
 
@@ -40,6 +43,8 @@ scrollbar {
 
 	&.horizontal {
 		border-top: 1px solid gtk("@borders");
+
+		padding: 0px 5px;
 
 		&.bottom {
 			border-top: 1px solid gtk("@borders");
@@ -116,6 +121,8 @@ scrollbar {
 	}
 
 	trough {
+		// Complements the padding on the scrollbar itself.
+		margin: 0px 5px;
 		min-width: 6px;
 		min-height: 14px;
 		background-color: transparent;
@@ -136,6 +143,7 @@ scrollbar {
 	}
 
 	&.horizontal trough {
+		margin: 5px 0px;
 		min-width: 14px;
 		min-height: 6px;
 	}
