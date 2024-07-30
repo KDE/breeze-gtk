@@ -166,28 +166,34 @@ scrollbar {
 	}
 
 	slider {
-		margin: -9px;
-		margin-bottom: -6px;
-		margin-top: -6px;
 		transition-duration: 0.1s;
 		min-width: 6px;
 		min-height: 30px;
 		border-radius: 15px;
 		background-clip: padding-box;
 		background-image: gtkoverlay(gtk("@theme_bg_color"), gtkalpha(gtk("@theme_button_foreground_normal"), 0.5*0.5*0.7));
+		box-shadow: 0 0 0 1px gtkalpha(gtk("@theme_button_foreground_normal"), 0.5*0.7*0.9) inset;
+	}
 
+	// GTK WebKit scrollbar paint code cannot deal with negative margins properly,
+	// causing the scrollbar slider turn invisible.
+	:not(webkitwebview) & slider {
+		margin: -9px;
+		margin-bottom: -6px;
+		margin-top: -6px;
 		// To keep the ability to drag the slider from the edge of the screen
 		border: 5px solid transparent;
-		box-shadow: 0 0 0 1px gtkalpha(gtk("@theme_button_foreground_normal"), 0.5*0.7*0.9) inset;
-
 	}
 
 	&.horizontal slider {
-		margin: -9px;
-		margin-left: -6px;
-		margin-right: -6px;
 		transition-duration: 0.1s;
 		min-width: 30px;
 		min-height: 6px;
+	}
+
+	:not(webkitwebview) &.horizontal slider {
+		margin: -9px;
+		margin-left: -6px;
+		margin-right: -6px;
 	}
 }
