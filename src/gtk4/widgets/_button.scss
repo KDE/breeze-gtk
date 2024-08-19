@@ -377,13 +377,16 @@ button {
 /**************
  * ComboBoxes *
  **************/
-combobox {
+combobox,
+dropdown {
 	arrow {
 		-gtk-icon-source: -gtk-icontheme($arrow_down);
 		min-height: 16px;
 		min-width: 16px;
 	}
+}
 
+combobox {
 	button {
 		padding-top: 4px;
 		padding-bottom: 4px;
@@ -435,7 +438,7 @@ box.inline-toolbar:not(.vertical),
 buttonbox.linked:not(.vertical) {
 	&:not(.dialog-action-area) { // make an exception for dialog buttons to look more consistent in Qt environment
 		entry,
-		button {
+		button:not(.toggle) {
 			// if we have a box-shadow, buttons look raised while the
 			// other elements aren't, which looks weird, and we can't really
 			// fix it, so just drop the box shadow in this case.
@@ -453,7 +456,7 @@ box.inline-toolbar.vertical,
 buttonbox.linked.vertical {
 	&:not(.dialog-action-area) {
 		entry,
-		button {
+		button:not(.toggle) {
 			&:not(.combo) {
 				box-shadow: none;
 			}
