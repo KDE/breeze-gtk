@@ -91,9 +91,6 @@ radio {
 		}
 	}
 
-	&:indeterminate {
-		-gtk-icon-source: -gtk-recolor(url("../assets/dash-symbolic.svg"));
-	}
 
 	menu menuitem & {
 		margin: 0; // this is a workaround for a menu check/radio size allocation issue
@@ -111,12 +108,18 @@ check{
 	&:checked {
 		-gtk-icon-source: -gtk-recolor(url("../assets/checkmark-symbolic.svg"));
 	}
+	&:indeterminate {
+		-gtk-icon-source: -gtk-recolor(url("../assets/dash-symbolic.svg"));
+	}
 }
 radio {
    border-radius: 50%;
    &:checked {
         -gtk-icon-source: -gtk-recolor(url("../assets/bullet-symbolic.svg"));
    }
+   &:indeterminate {
+		-gtk-icon-source: -gtk-recolor(url("../assets/dash-symbolic.svg"));
+	}
 }
 
 radio:not(:indeterminate):not(:checked):active:not(:backdrop) { -gtk-icon-transform: scale(0); }
