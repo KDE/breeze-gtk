@@ -1,7 +1,7 @@
 Dependencies:
-- 'on': ['Linux', 'FreeBSD']
-  'require':
+ - 'on': ['Linux', 'FreeBSD']
+   'require':
     'frameworks/extra-cmake-modules': '@stable'
     'plasma/breeze': '@same'
 Options:
-  require-passing-tests-on: [ 'Linux', 'FreeBSD']
+ require-passing-tests-on: ['Linux', 'FreeBSD']
