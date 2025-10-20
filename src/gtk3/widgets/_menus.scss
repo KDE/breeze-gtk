@@ -59,6 +59,11 @@ menubar,
 	}
 }
 
+.popup.background {
+	// needed for transparent menu corners
+	background: none;
+}
+
 menu,
 .menu {
 	padding: 1mm;
