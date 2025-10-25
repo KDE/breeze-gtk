@@ -79,25 +79,14 @@ headerbar,
 	windowcontrols button {
 		min-height: 18px;
 		min-width: 18px;
-		padding: 0;
-
-		$extra_margin: 14px;
-		$extra_padding: $extra_margin*2; // extend to screen border
-
-		margin-top: -$extra_margin;
-		padding-top: $extra_padding;
-		margin-bottom: -$extra_margin;
-		padding-bottom: $extra_padding;
-
-		&:dir(ltr) {
-			margin-right: -$extra_margin/2;
-			padding-right: $extra_margin;
-		}
-
-		&:dir(rtl) {
-			margin-left: -$extra_margin/2;
-			padding-left: $extra_margin;
-		}
+		// extend to window top, compensate for "border-top: 1px" of headerbar
+		margin-top: -1px;
+		padding-top: 9px;
+		padding-bottom:8px;
+		margin-bottom: 0px;
+		// compensate for 1px more padding-top than padding-bottom, to make
+		// background-image align vertical center
+		border-top-width: 2px;
 
 		image {
 			color: transparent;
