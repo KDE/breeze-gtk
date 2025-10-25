@@ -71,6 +71,10 @@ popover, popover.background {
 		background-color: gtkmix(gtk("@theme_bg_color"), gtk("@theme_base_color"), 0.3);
 		border: 1px solid gtk("@borders");
 		border-radius: $r;
+
+		$shadow: rgba(0, 0, 0, 0.25);
+		box-shadow: 0px 0px 2mm $shadow,
+					0px 0.25mm 1mm scale-color($shadow, $alpha: -40%);
 	}
 
 	// axes borders in a composited env
@@ -85,11 +89,7 @@ popover, popover.background {
 		min-width: 10mm;
 		padding: 0.75mm 2mm;
 		border: 1px solid transparent;
-
-		@if $new-highlight {
-			border: 1px solid transparent;
-			margin: 1mm;
-		}
+		margin: 1px;
 
 		accelerator {
 			color: gtkalpha(currentColor, 0.55);
