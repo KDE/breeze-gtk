@@ -8,8 +8,6 @@ dialog,
 window {
 	$shadow: rgba(0, 0, 0, 0.5);
 
-	//border: 1px solid transparent;
-	border-radius: 0 0 $window-border-radius $window-border-radius;
 	border-width: 0px;
 	box-shadow: 0px 0px 16px $shadow,
 		0px 2px 8px scale-color($shadow, $alpha: -40%);
@@ -17,13 +15,10 @@ window {
 	margin: 0px;
 
 	&.csd {
-		border-radius: $window-border-radius;
+		border-radius: $window-border-radius $window-border-radius 0 0;
 	}
 
-	&.maximized {
-		border-radius: 0;
-	}
-
+	&.maximized,
 	.maximized &,
 	.fullscreen &,
 	.tiled & {
