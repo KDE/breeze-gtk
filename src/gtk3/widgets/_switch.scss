@@ -67,9 +67,7 @@ switch {
 
 		box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.125);
 		border-color: gtk("@borders");
-		@include bg-gradient(
-			gtk("@theme_button_background_normal")
-		);
+		background: gtk("@theme_button_background_normal");
 	}
 
 	&:hover slider {

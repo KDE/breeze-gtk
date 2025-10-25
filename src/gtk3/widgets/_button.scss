@@ -10,15 +10,6 @@
 	border-color: gtkmix($c, gtkmix($bg, $fg, 0.333), 0.5);
 }
 
-@mixin bg-gradient($bg) {
-	background: linear-gradient(
-		180deg,
-		gtkmix($bg, white, 0.03125) 0%,
-		$bg 50%,
-		gtkmix($bg, black, 0.03125) 100%
-	);
-}
-
 @mixin linked() {
 	border-right-style: none;
 	border-radius: 0;
@@ -137,9 +128,7 @@
 
 		color: gtk("@theme_button_foreground_normal");
 		border-color: gtk("@borders");
-		@include bg-gradient(
-			gtk("@theme_button_background_normal")
-		);
+		background: gtk("@theme_button_background_normal");
 
 		&:backdrop {
 			box-shadow: none;
