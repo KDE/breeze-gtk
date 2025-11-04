@@ -44,13 +44,17 @@
 		&:dir(ltr),
 		&.left,
 		&.left:dir(rtl) {
-			border-right: 1px solid $ligh_border_color;
+			border-right: 1px
+				solid
+				gtk("@borders_breeze");
 			border-left: none;
 		}
 
 		&:dir(rtl),
 		&.right {
-			border-left: 1px solid $ligh_border_color;
+			border-left: 1px
+				solid
+				gtk("@borders_breeze");
 			border-right: none;
 		}
 	}
