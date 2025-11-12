@@ -81,21 +81,19 @@ separator, separator.sidebar {
 *************/
 
 expander {
-	arrow {
-		min-width: 16px;
-		min-height: 16px;
-		-gtk-icon-source: -gtk-icontheme($arrow_right);
-		&:dir(rtl) {
-			-gtk-icon-source: -gtk-icontheme(
-				"go-next-rtl-symbolic"
-			);
-		}
-		&:hover {
-			color: gtkshade("@theme_button_decoration_focus", 1.3);
-		} //only lightens the arrow
-		&:checked {
-			-gtk-icon-source: -gtk-icontheme($arrow_down);
-		}
+	min-width: 16px;
+	min-height: 16px;
+	-gtk-icon-source: -gtk-icontheme($arrow_right);
+	&:dir(rtl) {
+		-gtk-icon-source: -gtk-icontheme(
+			"go-next-rtl-symbolic"
+		);
+	}
+	&:hover {
+		color: gtkshade("@theme_button_decoration_focus", 1.3);
+	}
+	&:checked {
+		-gtk-icon-source: -gtk-icontheme($arrow_down);
 	}
 }
 
