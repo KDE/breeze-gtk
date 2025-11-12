@@ -9,12 +9,16 @@ window {
 	$shadow: rgba(0, 0, 0, 0.5);
 
 	//border: 1px solid transparent;
-	border-radius: 6px 6px 0 0;
+	border-radius: 0 0 5px 5px;
 	border-width: 0px;
 	box-shadow: 0px 0px 16px $shadow,
 		0px 2px 8px scale-color($shadow, $alpha: -40%);
 
 	margin: 0px;
+
+	&.csd {
+		border-radius: 5px;
+	}
 
 	&.maximized {
 		border-radius: 0;
