@@ -65,7 +65,7 @@ headerbar hdyviewswitcher > button:checked > stack {
 }
 
 window.unified {
-	border-radius: 6px;
+	border-radius: $window-border-radius;
 	&.maximized,
 	&.fullscreen,
 	&.tiled {

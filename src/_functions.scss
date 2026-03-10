@@ -260,6 +260,8 @@ $IntensityEffect: (
 
 $r: 1.25mm; // standard radius
 
+$window-border-radius: 5px;
+
 @function internal_insensitive($c) {
 	@return internal_Color(
 		internal_Intensity(
