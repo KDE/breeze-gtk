@@ -46,7 +46,7 @@
 		&.left:dir(rtl) {
 			border-right: 1px
 				solid
-				gtk("@borders_breeze");
+				gtk("@borders");
 			border-left: none;
 		}
 
@@ -54,7 +54,7 @@
 		&.right {
 			border-left: 1px
 				solid
-				gtk("@borders_breeze");
+				gtk("@borders");
 			border-right: none;
 		}
 	}
