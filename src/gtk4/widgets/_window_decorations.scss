@@ -10,7 +10,8 @@ window {
 
 	border-width: 0px;
 	box-shadow: 0px 0px 16px $shadow,
-		0px 2px 8px scale-color($shadow, $alpha: -40%);
+				0px 2px 8px scale-color($shadow, $alpha: -40%),
+				0 0 0 1px gtk("@borders");
 
 	margin: 0px;
 
@@ -21,7 +22,11 @@ window {
 	&.maximized,
 	.maximized &,
 	.fullscreen &,
-	.tiled & {
+	&.tiled,
+	&.tiled-top,
+	&.tiled-right,
+	&.tiled-bottom,
+	&.tiled-left {
 		border-radius: 0;
 	}
 	.popup & {
@@ -34,7 +39,6 @@ window {
 		box-shadow: 0 2px 6px 1px rgba(0, 0, 0, 0.1);
 	}
 	.csd & {
-		border-radius: $window-border-radius;
 		&.popup {
 			box-shadow: 0px 3px 10px -4px rgba(0, 0, 0, 0.27),
 						0px 5px 8px -4px rgba(0, 0, 0, 0.17);
