@@ -1,9 +1,11 @@
 @charset "UTF-8";
 
-/*****************
- * Notebooks and *
- * Tabs          *
- *****************/
+/***************************
+ * Notebooks and           *
+ * Tabs                    *
+ *                         *
+ * Qt: QTabWidget, QTabBar *
+ ***************************/
 /*************
   * Notebooks *
   *************/
@@ -52,6 +54,14 @@ notebook {
 			margin: 0px;
 		}
 
+		// Qt: TabBar_TabOverlap
+		$_tab_overlap: 1px;
+
+		// Horizontal padding of top/bottom tabs and vertical padding of left/right
+		// tabs on the side opposite to the overlap, 1px border included.
+		$_tab_margin_h: 7px; // Qt: TabBar_TabMarginWidth
+		$_tab_margin_v: 5px; // Qt: (TabBar_TabMinHeight - label height) / 2
+
 		@each $_tab, $_border,
 			$_radius_first, $_radius_last in (top, bottom, 3px 0px 0px 0px, 0px 3px 0px 0px),
 			(bottom, top, 0px 0px 0px 3px, 0px 0px 3px 0px),
@@ -61,8 +71,17 @@ notebook {
 			&.#{$_tab} {
 				> tabs {
 					> tab {
-						padding: 4px 6px;
-						padding-bottom: 7px;
+						@if $_tab == top or $_tab == bottom {
+							padding: 0 $_tab_margin_h 0 ($_tab_margin_h + $_tab_overlap);
+							padding-#{$_tab}: 3px;
+							padding-#{$_border}: 6px;
+							// Qt: TabBar_TabMinWidth, minus padding, borders and label margin
+							min-width: 63px;
+						} @else {
+							padding: ($_tab_margin_v + $_tab_overlap) 0 $_tab_margin_v 0;
+							padding-#{$_tab}: 5px;
+							padding-#{$_border}: 8px;
+						}
 						border: 1px
 							solid
 							transparent;
@@ -97,48 +116,48 @@ notebook {
 						@if $_tab == top or $_tab == bottom {
 
 							> label {
-								margin-left: -3px;
+								margin-left: -$_tab_overlap;
 							}
 
 							&:checked {
-								padding-left: 9px;
+								padding-left: $_tab_margin_h + 2 * $_tab_overlap;
 
 								&:not(:first-child) {
-									margin-left: -3px;
+									margin-left: -$_tab_overlap;
 								}
 
 								&:first-child {
-									padding-left: 6px;
+									padding-left: $_tab_margin_h + $_tab_overlap;
 								}
 								&:not(:last-child) {
-									margin-right: -3px;
+									margin-right: -$_tab_overlap;
 								}
 
 								& + tab {
-									padding-left: 9px;
+									padding-left: $_tab_margin_h + 2 * $_tab_overlap;
 								}
 							}
 						} @else {
 
 							> label {
-								margin-top: -3px;
+								margin-top: -$_tab_overlap;
 							}
 
 							&:checked {
-								padding-top: 7px;
+								padding-top: $_tab_margin_v + 2 * $_tab_overlap;
 
 								&:not(:first-child) {
-									margin-top: -3px;
+									margin-top: -$_tab_overlap;
 								}
 								&:first-child {
-									padding-top: 4px;
+									padding-top: $_tab_margin_v + $_tab_overlap;
 								}
 								&:not(:last-child) {
-									margin-bottom: -3px;
+									margin-bottom: -$_tab_overlap;
 								}
 
 								& + tab {
-									padding-top: 7px;
+									padding-top: $_tab_margin_v + 2 * $_tab_overlap;
 								}
 							}
 						}
@@ -164,10 +183,10 @@ notebook {
 					arrow.down ~ tab:checked:nth-child(2) {
 						@if $_tab == top or $_tab == bottom {
 							margin-left: 0px;
-							padding-left: 6px;
+							padding-left: $_tab_margin_h + $_tab_overlap;
 						} @else {
 							margin-top: 0px;
-							padding-top: 4px;
+							padding-top: $_tab_margin_v + $_tab_overlap;
 						}
 					}
 

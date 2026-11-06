@@ -212,9 +212,11 @@
 	}
 }
 
-/***********
- * Buttons *
- ***********/
+/*******************************************
+ * Buttons                                 *
+ *                                         *
+ * Qt: QPushButton, QToolButton, QComboBox *
+ *******************************************/
 
 // stuff for .needs-attention
 $_dot_color: gtk("@theme_button_decoration_focus");
@@ -272,8 +274,10 @@ button {
 		}
 
 		&.text-button {
-			padding-left: 6px;
-			padding-right: 6px;
+			// Qt: Button_MarginWidth + Frame_FrameWidth = 8px around the label,
+			// and Button_MinWidth + 2 * Frame_FrameWidth = 84px overall
+			padding: 7px;
+			min-width: 68px;
 		}
 
 		&.circular {
@@ -461,6 +465,21 @@ stackswitcher.linked {
 		@include linked();
 		@include linked-side();
 	}
+}
+
+// Toolbutton-like contexts have no minimum width in Qt either
+button.text-button.flat,
+button.text-button.link,
+headerbar button.text-button,
+.toolbar button.text-button,
+toolbar button.text-button,
+actionbar button.text-button,
+stackswitcher button.text-button,
+.linked:not(.dialog-action-area) button.text-button,
+.path-bar button.text-button {
+	min-width: 0;
+	padding-top: 6px;
+	padding-bottom: 6px;
 }
 
 %undecorated_button {

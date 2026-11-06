@@ -1,8 +1,10 @@
 @charset "UTF-8";
 
-/*************************
- * Check and Radio items *
- *************************/
+/*******************************
+ * Check and Radio items       *
+ *                             *
+ * Qt: QCheckBox, QRadioButton *
+ *******************************/
 
 checkbutton.text-button,
 radiobutton.text-button {
@@ -23,7 +25,13 @@ radiobutton.text-button {
 check,
 radio {
 	transition: 0.1s;
-	margin: 0 4px;
+
+	// Qt: 16px indicator centered in CheckBox_Size (20px), then CheckBox_ItemSpacing (4px)
+	margin: 0 6px 0 2px;
+
+	&:dir(rtl) {
+		margin: 0 2px 0 6px;
+	}
 
 	&:only-child {
 		margin: 0;
@@ -31,6 +39,7 @@ radio {
 
 	min-height: 14px;
 	min-width: 14px;
+	-gtk-icon-size: 14px;
 	//border: none;
 	animation-timing-function: $ease-out-quad;
 	background-color: gtk("@theme_button_background_normal");

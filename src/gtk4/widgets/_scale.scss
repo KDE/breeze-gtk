@@ -1,10 +1,27 @@
 @charset "UTF-8";
 
-/************
- * GtkScale *
- ************/
+/***************
+ * GtkScale    *
+ *             *
+ * Qt: QSlider *
+ ***************/
 scale {
-	padding: 12px;
+	// Qt: Slider_ControlThickness (20px) across, groove spanning the whole length.
+	&.horizontal {
+		padding: 7px 0;
+
+		slider {
+			margin: -7px 1px;
+		}
+	}
+
+	&.vertical {
+		padding: 0 7px;
+
+		slider {
+			margin: 1px -7px;
+		}
+	}
 
 	&.fine-tune {
 		&.trough {
@@ -21,7 +38,6 @@ scale {
 		box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.125);
 
 		background: gtk("@theme_button_background_normal");
-		margin: -9px;
 
 		&:hover {
 			border-color: gtk("@theme_button_decoration_hover");

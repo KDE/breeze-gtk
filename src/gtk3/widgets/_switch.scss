@@ -1,23 +1,23 @@
 @charset "UTF-8";
 
-/**********
- * Switch *
- **********/
-
-$switch-height: 24px;
+/*********************************************************************
+ * Switch                                                            *
+ *                                                                   *
+ * Kirigami: org.kde.desktop/Switch.qml, private/SwitchIndicator.qml *
+ *********************************************************************/
 
 switch {
-	margin: 2px;
+	margin: 3px 1px;
 	font-weight: bold;
 	font-size: smaller;
-	border: 1px solid;
+	border: none;
 	border-radius: 12px;
 	color: transparent;
 	background-color: gtkalpha(
 		gtk("@theme_button_foreground_normal"),
 		0.05
 	);
-	border-color: gtkalpha(
+	box-shadow: inset 0 0 0 1px gtkalpha(
 		gtk("@theme_button_foreground_normal"),
 		0.222
 	);
@@ -35,35 +35,31 @@ switch {
 			gtk("@theme_button_decoration_hover"),
 			0.333
 		);
-		border-color: gtk("@theme_button_decoration_hover");
+		box-shadow: inset 0 0 0 1px gtk("@theme_button_decoration_hover");
 
 		&:disabled {
 			background: gtkalpha(
 				gtk("@theme_button_decoration_hover"),
 				0.222
 			);
-			border-color: gtkalpha(
+			box-shadow: inset 0 0 0 1px gtkalpha(
 				gtk("@theme_button_decoration_hover"),
 				0.777
 			);
 		}
 	}
 
-	&:dir(ltr) {
-		&:checked slider {
-			margin-left: 1px;
-		}
-		&:not(:checked) slider {
-			margin-right: 1px;
-		}
+	// Hidden icons would keep the track 16px tall
+	image {
+		margin: -1px;
 	}
 
 	slider {
-		min-width: $switch-height;
-		min-height: $switch-height;
-		margin: -($switch-height / 6);
+		min-width: 16px;
+		min-height: 16px;
+		margin: -2px 0;
 		border: 1px solid;
-		border-radius: $switch-height / 2;
+		border-radius: 9px;
 
 		box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.125);
 		border-color: gtk("@borders");

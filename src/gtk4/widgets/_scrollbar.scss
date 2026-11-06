@@ -1,8 +1,10 @@
 @charset "UTF-8";
 
-/**************
- * Scrollbars *
- **************/
+/******************
+ * Scrollbars     *
+ *                *
+ * Qt: QScrollBar *
+ ******************/
 
 scrollbar {
 
@@ -12,7 +14,8 @@ scrollbar {
 
 	// Vertical padding (for vertical scroll bar, obviously) is done here for proper distance to the window border,
 	// horizontal padding is done on the trough below to ensure its hit area touches the window side.
-	padding: 5px 0px;
+	// Qt: ScrollBar_Extend (21px) wide, slider is ScrollBar_NoButtonHeight (3px) away from the ends.
+	padding: 4px 0px;
 
 	&.vertical {
 
@@ -42,7 +45,7 @@ scrollbar {
 	&.horizontal {
 		border-top: 1px solid gtk("@borders");
 
-		padding: 0px 5px;
+		padding: 0px 4px;
 
 		&.bottom {
 			border-top: 1px solid gtk("@borders");
@@ -115,8 +118,8 @@ scrollbar {
 
 	trough {
 		// Complements the padding on the scrollbar itself.
-		margin: 0px 5px;
-		min-width: 6px;
+		margin: 0px 6px;
+		min-width: 8px;
 		min-height: 14px;
 		background-color: transparent;
 	}
@@ -136,9 +139,9 @@ scrollbar {
 	}
 
 	&.horizontal trough {
-		margin: 5px 0px;
+		margin: 6px 0px;
 		min-width: 14px;
-		min-height: 6px;
+		min-height: 8px;
 	}
 
 	*:focus ~ &,
@@ -167,8 +170,8 @@ scrollbar {
 
 	slider {
 		transition-duration: 0.1s;
-		min-width: 6px;
-		min-height: 30px;
+		min-width: 8px;
+		min-height: 20px; // Qt: ScrollBar_MinSliderHeight
 		border-radius: 15px;
 		background-clip: padding-box;
 		background-image: gtkoverlay(gtk("@theme_bg_color"), gtkalpha(gtk("@theme_button_foreground_normal"), 0.5*0.5*0.7));
@@ -187,8 +190,8 @@ scrollbar {
 
 	&.horizontal slider {
 		transition-duration: 0.1s;
-		min-width: 30px;
-		min-height: 6px;
+		min-width: 20px;
+		min-height: 8px;
 	}
 
 	:not(webkitwebview) &.horizontal slider {

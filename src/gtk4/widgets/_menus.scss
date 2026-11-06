@@ -1,8 +1,10 @@
 @charset "UTF-8";
 
-/*********
- * Menus *
- *********/
+/***********************
+ * Menus               *
+ *                     *
+ * Qt: QMenuBar, QMenu *
+ ***********************/
 
 accelerator {
 	opacity: 0.5;
@@ -21,8 +23,9 @@ menubar,
 	}
 
 	> item {
-		min-height: 4.5mm;
-		padding: 1.25mm 2.5mm;
+		// Qt: MenuBarItem_MarginWidth, MenuBarItem_MarginHeight
+		padding: 6px 10px;
+		border-radius: $r;
 		@if $new-highlight {
 			border-bottom: 3px solid transparent;
 		}
@@ -85,11 +88,10 @@ popover, popover.background {
 
 	modelbutton {
 		text-shadow: none;
-		min-height: 4.5mm;
+		min-height: 19px;
 		min-width: 10mm;
-		padding: 0.75mm 2mm;
+		padding: 4px 8px; // Qt: MenuItem_MarginHeight, MenuItem_TextLeftMargin
 		border: 1px solid transparent;
-		margin: 1px;
 
 		accelerator {
 			color: gtkalpha(currentColor, 0.55);
@@ -97,10 +99,12 @@ popover, popover.background {
 		check,
 		radio {
 			&:dir(ltr) {
+				margin-left: 4px;
 				margin-right: 1.5mm;
 			}
 			&:dir(rtl) {
 				margin-left: 1.5mm;
+				margin-right: 4px;
 			}
 		}
 

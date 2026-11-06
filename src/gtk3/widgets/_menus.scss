@@ -1,8 +1,10 @@
 @charset "UTF-8";
 
-/*********
- * Menus *
- *********/
+/***********************
+ * Menus               *
+ *                     *
+ * Qt: QMenuBar, QMenu *
+ ***********************/
 
 menubar,
 .menubar {
@@ -17,8 +19,9 @@ menubar,
 	}
 
 	> menuitem {
-		min-height: 4.5mm;
-		padding: 1.25mm 2.5mm;
+		// Qt: MenuBarItem_MarginWidth, MenuBarItem_MarginHeight
+		padding: 6px 10px;
+		border-radius: $r;
 		@if $new-highlight {
 			border-bottom: 3px solid transparent;
 		}
@@ -66,7 +69,7 @@ menubar,
 
 menu,
 .menu {
-	padding: 1mm;
+	padding: 4px; // Qt: MenuItem_HighlightGap
 	background-color: gtkmix(gtk("@theme_bg_color"), gtk("@theme_base_color"), 0.3);
 
 	border-radius: $r;
@@ -79,9 +82,9 @@ menu,
 
 	menuitem {
 		text-shadow: none;
-		min-height: 4.5mm;
+		min-height: 19px;
 		min-width: 10mm;
-		padding: 0.75mm 2mm;
+		padding: 4px 8px; // Qt: MenuItem_MarginHeight, MenuItem_TextLeftMargin
 		border: 1px solid transparent;
 
 		&:hover {
@@ -173,6 +176,7 @@ menuitem {
 		}
 		&:dir(rtl) {
 			margin-left: 1.5mm;
+			margin-right: 0;
 		}
 	}
 }
@@ -185,8 +189,8 @@ popover {
 /* menu buttons */
 modelbutton.flat,
 .menuitem.button.flat {
-	min-height: 4mm;
-	padding: 1.75mm 2mm;
+	min-height: 19px;
+	padding: 4px 8px; // Qt: MenuItem_MarginHeight, MenuItem_TextLeftMargin
 	border: 1px solid transparent;
 
 	@extend %undecorated_button;
