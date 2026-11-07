@@ -128,11 +128,11 @@ scrollbar {
 		trough {
 			slider {
 				background-image: gtkoverlay(gtk("@theme_bg_color"), gtkalpha(gtk("@theme_button_foreground_normal"), 0.5*0.5));
-				box-shadow: 0 0 0 1px gtkalpha(gtk("@theme_button_foreground_normal"), 0.5*0.9) inset;
+				box-shadow: 0 0 0 1px gtkalpha(gtk("@theme_button_foreground_normal"), $frame-contrast) inset;
 
 				&:hover {
 					background-image: gtkoverlay(gtk("@theme_bg_color"), gtkalpha(gtk("@theme_button_decoration_hover"), 0.5));
-					box-shadow: 0 0 0 1px gtkalpha(gtk("@theme_button_decoration_hover"), 0.9) inset;
+					box-shadow: 0 0 0 1px gtkalpha(gtk("@theme_button_decoration_hover"), $frame-contrast) inset;
 				}
 			}
 		}
@@ -150,7 +150,7 @@ scrollbar {
 		&:hover {
 			slider {
 				background-image: gtkoverlay(gtk("@theme_bg_color"), gtkalpha(gtk("@theme_button_decoration_hover"), 0.5));
-				box-shadow: 0 0 0 1px gtkalpha(gtk("@theme_button_decoration_hover"), 0.9) inset;
+				box-shadow: 0 0 0 1px gtkalpha(gtk("@theme_button_decoration_hover"), $frame-contrast) inset;
 			}
 		}
 
@@ -162,7 +162,7 @@ scrollbar {
 			&:hover {
 				slider {
 					background-image: gtkoverlay(gtk("@theme_bg_color"), gtkalpha(gtk("@theme_button_decoration_hover"), 0.5));
-					box-shadow: 0 0 0 1px gtkalpha(gtk("@theme_button_decoration_hover"), 0.9) inset;
+					box-shadow: 0 0 0 1px gtkalpha(gtk("@theme_button_decoration_hover"), $frame-contrast) inset;
 				}
 			}
 		}
@@ -175,7 +175,7 @@ scrollbar {
 		border-radius: 15px;
 		background-clip: padding-box;
 		background-image: gtkoverlay(gtk("@theme_bg_color"), gtkalpha(gtk("@theme_button_foreground_normal"), 0.5*0.5*0.7));
-		box-shadow: 0 0 0 1px gtkalpha(gtk("@theme_button_foreground_normal"), 0.5*0.7*0.9) inset;
+		box-shadow: 0 0 0 1px gtkalpha(gtk("@theme_button_foreground_normal"), $frame-contrast) inset;
 	}
 
 	// GTK WebKit scrollbar paint code cannot deal with negative margins properly,

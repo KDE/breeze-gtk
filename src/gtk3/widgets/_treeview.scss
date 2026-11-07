@@ -162,19 +162,13 @@ treeview.view {
 			&:hover {
 				@extend %column_header_button;
 				color: gtk("@theme_button_foreground_normal");
-				background-color: gtkalpha(
-					gtk("@theme_button_decoration_hover"),
-					0.5
-				);
+				background-color: gtkmix(gtk("@theme_button_background_normal"), gtk("@theme_button_decoration_hover"), 0.2);
 				box-shadow: none;
 			}
 			&:active {
 				@extend %column_header_button;
 				color: gtk("@theme_button_foreground_normal");
-				background-color: gtkalpha(
-					gtk("@theme_button_decoration_hover"),
-					0.5
-				);
+				background-color: gtkmix(gtk("@theme_button_background_normal"), gtk("@theme_button_decoration_focus"), 0.2);
 			}
 		}
 		button:last-child {

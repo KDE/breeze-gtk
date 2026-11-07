@@ -42,10 +42,7 @@ radio {
 	//border: none;
 	animation-timing-function: $ease-out-quad;
 	background-color: gtk("@theme_button_background_normal");
-	border: 1px solid gtkalpha(
-		gtk("@theme_button_foreground_normal"),
-		0.33
-	);
+	border: 1px solid gtkmix(gtk("@theme_bg_color"), gtk("@theme_fg_color"), $frame-contrast);
 
 	-gtk-icon-shadow: none;
 	-gtk-icon-palette: fg gtk("@theme_fg_color");
@@ -63,7 +60,8 @@ radio {
 	}
 
 	&:active {
-		background: shade(gtk("@theme_base_color"), 0.9)
+		// Approximates Qt darker(110), shade() is HSL
+		background-color: gtkshade("@theme_button_background_normal", 0.909);
 	}
 
 	&:focus {
@@ -73,16 +71,10 @@ radio {
 	&:indeterminate,
 	&:checked {
 		border-color: gtk("@theme_button_decoration_hover");
-		background-color: gtkalpha(
-			gtk("@theme_button_decoration_hover"),
-			0.33
-		);
+		background-color: gtkmix(gtk("@theme_button_background_normal"), gtk("@theme_button_decoration_hover"), 0.3);
 
 		&:backdrop {
-			background-color: gtkalpha(
-				gtk("@theme_unfocused_selected_bg_color"),
-				0.33
-			);
+			background-color: gtkmix(gtk("@theme_button_background_normal"), gtk("@theme_unfocused_selected_bg_color"), 0.3);
 
 			border-color: gtk("@theme_unfocused_selected_bg_color");
 		}

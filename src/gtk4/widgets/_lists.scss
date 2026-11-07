@@ -44,6 +44,9 @@ row {
 
     &:hover {
 			@include list-item-highlight();
+			@if not $new-highlight {
+				background-color: gtkalpha(gtk("@theme_selected_bg_color"), 0.3);
+			}
 		}
 
 		&:active {

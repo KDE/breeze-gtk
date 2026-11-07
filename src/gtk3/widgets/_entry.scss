@@ -78,6 +78,10 @@ entry {
 		// &.right { @include undershoot(right); }
 		// }
 
+		&:hover {
+			border-color: gtk("@theme_view_hover_decoration_color");
+		}
+
 		&.flat {
 			&:focus,
 			& {

@@ -47,21 +47,19 @@ progressbar {
 		box-shadow: none; //needed for clipping
 		background: gtkoverlay(
 			gtk("@theme_bg_color"),
-			gtkalpha(gtk("@theme_button_decoration_hover"), 0.5)
+			gtkalpha(gtk("@theme_button_decoration_hover"), 0.7)
 		);
 
-		border: 1px solid gtk("@theme_button_decoration_hover");
+		border: 1px solid gtkalpha(gtk("@theme_button_decoration_hover"), $frame-contrast);
 	}
 
 	&:backdrop progress {
 		background: gtkoverlay(
 			gtk("@theme_bg_color"),
-			gtkalpha(gtk("@theme_unfocused_selected_bg_color"), 0.5)
+			gtkalpha(gtk("@theme_unfocused_selected_bg_color"), 0.7)
 		);
 
-		border-color: gtk(
-			"@theme_unfocused_selected_bg_color"
-		);
+		border-color: gtkalpha(gtk("@theme_unfocused_selected_bg_color"), $frame-contrast);
 	} // states not passed here as well
 
 	&.osd {

@@ -77,21 +77,31 @@ notebook {
 							padding-#{$_border}: 5px;
 							// Qt: TabBar_TabMinWidth, minus padding, borders and label margin
 							min-width: 63px;
+							background-size: 100% 1px;
 						} @else {
 							padding: ($_tab_margin_v + $_tab_overlap) 0 $_tab_margin_v 0;
 							padding-#{$_tab}: 5px;
 							padding-#{$_border}: 8px;
+							background-size: 1px 100%;
 						}
 						border: 1px
 							solid
 							transparent;
 						border-#{$_border}: none;
 						border-#{$_tab}: 3px solid transparent;
-						background-color: gtkalpha(
-							gtk("@theme_fg_color"),
-							0.2
-						);
+						// Approximates Qt Window.darker(120), shade() is HSL
+						background-color: gtkshade("@theme_bg_color", 0.833);
+						// Opaque, so redraw the header border. Not box-shadow: it skips the side borders.
+						background-image: linear-gradient(gtk("@borders"), gtk("@borders"));
+						background-origin: border-box;
+						background-position: $_border;
+						background-repeat: no-repeat;
 						border-radius: 0;
+
+						&:backdrop {
+							background-color: gtkshade("@theme_unfocused_bg_color", 0.833);
+							background-image: linear-gradient(gtk("@unfocused_borders"), gtk("@unfocused_borders"));
+						}
 
 
 						&:first-child {
@@ -106,7 +116,7 @@ notebook {
 						&.prelight-page {
 							transition: 0.15s;
 							background-color: gtkalpha(
-								gtk("@theme_selected_bg_color"),
+								gtk("@theme_view_hover_decoration_color"),
 								0.2
 							);
 
@@ -164,6 +174,7 @@ notebook {
 
 						&:checked {
 							transition: none;
+							background-image: none;
 							border-color: gtk("@borders");
 							border-#{$_tab}-color: gtk("@theme_selected_bg_color");
 
@@ -177,6 +188,12 @@ notebook {
 							border-radius: $_radius;
 
 							background-color: gtk("@theme_bg_color");
+
+							&:backdrop {
+								border-color: gtk("@unfocused_borders");
+								border-#{$_tab}-color: gtk("@theme_unfocused_selected_bg_color");
+								background-color: gtk("@theme_unfocused_bg_color");
+							}
 						}
 					}
 
@@ -195,71 +212,6 @@ notebook {
 							margin-right: 0px;
 						} @else {
 							margin-bottom: 0px;
-						}
-					}
-				}
-			}
-		}
-
-		@each $_tab, $_border,
-			$_shadow1 in (top, right, -3px 0px 0px 0px),
-			(bottom, right, -3px 0px 0px 0px),
-			(left, bottom, 0px -3px 0px 0px),
-			(right, bottom, 0px -3px 0px 0px)
-		{
-			&.#{$_tab} {
-				> tabs {
-					> tab {
-						&.reorderable-page {
-							border-width: 3px;
-							border-style: solid;
-							border-color: transparent;
-							background-color: gtk("@theme_bg_color");
-							background-clip: padding-box;
-							border-#{$_border}-width: 1px;
-							border-#{$_border}-color: gtk("@borders");
-							box-shadow: inset
-								#{$_shadow1}
-								gtk("@theme_bg_color");
-							&:hover,
-							&.prelight-page {
-								box-shadow: inset
-										0px -3px
-										0px
-										0px
-										gtkalpha(
-											gtk("@theme_selected_bg_color"),
-											0.2
-										),
-									inset $_shadow1 gtk("@theme_bg_color");
-							}
-							&:checked {
-								box-shadow: inset
-										0px -3px
-										0px
-										0px
-										gtk("@theme_selected_bg_color"),
-									inset $_shadow1 gtk("@theme_bg_color");
-								&:backdrop {
-									background-color: gtk(
-										"@theme_unfocused_bg_color"
-									);
-									border-color: transparent;
-									border-#{$_border}-color: gtk(
-										"@unfocused_borders"
-									);
-									box-shadow: none;
-								}
-							}
-							&:backdrop {
-								background-color: gtk(
-									"@theme_unfocused_bg_color"
-								);
-								border-#{$_border}-color: gtk(
-									"@unfocused_borders"
-								);
-								box-shadow: none;
-							}
 						}
 					}
 				}

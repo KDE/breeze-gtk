@@ -7,7 +7,7 @@
  ***********************/
 
 accelerator {
-	opacity: 0.5;
+	opacity: 0.7;
 	margin-left: 2.5mm;
 }
 
@@ -42,9 +42,15 @@ menubar,
 					solid
 					gtk("@theme_button_decoration_focus");
 			} @else {
-				background-color: gtk(
-					"@theme_button_decoration_focus"
-				);
+				background-color: gtk("@theme_button_decoration_hover");
+				color: gtk("@theme_button_foreground_active");
+			}
+		}
+
+		// the item of the open menu
+		&:focus-within {
+			@if not $new-highlight {
+				background-color: gtk("@theme_button_decoration_focus");
 				color: gtk("@theme_button_foreground_active");
 			}
 		}
@@ -93,9 +99,6 @@ popover, popover.background {
 		padding: 4px 8px; // Qt: MenuItem_MarginHeight, MenuItem_TextLeftMargin
 		border: 1px solid transparent;
 
-		accelerator {
-			color: gtkalpha(currentColor, 0.55);
-		}
 		check,
 		radio {
 			&:dir(ltr) {
@@ -117,8 +120,15 @@ popover, popover.background {
 		}
 
 		&:hover {
-			background-color: gtkalpha(gtk("@theme_selected_bg_color"), 0.3);
-			border: 1px solid gtk("@theme_button_decoration_focus"); // Use px to avoid strange thickness when fractional scaling is used
+			background-color: gtkalpha(gtk("@theme_button_decoration_focus"), 0.3);
+			border: 1px solid gtkmix(gtk("@theme_button_decoration_focus"), gtk("@theme_fg_color"), 0.15); // Use px to avoid strange thickness when fractional scaling is used
+			border-radius: $r;
+		}
+
+		&:active {
+			color: gtk("@theme_selected_fg_color");
+			background-color: gtk("@theme_button_decoration_focus");
+			border: 1px solid gtk("@theme_button_decoration_focus");
 			border-radius: $r;
 		}
 

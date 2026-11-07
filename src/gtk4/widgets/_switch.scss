@@ -13,14 +13,8 @@ switch {
 	border: none;
 	border-radius: 12px;
 	color: transparent;
-	background-color: gtkalpha(
-		gtk("@theme_button_foreground_normal"),
-		0.05
-	);
-	box-shadow: inset 0 0 0 1px gtkalpha(
-		gtk("@theme_button_foreground_normal"),
-		0.222
-	);
+	background-color: gtkmix(gtk("@theme_button_background_normal"), gtk("@theme_button_foreground_normal"), 0.1);
+	box-shadow: inset 0 0 0 1px gtkmix(gtk("@theme_button_background_normal"), gtk("@theme_button_foreground_normal"), $frame-contrast);
 	text-shadow: none;
 
 	&:disabled {
@@ -30,11 +24,12 @@ switch {
 		);
 	}
 
+	&:hover:not(:disabled):not(:checked) {
+		box-shadow: inset 0 0 0 1px gtk("@theme_button_decoration_hover");
+	}
+
 	&:checked {
-		background: gtkalpha(
-			gtk("@theme_button_decoration_hover"),
-			0.333
-		);
+		background: gtkmix(gtkmix(gtk("@theme_button_background_normal"), gtk("@theme_button_foreground_normal"), 0.1), gtk("@theme_button_decoration_hover"), 0.5);
 		box-shadow: inset 0 0 0 1px gtk("@theme_button_decoration_hover");
 
 		&:disabled {
@@ -61,7 +56,6 @@ switch {
 		border: 1px solid;
 		border-radius: 9px;
 
-		box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.125);
 		border-color: gtk("@borders");
 		background: gtk("@theme_button_background_normal");
 	}
@@ -75,7 +69,6 @@ switch {
 	}
 
 	&:disabled slider {
-		box-shadow: none;
 		color: gtk("@theme_button_foreground_insensitive");
 		border-color: gtk("@insensitive_borders");
 		background: gtk("@theme_button_background_insensitive");
