@@ -92,6 +92,38 @@ popover, popover.background {
 		margin: 0.75mm 0;
 	}
 
+	// GtkDropDown popup: checkmark marks the current item, no selection fill
+	listview {
+		background: none;
+
+		> row {
+			min-height: 19px;
+			padding: 4px 8px; // same as modelbutton
+			border: 1px solid transparent;
+			border-radius: $r;
+
+			> box {
+				border-spacing: 1.5mm;
+			}
+
+			&:selected {
+				background: none;
+				color: inherit;
+			}
+
+			&:hover {
+				background-color: gtkalpha(gtk("@theme_button_decoration_focus"), 0.3);
+				border-color: gtkmix(gtk("@theme_button_decoration_focus"), gtk("@theme_fg_color"), 0.15);
+			}
+
+			&:active {
+				color: gtk("@theme_selected_fg_color");
+				background-color: gtk("@theme_button_decoration_focus");
+				border-color: gtk("@theme_button_decoration_focus");
+			}
+		}
+	}
+
 	modelbutton {
 		text-shadow: none;
 		min-height: 19px;

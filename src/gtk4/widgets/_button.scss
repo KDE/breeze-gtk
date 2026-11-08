@@ -379,6 +379,19 @@ dropdown {
 	}
 }
 
+// current item is a list row inside the button, keep it undecorated
+dropdown > button row,
+dropdown > button row.activatable {
+	&,
+	&:hover,
+	&:active,
+	&:selected {
+		background: none;
+		border-color: transparent;
+		color: inherit;
+	}
+}
+
 combobox {
 	button {
 		padding-top: 4px;
