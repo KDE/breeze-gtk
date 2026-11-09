@@ -2,6 +2,15 @@
 
 $ease-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
+// Qt Breeze: AnimationsDuration, linear
+$qt-duration: 100ms;
+$qt-transition: background-color $qt-duration linear,
+	background-image $qt-duration linear,
+	border-color $qt-duration linear,
+	color $qt-duration linear,
+	box-shadow $qt-duration linear,
+	outline-color $qt-duration linear;
+
 * {
 	padding: 0;
 	-GtkToolbutton-icon-spacing: 4;

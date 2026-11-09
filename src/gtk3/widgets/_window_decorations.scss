@@ -80,6 +80,9 @@ window {
 		}
 		$titlebutton-size: 18px 18px;
 		button.titlebutton {
+			// Breeze KDecoration: button animations are disabled (duration 0)
+			transition: none;
+
 			image {
 				color: transparent;
 			}

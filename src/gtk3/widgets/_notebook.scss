@@ -97,6 +97,7 @@ notebook {
 						background-position: $_border;
 						background-repeat: no-repeat;
 						border-radius: 0;
+						transition: $qt-transition;
 
 						&:backdrop {
 							background-color: gtkshade("@theme_unfocused_bg_color", 0.833);
@@ -114,7 +115,6 @@ notebook {
 
 						&:hover,
 						&.prelight-page {
-							transition: 0.15s;
 							background-color: gtkalpha(
 								gtk("@theme_view_hover_decoration_color"),
 								0.2

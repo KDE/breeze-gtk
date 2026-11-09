@@ -238,6 +238,7 @@ $_dot_color: gtk("@theme_button_decoration_focus");
 }
 
 %buttons {
+	transition: $qt-transition;
 	border: 1px solid;
 	border-radius: $r;
 	padding: 6px 6px;

@@ -214,15 +214,21 @@ modelbutton.flat,
 		color: gtk("@theme_unfocused_fg_color");
 	}
 
-	// FIXME: remove the following when the checks/radios rewrite lands
-	check:last-child,
-	radio:last-child {
-		margin-right: 0px;
-	}
-
-	check:first-child,
-	radio:first-child {
-		margin-left: 0px;
+	// Qt: MenuItem_TextLeftMargin between indicator and label
+	check,
+	radio {
+		&:first-child {
+			margin: 0 8px 0 0;
+		}
+		&:last-child {
+			margin: 0 0 0 8px;
+		}
+		&:dir(rtl):first-child {
+			margin: 0 0 0 8px;
+		}
+		&:dir(rtl):last-child {
+			margin: 0 8px 0 0;
+		}
 	}
 
 }

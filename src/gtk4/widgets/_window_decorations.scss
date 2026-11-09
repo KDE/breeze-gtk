@@ -77,6 +77,8 @@ headerbar,
 	$titlebutton-size: 18px 18px;
 
 	windowcontrols button {
+		// Breeze KDecoration: button animations are disabled (duration 0)
+		transition: none;
 		min-height: 18px;
 		min-width: 18px;
 		// extend to window top, compensate for "border-top: 1px" of headerbar

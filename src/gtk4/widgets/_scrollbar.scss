@@ -169,7 +169,7 @@ scrollbar {
 	}
 
 	slider {
-		transition-duration: 0.1s;
+		transition: $qt-transition;
 		min-width: 8px;
 		min-height: 20px; // Qt: ScrollBar_MinSliderHeight
 		border-radius: 15px;
@@ -189,7 +189,7 @@ scrollbar {
 	}
 
 	&.horizontal slider {
-		transition-duration: 0.1s;
+		transition: $qt-transition;
 		min-width: 20px;
 		min-height: 8px;
 	}
