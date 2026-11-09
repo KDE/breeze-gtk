@@ -401,6 +401,9 @@ combobox {
 	button {
 		padding-top: 4px;
 		padding-bottom: 4px;
+		// Keep the height even: KWin rounds the menu's centre anchor up, GTK
+		// rounds down, and the 1px mismatch shows overflow
+		min-height: 24px;
 	}
 
 	> box > button.combo:only-child {
