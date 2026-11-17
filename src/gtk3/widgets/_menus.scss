@@ -23,6 +23,24 @@ menubar,
 			border-bottom: 3px solid transparent;
 		}
 
+		// Qt: hoverColor, for menubar-hover-module
+		&.kde-menubar-hover {
+			@if $new-highlight {
+				background-color: gtkalpha(
+					gtk("@theme_button_decoration_hover"),
+					0.3
+				);
+				color: gtk("@theme_button_foreground_active");
+				border-bottom: 3px
+					solid
+					gtk("@theme_button_decoration_hover");
+			} @else {
+				background-color: gtk("@theme_button_decoration_hover");
+				color: gtk("@theme_button_foreground_active");
+			}
+		}
+
+		// Open menu, Qt: focusColor
 		&:hover {
 			//Seems like it :hover even with keyboard focus
 			@if $new-highlight {
